@@ -1,32 +1,33 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { useRun, useList, useModel } from '../../_hooks'
+  import { useRun, useList } from '../../_hooks'
   import { computed, inject, reactive } from 'vue'
   import { RADIO_GROUP_PROPS_kEY } from '../../radio-group/src/props'
-  import { EMIT_UPDATE } from '../../_tokens'
   import type { RadioGroundInject, RadioModelValue } from '../../radio-group'
 
   defineOptions({ name: 'FRadio' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<RadioModelValue>({ default: null })
 
   const { run } = useRun()
-  const { keyword } = useModel<RadioModelValue>(
-    (): RadioModelValue => {
+
+  /** 当前绑定的值 */
+  const keyword = computed({
+    get: (): RadioModelValue => {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
-    (val: RadioModelValue): void => {
+    set: (val: RadioModelValue): void => {
       /** 判断如果注入的依赖项存在，并且没有禁用，则将最新值传递给父组件 */
       if (parentInject && !isParentDisabled.value) {
         run(parentInject.changeEvent, val)
         return
       }
       if (isDisabled.value) return
-      emit(EMIT_UPDATE, val)
+      modelValue.value = val
       run(prop.onChange, val)
     }
-  )
+  })
 
   /** 获取父组件注入的依赖项 */
   const parentInject: RadioGroundInject | null = inject(RADIO_GROUP_PROPS_kEY, null)

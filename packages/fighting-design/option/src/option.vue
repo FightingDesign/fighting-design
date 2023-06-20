@@ -71,7 +71,7 @@
     const newValue: SelectModelValue = value.value || label.value || slotLabel.value
 
     /** 执行父组件的设置方法 */
-    parentInject && run(parentInject.setValue, newLabel, newValue, evt)
+    parentInject && run(parentInject.setValue, newValue, newLabel, evt)
     /** 点击之后关闭 */
     triggerInject && run(triggerInject.close)
   }

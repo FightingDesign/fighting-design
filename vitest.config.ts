@@ -15,7 +15,13 @@ export default (): UserConfigExport => {
       __DEV__: process.env.NODE_ENV !== 'production'
     },
     /** 配置插件 vue，如果不配置则识别不了 vue 文件 */
-    plugins: [vue()],
+    plugins: [
+      vue({
+        script: {
+          defineModel: true
+        }
+      })
+    ],
     test: {
       // globals: true,
       /**

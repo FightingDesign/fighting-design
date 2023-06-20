@@ -2,14 +2,13 @@
   import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
   import { provide, reactive, toRefs } from 'vue'
   import { useRun, useList } from '../../_hooks'
-  import { EMIT_UPDATE } from '../../_tokens'
   import type { CheckboxGroupProvide } from './interface'
   import type { CheckboxLabel } from '../../checkbox'
 
   defineOptions({ name: 'FCheckboxGroup' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<string[] | CheckboxLabel>({ default: [] })
 
   const { run } = useRun()
   const { classes, styles } = useList(prop, 'checkbox-group')
@@ -20,7 +19,7 @@
    * @param { string[] } val 最新值
    */
   const setChange = (val: string[] | CheckboxLabel): void => {
-    emit(EMIT_UPDATE, val)
+    modelValue.value = val
     run(prop.onChange, val)
   }
 

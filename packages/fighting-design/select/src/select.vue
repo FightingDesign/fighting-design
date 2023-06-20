@@ -1,11 +1,10 @@
 <script lang="ts" setup>
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
-  import { useList, useRun, useModel } from '../../_hooks'
+  import { useList, useRun } from '../../_hooks'
   import { provide, computed, useSlots, ref, reactive, toRef } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
-  import { EMIT_UPDATE } from '../../_tokens'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronDown } from '../../_svg'
   import type { VNode, Slots } from 'vue'
@@ -15,12 +14,14 @@
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<SelectModelValue>({ required: true, default: null })
 
   const { run } = useRun()
   const { styles } = useList(prop, 'select')
-  const { keyword } = useModel<string>(
-    (): string => {
+
+  /** 当前绑定的值 */
+  const keyword = computed({
+    get: (): string => {
       /** 如果插槽没内容，则返回空字符串 */
       if (!options.value.length) return ''
 
@@ -70,8 +71,8 @@
       /** 返回优先级：插槽 > label > value */
       return slot || label || (value && value.toString()) || ''
     },
-    (val: string): string => val
-  )
+    set: (val: string): string => val
+  })
 
   /**
    * 获取子元素 option
@@ -105,7 +106,8 @@
       run(prop.onChange, newLabel, newValue, evt)
     }
 
-    emit(EMIT_UPDATE, newLabel)
+    modelValue.value = newValue
+    console.log(newValue)
   }
 
   /** 向自组件注入依赖项 */

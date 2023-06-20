@@ -6,8 +6,6 @@
   import { FInput } from '../../input'
   import { FSelect } from '../../select'
   import {
-    EMIT_CURRENT,
-    EMIT_PAGESIZE,
     PAGINATION_NEXT,
     PAGINATION_ITEM,
     PAGINATION_PREV,
@@ -19,14 +17,17 @@
   defineOptions({ name: 'FPagination' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_CURRENT, EMIT_PAGESIZE])
+  /** 当前选中页码 */
+  const currentModelValue = defineModel<number>('current', { required: true, default: 1 })
+  /** 总页数 */
+  const totalModelValue = defineModel<number>('total', { required: true, default: 0 })
 
-  const { pages, showNextMore, showPrevMore, maxCount, handelTurnPages } = usePage(
-    prop,
-    emit
-  )
+  const { pages, showNextMore, showPrevMore, maxCount, handelTurnPages } = usePage(prop, {
+    currentModelValue,
+    totalModelValue
+  })
   const { jumpCurrent, selectChange, handelChange, handleInput, handelClick } =
-    useTurnPage(prop, emit, pages, maxCount)
+    useTurnPage(prop, { currentModelValue, totalModelValue }, pages, maxCount)
   const { classes } = useList(prop, 'pagination')
 
   /** 下拉菜单绑定的默认值，每页条数 */

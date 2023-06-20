@@ -12,7 +12,10 @@ import type { InputEnter } from '../../input'
 
 export const Props = {
   /** 绑定值 */
-  modelValue: setStringNumberProp(),
+  modelValue: {
+    ...setStringNumberProp(),
+    required: true
+  },
   /**
    * 元素的输入文本的行数
    *

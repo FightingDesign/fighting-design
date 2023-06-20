@@ -1,32 +1,35 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { computed, inject, reactive } from 'vue'
-  import { useRun, useList, useModel } from '../../_hooks'
+  import { useRun, useList } from '../../_hooks'
   import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
   import { isArray, isBoolean } from '../../_utils'
-  import { EMIT_UPDATE } from '../../_tokens'
   import type { CheckboxGroupProvide } from '../../checkbox-group'
   import type { CheckboxModelValue } from './interface'
 
   defineOptions({ name: 'FCheckbox' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<CheckboxModelValue | string[]>({
+    default: false
+  })
 
   const { run } = useRun()
-  const { keyword } = useModel<CheckboxModelValue | string[]>(
-    (): CheckboxModelValue | string[] => {
+
+  /** 当前绑定的值 */
+  const keyword = computed({
+    get: (): CheckboxModelValue | string[] => {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
-    (val: CheckboxModelValue | string[]): void => {
+    set: (val: CheckboxModelValue | string[]): void => {
       if (!parentInject) {
-        emit(EMIT_UPDATE, val as CheckboxModelValue)
+        modelValue.value = val
         run(prop.onChange, val)
         return
       }
       parentInject.setChange(val)
     }
-  )
+  })
 
   /** 获取父组件注入的依赖项 */
   const parentInject: CheckboxGroupProvide | null = inject(CHECKBOX_GROUP_PROPS_KEY, null)

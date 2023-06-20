@@ -2,13 +2,12 @@
   import { Props, RADIO_GROUP_PROPS_kEY } from './props'
   import { provide, reactive, toRefs } from 'vue'
   import { useRun, useList } from '../../_hooks'
-  import { EMIT_UPDATE } from '../../_tokens'
   import type { RadioModelValue, RadioGroundInject } from './interface'
 
   defineOptions({ name: 'FRadioGroup' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<RadioModelValue>({ default: null })
 
   const { run } = useRun()
   const { styles, classes } = useList(prop, 'radio-group')
@@ -19,7 +18,7 @@
    * @param { string | number | boolean } value 最新值
    */
   const changeEvent = (value: RadioModelValue): void => {
-    emit(EMIT_UPDATE, value)
+    modelValue.value = value
     run(prop.onChange, value)
   }
 

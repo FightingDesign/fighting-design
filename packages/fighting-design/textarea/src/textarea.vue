@@ -9,7 +9,7 @@
   defineOptions({ name: 'FTextarea' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<string | number>()
+  const modelValue = defineModel<string | number>({ required: true })
 
   const { handleInput, handleClear, handleChange } = useInput(prop, modelValue)
   const { classes, styles } = useList(prop, 'textarea')

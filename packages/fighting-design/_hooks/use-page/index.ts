@@ -1,14 +1,7 @@
 import { useRun } from '..'
 import { computed, watchEffect, ref } from 'vue'
-import { EMIT_CURRENT } from '../../_tokens'
 import type { PaginationProps } from '../../pagination'
 import type { ComputedRef, Ref } from 'vue'
-
-/** emit 类型接口 */
-export interface UsePageEmit {
-  (event: 'update:current', current: number): void
-  (event: 'update:pageSize', pagesize: number): void
-}
 
 /**
  * usePage 返回值类型接口
@@ -32,10 +25,13 @@ export interface UsePageReturn {
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop props 参数
- * @param { Object } emit 回调参数
+ * @param { Object } modelValue 绑定值对象
  * @returns { Object }
  */
-export const usePage = (prop: PaginationProps, emit: UsePageEmit): UsePageReturn => {
+export const usePage = (prop: PaginationProps, modelValue: {
+  currentModelValue: Ref<number>,
+  totalModelValue: Ref<number>
+}): UsePageReturn => {
   const { run } = useRun()
 
   /**
@@ -126,15 +122,16 @@ export const usePage = (prop: PaginationProps, emit: UsePageEmit): UsePageReturn
     const changeMap = {
       /** 下一页切换 */
       next: (): void => {
-        const newCurrent =
+        const newCurrent: number =
           prop.current === maxCount.value ? maxCount.value : prop.current + 1
-        emit(EMIT_CURRENT, newCurrent)
+
+        modelValue.currentModelValue.value = newCurrent
         run(prop.onNext, newCurrent, prop.pageSize)
       },
       /**上一页切换 */
       prev: (): void => {
         newCurrent = prop.current === 1 ? 1 : prop.current - 1
-        emit(EMIT_CURRENT, newCurrent)
+        modelValue.currentModelValue.value = newCurrent
         run(prop.onPrev, newCurrent, prop.pageSize)
       }
     } as const

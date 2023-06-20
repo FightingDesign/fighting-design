@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import { FDialog } from '../index'
-import { EMIT_VISIBLE } from '../../_tokens'
 
 describe('FDialog', () => {
   test('class', () => {
@@ -75,7 +74,7 @@ describe('FDialog', () => {
       }
     })
     await wrapper.get('.f-dialog__wrapper').trigger('click.self')
-    expect((wrapper.emitted(EMIT_VISIBLE)?.[0] as boolean[])[0]).toBe(false)
+    expect((wrapper.emitted('update:visible')?.[0] as boolean[])[0]).toBe(false)
     await wrapper.setProps({ visible: false })
     expect(wrapper.find('.f-dialog').isVisible()).toBe(false)
   })

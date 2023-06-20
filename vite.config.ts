@@ -27,6 +27,7 @@ export default (): UserConfigExport => {
        * vue 插件
        *
        * @see vite-plugin-vue https://github.com/vitejs/vite-plugin-vue
+       * @see defineModel https://github.com/vuejs/rfcs/discussions/503
        */
       vue({
         script: {

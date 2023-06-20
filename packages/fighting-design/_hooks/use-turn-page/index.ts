@@ -1,14 +1,12 @@
 import { ref } from 'vue'
 import { useRun } from '..'
 import {
-  EMIT_CURRENT,
-  EMIT_PAGESIZE,
   PAGINATION_NEXT,
   PAGINATION_ITEM,
   PAGINATION_PREV
 } from '../../_tokens'
 import type { SelectModelValue } from '../../select'
-import type { UsePageEmit, UsePageReturn } from '..'
+import type { UsePageReturn } from '..'
 import type { PaginationProps } from '../../pagination'
 import type { Ref } from 'vue'
 
@@ -41,7 +39,10 @@ export interface UseTurnPageReturn {
  */
 export const useTurnPage = (
   prop: PaginationProps,
-  emit: UsePageEmit,
+  modelValue: {
+    currentModelValue: Ref<number>,
+    totalModelValue: Ref<number>
+  },
   pages: UsePageReturn['pages'],
   maxCount: UsePageReturn['maxCount']
 ): UseTurnPageReturn => {
@@ -57,9 +58,9 @@ export const useTurnPage = (
 
     if (prop.current > maxValue) {
       // 如果当前用户选择的值是大于总页数的,那么直接将总页数的最大值赋值给current
-      emit(EMIT_CURRENT, maxValue)
+      modelValue.currentModelValue.value = maxValue
     }
-    emit(EMIT_PAGESIZE, Number(newValue))
+    modelValue.totalModelValue.value = maxValue
   }
 
   /**
@@ -70,7 +71,7 @@ export const useTurnPage = (
    */
   const handelChange = (newCurrent: number, evt: MouseEvent): void => {
     if (prop.disabled) return
-    emit(EMIT_CURRENT, newCurrent)
+    modelValue.currentModelValue.value = newCurrent
     run(prop.onChange, newCurrent, prop.pageSize, evt)
   }
 
@@ -86,7 +87,7 @@ export const useTurnPage = (
       jumpCurrent.value = String(pages.value.length)
     }
 
-    emit(EMIT_CURRENT, Number(jumpCurrent.value))
+    modelValue.currentModelValue.value = Number(jumpCurrent.value)
   }
 
   /**
@@ -142,7 +143,7 @@ export const useTurnPage = (
       }
 
       if (newPage !== current) {
-        emit(EMIT_CURRENT, newPage)
+        modelValue.currentModelValue.value = newPage
         run(prop.onChange, newPage, prop.pageSize, evt)
       }
     }
