@@ -4,7 +4,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: var(--dialog-z-index, 2000);
+  z-index: var(--dialog-z-index);
 
   // 遮罩层
   &__mask {

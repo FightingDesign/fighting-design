@@ -2,10 +2,12 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun, useModel } from '../../_hooks'
-  import { provide, computed, useSlots } from 'vue'
+  import { provide, computed, useSlots, ref } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
+  import { FSvgIcon } from '../../svg-icon'
+  import { FIconChevronDown } from '../../_svg'
   import type { VNode, Slots } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
 
@@ -111,6 +113,9 @@
 
   /** 样式列表 */
   const styleList = styles(['width'])
+
+  /** 当前是否聚焦 */
+  const isFocus = ref(false)
 </script>
 
 <template>
@@ -124,7 +129,18 @@
         :disabled="disabled"
         :placeholder="placeholder"
         :clear="clear"
-      />
+        :on-focus="() => (isFocus = true)"
+        :on-blur="() => (isFocus = false)"
+      >
+        <template #after>
+          <f-svg-icon
+            color="#bababa"
+            :class="['f-select__arrow', { 'f-select__arrow-active': isFocus }]"
+            :size="13"
+            :icon="FIconChevronDown"
+          />
+        </template>
+      </f-input>
 
       <template #content>
         <div class="f-select__content">
