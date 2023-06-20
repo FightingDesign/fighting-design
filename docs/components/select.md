@@ -106,7 +106,7 @@
 | 参数                 | 说明                       | 类型                                                               | 可选值                          | 默认值 |
 | -------------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
 | `v-model:modelValue` | 绑定值                     | <a href="#selectmodelvalue">SelectModelValue</a>                   | ——                              | ——     |
-| `width`              | 自定义宽度                 | string / number                                                    | ——                              | ——     |
+| `width`              | 自定义宽度                 | string / number                                                    | ——                              | 190    |
 | `name`               | 原生 name 属性             | string                                                             | ——                              | ——     |
 | `placeholder`        | 占位符                     | string                                                             | ——                              | ——     |
 | `clear`              | 是否可清除                 | boolean                                                            | ——                              | false  |

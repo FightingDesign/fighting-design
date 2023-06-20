@@ -140,6 +140,7 @@
 | `spacing`        | 触发器和内容之间的间距   | string / number                                                    | ——              | ——     |
 | `disabled`       | 是否禁用                 | boolean                                                            | ——              | false  |
 | `trigger`        | 触发方式                 | <a href="#triggertrigger">TriggerTrigger</a>                       | `hover` `click` | hover  |
+| `width`          | 自定义宽度               | string / number                                                    | ——              | ——     |
 | `arrow`          | 是否带有箭头             | boolean                                                            | ——              | false  |
 | `enter-duration` | 弹出动画持续时间         | number                                                             | ——              | ——     |
 | `leave-duration` | 关闭动画持续时间         | number                                                             | ——              | ——     |

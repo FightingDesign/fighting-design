@@ -106,9 +106,9 @@
           </f-link>
         </div>
 
-        <f-button simple type="primary" href="/docs/contributing.html" round>{{
-          homeContent.join
-        }}</f-button>
+        <f-button type="success" href="/docs/contributing.html" round>
+          {{ homeContent.join }}
+        </f-button>
       </div>
 
       <!-- 页脚 -->
@@ -122,7 +122,7 @@
           >
             <h4 class="vp-home__footer-title">{{ listItem.title }}</h4>
             <li class="vp-home__footer-item" v-for="(list, i) in listItem.item" :key="i">
-              <f-link target="_blank" :href="list.link">
+              <f-link color="#333" target="_blank" :href="list.link">
                 {{ list.text }}
               </f-link>
             </li>
