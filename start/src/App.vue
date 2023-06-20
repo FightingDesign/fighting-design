@@ -1,16 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value1 = ref('')
+</script>
 
 <template>
-  <f-space>
-    <f-button type="primary">主要按钮</f-button>
-    <f-button type="success">成功按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-    <f-button type="warning">警告按钮</f-button>
-  </f-space>
+  {{ value1 }}
+  <f-input v-model="value1" type="text" placeholder="请输入...." clear />
+  <f-input v-model="value1" type="text" placeholder="请输入...." clear />
 </template>

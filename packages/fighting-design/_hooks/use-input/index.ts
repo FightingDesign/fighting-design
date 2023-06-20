@@ -1,7 +1,6 @@
 import { useRun } from '..'
-import { EMIT_UPDATE } from '../../_tokens'
 import type { InputType } from '../../input'
-import type { WritableComputedRef } from 'vue'
+import type { Ref } from 'vue'
 
 /**
  * 传入的 props 类型接口
@@ -32,14 +31,6 @@ export interface UseInputReturn {
 }
 
 /**
- * 回调函数类型
- *
- * @param { string } event 回调事件名
- * @param { boolean } val 回调参数
- */
-export type UseInputEmit = (event: 'update:modelValue', val: string | number) => void
-
-/**
  * 文本框输入的方法
  *
  * 可处理文本框输入和清空
@@ -51,8 +42,7 @@ export type UseInputEmit = (event: 'update:modelValue', val: string | number) =>
  */
 export const useInput = (
   prop: Partial<UseInputProps>,
-  emit: UseInputEmit,
-  keyword: WritableComputedRef<string | number>
+  modelValue: Ref<string | number | undefined>
 ): UseInputReturn => {
   const { run } = useRun()
 
@@ -62,7 +52,7 @@ export const useInput = (
    * @param { Object } evt 事件对象
    */
   const handleInput = (evt: Event): void => {
-    run(prop.onInput, keyword.value, evt)
+    run(prop.onInput, modelValue.value, evt)
   }
 
   /**
@@ -71,13 +61,13 @@ export const useInput = (
    * @param { Object } evt 事件对象
    */
   const handleChange = (evt: Event): void => {
-    run(prop.onChange, keyword.value, evt)
+    run(prop.onChange, modelValue.value, evt)
   }
 
   /** 清空文本框 */
   const handleClear = (): void => {
     if (prop.disabled) return
-    emit(EMIT_UPDATE, '')
+    modelValue.value = ''
   }
 
   return {

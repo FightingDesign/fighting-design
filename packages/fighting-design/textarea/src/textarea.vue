@@ -1,24 +1,17 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { ref, watch, nextTick } from 'vue'
-  import { useInput, useList, useModel, useRun } from '../../_hooks'
+  import { useInput, useList, useRun } from '../../_hooks'
   import { FIconCross } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
-  import { EMIT_UPDATE } from '../../_tokens'
   import type { WatchStopHandle } from 'vue'
 
   defineOptions({ name: 'FTextarea' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<string | number>()
 
-  const { keyword } = useModel<string | number>(
-    (): string | number => prop.modelValue,
-    (val: string | number): void => {
-      emit(EMIT_UPDATE, val)
-    }
-  )
-  const { handleInput, handleClear, handleChange } = useInput(prop, emit, keyword)
+  const { handleInput, handleClear, handleChange } = useInput(prop, modelValue)
   const { classes, styles } = useList(prop, 'textarea')
   const { run } = useRun()
 
@@ -99,7 +92,7 @@
   const handleEnterKey = (evt: KeyboardEvent): void => {
     /** 如果按下 Enter 和 Ctrl 触发换行 */
     if (evt.key === 'Enter' && evt.ctrlKey) {
-      keyword.value += '\n'
+      modelValue.value += '\n'
 
       /** 如果是自适应高度，则重新设置高度 */
       if (prop.autoHeight) {
@@ -119,7 +112,7 @@
        */
       evt.preventDefault()
 
-      run(prop.onEnter, keyword.value, evt)
+      run(prop.onEnter, modelValue.value, evt)
     }
   }
 </script>
@@ -128,7 +121,7 @@
   <div :class="classList" :style="styleList">
     <textarea
       ref="textareaEl"
-      v-model="keyword"
+      v-model="modelValue"
       class="f-textarea__textarea"
       :rows="rows"
       :disabled="disabled"

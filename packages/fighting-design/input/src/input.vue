@@ -5,26 +5,19 @@
   import { FSwap } from '../../swap'
   import { ref, toRefs, computed, watchEffect } from 'vue'
   import { FIconCross, FIconEyeOffOutline, FIconEyeOutline } from '../../_svg'
-  import { EMIT_UPDATE } from '../../_tokens'
-  import { useInput, useRun, useList, useGlobal, useModel } from '../../_hooks'
+  import { useInput, useRun, useList, useGlobal } from '../../_hooks'
   import type { InputType } from './interface'
   import type { UseGlobalProp } from '../../_hooks'
 
   defineOptions({ name: 'FInput' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<string | number>()
 
   const { run } = useRun()
   const { getLang, getProp } = useGlobal(prop as unknown as UseGlobalProp)
   const { styles, classes } = useList(getProp(['size']), 'input')
-  const { keyword } = useModel<string | number>(
-    (): string | number => prop.modelValue,
-    (val: string | number): void => {
-      emit(EMIT_UPDATE, val)
-    }
-  )
-  const { handleInput, handleClear, handleChange } = useInput(prop, emit, keyword)
+  const { handleInput, handleClear, handleChange } = useInput(prop, modelValue)
 
   /** 是否展示密码 */
   const showPass = ref<boolean>(false)
@@ -46,7 +39,7 @@
    * @param { Object } evt 事件对象
    */
   const handleSearch = (evt: MouseEvent | KeyboardEvent): void => {
-    run(prop.onSearch, keyword.value, evt)
+    run(prop.onSearch, modelValue.value, evt)
   }
 
   /**
@@ -61,7 +54,7 @@
       handleSearch(evt)
     }
 
-    run(onEnter.value, keyword.value, evt)
+    run(onEnter.value, modelValue.value, evt)
   }
 
   /** 查看密码 */
@@ -103,7 +96,7 @@
 
       <!-- 输入框 -->
       <input
-        v-model="keyword"
+        v-model="modelValue"
         class="f-input__input"
         :type="inputType"
         :max="max"

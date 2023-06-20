@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import { copyFileSync } from 'fs'
 import { name, version } from './packages/fighting-design/package.json'
 import { visualizer } from 'rollup-plugin-visualizer'
-import type { UserConfigExport } from 'vite'
+import type { UserConfigExport, PluginOption } from 'vite'
 
 export default (): UserConfigExport => {
   return {
@@ -28,7 +28,11 @@ export default (): UserConfigExport => {
        *
        * @see vite-plugin-vue https://github.com/vitejs/vite-plugin-vue
        */
-      vue(),
+      vue({
+        script: {
+          defineModel: true
+        }
+      }),
       /**
        * 打包类型
        *
@@ -52,7 +56,7 @@ export default (): UserConfigExport => {
        *
        * @see rollup-plugin-visualizer https://github.com/btd/rollup-plugin-visualizer
        */
-      visualizer()
+      visualizer() as PluginOption
     ],
     css: {},
     /**
@@ -102,79 +106,91 @@ export default (): UserConfigExport => {
             inlineDynamicImports: false,
             globals: {
               vue: 'Vue'
-            } /** 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量 */,
-            namespaceToStringTag: true
+            } /** 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量 */
+            // namespaceToStringTag: true
           },
           {
             /**
              * 打包模式
              *
-             * @see output.format https://rollupjs.org/guide/en/#outputformat
+             * @see output.format https://cn.rollupjs.org/configuration-options/#output-format
              */
             format: 'es',
             /**
              * 导出模式
              *
-             * @see output.exports https://rollupjs.org/guide/en/#outputexports
+             * @see exports https://cn.rollupjs.org/configuration-options/#output-exports
              */
             exports: 'named',
             /**
              * 输出路径
              *
-             * @see output.outputdir https://rollupjs.org/guide/en/#outputdir
+             * @see output.dir https://cn.rollupjs.org/configuration-options/#output-dir
              */
             dir: 'dist/es',
             /**
-             * @see output.outputsourcemap https://rollupjs.org/guide/en/#outputsourcemap
+             * @see output.sourcemap https://cn.rollupjs.org/configuration-options/#output-sourcemap
              */
             sourcemap: false,
             /**
              * 输出后的文件名
              *
-             * @see output.outputentryfilenames https://rollupjs.org/guide/en/#outputentryfilenames
+             * @see output.entryFileNames https://cn.rollupjs.org/configuration-options/#output-entryfilenames
              */
-            entryFileNames: 'index.js',
+            entryFileNames: ((chunkInfo): string => {
+              return `${chunkInfo.name.slice(0, chunkInfo.name.lastIndexOf('/') + 1)}index.js`
+            }),
             /**
              * 输出的 chunk文件名
              *
-             * @see output.outputchunkfilenames https://rollupjs.org/guide/en/#outputchunkfilenames
+             * @see output.chunkfilenames https://cn.rollupjs.org/configuration-options/#output-chunkfilenames
              */
             chunkFileNames: '[name].js',
             /**
              * 输出资产文件名
              *
-             * @see output.outputassetfilenames https://rollupjs.org/guide/en/#outputassetfilenames
+             * @see output.assetfilenames https://cn.rollupjs.org/configuration-options/#output-assetfilenames
              */
             assetFileNames: '[name].[ext]',
             /**
-             * @see output.outputinlinedynamicimports https://rollupjs.org/guide/en/#outputinlinedynamicimports
+             * @see output.inlinedynamicimports https://cn.rollupjs.org/configuration-options/#output-inlinedynamicimports
              */
             inlineDynamicImports: false,
             /**
-             * @see output.outputmanualchunks https://rollupjs.org/guide/en/#outputmanualchunks
+             * @see output.manualchunks https://cn.rollupjs.org/configuration-options/#output-manualchunks
              */
             manualChunks: undefined,
             /**
-             * @see output.outputpreservemodules https://rollupjs.org/guide/en/#outputpreservemodules
+             * 使用原始模块名作为文件名
+             *
+             * @see output.preserveModules https://cn.rollupjs.org/configuration-options/#output-preservemodules
              */
             preserveModules: true,
             /**
-             * @see output.outputnamespacetostringtag https://rollupjs.org/guide/en/#outputnamespacetostringtag
+             * 是否允许在自动生成的代码片断中使用
+             *
+             * @see output.generatedCode.symbols https://cn.rollupjs.org/configuration-options/#output-generatedcode-symbols
              */
-            namespaceToStringTag: true
+            generatedCode: {
+              symbols: true
+            }
           },
           {
             format: 'cjs',
             exports: 'named',
             dir: 'dist/lib',
             sourcemap: false,
-            entryFileNames: 'index.js',
+            entryFileNames: ((chunkInfo): string => {
+              return `${chunkInfo.name.slice(0, chunkInfo.name.lastIndexOf('/') + 1)}index.js`
+            }),
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
             inlineDynamicImports: false,
             manualChunks: undefined,
             preserveModules: true,
-            namespaceToStringTag: true
+            generatedCode: {
+              symbols: true
+            }
           }
         ]
       }

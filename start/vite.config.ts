@@ -8,7 +8,11 @@ export default (): UserConfigExport => {
       __DEV__: process.env.NODE_ENV !== 'production'
     },
     base: './',
-    plugins: [vue()],
+    plugins: [vue({
+      script: {
+        defineModel: true
+      }
+    })],
     server: {
       port: 1216
     },
