@@ -11,7 +11,9 @@ export interface UseCollapseAnimationReturn {
 
 const { run } = useRun()
 
-export const useCollapseAnimation = (prop: CollapseAnimationProps): UseCollapseAnimationReturn => {
+export const useCollapseAnimation = (
+  prop: CollapseAnimationProps
+): UseCollapseAnimationReturn => {
   /** 动画样式 */
   const transitionStyle = computed((): string => {
     if (isNumber(prop.animationTime)) {
@@ -22,7 +24,7 @@ export const useCollapseAnimation = (prop: CollapseAnimationProps): UseCollapseA
 
   /**
    * 在动画开始之前，加点样式
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const before = (el: Element): void => {
@@ -35,7 +37,6 @@ export const useCollapseAnimation = (prop: CollapseAnimationProps): UseCollapseA
       node.style.height = '0'
 
       run(prop.onOpen, el)
-
     } else {
       node.style.height = node.scrollHeight + 'px'
 
@@ -59,7 +60,7 @@ export const useCollapseAnimation = (prop: CollapseAnimationProps): UseCollapseA
 
   /**
    * 在打开和关闭完成之后，移除样式
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const after = (el: Element): void => {
@@ -71,7 +72,6 @@ export const useCollapseAnimation = (prop: CollapseAnimationProps): UseCollapseA
 
     if (prop.opened) {
       run(prop.onOpenEnd, el)
-
     } else {
       run(prop.onCloseEnd, el)
     }
@@ -79,7 +79,7 @@ export const useCollapseAnimation = (prop: CollapseAnimationProps): UseCollapseA
 
   /**
    * 运动过程中干点事儿
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const ing = (el: Element): void => {

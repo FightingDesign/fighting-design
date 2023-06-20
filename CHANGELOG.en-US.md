@@ -4,6 +4,24 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.50.0 (2023-06-20)
+
+**Add**
+
+- Add `f-select` arrow style
+- Add `f-trigger` component `width` configuration item
+- Add `f-dropdown` component `width` configuration item
+
+**Fix**
+
+- Fix errors caused by incorrect name of the `f-form-item` component
+
+**Other**
+
+- Optimize `f-space` component style details
+- Optimize the implementation of Emit
+- Change the default value of the `f-select` component `width` to 190
+
 ## 0.44.0 (2023-06-18)
 
 - Modify the `f-tag` to close the logic and change the internal state to data startup

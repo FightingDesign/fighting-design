@@ -138,9 +138,12 @@ export default (): UserConfigExport => {
              *
              * @see output.entryFileNames https://cn.rollupjs.org/configuration-options/#output-entryfilenames
              */
-            entryFileNames: ((chunkInfo): string => {
-              return `${chunkInfo.name.slice(0, chunkInfo.name.lastIndexOf('/') + 1)}index.js`
-            }),
+            entryFileNames: (chunkInfo): string => {
+              return `${chunkInfo.name.slice(
+                0,
+                chunkInfo.name.lastIndexOf('/') + 1
+              )}index.js`
+            },
             /**
              * 输出的 chunk文件名
              *
@@ -181,9 +184,12 @@ export default (): UserConfigExport => {
             exports: 'named',
             dir: 'dist/lib',
             sourcemap: false,
-            entryFileNames: ((chunkInfo): string => {
-              return `${chunkInfo.name.slice(0, chunkInfo.name.lastIndexOf('/') + 1)}index.js`
-            }),
+            entryFileNames: (chunkInfo): string => {
+              return `${chunkInfo.name.slice(
+                0,
+                chunkInfo.name.lastIndexOf('/') + 1
+              )}index.js`
+            },
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
             inlineDynamicImports: false,

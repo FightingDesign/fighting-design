@@ -5,7 +5,7 @@ const { run } = useRun()
 
 /**
  * useTransition Prop 参数接口
- * 
+ *
  * @param { Function } onOpen 打开动画开始的回调
  * @param { Function } onOpenEnd 打开动画结束的回调
  * @param { Function } onClose 关闭动画开始的回调
@@ -20,7 +20,7 @@ interface IseTransitionProp {
 
 /**
  * useTransition 返回值类型接口
- * 
+ *
  * @param { Function } handleOpen 打开动画开始的回调
  * @param { Function } handleOpenEnd 打开动画结束的回调
  * @param { Function } handleClose 关闭动画开始的回调
@@ -35,16 +35,16 @@ interface IseTransitionReturn {
 
 /**
  * transition 回调方法封装
- * 
+ *
  * @param { Object } prop prop 参数
  * @returns { Object }
  */
 export const useTransition = (prop: IseTransitionProp): IseTransitionReturn => {
   /**
-  * 打开动画开始执行的回调
-  *
-  * @param { Object } node 元素节点
-  */
+   * 打开动画开始执行的回调
+   *
+   * @param { Object } node 元素节点
+   */
   const handleOpen = (node: Element): void => {
     /** 开启状态隐藏滚动条 */
     document.body.style.overflow = 'hidden'

@@ -1,10 +1,6 @@
 import { ref } from 'vue'
 import { useRun } from '..'
-import {
-  PAGINATION_NEXT,
-  PAGINATION_ITEM,
-  PAGINATION_PREV
-} from '../../_tokens'
+import { PAGINATION_NEXT, PAGINATION_ITEM, PAGINATION_PREV } from '../../_tokens'
 import type { SelectModelValue } from '../../select'
 import type { UsePageReturn } from '..'
 import type { PaginationProps } from '../../pagination'
@@ -40,7 +36,7 @@ export interface UseTurnPageReturn {
 export const useTurnPage = (
   prop: PaginationProps,
   modelValue: {
-    currentModelValue: Ref<number>,
+    currentModelValue: Ref<number>
     totalModelValue: Ref<number>
   },
   pages: UsePageReturn['pages'],

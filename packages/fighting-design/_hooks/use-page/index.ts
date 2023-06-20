@@ -28,10 +28,13 @@ export interface UsePageReturn {
  * @param { Object } modelValue 绑定值对象
  * @returns { Object }
  */
-export const usePage = (prop: PaginationProps, modelValue: {
-  currentModelValue: Ref<number>,
-  totalModelValue: Ref<number>
-}): UsePageReturn => {
+export const usePage = (
+  prop: PaginationProps,
+  modelValue: {
+    currentModelValue: Ref<number>
+    totalModelValue: Ref<number>
+  }
+): UsePageReturn => {
   const { run } = useRun()
 
   /**

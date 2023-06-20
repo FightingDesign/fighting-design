@@ -17,8 +17,7 @@
 </template>
 
 ```html
-<f-skeleton />
-<f-skeleton />
+<f-skeleton /> <f-skeleton />
 ```
 
 :::
@@ -51,8 +50,7 @@
 </template>
 
 ```html
-<f-skeleton animated />
-<f-skeleton round animated />
+<f-skeleton animated /> <f-skeleton round animated />
 ```
 
 :::

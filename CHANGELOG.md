@@ -2,12 +2,23 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- `f-select` 组件 `width` 默认值改为 190
+## 0.50.0 (2023-06-20)
+
+**新增**
+
 - 新增 `f-select` 箭头样式
 - 新增 `f-trigger` 组件 `width` 配置项
 - 新增 `f-dropdown` 组件 `width` 配置项
+
+**修复**
+
 - 修复 `f-form-item` 组件 name 错误导致的报错
+
+**其它**
+
 - 优化 `f-space` 组件样式细节
+- 优化 emit 实现方式
+- `f-select` 组件 `width` 默认值改为 190
 
 ## 0.44.0 (2023-06-18)
 

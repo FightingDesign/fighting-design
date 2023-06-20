@@ -54,7 +54,10 @@ export type SetActiveName = (name: TabsModelValue) => void
  * @param { Function } emit 回调函数
  * @returns { Object }
  */
-export const useTabs = (prop: TabsProps, modelValue: Ref<string | number>): UseTabsReturn => {
+export const useTabs = (
+  prop: TabsProps,
+  modelValue: Ref<string | number>
+): UseTabsReturn => {
   const { run } = useRun()
   /** 获取当前组件实例 */
   const instance = getCurrentInstance() as ComponentInternalInstance
