@@ -21,7 +21,7 @@ export const Props = {
    *
    * @default 1
    */
-  modelValue: setNumberProp(1),
+  modelValue: setNumberProp(0),
   /**
    * 模式
    *

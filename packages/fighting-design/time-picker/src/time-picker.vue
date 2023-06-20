@@ -3,24 +3,15 @@
   import { reactive, ref, nextTick, watch } from 'vue'
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
-  import { useModel } from '../../_hooks'
   import { addZero, isString, isBoolean } from '../../_utils'
   import { FIconClockTime } from '../../_svg'
-  import { EMIT_TIME } from '../../_tokens'
   import type { TriggerInstance } from '../../trigger'
   import type { TimePickerTimeList } from './interface'
 
   defineOptions({ name: 'FTimePicker' })
 
-  const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_TIME])
-
-  const { keyword } = useModel(
-    (): string => prop.time,
-    (val: string): void => {
-      emit(EMIT_TIME, val)
-    }
-  )
+  defineProps(Props)
+  const dateModelValue = defineModel<string>('time', { required: true, default: '' })
 
   /** 获取当前的时间 */
   const nowDate: Date = new Date()
@@ -49,7 +40,7 @@
      * 这里要判断是否为真，并且不是字符串参数
      */
     if (target && !isString(target)) {
-      keyword.value = `${timeList.hour}:${timeList.minute}:${timeList.second}`
+      dateModelValue.value = `${timeList.hour}:${timeList.minute}:${timeList.second}`
     }
 
     if (target === 'now') {
@@ -148,7 +139,7 @@
       :on-open="scrollNow"
     >
       <f-input
-        v-model="keyword"
+        v-model="dateModelValue"
         autocomplete="off"
         type="text"
         :placeholder="placeholder || '请选择时间'"

@@ -2,12 +2,11 @@
   import { Props } from './props'
   import { onMounted, ref } from 'vue'
   import { useList, useSlider, useOffset } from '../../_hooks'
-  import { EMIT_UPDATE } from '../../_tokens'
 
   defineOptions({ name: 'FSlider' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<number>({ required: true, default: 0 })
 
   const { styles, classes } = useList(prop, 'slider')
 
@@ -17,7 +16,7 @@
   /** 滑块小球 dom 元素 */
   const circleEl = ref<HTMLDivElement>()
 
-  const { offset, offsetLeft, setPosition } = useOffset(sliderEl, prop, emit)
+  const { offset, offsetLeft, setPosition } = useOffset(sliderEl, prop, modelValue)
 
   onMounted((): void => {
     /** 如果元素节点存在 */

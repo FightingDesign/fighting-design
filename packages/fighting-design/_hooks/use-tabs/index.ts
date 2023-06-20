@@ -9,7 +9,6 @@ import {
 } from 'vue'
 import { useChildren } from '../../_utils'
 import { useRun } from '../../_hooks'
-import { EMIT_UPDATE } from '../../_tokens'
 import { TABS_PROPS_KEY } from '../../tabs/src/props'
 import type { ComponentInternalInstance, ComputedRef, Ref } from 'vue'
 import type { TabsModelValue, TabsProps, TabsNavInstance, TabsEdit } from '../../tabs'
@@ -41,14 +40,6 @@ export type TabsProvide = {
 } & UseChildrenReturn<TabsPane>
 
 /**
- * setActiveName 回调类型
- *
- * @param { string } event 回调事件名
- * @param { string | number } val 回调参数
- */
-export type SetActiveNameEmit = (event: 'update:modelValue', val: string | number) => void
-
-/**
  * 设置绑定值回调类型
  *
  * @param { string | number } name 选中的 name
@@ -63,7 +54,7 @@ export type SetActiveName = (name: TabsModelValue) => void
  * @param { Function } emit 回调函数
  * @returns { Object }
  */
-export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn => {
+export const useTabs = (prop: TabsProps, modelValue: Ref<string | number>): UseTabsReturn => {
   const { run } = useRun()
   /** 获取当前组件实例 */
   const instance = getCurrentInstance() as ComponentInternalInstance
@@ -80,7 +71,7 @@ export const useTabs = (prop: TabsProps, emit: SetActiveNameEmit): UseTabsReturn
   const setActiveName = (name: TabsModelValue): void => {
     activeName.value = name
     /** 回调更新绑定值 */
-    emit(EMIT_UPDATE, name)
+    modelValue.value = name
   }
 
   /**

@@ -4,15 +4,14 @@
   import { TabsNav } from '../components'
   import { useTabs } from '../../_hooks'
   import { warning } from '../../_utils'
-  import { EMIT_UPDATE } from '../../_tokens'
   import type { TabsPosition } from './interface'
 
   defineOptions({ name: 'FTabs' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<number | string>({ default: null })
 
-  const { navs, activeName, setEdit, setActiveName } = useTabs(prop, emit)
+  const { navs, activeName, setEdit, setActiveName } = useTabs(prop, modelValue)
 
   /** 选项卡标签位置 */
   const tabsPosition = computed((): TabsPosition => {

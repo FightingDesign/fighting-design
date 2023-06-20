@@ -42,7 +42,7 @@ export interface UseInputReturn {
  */
 export const useInput = (
   prop: Partial<UseInputProps>,
-  modelValue: Ref<string | number | undefined>
+  modelValue: Ref<string | number>
 ): UseInputReturn => {
   const { run } = useRun()
 

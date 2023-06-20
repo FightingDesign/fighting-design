@@ -2,12 +2,11 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal } from '../../_hooks'
-  import { EMIT_UPDATE } from '../../_tokens'
 
   defineOptions({ name: 'FSwitch' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<boolean>({ required: true, default: false })
 
   const { run } = useRun()
   const { getProp } = useGlobal(prop)
@@ -16,7 +15,7 @@
   /** 点击切换 */
   const handleClick = (): void => {
     if (prop.disabled) return
-    emit(EMIT_UPDATE, !prop.modelValue)
+    modelValue.value = !modelValue.value
     run(prop.onChange, !prop.modelValue)
   }
 

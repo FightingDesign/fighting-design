@@ -16,12 +16,11 @@
     FIconZoomOut
   } from '../../_svg'
   import { useOperationImg, useRun } from '../../_hooks'
-  import { EMIT_VISIBLE } from '../../_tokens'
 
   defineOptions({ name: 'FImagePreview' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_VISIBLE])
+  const visible = defineModel<boolean>('visible', { required: true, default: false })
 
   const { run } = useRun()
   const {
@@ -112,7 +111,7 @@
    * @param { Object } evt 事件对象
    */
   const handelClose = (evt: MouseEvent): void => {
-    emit(EMIT_VISIBLE, false)
+    visible.value = false
     run(prop.onClose, evt)
   }
 </script>

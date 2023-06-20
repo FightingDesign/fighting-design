@@ -2,12 +2,11 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { useRun, useList } from '../../_hooks'
-  import { EMIT_UPDATE } from '../../_tokens'
 
   defineOptions({ name: 'FSwap' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<boolean>({ required: true, default: false })
 
   const { run } = useRun()
   const { classes } = useList(prop, 'swap')
@@ -18,7 +17,7 @@
    * @param { Object } evt 事件对象
    */
   const handelClick = (evt: MouseEvent): void => {
-    emit(EMIT_UPDATE, !prop.modelValue)
+    modelValue.value = !modelValue.value
     run(prop.onChange, evt, !prop.modelValue)
   }
 

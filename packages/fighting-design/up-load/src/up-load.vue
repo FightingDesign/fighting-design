@@ -6,12 +6,11 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
   import { FIconNotes, FIconPlus } from '../../_svg'
-  import { EMIT_FILES } from '../../_tokens'
 
   defineOptions({ name: 'FUpLoad' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_FILES])
+  const filesModelValue = defineModel<File[]>('files', { required: true, default: [] })
 
   const { run } = useRun()
 
@@ -40,7 +39,7 @@
       fileList.value = files
     }
 
-    emit(EMIT_FILES, fileList.value)
+    filesModelValue.value = fileList.value
     run(prop.onLoad, files)
   }
 

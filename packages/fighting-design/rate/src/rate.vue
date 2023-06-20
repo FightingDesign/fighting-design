@@ -6,12 +6,11 @@
   import { useRun } from '../../_hooks'
   import { ref, watch, unref, computed } from 'vue'
   import { isNumber } from '../../_utils'
-  import { EMIT_UPDATE } from '../../_tokens'
 
   defineOptions({ name: 'FRate' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<number>({ required: true, default: 0 })
 
   const { run } = useRun()
 
@@ -42,7 +41,7 @@
   const handleClick = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
-    emit(EMIT_UPDATE, index)
+    modelValue.value = index
     run(prop.onChange, index)
   }
 

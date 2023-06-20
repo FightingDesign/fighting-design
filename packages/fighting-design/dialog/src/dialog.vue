@@ -3,15 +3,14 @@
   import { FCloseBtn } from '../../close-btn'
   import { useTransition } from '../../_hooks'
   import { useVisible, useList } from '../../_hooks'
-  import { EMIT_VISIBLE } from '../../_tokens'
 
   defineOptions({ name: 'FDialog' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_VISIBLE])
+  const visible = defineModel<boolean>('visible', { required: true, default: false })
 
   const { styles, classes } = useList(prop, 'dialog')
-  const { isVisible, closeVisible, maskClose } = useVisible(prop, emit)
+  const { closeVisible, maskClose } = useVisible(prop, visible)
   const { handleOpen, handleOpenEnd, handleClose, handleCloseEnd } = useTransition(prop)
 
   /** 样式列表 */
@@ -34,7 +33,7 @@
       @after-leave="handleCloseEnd"
     >
       <div
-        v-show="isVisible"
+        v-show="visible"
         role="dialog"
         aria-modal="true"
         tabindex="-1"
@@ -47,7 +46,7 @@
         <!-- 主内容 -->
         <div class="f-dialog__wrapper" @click.self="maskClose">
           <transition name="f-dialog__container-trans">
-            <div v-show="isVisible" class="f-dialog__container">
+            <div v-show="visible" class="f-dialog__container">
               <!-- 头部 -->
               <header v-if="showHeader" class="f-dialog__header">
                 <!-- 头部前缀 -->

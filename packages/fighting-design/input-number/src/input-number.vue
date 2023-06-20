@@ -10,33 +10,14 @@
   import { FInput } from '../../input'
   import { FButton } from '../../button'
   import { isNumber } from '../../_utils'
-  import { useRun, useModel } from '../../_hooks'
-  import { EMIT_UPDATE } from '../../_tokens'
+  import { useRun } from '../../_hooks'
 
   defineOptions({ name: 'FInputNumber' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_UPDATE])
+  const modelValue = defineModel<number>({ required: true, default: 0 })
 
   const { run } = useRun()
-  const { keyword } = useModel<number>(
-    (): number => {
-      const { modelValue, precision } = prop
-
-      /** 如果传入的是非数字的参数，则默认返回 0 */
-      if (!isNumber(modelValue)) {
-        return 0
-      }
-
-      /**
-       * @see Number.prototype.toFixed() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
-       */
-      return Number(modelValue.toFixed(isNumber(precision) ? precision : 0))
-    },
-    (val: number): void => {
-      emit(EMIT_UPDATE, Number(val))
-    }
-  )
 
   /** 最小值禁用 */
   const minDisabled = computed((): boolean => {
@@ -49,7 +30,7 @@
     /**
      * @see Math.abs() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
      */
-    return keyword.value - Math.abs(step) < min
+    return modelValue.value - Math.abs(step) < min
   })
 
   /** 最大值禁用 */
@@ -60,7 +41,7 @@
       return false
     }
 
-    return keyword.value + Math.abs(step) > max
+    return modelValue.value + Math.abs(step) > max
   })
 
   /**
@@ -77,16 +58,16 @@
     const map = {
       /** 减少 */
       minus: (): void => {
-        keyword.value -= step
+        modelValue.value -= step
       },
       /** 增加 */
       plus: (): void => {
-        keyword.value += step
+        modelValue.value += step
       }
     }
 
     run(map[target])
-    run(prop.onChange, keyword.value)
+    run(prop.onChange, modelValue.value)
   }
 </script>
 
@@ -104,7 +85,7 @@
 
     <div class="f-input-number__wrapper">
       <f-input
-        v-model="keyword"
+        v-model="modelValue"
         type="number"
         :max="max"
         :min="min"

@@ -4,8 +4,6 @@
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
   import { FCalendar } from '../../calendar'
-  import { EMIT_DATE } from '../../_tokens'
-  import { useModel } from '../../_hooks'
   import { addZero, warning, isFunction } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
   import type { TriggerInstance } from '../../trigger'
@@ -13,17 +11,10 @@
   defineOptions({ name: 'FDatePicker' })
 
   const prop = defineProps(Props)
-  const emit = defineEmits([EMIT_DATE])
+  const dateModelValue = defineModel<string>('date', { required: true, default: '' })
 
   /** 传递给日历组件的当前时间 */
   const date = new Date()
-
-  const { keyword } = useModel<string>(
-    (): string => prop.date,
-    (val: string): void => {
-      emit(EMIT_DATE, val)
-    }
-  )
 
   /** trigger 组件实例 */
   const triggerInstance = ref<TriggerInstance>()
@@ -58,14 +49,10 @@
         )
       }
 
-      // keyword.value = `${year}/${prop.addZero ? addZero(month) : month}/${
-      //   prop.addZero ? addZero(date) : date
-      // }`
-
       setDateFun = (): void => {
         /** 将绑定值设置为格式化后的日期 */
         // keyword.value = formatDate
-        keyword.value = `${year}/${prop.addZero ? addZero(month) : month}/${
+        dateModelValue.value = `${year}/${prop.addZero ? addZero(month) : month}/${
           prop.addZero ? addZero(date) : date
         }`
       }
@@ -95,7 +82,7 @@
 
     setDateFun = (): void => {
       /** 将绑定值设置为格式化后的日期 */
-      keyword.value = formatDate
+      dateModelValue.value = formatDate
     }
   }
 
@@ -120,7 +107,7 @@
     <f-trigger ref="triggerInstance" trigger="click" :disabled="disabled">
       <!-- 输入框 -->
       <f-input
-        v-model="keyword"
+        v-model="dateModelValue"
         autocomplete="off"
         readonly
         :disabled="disabled"
