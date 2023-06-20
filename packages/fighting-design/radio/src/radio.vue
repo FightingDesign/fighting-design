@@ -8,7 +8,10 @@
   defineOptions({ name: 'FRadio' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<RadioModelValue>({ default: null })
+  const modelValue = defineModel<RadioModelValue>({
+    default: null,
+    type: [String, Number, Boolean]
+  })
 
   const { run } = useRun()
 

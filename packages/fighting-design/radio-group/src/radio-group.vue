@@ -7,7 +7,11 @@
   defineOptions({ name: 'FRadioGroup' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<RadioModelValue>({ required: true, default: null })
+  const modelValue = defineModel<RadioModelValue>({
+    required: true,
+    default: null,
+    type: [String, Number, Boolean]
+  })
 
   const { run } = useRun()
   const { styles, classes } = useList(prop, 'radio-group')
