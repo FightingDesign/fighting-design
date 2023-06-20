@@ -34,9 +34,14 @@
 
   /** 标签选中状态 */
   const labelActive = computed((): boolean => {
-    const val = prop.value || prop.label || slotLabel.value
+    /** 获取到 value 的值 */
+    const val: string | number = prop.value || prop.label || slotLabel.value
 
-    return val === parentInject?.keyword.value
+    if (parentInject) {
+      return val === parentInject.modelValue
+    }
+
+    return false
   })
 
   /**

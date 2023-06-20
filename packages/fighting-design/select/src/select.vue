@@ -2,7 +2,7 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun, useModel } from '../../_hooks'
-  import { provide, computed, useSlots, ref } from 'vue'
+  import { provide, computed, useSlots, ref, reactive, toRef } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren } from '../../_utils'
   import { EMIT_UPDATE } from '../../_tokens'
@@ -109,7 +109,10 @@
   }
 
   /** 向自组件注入依赖项 */
-  provide<SelectProvide>(SELECT_PROPS_TOKEN, { setValue, keyword })
+  provide<SelectProvide>(
+    SELECT_PROPS_TOKEN,
+    reactive({ setValue, modelValue: toRef(prop, 'modelValue') })
+  )
 
   /** 样式列表 */
   const styleList = styles(['width'])
