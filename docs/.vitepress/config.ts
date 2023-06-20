@@ -16,6 +16,17 @@ export default defineConfig({
   head,
   description,
   /**
+   * vue 相关配置
+   * 
+   * @see vue https://vitepress.dev/reference/site-config#vue
+   * @see option https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options
+   */
+  vue: {
+    script: {
+      defineModel: true
+    }
+  },
+  /**
    * 是否显示最后更新时间
    *
    * @see last-updated https://vitepress.vuejs.org/guide/theme-last-updated#last-updated
