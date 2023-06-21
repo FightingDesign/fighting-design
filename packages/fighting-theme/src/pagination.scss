@@ -27,6 +27,12 @@
 
   // 带有背景色的
   &.f-pagination__round {
+    // 切换按钮圆角
+    .f-pagination__button {
+      border-radius: 50%;
+    }
+
+    // 每一项圆角
     .f-pagination__pages {
       .f-pagination__item {
         border-radius: 50%;

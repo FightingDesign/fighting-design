@@ -107,11 +107,10 @@
 
     /** 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件 */
     if (newLabel !== prop.modelValue) {
-      run(prop.onChange, newLabel, newValue, evt)
+      run(prop.onChange, newValue, newLabel, evt)
     }
 
     modelValue.value = newValue
-    console.log(newValue)
   }
 
   /** 向自组件注入依赖项 */

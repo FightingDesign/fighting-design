@@ -37,7 +37,7 @@ export const useTurnPage = (
   prop: PaginationProps,
   modelValue: {
     currentModelValue: Ref<number>
-    totalModelValue: Ref<number>
+    pageSizeModelValue: Ref<number>
   },
   pages: UsePageReturn['pages'],
   maxCount: UsePageReturn['maxCount']
@@ -50,13 +50,13 @@ export const useTurnPage = (
    * @param { string | number | boolean } newValue 最新的 value
    */
   const selectChange = (newValue: SelectModelValue): void => {
-    const maxValue = Math.ceil(prop.total / Number(newValue))
+    const maxValue: number = Math.ceil(prop.total / Number(newValue))
 
+    /** 如果当前用户选择的值是大于总页数的,那么直接将总页数的最大值赋值给 current */
     if (prop.current > maxValue) {
-      // 如果当前用户选择的值是大于总页数的,那么直接将总页数的最大值赋值给current
       modelValue.currentModelValue.value = maxValue
     }
-    modelValue.totalModelValue.value = maxValue
+    modelValue.pageSizeModelValue.value = Number(newValue)
   }
 
   /**

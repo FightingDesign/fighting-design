@@ -32,7 +32,7 @@ export const usePage = (
   prop: PaginationProps,
   modelValue: {
     currentModelValue: Ref<number>
-    totalModelValue: Ref<number>
+    pageSizeModelValue: Ref<number>
   }
 ): UsePageReturn => {
   const { run } = useRun()

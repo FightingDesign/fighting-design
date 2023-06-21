@@ -24,7 +24,7 @@
     type: Number
   })
   /** 总页数 */
-  const totalModelValue = defineModel<number>('total', {
+  const pageSizeModelValue = defineModel<number>('pageSize', {
     required: true,
     default: 0,
     type: Number
@@ -32,10 +32,10 @@
 
   const { pages, showNextMore, showPrevMore, maxCount, handelTurnPages } = usePage(prop, {
     currentModelValue,
-    totalModelValue
+    pageSizeModelValue
   })
   const { jumpCurrent, selectChange, handelChange, handleInput, handelClick } =
-    useTurnPage(prop, { currentModelValue, totalModelValue }, pages, maxCount)
+    useTurnPage(prop, { currentModelValue, pageSizeModelValue }, pages, maxCount)
   const { classes } = useList(prop, 'pagination')
 
   /** 下拉菜单绑定的默认值，每页条数 */
