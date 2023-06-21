@@ -2,6 +2,20 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.50.1 (2023-06-21)
+
+**Fix**
+
+- Fix `defineModel` type error issue
+- Fix component internal warnings or error messages that do not prompt for issues
+- Fix `f-back-top` transmission error and parameter error issue
+- Fix the issue of `f-pagination` component switching per page size failure
+- Fix the issue of `f-pagination` component roundabout causing switch button failure
+
+**Modifications**
+
+- Change the parameter `page-sizes` of component `f-pagination` to `page-select`
+
 ## 0.50.0 (2023-06-20)
 
 **新增**
