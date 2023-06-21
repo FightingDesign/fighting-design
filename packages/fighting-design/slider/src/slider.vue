@@ -6,7 +6,7 @@
   defineOptions({ name: 'FSlider' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<number>({ required: true, default: 0 })
+  const modelValue = defineModel<number>({ required: true, default: 0, type: Number })
 
   const { styles, classes } = useList(prop, 'slider')
 

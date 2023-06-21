@@ -9,7 +9,10 @@
   defineOptions({ name: 'FTabs' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<number | string>({ default: null })
+  const modelValue = defineModel<number | string>({
+    default: null,
+    type: [Number, String]
+  })
 
   const { navs, activeName, setEdit, setActiveName } = useTabs(prop, modelValue)
 

@@ -8,7 +8,10 @@
   defineOptions({ name: 'FCheckboxGroup' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<string[] | CheckboxLabel>({ default: [] })
+  const modelValue = defineModel<string[] | CheckboxLabel>({
+    default: [],
+    type: [Boolean, Array, String, Number]
+  })
 
   const { run } = useRun()
   const { classes, styles } = useList(prop, 'checkbox-group')

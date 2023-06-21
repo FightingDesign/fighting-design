@@ -18,9 +18,17 @@
 
   const prop = defineProps(Props)
   /** 当前选中页码 */
-  const currentModelValue = defineModel<number>('current', { required: true, default: 1 })
+  const currentModelValue = defineModel<number>('current', {
+    required: true,
+    default: 1,
+    type: Number
+  })
   /** 总页数 */
-  const totalModelValue = defineModel<number>('total', { required: true, default: 0 })
+  const totalModelValue = defineModel<number>('total', {
+    required: true,
+    default: 0,
+    type: Number
+  })
 
   const { pages, showNextMore, showPrevMore, maxCount, handelTurnPages } = usePage(prop, {
     currentModelValue,

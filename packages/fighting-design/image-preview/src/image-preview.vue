@@ -20,7 +20,11 @@
   defineOptions({ name: 'FImagePreview' })
 
   const prop = defineProps(Props)
-  const visible = defineModel<boolean>('visible', { required: true, default: false })
+  const visible = defineModel<boolean>('visible', {
+    required: true,
+    default: false,
+    type: Boolean
+  })
 
   const { run } = useRun()
   const {

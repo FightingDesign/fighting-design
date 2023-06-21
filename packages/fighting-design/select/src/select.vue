@@ -14,7 +14,11 @@
 
   const prop = defineProps(Props)
   const slot: Slots = useSlots()
-  const modelValue = defineModel<SelectModelValue>({ required: true, default: null })
+  const modelValue = defineModel<SelectModelValue>({
+    required: true,
+    default: null,
+    type: [String, Number]
+  })
 
   const { run } = useRun()
   const { styles } = useList(prop, 'select')

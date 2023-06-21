@@ -7,7 +7,11 @@
   defineOptions({ name: 'FDrawer' })
 
   const prop = defineProps(Props)
-  const visible = defineModel<boolean>('visible', { required: true, default: false })
+  const visible = defineModel<boolean>('visible', {
+    required: true,
+    default: false,
+    type: Boolean
+  })
 
   const { styles, classes } = useList(prop, 'drawer')
   const { closeVisible, maskClose } = useVisible(prop, visible)

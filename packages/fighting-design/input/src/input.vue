@@ -12,7 +12,11 @@
   defineOptions({ name: 'FInput' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<string | number>({ required: true, default: '' })
+  const modelValue = defineModel<string | number>({
+    required: true,
+    default: '',
+    type: [String, Number]
+  })
 
   const { run } = useRun()
   const { getLang, getProp } = useGlobal(prop as unknown as UseGlobalProp)

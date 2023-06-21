@@ -15,7 +15,7 @@
   defineOptions({ name: 'FInputNumber' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<number>({ required: true, default: 0 })
+  const modelValue = defineModel<number>({ required: true, default: 0, type: Number })
 
   const { run } = useRun()
 

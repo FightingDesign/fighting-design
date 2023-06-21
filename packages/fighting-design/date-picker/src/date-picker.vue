@@ -11,7 +11,11 @@
   defineOptions({ name: 'FDatePicker' })
 
   const prop = defineProps(Props)
-  const dateModelValue = defineModel<string>('date', { required: true, default: '' })
+  const dateModelValue = defineModel<string>('date', {
+    required: true,
+    default: '',
+    type: String
+  })
 
   /** 传递给日历组件的当前时间 */
   const date = new Date()

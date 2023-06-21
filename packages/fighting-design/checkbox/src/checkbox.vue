@@ -11,7 +11,8 @@
 
   const prop = defineProps(Props)
   const modelValue = defineModel<CheckboxModelValue | string[]>({
-    default: false
+    default: false,
+    type: [Boolean, Array]
   })
 
   const { run } = useRun()

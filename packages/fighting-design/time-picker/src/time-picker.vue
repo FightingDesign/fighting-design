@@ -11,7 +11,11 @@
   defineOptions({ name: 'FTimePicker' })
 
   defineProps(Props)
-  const dateModelValue = defineModel<string>('time', { required: true, default: '' })
+  const dateModelValue = defineModel<string>('time', {
+    required: true,
+    default: '',
+    type: String
+  })
 
   /** 获取当前的时间 */
   const nowDate: Date = new Date()
