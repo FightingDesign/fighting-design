@@ -4,17 +4,17 @@
 
 ## 0.50.1 (2023-06-21)
 
-**Fix**
+**修复**
 
-- Fix `defineModel` type error issue
-- Fix component internal warnings or error messages that do not prompt for issues
-- Fix `f-back-top` transmission error and parameter error issue
-- Fix the issue of `f-pagination` component switching per page size failure
-- Fix the issue of `f-pagination` component roundabout causing switch button failure
+- 修复 `defineModel` 类型错误问题
+- 修复组件内部警告或错误信息不提示问题
+- 修复 `f-back-top` 传递错误参数报错问题
+- 修复 `f-pagination` 组件切换每页大小失效问题
+- 修复 `f-pagination` 组件 round 对于切换按钮失效问题
 
-**Modifications**
+**改动**
 
-- Change the parameter `page-sizes` of component `f-pagination` to `page-select`
+- 组件 `f-pagination` 参数 `page-sizes` 改为 `page-select`
 
 ## 0.50.0 (2023-06-20)
 
