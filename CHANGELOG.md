@@ -2,6 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.50.1 (2023-06-21)
+
+**修复**
+
+- 修复 `defineModel` 类型错误问题
+- 修复组件内部警告或错误信息不提示问题
+- 修复 `f-back-top` 传递错误参数报错问题
+
 ## 0.50.0 (2023-06-20)
 
 **新增**
