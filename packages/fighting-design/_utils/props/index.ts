@@ -1,26 +1,4 @@
-import { isNumber } from '..'
 import type { PropType } from 'vue'
-
-/**
- * 校验器类型
- *
- * @param { * } val 校验的值
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Validator = (val: any) => boolean
-
-/**
- * 返回值类型接口
- *
- * @param { Object } type 参数类型
- * @param { Function } default 默认值
- * @param { Function } validator 校验器
- */
-export interface BasicType<T, F> {
-  readonly type: T
-  readonly default: () => F
-  readonly validator?: Validator
-}
 
 /**
  * 设置 boolean 类型的 prop 参数
@@ -30,11 +8,11 @@ export interface BasicType<T, F> {
  */
 export const setBooleanProp = (
   defaultVal = false
-): BasicType<BooleanConstructor, boolean> => {
-  return {
-    type: Boolean,
-    default: (): boolean => defaultVal
-  } as const
+): {
+  readonly type: BooleanConstructor
+  readonly default: boolean
+} => {
+  return { type: Boolean, default: defaultVal } as const
 }
 
 /**
@@ -43,13 +21,16 @@ export const setBooleanProp = (
  * @param { number } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setNumberProp = <T extends number>(
-  defaultVal?: null | T
-): BasicType<NumberConstructor, number | null> => {
-  return {
-    type: Number,
-    default: (): T | null => (isNumber(defaultVal) ? defaultVal : null)
-  } as const
+export const setNumberProp = <T extends number | null>(
+  defaultVal = null
+): {
+  type: NumberConstructor
+  default: T extends number ? number : null
+} => {
+  return { type: Number, default: defaultVal } as {
+    readonly type: NumberConstructor
+    readonly default: T extends number ? number : null
+  }
 }
 
 /**
@@ -59,22 +40,26 @@ export const setNumberProp = <T extends number>(
  * @param { Function } [validator] 校验器
  * @returns { Object } 配置对象
  */
-export const setStringProp = <T extends string>(
-  defaultVal?: null | T,
-  validator?: Validator
-): BasicType<PropType<T>, T | null> => {
-  if (validator) {
-    return {
-      type: String as unknown as PropType<T>,
-      default: (): T | null => defaultVal || null,
-      validator
-    } as const
-  }
 
+interface StringPropOptions<T extends string | null> {
+  readonly type: PropType<T>
+  readonly default: T extends string ? T : null
+  readonly validator?: (value: T) => boolean
+}
+
+export const setStringProp = <T extends string | null>(
+  defaultVal = null,
+  validator?: (value: T) => boolean
+): {
+  readonly type: PropType<T>
+  readonly default: T extends string ? T : null
+  readonly validator?: (value: T) => boolean
+} => {
   return {
     type: String as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null
-  } as const
+    default: defaultVal,
+    validator
+  } as StringPropOptions<T>
 }
 
 /**
@@ -83,12 +68,15 @@ export const setStringProp = <T extends string>(
  * @param { string | number } [defaultVal] 默认值
  * @returns { Object } 配置对象
  */
-export const setStringNumberProp = <T extends string | number>(
-  defaultVal?: T
-): BasicType<PropType<string | number>, string | number | null> => {
+export const setStringNumberProp = (
+  defaultVal: null | string | number = null
+): {
+  readonly type: PropType<string | number>
+  readonly default: null | string | number
+} => {
   return {
-    type: [String, Number] as PropType<string | number>,
-    default: (): T | null => defaultVal || null
+    type: [String, Number] as unknown as PropType<string | number>,
+    default: defaultVal
   } as const
 }
 
@@ -100,7 +88,10 @@ export const setStringNumberProp = <T extends string | number>(
  */
 export const setObjectProp = <T extends object>(
   defaultVal = null
-): BasicType<PropType<T>, null> => {
+): {
+  readonly type: PropType<T>
+  readonly default: () => null
+} => {
   return {
     type: Object as PropType<T>,
     default: () => defaultVal
@@ -115,7 +106,10 @@ export const setObjectProp = <T extends object>(
  */
 export const setFunctionProp = <T extends Function>(
   defaultVal = null
-): BasicType<PropType<T>, null> => {
+): {
+  readonly type: PropType<T>
+  readonly default: () => null
+} => {
   return {
     type: Function as PropType<T>,
     default: () => defaultVal
@@ -129,10 +123,13 @@ export const setFunctionProp = <T extends Function>(
  * @returns { Object } 配置对象
  */
 export const setArrayProp = <T>(
-  defaultVal?: null | T
-): BasicType<PropType<T>, T | null> => {
+  defaultVal = null
+): {
+  readonly type: PropType<T>
+  readonly default: () => T | null
+} => {
   return {
     type: Array as unknown as PropType<T>,
-    default: (): T | null => defaultVal || null
-  }
+    default: (): T | null => defaultVal
+  } as const
 }
