@@ -4,6 +4,7 @@ import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
 import { head } from './config/head'
 import { PluginTable, PluginDemo } from './plugin'
+import { fileURLToPath, URL } from 'node:url'
 
 /**
  * vitepress 配置项文件
@@ -23,6 +24,24 @@ export default defineConfig({
   vue: {
     script: {
       defineModel: true
+    }
+  },
+
+
+  /**
+   * 覆盖默认主题组件
+   * @see vue  https://vitepress.dev/guide/extending-default-theme
+   */
+  vite:{
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPSwitchAppearance\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./theme/components/vp-theme-apperence.vue', import.meta.url)
+          )
+        }
+      ]
     }
   },
   /**
