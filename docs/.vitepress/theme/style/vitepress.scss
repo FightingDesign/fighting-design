@@ -12,6 +12,7 @@
   background-color: rgba(82, 179, 94, 0.1);
 }
 
+
 .vp-doc {
   .f-dropdown {
     ul {
@@ -141,4 +142,28 @@
 // 粘性卡片
 .f-sticky-card {
   margin-top: 20px;
+}
+
+
+
+
+
+
+/* 主题动画切换 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1000;
+}
+::view-transition-new(root) {
+  z-index: 99999;
+}
+.dark::view-transition-old(root) {
+  z-index: 99999;
+}
+.dark::view-transition-new(root) {
+  z-index: 1000;
 }
