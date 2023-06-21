@@ -8,5 +8,5 @@
 <template>
   <f-pagination v-model:current="current" :total="total" background />
 
-  <f-pagination v-model:current="current" :total="total" round />
+  <f-pagination v-model:current="current" :total="total" background round />
 </template>

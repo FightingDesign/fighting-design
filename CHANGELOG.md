@@ -12,6 +12,10 @@
 - 修复 `f-pagination` 组件切换每页大小失效问题
 - 修复 `f-pagination` 组件 round 对于切换按钮失效问题
 
+**改动**
+
+- 组件 `f-pagination` 参数 `page-sizes` 改为 `page-select`
+
 ## 0.50.0 (2023-06-20)
 
 **新增**

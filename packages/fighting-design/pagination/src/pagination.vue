@@ -25,8 +25,7 @@
   })
   /** 总页数 */
   const pageSizeModelValue = defineModel<number>('pageSize', {
-    required: true,
-    default: 0,
+    default: 10,
     type: Number
   })
 
@@ -48,7 +47,7 @@
 <template>
   <div :class="classList">
     <!-- 下拉菜单选择每页大小 -->
-    <template v-if="pageSizes && pageSizes.length">
+    <template v-if="pageSelect && pageSelect.length">
       <f-select
         v-model="pagesLen"
         :width="120"
@@ -56,7 +55,7 @@
         :on-change="selectChange"
       >
         <f-option
-          v-for="item in pageSizes"
+          v-for="item in pageSelect"
           :key="item"
           :value="item"
           :label="item + '/页'"

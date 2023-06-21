@@ -23,7 +23,7 @@ export const Props = {
   /** 每页条数 */
   pageSize: setNumberProp(10),
   /** 是否启用选择器选择最大页数 */
-  pageSizes: setArrayProp<number[]>(),
+  pageSelect: setArrayProp<number[]>(),
   /** 当页码超过多少时开始展开省略符号 */
   pagerCount: setNumberProp(7),
   /** 是否带有背景色 */

@@ -38,7 +38,7 @@
 
 ## 页数选择器
 
-`page-sizes` 属性用来表示你想要开启最大页数选择器、传入值是一个数字类型的数组
+`page-select` 属性可添加一个每页大小的选择器、传入值是一个数字类型的数组
 
 ::: demo
 <template #source>
@@ -51,7 +51,7 @@
     v-model:current="current"
     v-model:page-size="pagesize"
     :total="total"
-    :page-sizes="pageSizes"
+    :page-select="pageSelect"
   />
 </template>
 
@@ -63,7 +63,7 @@
 
   const pagesize = ref(10)
 
-  const pageSizes = ref([10, 20, 30, 40, 50])
+  const pageSelect = ref([10, 20, 30, 40, 50])
 </script>
 ```
 
@@ -84,7 +84,7 @@
 <template>
   <f-pagination v-model:current="current" :total="total" background />
 
-  <f-pagination v-model:current="current" :total="total" round />
+  <f-pagination v-model:current="current" :total="total" background round />
 </template>
 
 <script lang="ts" setup>
@@ -101,7 +101,7 @@
 
 ::: demo
 <template #source>
-<f-pagination v-model:current="current" :total="100" :prev-Icon="FIconCloud" :next-Icon="FIconBlock" />
+<f-pagination v-model:current="current" :total="100" :prev-icon="FIconCloud" :next-icon="FIconBlock" />
 </template>
 
 ```html
@@ -143,7 +143,6 @@
   import { ref } from 'vue'
 
   const current = ref(1)
-  const disabled = ref(true)
 </script>
 ```
 
@@ -174,22 +173,22 @@
 
 ## Attributes
 
-| 参数                  | 说明                         | 类型                                                               | 可选值 | 默认值 |
-| --------------------- | ---------------------------- | ------------------------------------------------------------------ | ------ | ------ |
-| `v-model:current`     | 当前选中页码                 | number                                                             | ——     | 1      |
-| `v-model:page-sizes`  | 每页多少条                   | []                                                                 | ——     | ——     |
-| `total`               | 总页数                       | number                                                             | ——     | 0      |
-| `page-size`           | 每页条数                     | number                                                             | ——     | 10     |
-| `background`          | 是否带有背景色               | boolean                                                            | ——     | false  |
-| `round`               | 是否带有圆角                 | boolean                                                            | ——     | false  |
-| `prev-icon`           | 自定义的上一页图标           | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
-| `next-icon`           | 自定义的下一页图标           | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
-| `disabled`            | 是否禁用                     | boolean                                                            | ——     | false  |
-| `jump-search`         | 是否展示快速跳转搜索框       | boolean                                                            | ——     | false  |
-| `on-change`           | 改变页码回调函数             | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
-| `on-prev`             | 点击上一页触发的回调         | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
-| `on-next`             | 点击下一页触发的回调         | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
-| `on-page-size-change` | 每页条数发生变化时触发的回调 | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
+| 参数                  | 说明                           | 类型                                                               | 可选值 | 默认值 |
+| --------------------- | ------------------------------ | ------------------------------------------------------------------ | ------ | ------ |
+| `v-model:current`     | 当前选中页码                   | number                                                             | ——     | 1      |
+| `v-model:page-size`   | 每页多少条                     | number                                                             | ——     | 10     |
+| `total`               | 总页数                         | number                                                             | ——     | 0      |
+| `page-select`         | 开启页数选择器，可选每页多少条 | number[]                                                           | ——     | ——     |
+| `background`          | 是否带有背景色                 | boolean                                                            | ——     | false  |
+| `round`               | 是否带有圆角                   | boolean                                                            | ——     | false  |
+| `prev-icon`           | 自定义的上一页图标             | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `next-icon`           | 自定义的下一页图标             | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——     | ——     |
+| `disabled`            | 是否禁用                       | boolean                                                            | ——     | false  |
+| `jump-search`         | 是否展示快速跳转搜索框         | boolean                                                            | ——     | false  |
+| `on-change`           | 改变页码回调函数               | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
+| `on-prev`             | 点击上一页触发的回调           | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
+| `on-next`             | 点击下一页触发的回调           | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
+| `on-page-size-change` | 每页条数发生变化时触发的回调   | <a href="#paginationevent">PaginationEvent</a>                     | ——     | ——     |
 
 ## Interface
 
