@@ -4,9 +4,10 @@ import { useData, inBrowser } from 'vitepress'
 import VPSwitch from 'vitepress/dist/client/theme-default/components/VPSwitch.vue'
 import VPIconSun from 'vitepress/dist/client/theme-default/components/icons/VPIconSun.vue'
 import VPIconMoon from 'vitepress/dist/client/theme-default/components/icons/VPIconMoon.vue'
+import { APPEARANCE_KEY } from 'vitepress/dist/client/shared';
+
 
 const { site, isDark } = useData()
-const APPEARANCE_KEY = 'vitepress-theme-appearance'
 const checked = ref(false)
 const toggle = inBrowser ? useAppearance() : () => { }
 
@@ -20,6 +21,7 @@ function useAppearance() {
 
   let userPreference = localStorage.getItem(APPEARANCE_KEY)
 
+
   let isDark =
     (site.value.appearance === 'dark' && userPreference == null) ||
     (userPreference === 'auto' || userPreference == null
@@ -32,24 +34,32 @@ function useAppearance() {
     }
   }
 
+  function themeChange() {
+    setClass((isDark = !isDark))
+    userPreference = isDark
+      ? query.matches ? 'auto' : 'dark'
+      : query.matches ? 'light' : 'auto'
+    localStorage.setItem(APPEARANCE_KEY, userPreference)
+  }
+
   function toggle(event?: MouseEvent) {
     // @ts-expect-error experimental API
     const isAppearanceTransition = document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!isAppearanceTransition || !event) {
-      setClass((isDark = !isDark))
+      themeChange()
       return
     }
-    console.log('isDark', isDark)
     const x = event.clientX
     const y = event.clientY
     const endRadius = Math.hypot(
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y),
     )
-    // @ts-expect-error: Transition API
+
     // 不支持快照 api 直接切换
+    // @ts-expect-error: Transition API
     const transition = document.startViewTransition(async () => {
-      setClass((isDark = !isDark))
+      themeChange()
       await nextTick()
     })
     transition.ready
@@ -74,11 +84,9 @@ function useAppearance() {
         )
       })
 
-    userPreference = isDark
-      ? query.matches ? 'auto' : 'dark'
-      : query.matches ? 'light' : 'auto'
 
-    localStorage.setItem(APPEARANCE_KEY, userPreference)
+
+
   }
 
   function setClass(dark: boolean): void {

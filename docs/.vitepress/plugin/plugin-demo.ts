@@ -35,7 +35,7 @@ export const PluginDemo = (md): void => {
           tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
         const source: string = md.utils.escapeHtml(content)
 
-        return `<vp-demo source="${source}">${encodeURIComponent(
+        return `<vp-demo source="${source}" >${encodeURIComponent(
           markdown.render(description)
         )}`
       }
