@@ -1,3 +1,5 @@
+
+
 :root {
   --vp-c-green: #5d80f4;
   --vp-c-brand-dark: #5d80f4;
@@ -10,6 +12,10 @@
 
 .sidebar-link-item.active {
   background-color: rgba(82, 179, 94, 0.1);
+}
+
+.f-checkbox.f-checkbox__disabled .f-checkbox__text {
+  color: #ddd !important;
 }
 
 .vp-doc {
@@ -46,6 +52,7 @@
       border: none;
       background-color: none;
     }
+
     tr:nth-child(2n) {
       background-color: none;
     }
@@ -149,15 +156,20 @@
   animation: none;
   mix-blend-mode: normal;
 }
+
 ::view-transition-old(root) {
   z-index: 1000;
 }
+
 ::view-transition-new(root) {
   z-index: 99999;
 }
+
 .dark::view-transition-old(root) {
   z-index: 99999;
 }
+
 .dark::view-transition-new(root) {
   z-index: 1000;
 }
+@import "./vitepress.dark.scss";

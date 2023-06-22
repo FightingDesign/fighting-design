@@ -4,13 +4,13 @@
   import VPSwitch from 'vitepress/dist/client/theme-default/components/VPSwitch.vue'
   import VPIconSun from 'vitepress/dist/client/theme-default/components/icons/VPIconSun.vue'
   import VPIconMoon from 'vitepress/dist/client/theme-default/components/icons/VPIconMoon.vue'
+  import { APPEARANCE_KEY } from 'vitepress/dist/client/shared'
 
   const { site, isDark } = useData()
-  const APPEARANCE_KEY = 'vitepress-theme-appearance'
   const checked = ref(false)
   const toggle = inBrowser ? useAppearance() : () => {}
 
-  onMounted((): void => {
+  onMounted(() => {
     checked.value = document.documentElement.classList.contains('dark')
   })
 
@@ -32,13 +32,25 @@
       }
     }
 
+    function themeChange() {
+      setClass((isDark = !isDark))
+      userPreference = isDark
+        ? query.matches
+          ? 'auto'
+          : 'dark'
+        : query.matches
+        ? 'light'
+        : 'auto'
+      localStorage.setItem(APPEARANCE_KEY, userPreference)
+    }
+
     function toggle(event?: MouseEvent) {
       const isAppearanceTransition =
         // @ts-expect-error experimental API
         document.startViewTransition &&
         !window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (!isAppearanceTransition || !event) {
-        setClass((isDark = !isDark))
+        themeChange()
         return
       }
       const x = event.clientX
@@ -47,10 +59,11 @@
         Math.max(x, innerWidth - x),
         Math.max(y, innerHeight - y)
       )
-      // @ts-expect-error: Transition API
+
       // 不支持快照 api 直接切换
+      // @ts-expect-error: Transition API
       const transition = document.startViewTransition(async () => {
-        setClass((isDark = !isDark))
+        themeChange()
         await nextTick()
       })
       transition.ready.then(() => {
@@ -71,16 +84,6 @@
           }
         )
       })
-
-      userPreference = isDark
-        ? query.matches
-          ? 'auto'
-          : 'dark'
-        : query.matches
-        ? 'light'
-        : 'auto'
-
-      localStorage.setItem(APPEARANCE_KEY, userPreference)
     }
 
     function setClass(dark: boolean): void {
@@ -89,12 +92,12 @@
       css.appendChild(
         document.createTextNode(
           `:not(.VPSwitchAppearance):not(.VPSwitchAppearance *) {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  -ms-transition: none !important;
-  transition: none !important;
-}`
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+  }`
         )
       )
       document.head.appendChild(css)
