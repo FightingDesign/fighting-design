@@ -30,8 +30,6 @@ export const Props = {
   disabled: setBooleanProp(),
   /** 是否自适应高度 */
   autoHeight: setBooleanProp(),
-  /** 自适应高度多少行之后显示滚动条 */
-  autoMaxRows: setNumberProp(7),
   /**
    * 最大输入长度
    *

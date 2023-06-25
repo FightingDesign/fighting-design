@@ -4,6 +4,7 @@
 
 - 重构 `f-input` 组件样式
 - 废除 `f-input` 组件 `background`、`active-background` 、`active-border-color` 配置项
+- 重构 `f-textarea` 组件样式
 
 ## 0.50.1 (2023-06-21)
 
