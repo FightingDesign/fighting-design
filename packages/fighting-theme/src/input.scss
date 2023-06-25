@@ -5,21 +5,28 @@
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
   height: var(--input-height);
   width: var(--input-width);
 
   // 主容器
   &__wrapper {
-    display: inline-flex;
+    display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
     padding: 3px 7px;
     box-sizing: border-box;
     height: 100%;
-    border: 1px solid transparent;
     transition: 0.3s;
-    background-color: var(--input-background);
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 5px;
+    outline: 4px solid transparent;
+
+    border-radius: 5px;
 
     .f-input__icon {
       color: #333;
@@ -32,10 +39,9 @@
       border: none;
       outline: none;
       background: none;
+      cursor: pointer;
       margin: 0 5px;
       font-size: var(--input-font-size, 14px);
-      transition: 0.2s;
-      cursor: pointer;
       color: var(--input-text-color);
       user-select: none;
       font-family: Arial, sans-serif;
@@ -60,8 +66,7 @@
     }
 
     &:focus-within {
-      background-color: var(--input-active-background);
-      border-color: var(--input-active-border-color);
+      outline: 4px solid #bedaff;
     }
   }
 

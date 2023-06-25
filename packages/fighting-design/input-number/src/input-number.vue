@@ -72,7 +72,10 @@
 </script>
 
 <template>
-  <div role="input" class="f-input-number">
+  <div
+    role="input"
+    :class="['f-input-number', { 'f-input-number__button': model === 'button' }]"
+  >
     <f-button
       v-if="model === 'button'"
       class="f-input-number__minus"

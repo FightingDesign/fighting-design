@@ -75,10 +75,7 @@
   /** 样式列表 */
   const styleList = styles([
     'placeholderColor',
-    'background',
     'textColor',
-    'activeBackground',
-    'activeBorderColor',
     'width',
     'height',
     'fontSize'

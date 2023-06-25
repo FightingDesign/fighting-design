@@ -6,11 +6,20 @@
   width: 100%;
   user-select: none;
 
+  // button 状态下移除圆角
+  &__button {
+    .f-input .f-input__wrapper {
+      border-radius: 0;
+      z-index: 10;
+    }
+  }
+
   // 减少的按钮
   .f-input-number__minus {
     width: 50px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+    z-index: 9;
   }
 
   // 增加的按钮
@@ -18,6 +27,7 @@
     width: 50px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+    z-index: 9;
   }
 
   // 容器
