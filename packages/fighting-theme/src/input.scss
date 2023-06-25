@@ -25,7 +25,6 @@
     background: #fff;
     border-radius: 5px;
     outline: 4px solid transparent;
-
     border-radius: 5px;
 
     .f-input__icon {
@@ -70,10 +69,17 @@
     }
   }
 
-  // 搜索
+  // 搜索框
   &__search {
     cursor: pointer;
 
+    // 移除 input 圆角
+    .f-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    // 移除 button 圆角
     .f-button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;

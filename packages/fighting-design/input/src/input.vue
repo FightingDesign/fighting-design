@@ -82,7 +82,7 @@
   ])
 
   /** 类名列表 */
-  const classList = classes(['size', 'disabled'], 'f-input')
+  const classList = classes(['size', 'disabled', 'search'], 'f-input')
 </script>
 
 <template>
