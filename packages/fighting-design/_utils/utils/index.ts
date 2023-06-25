@@ -28,7 +28,7 @@ export const keepDecimal = (value: number, no = 2): number => {
  */
 export const debounce = <T extends (...args: unknown[]) => void>(
   func: T,
-  delay: number
+  delay = 1000
 ): ((...args: Parameters<T>) => void) => {
   /** 计时器实例 */
   let timeout: ReturnType<typeof setTimeout> | undefined

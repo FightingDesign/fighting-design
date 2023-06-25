@@ -4,6 +4,7 @@
   import { useInput, useList, useRun } from '../../_hooks'
   import { FIconCross } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
+  import { debounce } from '../../_utils'
   import type { WatchStopHandle } from 'vue'
 
   defineOptions({ name: 'FTextarea' })
@@ -77,15 +78,20 @@
     )
   }
 
+  /** 设置宽度方法 */
+  const _changeHeight = debounce(changeHeight, 500)
+
+  /** 初始化调用 */
   onMounted((): void => {
     if (prop.autoHeight) {
       isAutoHeight()
-      window.addEventListener('resize', changeHeight)
+      window.addEventListener('resize', _changeHeight)
     }
   })
 
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', changeHeight)
+  /** 销毁前移除事件 */
+  onBeforeUnmount((): void => {
+    window.removeEventListener('resize', _changeHeight)
   })
 
   /**
