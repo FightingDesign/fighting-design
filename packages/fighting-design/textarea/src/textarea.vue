@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { ref, watch, nextTick } from 'vue'
+  import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
   import { useInput, useList, useRun } from '../../_hooks'
   import { FIconCross } from '../../_svg'
   import { FSvgIcon } from '../../svg-icon'
@@ -18,7 +18,8 @@
   const { classes, styles } = useList(prop, 'textarea')
   const { run } = useRun()
 
-  const textareaEl = ref<HTMLTextAreaElement | undefined>()
+  /** 元素节点 */
+  const textareaRef = ref<HTMLTextAreaElement | undefined>()
 
   /** 类名列表 */
   const classList = classes(['disabled', 'autoHeight'], 'f-textarea')
@@ -29,9 +30,9 @@
   /** 改变高度 */
   const changeHeight = async (): Promise<void> => {
     await nextTick()
-    if (textareaEl.value) {
-      textareaEl.value.style.height = 'auto'
-      textareaEl.value.style.height = textareaEl.value.scrollHeight + 'px'
+    if (textareaRef.value) {
+      textareaRef.value.style.height = 'auto'
+      textareaRef.value.style.height = textareaRef.value.scrollHeight + 'px'
     }
   }
 
@@ -43,6 +44,7 @@
   const _handleInput = (evt: Event): void => {
     handleInput(evt)
 
+    /** 如果需要自适应高度，则每次输入的时候重新设置高度 */
     if (prop.autoHeight) {
       changeHeight()
     }
@@ -50,38 +52,41 @@
 
   /** 是否为自动高度 */
   const isAutoHeight = (): void => {
-    if (prop.autoHeight) {
-      /**
-       * 监视器实例
-       *
-       * 监视绑定值 行数 是否自动高度的数据变化，来设置文本框的高度
-       */
-      const unwatch: WatchStopHandle = watch(
-        (): (string | number | boolean)[] => [
-          prop.modelValue,
-          prop.rows,
-          prop.autoHeight
-        ],
-        (): void => {
-          changeHeight()
+    /**
+     * 监视器实例
+     *
+     * 监视绑定值 行数 是否自动高度的数据变化，来设置文本框的高度
+     */
+    const unwatch: WatchStopHandle = watch(
+      (): (string | number | boolean)[] => [prop.modelValue, prop.rows, prop.autoHeight],
+      (): void => {
+        changeHeight()
 
-          /** 如果中途自动高度为假了，则取消监视器 */
-          if (!prop.autoHeight) {
-            unwatch()
-            /** 并且设置自动高度 */
-            if (textareaEl.value) {
-              textareaEl.value.style.height = 'auto'
-            }
+        /** 如果中途自动高度为假了，则取消监视器 */
+        if (!prop.autoHeight) {
+          unwatch()
+          /** 并且设置自动高度 */
+          if (textareaRef.value) {
+            textareaRef.value.style.height = 'auto'
           }
-        },
-        {
-          immediate: true
         }
-      )
-    }
+      },
+      {
+        immediate: true
+      }
+    )
   }
 
-  isAutoHeight()
+  onMounted((): void => {
+    if (prop.autoHeight) {
+      isAutoHeight()
+      window.addEventListener('resize', changeHeight)
+    }
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', changeHeight)
+  })
 
   /**
    * 监听回车事件
@@ -123,7 +128,7 @@
 <template>
   <div :class="classList" :style="styleList">
     <textarea
-      ref="textareaEl"
+      ref="textareaRef"
       v-model="modelValue"
       class="f-textarea__textarea"
       :rows="rows"

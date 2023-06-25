@@ -1,5 +1,5 @@
 .f-textarea {
-  --textarea-background: #f8f9fb;
+  // --textarea-background: #f8f9fb;
   --textarea-resize: none;
 }
 
@@ -8,12 +8,13 @@
   overflow: hidden;
   position: relative;
   display: inline-flex;
-  transition: background 0.3s;
   resize: var(--textarea-resize);
   align-items: flex-end;
-  background-color: var(--textarea-background);
-  border: 1px solid transparent;
-  transition: 0.2s;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+  background: #fff;
+  outline: 4px solid transparent;
+  border-radius: 5px;
 
   &__textarea {
     width: 100%;
@@ -47,8 +48,7 @@
 
   // 获取焦点
   &:focus-within {
-    background-color: #fff;
-    border: 1px solid #2d5af1;
+    outline: 4px solid #bedaff;
   }
 
   &__clear-btn {

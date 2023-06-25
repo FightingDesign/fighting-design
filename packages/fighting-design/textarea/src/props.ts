@@ -30,6 +30,8 @@ export const Props = {
   disabled: setBooleanProp(),
   /** 是否自适应高度 */
   autoHeight: setBooleanProp(),
+  /** 自适应高度多少行之后显示滚动条 */
+  autoMaxRows: setNumberProp(7),
   /**
    * 最大输入长度
    *
@@ -73,9 +75,8 @@ export const Props = {
    *
    * @see resize https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize
    * @values none both horizontal vertical
-   * @default null
    */
-  resize: setStringProp<TextareaResize>(null, (val: TextareaResize): boolean => {
+  resize: setStringProp<TextareaResize>(undefined, (val: TextareaResize): boolean => {
     return (['none', 'both', 'horizontal', 'vertical'] as const).includes(val)
   }),
   /** 是否可清空 */
