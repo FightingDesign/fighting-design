@@ -4,6 +4,12 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.51.0 (2023-06-26)
+
+- Refactoring the `f-input` component style
+- Abolish the `f-input` component `background`, `active-background`, and `active-order-color` configuration items
+- Refactoring `f-textarea` component styles
+
 ## 0.50.0 (2023-06-20)
 
 **Add**

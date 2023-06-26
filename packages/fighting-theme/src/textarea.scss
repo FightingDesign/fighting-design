@@ -1,5 +1,4 @@
 .f-textarea {
-  // --textarea-background: #f8f9fb;
   --textarea-resize: none;
 }
 
@@ -48,7 +47,7 @@
 
   // 获取焦点
   &:focus-within {
-    outline: 4px solid #bedaff;
+    outline: 4px solid rgba(92, 128, 245, 0.5);
   }
 
   &__clear-btn {

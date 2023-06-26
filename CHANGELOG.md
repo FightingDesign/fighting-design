@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.51.0 (2023-06-26)
+
 - 重构 `f-input` 组件样式
 - 废除 `f-input` 组件 `background`、`active-background` 、`active-border-color` 配置项
 - 重构 `f-textarea` 组件样式
