@@ -108,6 +108,7 @@
   background-color: #0057fc;
   color: #fff !important;
   font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .outline-link {
@@ -119,6 +120,7 @@
   &.active {
     background-color: #0057fc;
     color: #fff !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     font-weight: bold;
   }
 }
