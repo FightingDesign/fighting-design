@@ -40,13 +40,12 @@ export const Props = {
    *
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    * @values fill contain cover none scale-down
-   * @default null
    */
-  fit: setStringProp<FightingFit>(null, (val: FightingFit): boolean => {
+  fit: setStringProp<FightingFit>(undefined, (val: FightingFit): boolean => {
     return FIGHTING_FIT.includes(val)
   }),
   /**
-   * 图片大小
+   * 头像大小
    *
    * 可传入字符串使用内置大小
    *

@@ -228,3 +228,6 @@ export * from './number-animate'
 
 export { FCountDown } from './count-down'
 export * from './count-down'
+
+export { FAvatarGroup } from './avatar-group'
+export * from './avatar-group'

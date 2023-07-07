@@ -1,0 +1,11 @@
+.f-avatar-group {
+  --avatar-group-position-size: 20px;
+
+  .f-avatar {
+    border: 2px solid #fff;
+  }
+
+  .f-avatar:not(:first-child) {
+    margin-left: calc(-1 * var(--avatar-group-position-size));
+  }
+}

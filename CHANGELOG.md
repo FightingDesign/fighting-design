@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-avatar-group` 组件
+
 ## 0.51.0 (2023-06-26)
 
 - 重构 `f-input` 组件样式

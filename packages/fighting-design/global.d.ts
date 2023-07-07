@@ -83,6 +83,7 @@ declare module '@vue/runtime-core' {
     FInfiniteScrolling: typeof components.FInfiniteScrolling
     FNumberAnimate: typeof components.FNumberAnimate
     FCountDown: typeof components.FCountDown
+    FAvatarGroup: typeof components.FAvatarGroup
   }
 
   interface ComponentCustomProperties {
