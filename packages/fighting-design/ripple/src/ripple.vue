@@ -12,7 +12,7 @@
   const { styles } = useList(getProp(['type'], ['default']), 'ripple')
 
   /** 元素节点 */
-  const rippleEl = ref<HTMLElement>()
+  const rippleRef = ref<HTMLElement>()
 
   /** 样式列表 */
   const styleList = styles(['startOpacity', 'endOpacity'], false)
@@ -37,15 +37,15 @@
     })
 
     /** 必须在元素节点存在的情况下才触发涟漪 */
-    if (rippleEl.value) {
-      const { runRipples } = useRipples(evt, rippleEl.value, options)
+    if (rippleRef.value) {
+      const { runRipples } = useRipples(evt, rippleRef.value, options)
       runRipples()
     }
   }
 </script>
 
 <template>
-  <div ref="rippleEl" class="f-ripple" :style="styleList" @click="handleClick">
+  <div ref="rippleRef" class="f-ripple" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>

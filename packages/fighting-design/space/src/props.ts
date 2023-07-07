@@ -12,9 +12,8 @@ export const Props = {
    * 间距尺寸
    *
    * @values large middle small mini
-   * @default null
    */
-  spacing: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
+  spacing: setStringProp<FightingSize>(undefined, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
   }),
   /** 自定义纵向间距 */

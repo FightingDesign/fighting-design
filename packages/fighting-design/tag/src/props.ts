@@ -18,9 +18,8 @@ export const Props = {
    * 标签类型
    *
    * @values default primary success danger warning info
-   * @default null
    */
-  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /** 是否可关闭 */
@@ -39,9 +38,8 @@ export const Props = {
    * 尺寸
    *
    * @values large middle small mini
-   * @default null
    */
-  size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
+  size: setStringProp<FightingSize>(undefined, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
   }),
   /** 是否为简约模式 */

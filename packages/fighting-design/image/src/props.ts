@@ -33,10 +33,9 @@ export const Props = {
    * 如何适应容器，原生 object-fit 属性
    *
    * @values fill contain cover none scale-down
-   * @default null
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
-  fit: setStringProp<FightingFit>(null, (val: FightingFit): boolean => {
+  fit: setStringProp<FightingFit>(undefined, (val: FightingFit): boolean => {
     return FIGHTING_FIT.includes(val)
   }),
   /** 是否可以选中 */

@@ -26,9 +26,8 @@ export const Props = {
    * 消息类型
    *
    * @values default primary success danger warning
-   * @default null
    */
-  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /** 是否可关闭 */

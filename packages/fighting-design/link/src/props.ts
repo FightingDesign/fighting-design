@@ -20,9 +20,8 @@ export const Props = {
    * link 的类型
    *
    * @values default primary success danger warning
-   * @default null
    */
-  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /**
@@ -37,9 +36,8 @@ export const Props = {
    * 状态的样式状态
    *
    * @values line background
-   * @default null
    */
-  state: setStringProp<LinkState>(null, (val: LinkState): boolean => {
+  state: setStringProp<LinkState>(undefined, (val: LinkState): boolean => {
     return (['line', 'background'] as const).includes(val)
   }),
   /** 是否禁用 */

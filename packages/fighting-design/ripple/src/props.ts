@@ -12,9 +12,8 @@ export const Props = {
    * 涟漪类型
    *
    * @values default primary success danger warning
-   * @default null
    */
-  type: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /** 是否禁用 */

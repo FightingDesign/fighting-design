@@ -18,9 +18,8 @@ export const Props = {
    * 阴影样式
    *
    * @values hover always
-   * @default null
    */
-  shadow: setStringProp<CardShadow>(null, (val: CardShadow): boolean => {
+  shadow: setStringProp<CardShadow>(undefined, (val: CardShadow): boolean => {
     return (['hover', 'always'] as const).includes(val)
   }),
   /** 自定义边框颜色 */

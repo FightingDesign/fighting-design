@@ -42,9 +42,8 @@ export const Props = {
    * 按钮的类型（非自定义按钮颜色时有效）
    *
    * @values default primary success danger warning
-   * @default null
    */
-  buttonType: setStringProp<FightingType>(null, (val: FightingType): boolean => {
+  buttonType: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /**

@@ -9,9 +9,8 @@ export const Props = {
    * 按钮尺寸
    *
    * @values large middle small mini
-   * @default null
    */
-  size: setStringProp<FightingSize>(null, (val: FightingSize): boolean => {
+  size: setStringProp<FightingSize>(undefined, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
   }),
   /**

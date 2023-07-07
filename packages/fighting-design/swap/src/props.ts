@@ -21,7 +21,6 @@ export const Props = {
    * 动画类型
    *
    * @values sound swap
-   * @default null
    */
   type: setStringProp<SwapType>(undefined, (val: SwapType): boolean => {
     return (['sound', 'swap'] as const).includes(val)
