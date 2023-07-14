@@ -2,7 +2,7 @@
   --avatar-group-position-size: 20px;
 
   .f-avatar {
-    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #fff;
   }
 
   .f-avatar:not(:first-child) {

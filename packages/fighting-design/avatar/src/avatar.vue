@@ -17,7 +17,10 @@
   const avatarRef = ref<HTMLImageElement | undefined>()
 
   /** 获取到父组件注入的依赖项 */
-  const parentInject: AvatarGroupProps | undefined = inject(AVATAR_GROUP_PROPS_KEY)
+  const parentInject: AvatarGroupProps | undefined = inject(
+    AVATAR_GROUP_PROPS_KEY,
+    undefined
+  )
 
   const { isSuccess, isShowNode } = useLoadImg(
     avatarRef,
@@ -28,7 +31,7 @@
   /** 合并后的 prop 参数 */
   const _prop = reactive({
     ...toRefs(prop),
-    ...toRefs(parentInject || {})
+    ...toRefs(reactive(parentInject || {}))
   })
 
   const { styles, classes } = useList(_prop, 'avatar')

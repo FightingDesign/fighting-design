@@ -349,6 +349,11 @@
       "title": "Count Down 倒计时",
       "rule": "count-downCountDown倒计时",
       "url": "components/count-down"
+    },
+    {
+      "title": "Avatar Group 头像组",
+      "rule": "avatar-groupAvatarGroup头像组",
+      "url": "components/avatar-group"
     }
   ]
 }
