@@ -12,12 +12,12 @@
   const slot: Slots = useSlots()
 
   /** 图片 dom 节点 */
-  const avatarEl = ref<HTMLImageElement | undefined>()
+  const avatarRef = ref<HTMLImageElement | undefined>()
 
   const { isSuccess, isShowNode } = useLoadImg(
-    avatarEl,
+    avatarRef,
     prop,
-    (): boolean => !slot.icon && !prop.icon && !prop.text && avatarEl.value
+    (): boolean => !slot.icon && !prop.icon && !prop.text && avatarRef.value
   )
 
   const { styles, classes } = useList(prop, 'avatar')
@@ -36,22 +36,26 @@
   )
 
   /** 样式列表 */
-  const styleList = styles([
-    'background',
-    'fontColor',
-    'fontSize',
-    /**
-     * size 配置项需要进行检查是否需要过滤
-     *
-     * 只有是数字的时候才需要过滤，是数字代表是自定义的尺寸
-     *
-     * 字符串代表内部尺寸，用于类名拼接
-     */
-    {
-      key: 'size',
-      callback: (): boolean => isNumber(prop.size)
-    }
-  ])
+  const styleList = styles(
+    [
+      'background',
+      'fontColor',
+      'fontSize',
+      'zIndex',
+      /**
+       * size 配置项需要进行检查是否需要过滤
+       *
+       * 只有是数字的时候才需要过滤，是数字代表是自定义的尺寸
+       *
+       * 字符串代表内部尺寸，用于类名拼接
+       */
+      {
+        key: 'size',
+        callback: (): boolean => isNumber(prop.size)
+      }
+    ],
+    'zIndex'
+  )
 </script>
 
 <template>
@@ -74,7 +78,7 @@
     <!-- 图片头像 -->
     <img
       v-else
-      ref="avatarEl"
+      ref="avatarRef"
       class="f-avatar__img"
       src=""
       :style="isShowNode ? '' : 'visibility: hidden'"
