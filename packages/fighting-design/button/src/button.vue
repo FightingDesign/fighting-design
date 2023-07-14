@@ -16,7 +16,7 @@
   const { classList, styleList } = useButton(prop)
 
   /** 元素节点 */
-  const FButtonEl = ref<HTMLButtonElement | undefined>()
+  const FButtonRef = ref<HTMLButtonElement | undefined>()
 
   /**
    * 按钮点击
@@ -54,7 +54,7 @@
 
       const { runRipples } = useRipples(
         evt,
-        FButtonEl.value as HTMLButtonElement,
+        FButtonRef.value as HTMLButtonElement,
         options
       )
 
@@ -73,7 +73,7 @@
 <template>
   <template v-if="href">
     <a
-      ref="FButtonEl"
+      ref="FButtonRef"
       role="link"
       tabindex="0"
       :class="classList"
@@ -97,7 +97,7 @@
 
   <template v-else>
     <button
-      ref="FButtonEl"
+      ref="FButtonRef"
       role="button"
       tabindex="0"
       :class="classList"

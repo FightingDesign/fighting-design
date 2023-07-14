@@ -7,7 +7,7 @@ export const Props = {
   /** 偏移距离 */
   positionSize: setStringNumberProp(),
   /** 是否为圆角 */
-  round: setBooleanProp(),
+  round: setBooleanProp(true),
   /**
    * 头像大小
    *
@@ -45,6 +45,7 @@ export const Props = {
   })
 } as const
 
+/** avatar-group 组件 prop 类型 */
 export type AvatarGroupProps = ExtractPropTypes<typeof Props>
 
 /** avatar-group 注入的依赖项 */

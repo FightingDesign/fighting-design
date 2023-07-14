@@ -1,9 +1,11 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { ref, useSlots } from 'vue'
+  import { ref, useSlots, reactive, toRefs, inject } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { useLoadImg, useList } from '../../_hooks'
   import { isNumber, isString } from '../../_utils'
+  import { AVATAR_GROUP_PROPS_KEY } from '../../avatar-group/src/props'
+  import type { AvatarGroupProps } from '../../avatar-group'
   import type { Slots } from 'vue'
 
   defineOptions({ name: 'FAvatar' })
@@ -14,13 +16,22 @@
   /** 图片 dom 节点 */
   const avatarRef = ref<HTMLImageElement | undefined>()
 
+  /** 获取到父组件注入的依赖项 */
+  const parentInject: AvatarGroupProps | undefined = inject(AVATAR_GROUP_PROPS_KEY)
+
   const { isSuccess, isShowNode } = useLoadImg(
     avatarRef,
     prop,
     (): boolean => !slot.icon && !prop.icon && !prop.text && avatarRef.value
   )
 
-  const { styles, classes } = useList(prop, 'avatar')
+  /** 合并后的 prop 参数 */
+  const _prop = reactive({
+    ...toRefs(prop),
+    ...toRefs(parentInject || {})
+  })
+
+  const { styles, classes } = useList(_prop, 'avatar')
 
   /** 类名列表 */
   const classList = classes(
@@ -29,7 +40,7 @@
       'fit',
       {
         key: 'size',
-        callback: (): boolean => isString(prop.size)
+        callback: (): boolean => isString(_prop.size)
       }
     ],
     'f-avatar'
@@ -51,7 +62,7 @@
        */
       {
         key: 'size',
-        callback: (): boolean => isNumber(prop.size)
+        callback: (): boolean => isNumber(_prop.size)
       }
     ],
     'zIndex'
