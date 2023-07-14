@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.52.0 (2023-07-14)
+
+- Add `f-avatar-group` component
+
 ## 0.51.0 (2023-06-26)
 
 - Refactoring the `f-input` component style
