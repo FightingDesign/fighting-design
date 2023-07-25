@@ -178,9 +178,6 @@ export * from './input-number'
 export { FTabs } from './tabs'
 export * from './tabs'
 
-export { FTabsPane } from './tabs-pane'
-export * from './tabs-pane'
-
 export { FDatePicker } from './date-picker'
 export * from './date-picker'
 
@@ -231,3 +228,6 @@ export * from './count-down'
 
 export { FAvatarGroup } from './avatar-group'
 export * from './avatar-group'
+
+export { FTabsItem } from './tabs-item'
+export * from './tabs-item'

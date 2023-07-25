@@ -11,5 +11,4 @@ export const Props = {
   lazy: setBooleanProp()
 } as const
 
-/** tabs-pane 组件 props 类型 */
-export type TabsPaneProps = ExtractPropTypes<typeof Props>
+export type TabsItemProps = ExtractPropTypes<typeof Props>

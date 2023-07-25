@@ -13,14 +13,14 @@
   const target = ref(false)
 
   /** 元素节点 */
-  const scrollEl = ref<HTMLDivElement>()
+  const scrollRef = ref<HTMLDivElement | undefined>()
 
   /** 滚动触发 */
   const scroll = (): void => {
     if (prop.loading) return
 
     /** 获取到元素节点 */
-    const view: HTMLDivElement | undefined = scrollEl.value
+    const view: HTMLDivElement | undefined = scrollRef.value
 
     /** 如果没找到则直接拦截 */
     if (!view) return
@@ -50,7 +50,7 @@
   }
 </script>
 <template>
-  <div ref="scrollEl" class="f-infinite-scrolling" :style="styles" @scroll="scroll">
+  <div ref="scrollRef" class="f-infinite-scrolling" :style="styles" @scroll="scroll">
     <slot />
     <div v-if="loading" class="f-infinite-scrolling__loading">加载中...</div>
   </div>

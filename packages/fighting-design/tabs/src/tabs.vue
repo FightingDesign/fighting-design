@@ -1,64 +1,57 @@
 <script lang="ts" setup>
-  import { Props } from './props'
-  import { computed } from 'vue'
-  import { TabsNav } from '../components'
-  import { useTabs } from '../../_hooks'
-  import { warning } from '../../_utils'
-  import type { TabsPosition } from './interface'
+  import { Props, TABS_PROPS_KEY } from './props'
+  import { provide, getCurrentInstance, computed } from 'vue'
+  import type { TabsItemProps, TabsItemInstance } from '../../tabs-item'
+  import type { ComponentInternalInstance } from 'vue'
 
   defineOptions({ name: 'FTabs' })
 
-  const prop = defineProps(Props)
+  defineProps(Props)
   const modelValue = defineModel<number | string>({
     default: null,
     type: [Number, String]
   })
 
-  const { navs, activeName, setEdit, setActiveName } = useTabs(prop, modelValue)
+  /** 将信息传递给子组件 */
+  provide(TABS_PROPS_KEY, { activeName: modelValue })
 
-  /** 选项卡标签位置 */
-  const tabsPosition = computed((): TabsPosition => {
-    const { position, type } = prop
+  /**
+   * 切换页
+   *
+   * @param { string } name 页的名字
+   */
+  const changeNavs = (name: TabsItemProps['name']): void => {
+    modelValue.value = name
+  }
 
-    /** segment 风格不支持左右 position 的样式 */
-    if (type === 'segment' && (position === 'right' || position === 'left')) {
-      warning('f-tabs', 'The segment style only supports the `top` and `bottom` position')
+  /** 获取当前组件实例 */
+  const instance: ComponentInternalInstance | null = getCurrentInstance()
 
-      return 'top'
+  /** 获取菜单列表 */
+  const navs = computed((): TabsItemProps[] => {
+    if (!instance || !instance.slots.default) {
+      return []
     }
 
-    return position
+    return instance.slots.default().map((e: TabsItemInstance): TabsItemProps => {
+      return e.props
+    })
   })
-
-  /** 通过 refs 抛出当前选中的值 */
-  defineExpose({ activeName })
 </script>
 
 <template>
-  <div role="tab" :class="['f-tabs', `f-tabs__${tabsPosition}`]">
-    <tabs-nav
-      v-if="navs.length"
-      :navs="navs"
-      :type="type"
-      :active-name="activeName"
-      :position="tabsPosition"
-      :edit-status="editStatus"
-      :justify-content="justifyContent"
-      :trigger="trigger"
-      :set-edit="setEdit"
-      :set-active-name="setActiveName"
-      :on-switch="onSwitch"
-    >
-      <!-- 前缀内容 -->
-      <template v-if="$slots.prefix" #prefix>
-        <slot name="prefix" />
-      </template>
-
-      <!-- 后缀内容 -->
-      <template v-if="$slots.suffix" #suffix>
-        <slot name="suffix" />
-      </template>
-    </tabs-nav>
+  <div role="tab" class="f-tabs">
+    <!-- 标签列表 -->
+    <div class="f-tabs__navs">
+      <div
+        v-for="(item, index) in navs"
+        :key="index"
+        class="f-tabs__nav-item"
+        @click="changeNavs(item.name)"
+      >
+        {{ item.label }}
+      </div>
+    </div>
 
     <!-- 主要展示的内容 -->
     <div class="f-tabs__content">
