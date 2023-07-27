@@ -7,8 +7,7 @@
     getCurrentInstance,
     ref,
     onMounted,
-    reactive,
-    toRef
+    reactive
   } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
 
@@ -28,7 +27,7 @@
   const options = reactive({
     activeName,
     uid: instance.uid,
-    label: toRef(prop, 'label')
+    label: prop.label
   })
 
   /** 该组件是否显示 */

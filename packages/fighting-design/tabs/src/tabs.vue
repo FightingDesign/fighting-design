@@ -84,6 +84,17 @@
         label: item.label
       } as const
     })
+
+    if (modelValue.value) {
+      activeName.value = modelValue.value
+      return
+    }
+
+    if (children.value && children.value.length) {
+      if (children.value[0].name) {
+        activeName.value = children.value[0].name
+      }
+    }
   }
 
   /** 将信息传递给子组件 */
@@ -104,7 +115,6 @@
 </script>
 
 <template>
-  {{ activeName }}
   <div role="tab" class="f-tabs">
     <!-- 标签列表 -->
     <div class="f-tabs__navs">
