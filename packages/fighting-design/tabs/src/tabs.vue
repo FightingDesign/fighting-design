@@ -3,7 +3,13 @@
   import { provide, getCurrentInstance, ref, isVNode } from 'vue'
   import { isObject, isArray } from '../../_utils'
   import type { TabsItemProps } from '../../tabs-item'
-  import type { ComponentInternalInstance, VNode, Component } from 'vue'
+  import type {
+    ComponentInternalInstance,
+    VNode,
+    Component,
+    VNodeNormalizedChildren
+  } from 'vue'
+  import type { TabsOpts, TabsProvide, TabsChildrenItem } from './interface'
 
   defineOptions({ name: 'FTabs' })
 
@@ -13,13 +19,13 @@
     type: [Number, String]
   })
 
-  /** 获取当前组件实例 */
+  /** 当前选中的 name */
   const activeName = ref<string | number>(0)
 
-  const childrenMap = new Map<number, any>()
-  const children = ref()
+  const childrenMap = new Map<number, TabsOpts>()
+  const children = ref<TabsChildrenItem[]>()
 
-  const flattedChildren = (children): VNode[] => {
+  const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNode[] => {
     const vNodes = isArray(children) ? children : [children]
     const result: VNode[] = []
 
@@ -51,8 +57,8 @@
   const root = getCurrentInstance() as ComponentInternalInstance
   const component = 'FTabsItem'
 
-  const registerChild = (child): void => {
-    childrenMap.set(child.uid, child)
+  const registerChild = (opts: TabsOpts): void => {
+    childrenMap.set(opts.uid, opts)
 
     const componentList: VNode[] = getChildrenComponent(root, component)
 
@@ -62,21 +68,26 @@
       })
       .filter(Boolean) as number[]
 
-    children.value = componentUid
-      .map((e: number): TabsPane | undefined => childrenMap.get(e))
-      .filter(Boolean)
-      .map((item, index) => {
-        item.paneName = item.paneName || index
+    console.log(componentUid)
 
-        return {
-          name: item.paneName || index,
-          label: item.prop.label
-        }
-      })
+    children.value = (
+      componentUid
+        .map((e: number): TabsOpts | undefined => {
+          return childrenMap.get(e)
+        })
+        .filter(Boolean) as TabsOpts[]
+    ).map((item: TabsOpts, index: number): TabsChildrenItem => {
+      item.activeName = item.activeName || index
+
+      return {
+        name: item.activeName || index,
+        label: item.label
+      } as const
+    })
   }
 
   /** 将信息传递给子组件 */
-  provide(TABS_PROPS_KEY, {
+  provide<TabsProvide>(TABS_PROPS_KEY, {
     activeName,
     registerChild
   })
@@ -88,7 +99,7 @@
    */
   const changeNavs = (name: TabsItemProps['name']): void => {
     activeName.value = name
-    console.log(name)
+    modelValue.value = name
   }
 </script>
 

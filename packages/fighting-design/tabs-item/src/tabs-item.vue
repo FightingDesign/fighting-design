@@ -1,7 +1,15 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { TABS_PROPS_KEY } from '../../tabs/src/props'
-  import { inject, computed, getCurrentInstance, ref, onMounted, reactive } from 'vue'
+  import {
+    inject,
+    computed,
+    getCurrentInstance,
+    ref,
+    onMounted,
+    reactive,
+    toRef
+  } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
 
   defineOptions({ name: 'FTabsItem' })
@@ -11,26 +19,30 @@
   /** 获取当前组件实例 */
   const instance = getCurrentInstance() as ComponentInternalInstance
 
-  const paneName = ref(prop.name)
+  /** 当前选中的 name */
+  const activeName = ref(prop.name)
 
   /** 获取父组件注入的依赖项 */
   const parentInject = inject(TABS_PROPS_KEY, null)
 
-  const pane = reactive({
-    paneName,
-    label: prop.label,
+  const options = reactive({
+    activeName,
     uid: instance.uid,
-    prop
+    label: toRef(prop, 'label')
   })
 
   /** 该组件是否显示 */
-  const isShow = computed(
-    (): boolean | null => parentInject && parentInject.activeName.value === pane.paneName
-  )
+  const isActive = computed((): boolean | null => {
+    if (!parentInject) {
+      return false
+    }
 
-  /** 在组件插入及卸载时都要更新父级的 pane 列表 */
+    return parentInject.activeName.value === options.activeName
+  })
+
+  /** 在组件插入及卸载时都要更新父级的 nav 列表 */
   onMounted((): void => {
-    parentInject && parentInject.registerChild(pane)
+    parentInject && parentInject.registerChild(options)
   })
 
   // onBeforeUnmount((): void => {
@@ -40,8 +52,8 @@
 
 <template>
   <div
-    v-show="isShow"
-    :class="['f-tabs-item', { 'f-tabs-item__active': isShow }]"
+    v-show="isActive"
+    :class="['f-tabs-item', { 'f-tabs-item__active': isActive }]"
     role="tabpanel"
   >
     <slot />

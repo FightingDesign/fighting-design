@@ -12,6 +12,10 @@
     <f-tabs-item label="我心中尚未崩坏的地方">
       <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
     </f-tabs-item>
+
+    <f-tabs-item label="555">
+      <p>打扫打扫打扫</p>
+    </f-tabs-item>
   </f-tabs>
 </template>
 

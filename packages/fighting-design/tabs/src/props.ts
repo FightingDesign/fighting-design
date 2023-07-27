@@ -12,9 +12,9 @@ import type {
   TabsType,
   TabsJustifyContent,
   TabsSwitch,
-  TabsEdit
+  TabsEdit,
+  TabsProvide
 } from './interface'
-import type { TabsProvide } from '../../_hooks'
 
 export const Props = {
   /** 活跃的 name */
@@ -44,7 +44,7 @@ export const Props = {
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
    */
   justifyContent: setStringProp<TabsJustifyContent>(
-    null,
+    undefined,
     (val: TabsJustifyContent): boolean => {
       return (
         [

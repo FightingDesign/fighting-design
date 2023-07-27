@@ -1,4 +1,4 @@
-import type { Slot } from 'vue'
+import type { Ref } from 'vue'
 
 export type { TabsProps } from './props'
 
@@ -43,13 +43,18 @@ export type TabsEdit = (
   index?: number
 ) => void
 
-/**
- * nav 列表集合
- *
- * @param { string | number } name 标签的 name
- * @param { * } label 标签的 label
- */
-export interface TabsNavInstance {
-  name: TabsModelValue
-  label: string | Slot
+export interface TabsChildrenItem {
+  label: string
+  name: string | number
+}
+
+export interface TabsOpts {
+  activeName: number | string
+  uid: number
+  label: string
+}
+
+export interface TabsProvide {
+  activeName: Ref<number | string>
+  registerChild: (opts: TabsOpts) => void
 }
