@@ -17,13 +17,24 @@
   // 背景状态
   // 背景状态默认元素之间的间距为 0
   &.f-radio-group__background {
-    background: #f8f9fb;
+    background: #ececf1;
+    flex-wrap: nowrap;
     column-gap: var(--radio-group-column-gap, 0);
     row-gap: var(--radio-group-row-gap, 0);
 
-    // 选中的
-    .f-radio__checked {
-      background-color: #fff;
+    .f-radio {
+      .f-radio__text {
+        color: rgb(142, 142, 160);
+      }
+
+      // 选中的
+      &.f-radio__checked {
+        background-color: #fff;
+
+        .f-radio__text {
+          color: #2d5af1;
+        }
+      }
     }
 
     // 不同尺寸
