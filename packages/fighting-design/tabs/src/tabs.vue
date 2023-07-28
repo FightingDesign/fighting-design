@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props, TABS_PROPS_KEY } from './props'
-  import { provide, getCurrentInstance, ref, isVNode } from 'vue'
-  import { isObject, isArray } from '../../_utils'
+  import { provide, getCurrentInstance, ref, isVNode, computed } from 'vue'
+  import { isObject, isArray, isBoolean } from '../../_utils'
   import { useList } from '../../_hooks'
   import type { TabsItemProps } from '../../tabs-item'
   import type {
@@ -20,7 +20,7 @@
     type: [Number, String]
   })
 
-  const { classes } = useList(prop, 'tabs')
+  const { classes, styles } = useList(prop, 'tabs')
 
   /** 当前选中的 name */
   const activeName = ref<string | number>(0)
@@ -111,24 +111,39 @@
    *
    * @param { string } name 页的名字
    */
-  const changeNavs = (name: TabsItemProps['name']): void => {
+  const changeNavs = async (name: TabsItemProps['name']): Promise<void> => {
+    let result: boolean | void = true
+
+    if (prop.onSwitch) {
+      result = await prop.onSwitch(name)
+    }
+
+    if (isBoolean(result) && !result) return
     activeName.value = name
     modelValue.value = name
   }
 
   /** 类名列表 */
   const classList = classes(['position'], 'f-tabs')
+
+  /** 样式列表 */
+  const styleList = styles(['justifyContent'])
+
+  /** 事件处理 */
+  const trigger = computed((): 'click' | 'mouseenter' => {
+    return prop.trigger === 'hover' ? 'mouseenter' : 'click'
+  })
 </script>
 
 <template>
-  <div role="tab" :class="classList">
+  <div role="tab" :class="classList" :style="styleList">
     <!-- 标签列表 -->
     <div class="f-tabs__navs">
       <div
         v-for="(item, index) in children"
         :key="index"
         :class="['f-tabs__nav-item', { 'f-tabs__nav-active': item.name === activeName }]"
-        @click="changeNavs(item.name)"
+        @[trigger]="changeNavs(item.name)"
       >
         {{ item.label }}
       </div>

@@ -2,6 +2,28 @@
   display: flex;
   flex-direction: column;
 
+  // 菜单栏
+  .f-tabs__navs {
+    display: flex;
+    justify-content: var(--tabs-justify-content);
+
+    // 每一项
+    .f-tabs__nav-item {
+      cursor: pointer;
+      padding: 10px 7px;
+      box-sizing: border-box;
+      font-size: 15px;
+      user-select: none;
+      // border-bottom: 2px solid transparent;
+
+      // 选中状态
+      &.f-tabs__nav-active {
+        color: #2d5af1;
+        border-color: #2d5af1;
+      }
+    }
+  }
+
   // 不同的 nav 列表方向
   // 上
   &__top {
@@ -52,27 +74,6 @@
 
       .f-tabs__nav-item {
         border-left: 2px solid transparent;
-      }
-    }
-  }
-
-  // 菜单栏
-  .f-tabs__navs {
-    display: flex;
-
-    // 每一项
-    .f-tabs__nav-item {
-      cursor: pointer;
-      padding: 10px 7px;
-      box-sizing: border-box;
-      font-size: 15px;
-      user-select: none;
-      // border-bottom: 2px solid transparent;
-
-      // 选中状态
-      &.f-tabs__nav-active {
-        color: #2d5af1;
-        border-color: #2d5af1;
       }
     }
   }
