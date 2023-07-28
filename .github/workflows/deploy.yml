@@ -1,0 +1,31 @@
+name: Deploy Docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main   # 更换为您的主要分支名称，如果您使用的是其他主要分支，请相应修改
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'   # 可根据您的项目需要修改Node.js版本
+
+      - name: Install dependencies
+        run: pnpm i   # 执行安装依赖，如果您的项目中使用的是 npm，请将 "pnpm i" 替换为 "npm install"
+
+      - name: Build Docs
+        run: pnpm run build:docs   # 执行打包文档命令，如果您的项目中使用的是 npm，请将 "pnpm run build:docs" 替换为 "npm run build:docs"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vitepress/dist   # 指定打包后的文档目录
