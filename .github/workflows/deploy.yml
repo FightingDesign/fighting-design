@@ -19,10 +19,10 @@ jobs:
           node-version: '14'   # 可根据您的项目需要修改Node.js版本
 
       - name: Install dependencies
-        run: pnpm i   # 执行安装依赖，如果您的项目中使用的是 npm，请将 "pnpm i" 替换为 "npm install"
+        run: npm i   # 执行安装依赖，如果您的项目中使用的是 npm，请将 "pnpm i" 替换为 "npm install"
 
       - name: Build Docs
-        run: pnpm run build:docs   # 执行打包文档命令，如果您的项目中使用的是 npm，请将 "pnpm run build:docs" 替换为 "npm run build:docs"
+        run: npm run build:docs   # 执行打包文档命令，如果您的项目中使用的是 npm，请将 "pnpm run build:docs" 替换为 "npm run build:docs"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
