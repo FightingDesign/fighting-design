@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: column;
 
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 13px;
+
+    .f-tabs__navs {
+      width: 100%;
+    }
+  } 
+
   // 菜单栏
   // 线性类型
   &__line {
@@ -130,7 +141,7 @@
   }
 
   // 主要展示的内容
-  &__content {
+  &__body {
     flex: 1;
   }
 }

@@ -138,20 +138,32 @@
 
 <template>
   <div role="tab" :class="classList" :style="styleList">
-    <!-- 标签列表 -->
-    <div class="f-tabs__navs">
-      <div
-        v-for="(item, index) in children"
-        :key="index"
-        :class="['f-tabs__nav-item', { 'f-tabs__nav-active': item.name === activeName }]"
-        @[trigger]="changeNavs(item.name)"
-      >
-        {{ item.label }}
+    <!-- 头部内容 -->
+    <div class="f-tabs__head">
+      <!-- 前缀插槽 -->
+      <slot v-if="$slots.prefix" name="prefix" />
+
+      <!-- 标签列表 -->
+      <div class="f-tabs__navs">
+        <div
+          v-for="(item, index) in children"
+          :key="index"
+          :class="[
+            'f-tabs__nav-item',
+            { 'f-tabs__nav-active': item.name === activeName }
+          ]"
+          @[trigger]="changeNavs(item.name)"
+        >
+          {{ item.label }}
+        </div>
       </div>
+
+      <!-- 后缀插槽 -->
+      <slot v-if="$slots.suffix" name="suffix" />
     </div>
 
     <!-- 主要展示的内容 -->
-    <div class="f-tabs__content">
+    <div class="f-tabs__body">
       <slot />
     </div>
   </div>
