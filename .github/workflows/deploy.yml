@@ -3,7 +3,7 @@ name: Deploy Docs to GitHub Pages
 on:
   push:
     branches:
-      - main   # 更换为您的主要分支名称，如果您使用的是其他主要分支，请相应修改
+      - master   # 更换为您的主要分支名称，如果您使用的是其他主要分支，请相应修改
 
 jobs:
   deploy:
