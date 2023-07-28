@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化 `f-radio` 组件样式
+- 废除 `f-tabs-pane` 组件
+- 新增 `f-tabs-item` 组件
+
 ## 0.52.0 (2023-07-14)
 
 - 新增 `f-avatar-group` 组件

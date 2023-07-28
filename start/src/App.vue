@@ -1,12 +1,12 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const act = ref('2344')
+  const act = ref('333')
 </script>
 
 <template>
   {{ act }}
-  <f-tabs v-model="act">
+  <f-tabs v-model="act" position="left">
     <f-tabs-item label="如烟">
       <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
       <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>

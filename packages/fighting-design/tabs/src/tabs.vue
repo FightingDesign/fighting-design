@@ -2,6 +2,7 @@
   import { Props, TABS_PROPS_KEY } from './props'
   import { provide, getCurrentInstance, ref, isVNode } from 'vue'
   import { isObject, isArray } from '../../_utils'
+  import { useList } from '../../_hooks'
   import type { TabsItemProps } from '../../tabs-item'
   import type {
     ComponentInternalInstance,
@@ -13,11 +14,13 @@
 
   defineOptions({ name: 'FTabs' })
 
-  defineProps(Props)
+  const prop = defineProps(Props)
   const modelValue = defineModel<number | string>({
     default: null,
     type: [Number, String]
   })
+
+  const { classes } = useList(prop, 'tabs')
 
   /** 当前选中的 name */
   const activeName = ref<string | number>(0)
@@ -112,10 +115,13 @@
     activeName.value = name
     modelValue.value = name
   }
+
+  /** 类名列表 */
+  const classList = classes(['position'], 'f-tabs')
 </script>
 
 <template>
-  <div role="tab" class="f-tabs">
+  <div role="tab" :class="classList">
     <!-- 标签列表 -->
     <div class="f-tabs__navs">
       <div

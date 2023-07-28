@@ -2,11 +2,63 @@
   display: flex;
   flex-direction: column;
 
+  // 不同的 nav 列表方向
+  // 上
+  &__top {
+    flex-direction: column;
+
+    .f-tabs__navs {
+      column-gap: 12px;
+      border-bottom: 1px solid #ddd;
+
+      .f-tabs__nav-item {
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+
+  &__bottom {
+    flex-direction: column-reverse;
+
+    .f-tabs__navs {
+      column-gap: 12px;
+      border-top: 1px solid #ddd;
+
+      .f-tabs__nav-item {
+        border-top: 2px solid transparent;
+      }
+    }
+  }
+
+  &__left {
+    flex-direction: row;
+
+    .f-tabs__navs {
+      flex-direction: column;
+      border-right: 1px solid #ddd;
+
+      .f-tabs__nav-item {
+        border-right: 2px solid transparent;
+      }
+    }
+  }
+
+  &__right {
+    flex-direction: row-reverse;
+
+    .f-tabs__navs {
+      flex-direction: column;
+      border-left: 1px solid #ddd;
+
+      .f-tabs__nav-item {
+        border-left: 2px solid transparent;
+      }
+    }
+  }
+
   // 菜单栏
   .f-tabs__navs {
     display: flex;
-    border-bottom: 1px solid #ddd;
-    column-gap: 12px;
 
     // 每一项
     .f-tabs__nav-item {
@@ -15,7 +67,7 @@
       box-sizing: border-box;
       font-size: 15px;
       user-select: none;
-      border-bottom: 2px solid transparent;
+      // border-bottom: 2px solid transparent;
 
       // 选中状态
       &.f-tabs__nav-active {
