@@ -3,23 +3,74 @@
   flex-direction: column;
 
   // 菜单栏
-  .f-tabs__navs {
-    display: flex;
-    justify-content: var(--tabs-justify-content);
+  // 线性类型
+  &__line {
+    .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
 
-    // 每一项
-    .f-tabs__nav-item {
-      cursor: pointer;
-      padding: 10px 7px;
+      // 每一项
+      .f-tabs__nav-item {
+        cursor: pointer;
+        padding: 10px 7px;
+        box-sizing: border-box;
+        font-size: 15px;
+        user-select: none;
+
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          border-color: #2d5af1;
+        }
+      }
+    }
+  }
+
+  // 卡片类型
+  &__card {
+    .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
+
+      .f-tabs__nav-item {
+        padding: 4px 12px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        user-select: none;
+        background-color: #f5f7fa;
+      }
+    }
+  }
+
+  // 分段类型
+  &__segment {
+    .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
+      background: #f7f7f7;
+      padding: 4px;
       box-sizing: border-box;
-      font-size: 15px;
-      user-select: none;
-      // border-bottom: 2px solid transparent;
 
-      // 选中状态
-      &.f-tabs__nav-active {
-        color: #2d5af1;
-        border-color: #2d5af1;
+      .f-tabs__nav-item {
+        flex: 1;
+        padding: 4px 12px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        background-color: transparent;
+        text-align: center;
+        word-break: keep-all;
+        padding: 4px 8px;
+
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          background-color: #fff;
+        }
       }
     }
   }

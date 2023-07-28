@@ -1,14 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { TABS_PROPS_KEY } from '../../tabs/src/props'
-  import {
-    inject,
-    computed,
-    getCurrentInstance,
-    ref,
-    onMounted,
-    reactive
-  } from 'vue'
+  import { inject, computed, getCurrentInstance, ref, onMounted, reactive } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
 
   defineOptions({ name: 'FTabsItem' })
@@ -28,6 +21,15 @@
     activeName,
     uid: instance.uid,
     label: prop.label
+  })
+
+  /** 该组件是否加载 */
+  const isLoad = computed((): boolean => {
+    if (!parentInject) return false
+    if (parentInject.activeName.value === activeName.value) {
+      return true
+    }
+    return !prop.lazy
   })
 
   /** 该组件是否显示 */
@@ -51,6 +53,7 @@
 
 <template>
   <div
+    v-if="isLoad"
     v-show="isActive"
     :class="['f-tabs-item', { 'f-tabs-item__active': isActive }]"
     role="tabpanel"

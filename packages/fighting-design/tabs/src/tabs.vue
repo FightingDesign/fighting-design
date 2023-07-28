@@ -119,12 +119,13 @@
     }
 
     if (isBoolean(result) && !result) return
+
     activeName.value = name
     modelValue.value = name
   }
 
   /** 类名列表 */
-  const classList = classes(['position'], 'f-tabs')
+  const classList = classes(['position', 'type'], 'f-tabs')
 
   /** 样式列表 */
   const styleList = styles(['justifyContent'])
