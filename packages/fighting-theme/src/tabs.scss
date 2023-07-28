@@ -1,6 +1,7 @@
 .f-tabs {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   // 头部
   &__head {
@@ -20,30 +21,32 @@
     // 菜单栏
     .f-tabs__navs {
       width: 100%;
+
+      .f-tabs__nav-item {
+        font-size: 15px;
+      }
     }
   }
 
   // 菜单栏
   // 线性类型
   &__line {
-    .f-tabs__head {
-      .f-tabs__navs {
-        display: flex;
-        justify-content: var(--tabs-justify-content);
+    .f-tabs__head .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
 
-        // 每一项
-        .f-tabs__nav-item {
-          cursor: pointer;
-          padding: 10px 7px;
-          box-sizing: border-box;
-          font-size: 15px;
-          user-select: none;
+      // 每一项
+      .f-tabs__nav-item {
+        cursor: pointer;
+        padding: 10px 7px;
+        box-sizing: border-box;
+        font-size: 15px;
+        user-select: none;
 
-          // 选中状态
-          &.f-tabs__nav-active {
-            color: #2d5af1;
-            border-color: #2d5af1;
-          }
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          border-color: #2d5af1;
         }
       }
     }
@@ -75,50 +78,48 @@
 
   // 卡片类型
   &__card {
-    .f-tabs__head {
-      .f-tabs__navs {
+    .f-tabs__head .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
+
+      .f-tabs__nav-item {
+        padding: 4px 12px;
+        border: 1px solid #ddd;
+        cursor: pointer;
         display: flex;
-        justify-content: var(--tabs-justify-content);
+        align-items: center;
+        user-select: none;
+        background-color: #f5f7fa;
+        color: #8e8ea0;
 
-        .f-tabs__nav-item {
-          padding: 4px 12px;
-          border: 1px solid #ddd;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          user-select: none;
-          background-color: #f5f7fa;
-          color: #8e8ea0;
-
-          // 选中状态
-          &.f-tabs__nav-active {
-            color: #2d5af1;
-            background-color: #fff;
-          }
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          background-color: #fff;
         }
       }
     }
 
     // 右侧的圆角
-    &.f-tabs__right .f-tabs__head .f-tabs__navs .f-tabs__nav-item {
+    &.f-tabs__right .f-tabs__nav-item {
       border-bottom-right-radius: 8px;
       border-top-right-radius: 8px;
     }
 
     // 左侧的圆角
-    &.f-tabs__left .f-tabs__head .f-tabs__navs .f-tabs__nav-item {
+    &.f-tabs__left .f-tabs__nav-item {
       border-bottom-left-radius: 8px;
       border-top-left-radius: 8px;
     }
 
     // 上侧的圆角
-    &.f-tabs__top .f-tabs__head .f-tabs__navs .f-tabs__nav-item {
+    &.f-tabs__top .f-tabs__nav-item {
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
     }
 
     // 下侧的圆角
-    &.f-tabs__bottom .f-tabs__head .f-tabs__navs .f-tabs__nav-item {
+    &.f-tabs__bottom .f-tabs__nav-item {
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
     }
@@ -126,33 +127,30 @@
 
   // 分段类型
   &__segment {
-    .f-tabs__head {
-      .f-tabs__navs {
+    .f-tabs__head .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
+      background: #f7f7f7;
+      padding: 4px;
+      box-sizing: border-box;
+
+      .f-tabs__nav-item {
+        flex: 1;
+        padding: 4px 12px;
+        cursor: pointer;
         display: flex;
-        justify-content: var(--tabs-justify-content);
-        background: #f7f7f7;
-        padding: 4px;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        background-color: transparent;
+        word-break: keep-all;
+        color: #8e8ea0;
         box-sizing: border-box;
 
-        .f-tabs__nav-item {
-          flex: 1;
-          padding: 4px 12px;
-          cursor: pointer;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          user-select: none;
-          background-color: transparent;
-          text-align: center;
-          word-break: keep-all;
-          padding: 4px 8px;
-          color: #8e8ea0;
-
-          // 选中状态
-          &.f-tabs__nav-active {
-            color: #2d5af1;
-            background-color: #fff;
-          }
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          background-color: #fff;
         }
       }
     }
@@ -222,5 +220,6 @@
   // 主要展示的内容
   &__body {
     flex: 1;
+    box-sizing: border-box;
   }
 }

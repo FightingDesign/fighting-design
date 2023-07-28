@@ -8,9 +8,9 @@
   {{ act }}
   <f-tabs
     v-model="act"
-    position="left"
+    position="top"
     trigger="click"
-    type="line"
+    type="card"
   >
     <template #prefix>
       <f-button type="primary">前缀</f-button>
