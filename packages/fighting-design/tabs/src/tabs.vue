@@ -141,7 +141,9 @@
     <!-- 头部内容 -->
     <div class="f-tabs__head">
       <!-- 前缀插槽 -->
-      <slot v-if="$slots.prefix" name="prefix" />
+      <div v-if="$slots.prefix" class="f-tabs__prefix">
+        <slot name="prefix" />
+      </div>
 
       <!-- 标签列表 -->
       <div class="f-tabs__navs">
@@ -159,7 +161,9 @@
       </div>
 
       <!-- 后缀插槽 -->
-      <slot v-if="$slots.suffix" name="suffix" />
+      <div v-if="$slots.suffix" class="f-tabs__suffix">
+        <slot name="suffix" />
+      </div>
     </div>
 
     <!-- 主要展示的内容 -->

@@ -8,8 +8,9 @@
   {{ act }}
   <f-tabs
     v-model="act"
-    position="top"
+    position="left"
     trigger="click"
+    type="line"
   >
     <template #prefix>
       <f-button type="primary">前缀</f-button>
@@ -19,7 +20,8 @@
     </template>
 
     <f-tabs-item label="如烟">
-      <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
+      等哈时间的哈市绝对会撒娇
+      <!-- <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p> -->
       <!-- <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p> -->
     </f-tabs-item>
     <f-tabs-item label="盛夏光年" name="222">
