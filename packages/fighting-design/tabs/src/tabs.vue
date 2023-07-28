@@ -71,8 +71,6 @@
       })
       .filter(Boolean) as number[]
 
-    console.log(componentUid)
-
     children.value = (
       componentUid
         .map((e: number): TabsOpts | undefined => {
