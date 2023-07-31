@@ -68,7 +68,7 @@
 
   const root = getCurrentInstance() as ComponentInternalInstance
   const component = 'FTabsItem'
-  
+
   const registerChild = (opts: TabsOpts): void => {
     childrenMap.set(opts.uid, opts)
     const componentList: VNode[] = getChildrenComponent(root, component)

@@ -17,7 +17,7 @@ export default defineConfig({
   description,
   /**
    * vue 相关配置
-   * 
+   *
    * @see vue https://vitepress.dev/reference/site-config#vue
    * @see option https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options
    */
@@ -27,12 +27,11 @@ export default defineConfig({
     }
   },
 
-
   /**
    * 覆盖默认主题组件
    * @see vue  https://vitepress.dev/guide/extending-default-theme
    */
-  vite:{
+  vite: {
     resolve: {
       alias: [
         {

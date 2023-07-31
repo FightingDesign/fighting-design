@@ -2,7 +2,7 @@ import type { PropType } from 'vue'
 
 /**
  * 设置组件的 prop 参数
- * 
+ *
  * @see 为组件的props标注类型 https://cn.vuejs.org/guide/typescript/options-api.html#typing-component-props
  */
 
@@ -41,7 +41,7 @@ export const setNumberProp = <T extends number>(
 
 /**
  * 设置 string 类型的 prop 参数
- * 
+ *
  * @param { string } [defaultVal = undefined] 默认值
  * @param { Function } [validator] 校验方法
  * @returns { Object } 配置对象

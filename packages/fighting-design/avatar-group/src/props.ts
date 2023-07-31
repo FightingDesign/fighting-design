@@ -1,4 +1,10 @@
-import { isNumber, isString, setBooleanProp, setStringProp, setStringNumberProp } from '../../_utils'
+import {
+  isNumber,
+  isString,
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp
+} from '../../_utils'
 import { FIGHTING_SIZE, FIGHTING_FIT } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { FightingSize, FightingFit } from '../../_interface'
@@ -49,5 +55,6 @@ export const Props = {
 export type AvatarGroupProps = ExtractPropTypes<typeof Props>
 
 /** avatar-group 注入的依赖项 */
-export const AVATAR_GROUP_PROPS_KEY: InjectionKey<AvatarGroupProps> =
-  Symbol('avatar-group-props-key')
+export const AVATAR_GROUP_PROPS_KEY: InjectionKey<AvatarGroupProps> = Symbol(
+  'avatar-group-props-key'
+)
