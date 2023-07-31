@@ -39,7 +39,7 @@ jobs:
       - name: Build and Move docs
         run: |
           pnpm build:docs
-          mv -f docs/docs/.vitepress/dist/* docs/docs/.vitepress/dist/*
+          cd docs/docs/.vitepress/dist
           git add -A
           git commit -m "Move build artifacts to docs-web branch"
           git push origin docs-web
