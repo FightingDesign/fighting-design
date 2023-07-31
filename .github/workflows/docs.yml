@@ -1,0 +1,55 @@
+name: Fighting Design Build Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 下载仓库代码 / 校验
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # 安装 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.17.1
+
+      # 安装 node
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'pnpm'
+
+      # 安装依赖项
+      - name: Install
+        run: pnpm i
+
+
+      # 打打包文档，并移动产物到新分支
+      - name: Build and Move docs
+        run: |
+          pnpm build:docs
+          mkdir -p docs/docs/.vitepress/dist
+          mv -f build_output_directory/* docs/docs/.vitepress/dist/
+          git add -A
+          git commit -m "Move build artifacts to docs-web branch"
+          git push origin docs-web
+
+      # 向 Codecov 报告覆盖率
+      - name: Report coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/docs/.vitepress/dist

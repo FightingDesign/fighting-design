@@ -39,15 +39,15 @@ jobs:
       - name: Build components
         run: pnpm build
 
-      # 打打包文档，并移动产物到新分支
-      - name: Build and Move docs
-        run: |
-          pnpm build:docs
-          mkdir -p docs/docs/.vitepress/dist
-          mv -f build_output_directory/* docs/docs/.vitepress/dist/
-          git add -A
-          git commit -m "Move build artifacts to docs-web branch"
-          git push origin docs-web
+      # # 打打包文档，并移动产物到新分支
+      # - name: Build and Move docs
+      #   run: |
+      #     pnpm build:docs
+      #     mkdir -p docs/docs/.vitepress/dist
+      #     mv -f build_output_directory/* docs/docs/.vitepress/dist/
+      #     git add -A
+      #     git commit -m "Move build artifacts to docs-web branch"
+      #     git push origin docs-web
 
       # 向 Codecov 报告覆盖率
       - name: Report coverage to Codecov
@@ -55,11 +55,11 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/docs/.vitepress/dist
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: docs/docs/.vitepress/dist
 # name: Fighting Design Github Actions
 
 # # 当 master 分支 push 代码的时候触发 workflow
