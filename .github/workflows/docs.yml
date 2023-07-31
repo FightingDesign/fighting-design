@@ -32,12 +32,14 @@ jobs:
         run: pnpm i
 
 
+#       # mkdir -p docs/docs/.vitepress/dist
+          # mv -f build_output_directory/* docs/docs/.vitepress/dist/
+
       # 打打包文档，并移动产物到新分支
       - name: Build and Move docs
         run: |
           pnpm build:docs
-          mkdir -p docs/docs/.vitepress/dist
-          mv -f build_output_directory/* docs/docs/.vitepress/dist/
+          mv -f docs/docs/.vitepress/dist/*
           git add -A
           git commit -m "Move build artifacts to docs-web branch"
           git push origin docs-web
