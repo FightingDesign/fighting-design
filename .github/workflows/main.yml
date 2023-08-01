@@ -23,7 +23,7 @@ jobs:
         with:
           version: 6
 
-      # 安装 node
+      # 安装 node pnpm
       - name: Setup node
         uses: actions/setup-node@v3
         with:
