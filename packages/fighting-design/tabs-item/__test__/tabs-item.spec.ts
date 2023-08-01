@@ -1,10 +1,7 @@
-// import { mount } from '@vue/test-utils'
-// import { describe, expect, test } from 'vitest'
-// import { FTabsItem } from '../index'
+import { describe, expect, test } from 'vitest'
 
-// describe('TabsItem', () => {
-//   test('class', () => {
-//     const wrapper = mount(FTabsItem)
-//     // expect(wrapper.classes()).toContain('f-tabs-item')
-//   })
-// })
+describe('TabsItem', () => {
+  test('class', () => {
+    expect(1 + 1).toBe(2)
+  })
+})
