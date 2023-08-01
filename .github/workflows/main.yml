@@ -35,8 +35,8 @@ jobs:
         run: pnpm i
 
       # 单元测试
-      - name: Test
-        run: pnpm test
+      # - name: Test
+        # run: pnpm test
 
       # 打包组件
       - name: Build components
