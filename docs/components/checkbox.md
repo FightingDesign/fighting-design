@@ -265,7 +265,7 @@ type CheckboxGroupChange = (val: string[]) => void
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import demo1Vue from './_demos/checkbox/demo1.vue'
+  import demo1Vue from './demos/checkbox/demo1.vue'
 
   const option1 = ref(false)
   const option2 = ref([])

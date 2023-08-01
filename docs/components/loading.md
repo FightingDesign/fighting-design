@@ -254,7 +254,7 @@ import type {
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/loading/demo1.vue'
+  import demo1Vue from './demos/loading/demo1.vue'
   import { ref } from 'vue'
   const fullLoading = ref(false)
   const onShowLoading = () => {

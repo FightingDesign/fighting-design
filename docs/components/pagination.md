@@ -219,9 +219,9 @@ type PaginationEvent = (current: number, pageSize: number, evt: MouseEvent) => v
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/pagination/demo1.vue'
-  import demo2Vue from './_demos/pagination/demo2.vue'
-  import demo3Vue from './_demos/pagination/demo3.vue'
+  import demo1Vue from './demos/pagination/demo1.vue'
+  import demo2Vue from './demos/pagination/demo2.vue'
+  import demo3Vue from './demos/pagination/demo3.vue'
   import { FIconCloud, FIconBlock } from '@fighting-design/fighting-icon'
   import { ref } from 'vue'
 

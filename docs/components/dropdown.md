@@ -113,6 +113,6 @@ import type {
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/dropdown/demo1.vue'
-  import demo2Vue from './_demos/dropdown/demo2.vue'
+  import demo1Vue from './demos/dropdown/demo1.vue'
+  import demo2Vue from './demos/dropdown/demo2.vue'
 </script>

@@ -173,7 +173,7 @@ type SelectChange = (
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import demo1Vue from './_demos/select/demo1.vue'
-  import demo2Vue from './_demos/select/demo2.vue'
-  import demo3Vue from './_demos/select/demo3.vue'
+  import demo1Vue from './demos/select/demo1.vue'
+  import demo2Vue from './demos/select/demo2.vue'
+  import demo3Vue from './demos/select/demo3.vue'
 </script>

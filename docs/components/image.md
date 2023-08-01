@@ -198,6 +198,6 @@ import type { ImageInstance, ImageProps, ImageFit } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/image/demo1.vue'
-  const url = new URL('./_image/1.jpg', import.meta.url).href
+  import demo1Vue from './demos/image/demo1.vue'
+  const url = new URL('./image/1.jpg', import.meta.url).href
 </script>

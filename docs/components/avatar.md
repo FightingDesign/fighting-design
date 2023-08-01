@@ -223,7 +223,7 @@ import type { AvatarInstance, AvatarProps } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/avatar/demo1.vue'
+  import demo1Vue from './demos/avatar/demo1.vue'
   import { FIconFaceSmile, FIconBug } from '@fighting-design/fighting-icon'
   const url = new URL('./_image/1.jpg', import.meta.url).href
 </script>

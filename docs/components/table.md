@@ -712,7 +712,7 @@ type TableAlign = 'left' | 'center' | 'right'
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import demo1Vue from './_demos/table/demo1.vue'
+  import demo1Vue from './demos/table/demo1.vue'
   import { FButton, FMessage } from 'fighting-design'
 
   const columns = ref([

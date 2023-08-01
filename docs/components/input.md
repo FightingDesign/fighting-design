@@ -297,9 +297,9 @@ type InputEnter = (value: string, evt: KeyboardEvent) => void
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import demo1Vue from './_demos/input/demo1.vue'
-  import demo2Vue from './_demos/input/demo2.vue'
-  import demo3Vue from './_demos/input/demo3.vue'
+  import demo1Vue from './demos/input/demo1.vue'
+  import demo2Vue from './demos/input/demo2.vue'
+  import demo3Vue from './demos/input/demo3.vue'
   import { FIconCloud } from '@fighting-design/fighting-icon'
 
   const value1 = ref('')

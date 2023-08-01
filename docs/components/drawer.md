@@ -143,6 +143,6 @@ type DrawerDirection = 'left' | 'top' | 'right' | 'bottom'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/drawer/demo1.vue'
-  import demo2Vue from './_demos/drawer/demo2.vue'
+  import demo1Vue from './demos/drawer/demo1.vue'
+  import demo2Vue from './demos/drawer/demo2.vue'
 </script>

@@ -134,6 +134,6 @@ type ScrollCallback = (distance: number) => void
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/infinite-scrolling/demo1.vue'
-  import demo2Vue from './_demos/infinite-scrolling/demo2.vue'
+  import demo1Vue from './demos/infinite-scrolling/demo1.vue'
+  import demo2Vue from './demos/infinite-scrolling/demo2.vue'
 </script>

@@ -188,7 +188,7 @@ type DialogCallback = (node: Element) => void
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/dialog/demo1.vue'
-  import demo2Vue from './_demos/dialog/demo2.vue'
-  import demo3Vue from './_demos/dialog/demo3.vue'
+  import demo1Vue from './demos/dialog/demo1.vue'
+  import demo2Vue from './demos/dialog/demo2.vue'
+  import demo3Vue from './demos/dialog/demo3.vue'
 </script>

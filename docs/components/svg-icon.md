@@ -99,8 +99,8 @@ import type { SvgIconInstance, SvgIconProps } from 'fighting-design'
 </a>
 
 <script setup lang="ts">
-  import demo1Vue from './_demos/svg-icon/demo1.vue'
-  import demo2Vue from './_demos/svg-icon/demo2.vue'
+  import demo1Vue from './demos/svg-icon/demo1.vue'
+  import demo2Vue from './demos/svg-icon/demo2.vue'
   import Svg from '@fighting-design/fighting-icon'
 
   const num = Object.keys(Svg).length

@@ -23,5 +23,5 @@
 </a>
 
 <script setup lang="ts">
-import demo1Vue from './_demos/color/demo1.vue'
+import demo1Vue from './demos/color/demo1.vue'
 </script>
