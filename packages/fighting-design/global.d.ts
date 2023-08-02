@@ -85,6 +85,7 @@ declare module '@vue/runtime-core' {
     FNumberAnimate: typeof components.FNumberAnimate
     FCountDown: typeof components.FCountDown
     FAvatarGroup: typeof components.FAvatarGroup
+    FEllipsis: typeof components.FEllipsis
   }
 
   interface ComponentCustomProperties {

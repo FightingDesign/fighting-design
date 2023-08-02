@@ -1,7 +1,6 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
-  import type { Ref } from 'vue'
   import { useSlots, ref } from 'vue'
   import { useResizeObserver } from '@vueuse/core'
   import { debounce } from '../../_utils'
@@ -18,7 +17,7 @@
   const slotContent = useSlots().default?.()[0].children
 
   /** 判断是否需要显示toolTip, 出现...的时候展示，反之不展示*/
-  const fEllipsisRef: Ref<HTMLDivElement | null> = ref(null)
+  const fEllipsisRef = ref<HTMLDivElement | undefined>()
   const isShowTip = ref(false)
 
   const judgeEllipsis = (): void => {
@@ -26,6 +25,7 @@
       isShowTip.value = fEllipsisRef.value.clientHeight < fEllipsisRef.value.scrollHeight
     }
   }
+
   // 监听元素宽度，重新计算是否需要显示tooltip
   useResizeObserver(
     fEllipsisRef,
@@ -33,6 +33,7 @@
       judgeEllipsis()
     })
   )
+
   /** toggle expand */
   const handleClick = (): void => {
     if (!prop.toggleClick) {
@@ -40,6 +41,7 @@
     }
     setLineClamp()
   }
+
   const setLineClamp = (): void => {
     if (styleList.value['--ellipsis-line-clamp']) {
       styleList.value['--ellipsis-line-clamp'] = 0
