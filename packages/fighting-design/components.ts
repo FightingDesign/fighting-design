@@ -231,3 +231,6 @@ export * from './avatar-group'
 
 export { FTabsItem } from './tabs-item'
 export * from './tabs-item'
+
+export { FEllipsis } from './ellipsis'
+export * from './ellipsis'

@@ -1,41 +1,28 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  let tabIndex = 2
-
-  const list = ref([
-    { label: '第一个', content: '内容 1', name: '1' },
-    { label: '第二个', content: '内容 2', name: '2' }
-  ])
-
-  const onEdit = (action: 'remove' | 'add', name: string, index: number): void => {
-    switch (action) {
-      case 'add':
-        {
-          const newTabName = `${++tabIndex}`
-          list.value.push({
-            label: '新的' + newTabName,
-            content: '新的标签页' + newTabName,
-            name: newTabName
-          })
-        }
-        break
-      case 'remove':
-        list.value.splice(index, 1)
-        break
-    }
-  }
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <f-tabs edit-status type="card" :on-edit="onEdit">
-    <f-tabs-item
-      v-for="(item, index) in list"
-      :key="index"
-      :label="item.label"
-      :name="item.name"
-    >
-      {{ item.content }}
-    </f-tabs-item>
-  </f-tabs>
+  <h4>1、空状态</h4>
+  <f-ellipsis> </f-ellipsis>
+  <h4>2、line-clamp设置行数</h4>
+  <f-ellipsis :max-width="150">
+    七岁的那一年抓住那只蝉以为能抓住夏天，十七岁的那年吻过她的脸就以为和她能永远，有没有那么一种永远
+    永远不改变，拥抱过的美丽都再也不破碎
+  </f-ellipsis>
+  <h4></h4>
+  <br />
+  <f-ellipsis :max-width="150" :line-clamp="2">
+    七岁的那一年抓住那只蝉以为能抓住夏天，十七岁的那年吻过她的脸就以为和她能永远，有没有那么一种永远
+    永远不改变，拥抱过的美丽都再也不破碎
+  </f-ellipsis>
+  <h4>3、max-width: 最大宽度，不设置默认宽度auto</h4>
+  <f-ellipsis :max-width="300" :line-clamp="2">
+    七岁的那一年抓住那只蝉以为能抓住夏天，十七岁的那年吻过她的脸就以为和她能永远，有没有那么一种永远
+    永远不改变，拥抱过的美丽都再也不破碎
+  </f-ellipsis>
+
+  <h4>4、toggle-click, 点击展开收缩</h4>
+  <f-ellipsis :max-width="300" :line-clamp="2" toggle-click>
+    七岁的那一年抓住那只蝉以为能抓住夏天，十七岁的那年吻过她的脸就以为和她能永远，有没有那么一种永远
+    永远不改变，拥抱过的美丽都再也不破碎
+  </f-ellipsis>
 </template>

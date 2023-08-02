@@ -1,0 +1,15 @@
+.f-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: var(--ellipsis-line-clamp);
+  max-width: var(--ellipsis-max-width);
+  //若没有内容,添加横线'-'
+  &:empty {
+    &:before {
+      content: '-';
+    }
+  }
+}

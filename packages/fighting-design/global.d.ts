@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     FDivider: typeof components.FDivider
     FDrawer: typeof components.FDrawer
     FEmpty: typeof components.FEmpty
+    FEllipsis: typeof components.FEllipsis
     FExpandCard: typeof components.FExpandCard
     FFooter: typeof components.FFooter
     FHeader: typeof components.FHeader
