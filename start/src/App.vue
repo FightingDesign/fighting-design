@@ -4,8 +4,9 @@
   const length = ref(20)
 
   const onScrollEnd = (): void => {
-    console.log('添加元素')
-    length.value += 10
+    setTimeout(() => {
+      length.value += 10
+    }, 2000)
   }
 </script>
 
