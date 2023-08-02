@@ -1,8 +1,6 @@
 export type { InfiniteScrollingProps } from './props'
 
 /**
- * 滚动触发的回调类型
- *
- * @param { number }  distance 滚动距离
+ * 滚动到底触发的回调类型
  */
-export type ScrollCallback = (distance: number) => void
+export type ScrollCallback = () => void

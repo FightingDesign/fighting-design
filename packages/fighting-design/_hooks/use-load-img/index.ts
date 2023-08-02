@@ -141,9 +141,12 @@ export const useLoadImg = (
      * 实例化监测方法
      *
      * @see IntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API
-     * @see IntersectionObserver.IntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
+     * @see IntersectionObserverIntersectionObserver https://developer.mozilla.org/zh-CN/docs/Web/API/IntersectionObserver/IntersectionObserver
      */
     const observer = new IntersectionObserver(
+      /**
+       * @param { Array } arr 观察的元素数组
+       */
       (arr: IntersectionObserverEntry[]): void => {
         /** 如果到达区域范围开始加载 */
         if (arr[0].isIntersecting) {

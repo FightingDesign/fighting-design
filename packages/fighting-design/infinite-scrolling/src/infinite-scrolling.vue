@@ -1,7 +1,8 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import { useRun } from '../../_hooks'
+  import { sizeChange } from '../../_utils'
 
   defineOptions({ name: 'FInfiniteScrolling' })
 
@@ -9,49 +10,34 @@
 
   const { run } = useRun()
 
-  /** 是否到达底部 */
-  const target = ref(false)
+  /** loading 元素节点 */
+  const loadingRef = ref<HTMLDivElement | undefined>()
 
-  /** 元素节点 */
-  const scrollRef = ref<HTMLDivElement | undefined>()
-
-  /** 滚动触发 */
-  const scroll = (): void => {
-    if (prop.loading) return
-
-    /** 获取到元素节点 */
-    const view: HTMLDivElement | undefined = scrollRef.value
-
-    /** 如果没找到则直接拦截 */
-    if (!view) return
-
-    /**
-     * 获取到滚动的距离
-     *
-     * @see Math.ceil() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/cei
-     */
-    const viewScrollingDistance: number = Math.ceil(
-      view.scrollTop + view.clientHeight + prop.distance
+  /** 监视元素触发回调 */
+  const obs = (): IntersectionObserver => {
+    return new IntersectionObserver(
+      /**
+       * @param { Array } arr 观察的元素数组
+       */
+      (arr: IntersectionObserverEntry[]): void => {
+        if (arr[0].isIntersecting) {
+          run(prop.onScrollEnd)
+        }
+      },
+      { rootMargin: sizeChange(prop.distance) }
     )
-
-    /** 滚动时回调 */
-    run(prop.onScrollWhen, Math.ceil(view.scrollTop))
-
-    /** 如果滚动的距离大于容器高度执行 */
-    if (viewScrollingDistance >= view.scrollHeight && !target.value) {
-      /** 批处理 触底时回调 */
-      target.value = true
-
-      run((distance: number): void => {
-        prop.onScrollEnd(distance)
-        target.value = false
-      }, viewScrollingDistance)
-    }
   }
+
+  /** 初始化监视元素 */
+  onMounted((): void => {
+    if (loadingRef.value) {
+      obs().observe(loadingRef.value)
+    }
+  })
 </script>
 <template>
-  <div ref="scrollRef" class="f-infinite-scrolling" :style="styles" @scroll="scroll">
+  <div class="f-infinite-scrolling">
     <slot />
-    <div v-if="loading" class="f-infinite-scrolling__loading">加载中...</div>
+    <div ref="loadingRef" class="f-infinite-scrolling__loading">加载中...</div>
   </div>
 </template>

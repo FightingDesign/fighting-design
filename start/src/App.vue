@@ -1,41 +1,28 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  let tabIndex = 2
+  const length = ref(20)
 
-  const list = ref([
-    { label: '第一个', content: '内容 1', name: '1' },
-    { label: '第二个', content: '内容 2', name: '2' }
-  ])
-
-  const onEdit = (action: 'remove' | 'add', name: string, index: number): void => {
-    switch (action) {
-      case 'add':
-        {
-          const newTabName = `${++tabIndex}`
-          list.value.push({
-            label: '新的' + newTabName,
-            content: '新的标签页' + newTabName,
-            name: newTabName
-          })
-        }
-        break
-      case 'remove':
-        list.value.splice(index, 1)
-        break
-    }
+  const onScrollEnd = (): void => {
+    console.log('添加元素')
+    length.value += 10
   }
 </script>
 
 <template>
-  <f-tabs edit-status type="card" :on-edit="onEdit">
-    <f-tabs-item
-      v-for="(item, index) in list"
-      :key="index"
-      :label="item.label"
-      :name="item.name"
-    >
-      {{ item.content }}
-    </f-tabs-item>
-  </f-tabs>
+  <f-infinite-scrolling :on-scroll-end="onScrollEnd" distance="20px">
+    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
+  </f-infinite-scrolling>
 </template>
+
+<style scoped>
+  .item {
+    width: 100%;
+    height: 40px;
+    background-color: #96acf8;
+    color: #fff;
+    margin: 5px 0;
+    text-align: center;
+    line-height: 40px;
+  }
+</style>
