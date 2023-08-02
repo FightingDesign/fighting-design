@@ -12,13 +12,17 @@
 ::: demo
 
 <template #source>
-<demo1-vue />
+<f-infinite-scrolling :on-scroll-end="onScrollEnd">
+<div v-for="item in length" :key="item" class="f-infinite-scrolling-item" style="">{{ item }}</div>
+</f-infinite-scrolling>
 </template>
 
 ```html
 <template>
   <f-infinite-scrolling :on-scroll-end="onScrollEnd">
-    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
+    <div v-for="item in length" :key="item" class="f-infinite-scrolling-item" style="">
+      {{ item }}
+    </div>
   </f-infinite-scrolling>
 </template>
 
@@ -28,60 +32,18 @@
   const length = ref(20)
 
   const onScrollEnd = (): void => {
-    length.value += 10
-  }
-</script>
-
-<style scoped>
-  .item {
-    width: 100%;
-    height: 40px;
-    background-color: #96acf8;
-    color: #fff;
-    margin: 5px 0;
-    text-align: center;
-    line-height: 40px;
-  }
-</style>
-```
-
-:::
-
-## 加载状态
-
-`loading` 显示加载效果...
-
-::: demo
-
-<template #source>
-<demo2-vue />
-</template>
-
-```html
-<template>
-  <f-infinite-scrolling :loading="loading" :on-scroll-end="onScrollEnd">
-    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
-  </f-infinite-scrolling>
-</template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const length = ref(10)
-  const loading = ref(false)
-
-  const onScrollEnd = (): void => {
-    loading.value = true
-
     setTimeout(() => {
       length.value += 10
-      loading.value = false
-    }, 2000)
+    }, 1000)
   }
 </script>
 
 <style scoped>
-  .item {
+  .f-infinite-scrolling {
+    height: 400px;
+  }
+
+  .f-infinite-scrolling-item {
     width: 100%;
     height: 40px;
     background-color: #96acf8;
@@ -97,30 +59,23 @@
 
 ## Attributes
 
-| 参数             | 说明               | 类型                                                                       | 可选值 | 默认值 |
-| ---------------- | ------------------ | -------------------------------------------------------------------------- | ------ | ------ |
-| `distance`       | 触发距离           | number                                                                     | ——     | 0      |
-| `loading`        | 开启加载           | boolean                                                                    | ——     | false  |
-| `styles`         | 滚动组件样式       | [CSSProperties](https://cn.vuejs.org/api/utility-types.html#cssproperties) | ——     | ——     |
-| `on-scroll-end`  | 滚动到底触发的回调 | <a href="#scrollcallback">ScrollCallback</a>                               | ——     | ——     |
-| `on-scroll-when` | 滚动时触发的回调   | <a href="#scrollcallback">ScrollCallback</a>                               | ——     | ——     |
+| 参数             | 说明             | 类型                                         | 可选值 | 默认值 |
+| ---------------- | ---------------- | -------------------------------------------- | ------ | ------ |
+| `distance`       | 触发距离         | number / string                              | ——     | 0      |
+| `on-scroll-when` | 滚动时触发的回调 | <a href="#scrollcallback">ScrollCallback</a> | ——     | ——     |
 
 ## Interface
 
 组件导出以下类型定义：
 
 ```ts
-import type {
-  InfiniteScrollingInstance,
-  InfiniteScrollingProps,
-  ScrollCallback
-} from 'fighting-design'
+import type { InfiniteScrollingProps, ScrollCallback } from 'fighting-design'
 ```
 
 ### ScrollCallback
 
 ```ts
-type ScrollCallback = (distance: number) => void
+type ScrollCallback = () => void
 ```
 
 ## Contributors
@@ -133,7 +88,30 @@ type ScrollCallback = (distance: number) => void
   <f-avatar round src="https://avatars.githubusercontent.com/u/76578532?v=4" />
 </a>
 
-<script setup lang="ts">
-  import demo1Vue from './demos/infinite-scrolling/demo1.vue'
-  import demo2Vue from './demos/infinite-scrolling/demo2.vue'
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const length = ref(20)
+
+  const onScrollEnd = (): void => {
+    setTimeout(() => {
+      length.value += 10
+    }, 1000)
+  }
 </script>
+
+<style>
+  .f-infinite-scrolling {
+    height: 400px;
+  }
+  
+  .f-infinite-scrolling-item {
+    width: 100%;
+    height: 40px;
+    background: #96acf8;
+    color: #fff;
+    margin: 5px 0;
+    text-align: center;
+    line-height: 40px;
+  }
+</style>

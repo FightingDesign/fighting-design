@@ -1,5 +1,6 @@
 .f-infinite-scrolling {
   width: 100%;
+  overflow-y: auto;
 
   &__loading {
     height: 40px;
