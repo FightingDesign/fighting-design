@@ -15,7 +15,7 @@
     永远不改变，拥抱过的美丽都再也不破碎
   </f-ellipsis>
   <h4>3、max-width: 最大宽度，不设置默认宽度auto</h4>
-  <f-ellipsis :max-width="300" :line-clamp="2">
+  <f-ellipsis :line-clamp="1">
     七岁的那一年抓住那只蝉以为能抓住夏天，十七岁的那年吻过她的脸就以为和她能永远，有没有那么一种永远
     永远不改变，拥抱过的美丽都再也不破碎
   </f-ellipsis>

@@ -1,8 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { useList } from '../../_hooks'
-  import { useSlots, ref } from 'vue'
-  import { useResizeObserver } from '@vueuse/core'
+  import { useSlots, ref, onMounted } from 'vue'
   import { debounce } from '../../_utils'
 
   defineOptions({ name: 'FEllipsis' })
@@ -27,12 +26,14 @@
   }
 
   // 监听元素宽度，重新计算是否需要显示tooltip
-  useResizeObserver(
-    fEllipsisRef,
-    debounce(() => {
-      judgeEllipsis()
-    })
-  )
+  onMounted(() => {
+    const resizeObserver = new ResizeObserver(
+      debounce(() => {
+        judgeEllipsis()
+      })
+    )
+    resizeObserver.observe(fEllipsisRef.value as Element)
+  })
 
   /** toggle expand */
   const handleClick = (): void => {
