@@ -35,6 +35,7 @@
     }
   })
 </script>
+
 <template>
   <div class="f-infinite-scrolling">
     <slot />
