@@ -25,6 +25,8 @@ export const Props = {
   }),
   /** 是否禁用 */
   disabled: setBooleanProp(),
+  /** 是否loading */
+  loading: setBooleanProp(),
   /** 自定义 icon */
   icon: setObjectProp<FightingIcon>(),
   /** 关闭时的颜色 */

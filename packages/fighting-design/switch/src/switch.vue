@@ -2,6 +2,7 @@
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { useList, useRun, useGlobal } from '../../_hooks'
+  import { FIconLoadingA } from '../../_svg'
 
   defineOptions({ name: 'FSwitch' })
 
@@ -18,7 +19,7 @@
 
   /** 点击切换 */
   const handleClick = (): void => {
-    if (prop.disabled) return
+    if (prop.disabled || prop.loading) return
     modelValue.value = !modelValue.value
     run(prop.onChange, !prop.modelValue)
   }
@@ -33,7 +34,7 @@
 <template>
   <div
     role="switch"
-    :class="['f-switch', { 'f-switch__disabled': disabled }]"
+    :class="['f-switch', { 'f-switch__disabled': disabled | loading }]"
     :style="styleList"
   >
     <!-- 左侧文字描述 -->
@@ -47,7 +48,13 @@
     <!-- 主要内容 -->
     <div :class="[classList, { 'f-switch__active': modelValue }]" @click="handleClick">
       <span :class="['f-switch__roll', { 'f-switch__roll-active': modelValue }]">
-        <f-svg-icon v-if="icon" :icon="icon" :size="iconSize" />
+        <f-svg-icon v-if="icon && !loading" :icon="icon" :size="iconSize" />
+        <f-svg-icon
+          v-if="loading"
+          class="f-button__loading-animation"
+          :icon="FIconLoadingA"
+          :size="iconSize"
+        />
       </span>
     </div>
 

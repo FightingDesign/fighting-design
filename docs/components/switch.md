@@ -90,6 +90,34 @@
 
 :::
 
+
+## 加载状态
+
+`loading` 属性可以加载 `switch`
+
+::: demo
+
+<template #source>
+<f-switch v-model="value4" loading />
+<f-switch v-model="value5" loading />
+</template>
+
+```html
+<template>
+  <f-switch v-model="value4" loading />
+  <f-switch v-model="value5" loading />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const value4 = ref(true)
+  const value5 = ref(false)
+</script>
+```
+
+:::
+
 ## 方形的
 
 `square` 属性可以将 `switch` 设置为方形样式
