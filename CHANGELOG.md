@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.60.0 (2023-08-04)
+
 - 优化 `f-radio` 组件样式
 - 废除 `f-tabs-pane` 组件
 - 新增 `f-tabs-item` 组件
@@ -13,21 +15,7 @@
 - 重构 `f-infinite-scrolling` 组件
 - 重构 `f-tabs` 组件
 - 废除 `f-infinite-scrolling` 组件 `on-scroll-end` 参数类型修改
-- 修复 `f-textarea` 组件在双向绑定空值时的警告问题
-- 修复 `f-input` 组件在双向绑定空值时的警告问题
-- 修复 `f-dialog` 组件在双向绑定空值时的警告问题
-- 修复 `f-drawer` 组件在双向绑定空值时的警告问题
-- 修复 `f-date-picker` 组件在双向绑定空值时的警告问题
-- 修复 `f-image-preview` 组件在双向绑定空值时的警告问题
-- 修复 `f-input-number` 组件在双向绑定空值时的警告问题
-- 修复 `f-pagination` 组件在双向绑定空值时的警告问题
-- 修复 `f-radio-group` 组件在双向绑定空值时的警告问题
-- 修复 `f-swap` 组件在双向绑定空值时的警告问题
-- 修复 `f-select` 组件在双向绑定空值时的警告问题
-- 修复 `f-switch` 组件在双向绑定空值时的警告问题
-- 修复 `f-time-pick` 组件在双向绑定空值时的警告问题
-- 修复 `f-up-load` 组件在双向绑定空值时的警告问题
-- 修复 `f-rate` 组件在双向绑定空值时的警告问题
+- 修复 `f-textarea`、`f-input`、`f-dialog`、`f-drawer`、`f-date-picker`、`f-image-preview`、`f-input-number`、`f-pagination`、`f-radio-group`、`f-swap`、`f-select`、`f-switch`、`f-time-pick`、`f-up-load`、`f-rate` 组件在双向绑定空值时的警告问题
 
 ## 0.52.0 (2023-07-14)
 

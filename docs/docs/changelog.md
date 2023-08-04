@@ -2,6 +2,21 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.60.0 (2023-08-04)
+
+- 优化 `f-radio` 组件样式
+- 废除 `f-tabs-pane` 组件
+- 新增 `f-tabs-item` 组件
+- 新增 `f-switch` 组件 `loading` 配置项
+- 废除 `f-tabs` 组件 `edit-status` `on-edit` 配置项
+- 废除 `f-infinite-scrolling` 组件 `on-scroll-when` 配置项
+- 废除 `f-infinite-scrolling` 组件 `styles` 配置项
+- 废除 `f-infinite-scrolling` 组件 `loading` 配置项
+- 重构 `f-infinite-scrolling` 组件
+- 重构 `f-tabs` 组件
+- 废除 `f-infinite-scrolling` 组件 `on-scroll-end` 参数类型修改
+- 修复 `f-textarea`、`f-input`、`f-dialog`、`f-drawer`、`f-date-picker`、`f-image-preview`、`f-input-number`、`f-pagination`、`f-radio-group`、`f-swap`、`f-select`、`f-switch`、`f-time-pick`、`f-up-load`、`f-rate` 组件在双向绑定空值时的警告问题
+
 ## 0.52.0 (2023-07-14)
 
 - 新增 `f-avatar-group` 组件

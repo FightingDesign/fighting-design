@@ -4,6 +4,21 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.60.0 (2023-08-04)
+
+- Optimize the `f-radio` component styles
+- Deprecate the `f-tabs-pane` component
+- Add a new `f-tabs-item` component
+- Add a `loading` configuration option to the `f-switch` component
+- Remove the `edit-status` and `on-edit` configuration options from the `f-tabs` component
+- Remove the `on-scroll-when` configuration option from the `f-infinite-scrolling` component
+- Remove the `styles` configuration option from the `f-infinite-scrolling` component
+- Remove the `loading` configuration option from the `f-infinite-scrolling` component
+- Refactor the `f-infinite-scrolling` component
+- Refactor the `f-tabs` component
+- Modify the parameter type of `on-scroll-end` in the `f-infinite-scrolling` component
+- Fix warning issues in the `f-textarea`, `f-input`, `f-dialog`, `f-drawer`, `f-date-picker`, `f-image-preview`, `f-input-number`, `f-pagination`, `f-radio-group`, `f-swap`, `f-select`, `f-switch`, `f-time-pick`, `f-up-load`, and `f-rate` components when binding empty values bidirectionally
+
 ## 0.52.0 (2023-07-14)
 
 - Add `f-avatar-group` component
