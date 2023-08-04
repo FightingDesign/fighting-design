@@ -15,15 +15,23 @@
   }
 
   // 背景状态
-  // 背景状态默认元素之间的间距为 0
   &.f-checkbox-group__background {
-    background: #f8f9fb;
-    column-gap: var(--checkbox-group-column-gap, 0);
+    background: #ececf1;
+    flex-wrap: nowrap;
+    column-gap: var(--checkbox-group-column-gap, 2px);
     row-gap: var(--checkbox-group-row-gap, 0);
+
+    .f-checkbox .f-checkbox__text {
+      color: #8e8ea0;
+    }
 
     // 选中的
     .f-checkbox__checked {
       background-color: #fff;
+
+      .f-checkbox__text {
+        color: #2d5af1;
+      }
     }
 
     // 不同尺寸
