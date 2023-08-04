@@ -1,7 +1,4 @@
-import {
-  setFunctionProp,
-  setStringNumberProp
-} from '../../_utils'
+import { setFunctionProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { ScrollCallback } from './interface'
 
