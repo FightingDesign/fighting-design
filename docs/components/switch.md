@@ -90,7 +90,6 @@
 
 :::
 
-
 ## 加载状态
 
 `loading` 属性可以加载 `switch`
@@ -222,6 +221,7 @@
 | `modelValue / v-model` | 绑定值                     | string                                                             | ——                              | false  |
 | `size`                 | 组件尺寸                   | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 | `disabled`             | 是否禁用                   | boolean                                                            | ——                              | false  |
+| `loading`              | 是否为加载状态             | boolean                                                            | ——                              | false  |
 | `icon`                 | 自定义 icon                | <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                              | ——     |
 | `close-color`          | 自定义关闭状态背景色       | string                                                             | ——                              | ——     |
 | `active-color`         | 自定义开启状态背景色       | string                                                             | ——                              | ——     |
@@ -247,6 +247,10 @@ import type { SwitchInstance, SwitchProps } from 'fighting-design'
 
 <a href="https://github.com/pengyinghao" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/34115313?v=4" />
+</a>
+
+<a href="https://github.com/zhoufanglu" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/24451091?v=4" />
 </a>
 
 <script setup lang="ts">

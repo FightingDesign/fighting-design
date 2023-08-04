@@ -34,7 +34,7 @@
 <template>
   <div
     role="switch"
-    :class="['f-switch', { 'f-switch__disabled': disabled | loading }]"
+    :class="['f-switch', { 'f-switch__disabled': disabled || loading }]"
     :style="styleList"
   >
     <!-- 左侧文字描述 -->
@@ -49,9 +49,11 @@
     <div :class="[classList, { 'f-switch__active': modelValue }]" @click="handleClick">
       <span :class="['f-switch__roll', { 'f-switch__roll-active': modelValue }]">
         <f-svg-icon v-if="icon && !loading" :icon="icon" :size="iconSize" />
+
+        <!-- loading icon -->
         <f-svg-icon
           v-if="loading"
-          class="f-button__loading-animation"
+          class="f-switch__loading-animation"
           :icon="FIconLoadingA"
           :size="iconSize"
         />

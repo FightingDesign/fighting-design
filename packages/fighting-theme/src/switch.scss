@@ -44,6 +44,21 @@
         font-size: var(--switch-font-size);
         color: var(--switch-close-color, #bbbbbb);
       }
+
+      .f-switch__loading-animation {
+        animation: f-switch-loading-animation 1s linear infinite;
+      }
+
+      // loading 动画
+      @keyframes f-switch-loading-animation {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
     }
 
     // 选中状态
