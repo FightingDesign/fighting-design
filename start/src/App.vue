@@ -1,18 +1,14 @@
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
 
-  const visible1 = ref(null)
+  const value = ref(undefined)
 </script>
 
 <template>
-  <f-button type="primary" @click="visible1 = true">打开</f-button>
-
-  <f-drawer v-model:visible="visible1" title="标题文字">
-    这是一个 Dialog
-
-    <template #footer>
-      <f-button type="default">默认按钮</f-button>
-      <f-button type="primary">主要按钮</f-button>
-    </template>
-  </f-drawer>
+  <f-select v-model="value" placeholder="请选择……">
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
 </template>

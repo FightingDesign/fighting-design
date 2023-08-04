@@ -19,7 +19,6 @@
   const prop = defineProps(Props)
   /** 当前选中页码 */
   const currentModelValue = defineModel<number>('current', {
-    required: true,
     default: 1,
     type: Number
   })

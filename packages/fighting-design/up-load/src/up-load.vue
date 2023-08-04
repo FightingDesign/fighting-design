@@ -10,11 +10,7 @@
   defineOptions({ name: 'FUpLoad' })
 
   const prop = defineProps(Props)
-  const filesModelValue = defineModel<File[]>('files', {
-    required: true,
-    default: [],
-    type: Array
-  })
+  const filesModelValue = defineModel<File[]>('files', { default: [], type: Array })
 
   const { run } = useRun()
 

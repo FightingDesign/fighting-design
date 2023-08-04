@@ -7,11 +7,7 @@
   defineOptions({ name: 'FSwitch' })
 
   const prop = defineProps(Props)
-  const modelValue = defineModel<boolean>({
-    required: true,
-    default: false,
-    type: Boolean
-  })
+  const modelValue = defineModel<boolean>({ default: false, type: Boolean })
 
   const { run } = useRun()
   const { getProp } = useGlobal(prop)

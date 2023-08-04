@@ -12,7 +12,6 @@
 
   const prop = defineProps(Props)
   const dateModelValue = defineModel<string>('date', {
-    required: true,
     default: '',
     type: String
   })

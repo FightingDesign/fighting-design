@@ -21,7 +21,6 @@
 
   const prop = defineProps(Props)
   const visible = defineModel<boolean>('visible', {
-    required: true,
     default: false,
     type: Boolean
   })
