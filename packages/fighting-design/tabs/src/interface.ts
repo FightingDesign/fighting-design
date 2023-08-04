@@ -30,19 +30,6 @@ export type TabsJustifyContent =
  */
 export type TabsSwitch = (name: TabsModelValue) => boolean | void
 
-/**
- * 编辑状态类型
- *
- * @param { 'remove' | 'add' } action 删除还是添加
- * @param { string | number } [name] name
- * @param { number } [index] 索引
- */
-export type TabsEdit = (
-  action: 'remove' | 'add',
-  name?: TabsModelValue,
-  index?: number
-) => void
-
 export interface TabsChildrenItem {
   label: string
   name: string | number

@@ -5,6 +5,7 @@
 - 优化 `f-radio` 组件样式
 - 废除 `f-tabs-pane` 组件
 - 新增 `f-tabs-item` 组件
+- 废除 `f-tabs` 组件 `edit-status` `on-edit` 配置项
 - 废除 `f-infinite-scrolling` 组件 `on-scroll-when` 配置项
 - 废除 `f-infinite-scrolling` 组件 `styles` 配置项
 - 废除 `f-infinite-scrolling` 组件 `loading` 配置项

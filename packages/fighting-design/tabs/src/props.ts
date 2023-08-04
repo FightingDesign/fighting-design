@@ -1,5 +1,4 @@
 import {
-  setBooleanProp,
   setStringNumberProp,
   setStringProp,
   setFunctionProp
@@ -12,7 +11,6 @@ import type {
   TabsType,
   TabsJustifyContent,
   TabsSwitch,
-  TabsEdit,
   TabsProvide
 } from './interface'
 
@@ -58,8 +56,6 @@ export const Props = {
       ).includes(val)
     }
   ),
-  /** 编辑状态 */
-  editStatus: setBooleanProp(),
   /**
    * 触发方式
    *
@@ -70,9 +66,7 @@ export const Props = {
     return (['click', 'hover'] as const).includes(val)
   }),
   /** 切换前的回调 */
-  onSwitch: setFunctionProp<TabsSwitch>(),
-  /** 可编辑模式的回调 */
-  onEdit: setFunctionProp<TabsEdit>()
+  onSwitch: setFunctionProp<TabsSwitch>()
 } as const
 
 /** tabs 组件 props 类型 */

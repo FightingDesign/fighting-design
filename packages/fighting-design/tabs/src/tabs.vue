@@ -2,10 +2,7 @@
   import { Props, TABS_PROPS_KEY } from './props'
   import { provide, getCurrentInstance, ref, isVNode, computed, shallowRef } from 'vue'
   import { isObject, isArray, isBoolean } from '../../_utils'
-  import { useList, useRun } from '../../_hooks'
-  import { FCloseBtn } from '../../close-btn'
-  import { FIconPlus } from '../../_svg'
-  import { FSvgIcon } from '../../svg-icon'
+  import { useList } from '../../_hooks'
   import type { TabsItemProps } from '../../tabs-item'
   import type {
     ComponentInternalInstance,
@@ -13,12 +10,7 @@
     Component,
     VNodeNormalizedChildren
   } from 'vue'
-  import type {
-    TabsOpts,
-    TabsProvide,
-    // TabsChildrenItem,
-    TabsModelValue
-  } from './interface'
+  import type { TabsOpts, TabsProvide } from './interface'
 
   defineOptions({ name: 'FTabs' })
 
@@ -29,7 +21,6 @@
   })
 
   const { classes, styles } = useList(prop, 'tabs')
-  const { run } = useRun()
 
   /** 当前选中的 name */
   const activeName = ref<string | number>(0)
@@ -145,21 +136,6 @@
   const trigger = computed((): 'click' | 'mouseenter' => {
     return prop.trigger === 'hover' ? 'mouseenter' : 'click'
   })
-
-  /**
-   * 添加或删除卡片
-   *
-   * @param { 'remove' | 'add' } action 添加或删除
-   * @param { string | number } [name] 标签 name
-   * @param { number } [index] 索引
-   */
-  const editItem = (
-    action: 'remove' | 'add',
-    name?: TabsModelValue,
-    index?: number
-  ): void => {
-    run(prop.onEdit, action, name, index)
-  }
 </script>
 
 <template>
@@ -183,22 +159,6 @@
           @[trigger]="changeNavs(item.name)"
         >
           {{ item.label }}
-
-          <!-- 关闭按钮 -->
-          <f-close-btn
-            v-if="type === 'card' && editStatus"
-            round
-            @click.stop="editItem('remove', item.name, index)"
-          />
-        </div>
-
-        <!-- 卡片样式编辑状态下的添加按钮 -->
-        <div
-          v-if="type === 'card' && editStatus"
-          class="f-tabs__nav-item"
-          @click="editItem('add')"
-        >
-          <f-svg-icon :icon="FIconPlus" color="#666" />
         </div>
       </div>
 

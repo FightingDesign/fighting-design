@@ -1,29 +1,18 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  const length = ref(20)
-
-  const onScrollEnd = (): void => {
-    setTimeout(() => {
-      length.value += 10
-    }, 2000)
-  }
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <f-infinite-scrolling :on-scroll-end="onScrollEnd" distance="20px">
-    <div v-for="item in length" :key="item" class="item" style="">{{ item }}</div>
-  </f-infinite-scrolling>
+  <f-tabs>
+    <f-tabs-item label="如烟">
+      <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
+      <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
+    </f-tabs-item>
+    <f-tabs-item label="盛夏光年">
+      <p>长大 难道是人必经的溃烂。</p>
+    </f-tabs-item>
+    <f-tabs-item label="我心中尚未崩坏的地方">
+      <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
+    </f-tabs-item>
+  </f-tabs>
 </template>
 
-<style scoped>
-  .item {
-    width: 100%;
-    height: 40px;
-    background-color: #96acf8;
-    color: #fff;
-    margin: 5px 0;
-    text-align: center;
-    line-height: 40px;
-  }
-</style>
+<style lang="scss" scoped></style>

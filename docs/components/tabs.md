@@ -13,32 +13,32 @@ tabs 的基本使用
 
 <template #source>
 <f-tabs>
-<f-tabs-pane label="如烟">
+<f-tabs-item label="如烟">
 
 <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
 <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
-</f-tabs-pane>
-<f-tabs-pane label="盛夏光年">
+</f-tabs-item>
+<f-tabs-item label="盛夏光年">
 <p>长大 难道是人必经的溃烂。</p>
-</f-tabs-pane>
-<f-tabs-pane label="我心中尚未崩坏的地方">
+</f-tabs-item>
+<f-tabs-item label="我心中尚未崩坏的地方">
 <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-</f-tabs-pane>
+</f-tabs-item>
 </f-tabs>
 </template>
 
 ```html
 <f-tabs>
-  <f-tabs-pane label="如烟">
+  <f-tabs-item label="如烟">
     <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
     <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
-  </f-tabs-pane>
-  <f-tabs-pane label="盛夏光年">
+  </f-tabs-item>
+  <f-tabs-item label="盛夏光年">
     <p>长大 难道是人必经的溃烂。</p>
-  </f-tabs-pane>
-  <f-tabs-pane label="我心中尚未崩坏的地方">
+  </f-tabs-item>
+  <f-tabs-item label="我心中尚未崩坏的地方">
     <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-  </f-tabs-pane>
+  </f-tabs-item>
 </f-tabs>
 ```
 
@@ -52,16 +52,16 @@ tabs 的基本使用
 
 <template #source>
 <f-tabs :type="type" :position="position">
-<f-tabs-pane label="知足">
+<f-tabs-item label="知足">
 
 <p>怎么去拥有一道彩虹，怎么去拥抱一夏天的风</p>
-</f-tabs-pane>
-<f-tabs-pane label="星空">
+</f-tabs-item>
+<f-tabs-item label="星空">
 <p>摸不到的颜色是否叫彩虹，看不到的拥抱是否叫做微风</p>
-</f-tabs-pane>
-<f-tabs-pane label="彩虹">
+</f-tabs-item>
+<f-tabs-item label="彩虹">
 <p>你的爱就像彩虹，我张开了手却只能抱住风</p>
-</f-tabs-pane>
+</f-tabs-item>
 </f-tabs>
   <div>
     风格：
@@ -75,9 +75,9 @@ tabs 的基本使用
     方向：
     <f-radio-group v-model="position">
       <f-radio label="top">top</f-radio>
-      <f-radio label="right" :disabled="type === 'segment'">right</f-radio>
+      <f-radio label="right">right</f-radio>
       <f-radio label="bottom">bottom</f-radio>
-      <f-radio label="left" :disabled="type === 'segment'">left</f-radio>
+      <f-radio label="left">left</f-radio>
     </f-radio-group>
   </div>
 </template>
@@ -85,15 +85,15 @@ tabs 的基本使用
 ```html
 <template>
   <f-tabs :type="type" :position="position">
-    <f-tabs-pane label="知足">
+    <f-tabs-item label="知足">
       <p>怎么去拥有一道彩虹，怎么去拥抱一夏天的风</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="星空">
+    </f-tabs-item>
+    <f-tabs-item label="星空">
       <p>摸不到的颜色是否叫彩虹，看不到的拥抱是否叫做微风</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="彩虹">
+    </f-tabs-item>
+    <f-tabs-item label="彩虹">
       <p>你的爱就像彩虹，我张开了手却只能抱住风</p>
-    </f-tabs-pane>
+    </f-tabs-item>
   </f-tabs>
 
   <div>
@@ -109,9 +109,9 @@ tabs 的基本使用
     方向：
     <f-radio-group v-model="position">
       <f-radio label="top">top</f-radio>
-      <f-radio label="right" :disabled="type === 'segment'">right</f-radio>
+      <f-radio label="right">right</f-radio>
       <f-radio label="bottom">bottom</f-radio>
-      <f-radio label="left" :disabled="type === 'segment'">left</f-radio>
+      <f-radio label="left">left</f-radio>
     </f-radio-group>
   </div>
 </template>
@@ -135,13 +135,13 @@ tabs 的基本使用
 
 <template #source>
 <f-tabs :justifyContent="justifyContent">
-<f-tabs-pane label="登录">
+<f-tabs-item label="登录">
 
 <p>在这登录</p>
-</f-tabs-pane>
-<f-tabs-pane label="注册">
+</f-tabs-item>
+<f-tabs-item label="注册">
 <p>在这注册！！</p>
-</f-tabs-pane>
+</f-tabs-item>
 </f-tabs>
 
 <div>
@@ -159,12 +159,12 @@ tabs 的基本使用
 ```html
 <template>
   <f-tabs :justify-content="justifyContent">
-    <f-tabs-pane label="登录">
+    <f-tabs-item label="登录">
       <p>在这登录</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="注册">
+    </f-tabs-item>
+    <f-tabs-item label="注册">
       <p>在这注册！！</p>
-    </f-tabs-pane>
+    </f-tabs-item>
   </f-tabs>
 
   <div>
@@ -197,27 +197,27 @@ tabs 的基本使用
 
 <template #source>
 <f-tabs :on-switch="onSwitch">
-<f-tabs-pane label="个人信息" name="name">
+<f-tabs-item label="个人信息" name="name">
 
 <p>小芳，女</p>
-</f-tabs-pane>
-<f-tabs-pane label="爱好(等一秒)" name="hobby">
+</f-tabs-item>
+<f-tabs-item label="爱好(等一秒)" name="hobby">
 <p>疯狂星期四，V 我 50~</p>
-</f-tabs-pane>
-<f-tabs-pane label="年龄" name="age" />
+</f-tabs-item>
+<f-tabs-item label="年龄" name="age" />
 </f-tabs>
 </template>
 
 ```html
 <template>
   <f-tabs :on-switch="onSwitch">
-    <f-tabs-pane label="个人信息" name="name">
+    <f-tabs-item label="个人信息" name="name">
       <p>小芳，女</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="爱好(等一秒)" name="hobby">
+    </f-tabs-item>
+    <f-tabs-item label="爱好(等一秒)" name="hobby">
       <p>疯狂星期四，V我50~</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="年龄" name="age" />
+    </f-tabs-item>
+    <f-tabs-item label="年龄" name="age" />
   </f-tabs>
 </template>
 
@@ -260,16 +260,16 @@ tabs 的基本使用
 <f-button type="primary">后缀</f-button>
 </template>
 
-<f-tabs-pane label="如烟">
+<f-tabs-item label="如烟">
 <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
 <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
-</f-tabs-pane>
-<f-tabs-pane label="盛夏光年">
+</f-tabs-item>
+<f-tabs-item label="盛夏光年">
 <p>长大 难道是人必经的溃烂。</p>
-</f-tabs-pane>
-<f-tabs-pane label="我心中尚未崩坏的地方">
+</f-tabs-item>
+<f-tabs-item label="我心中尚未崩坏的地方">
 <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-</f-tabs-pane>
+</f-tabs-item>
 </f-tabs>
 </template>
 
@@ -282,79 +282,17 @@ tabs 的基本使用
     <f-button type="primary">后缀</f-button>
   </template>
 
-  <f-tabs-pane label="如烟">
+  <f-tabs-item label="如烟">
     <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
     <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
-  </f-tabs-pane>
-  <f-tabs-pane label="盛夏光年">
+  </f-tabs-item>
+  <f-tabs-item label="盛夏光年">
     <p>长大 难道是人必经的溃烂。</p>
-  </f-tabs-pane>
-  <f-tabs-pane label="我心中尚未崩坏的地方">
+  </f-tabs-item>
+  <f-tabs-item label="我心中尚未崩坏的地方">
     <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-  </f-tabs-pane>
+  </f-tabs-item>
 </f-tabs>
-```
-
-:::
-
-## 编辑模式
-
-仅在 `card` 风格下支持编辑模式
-
-需添加 `edit-status` 属性，并配置 `on-edit` 回调事件
-
-::: demo
-
-<template #source>
-<f-tabs edit-status type="card" :on-edit="onEdit">
-<f-tabs-pane v-for="(item, index) in list" :key="index" :label="item.label" :name="item.name">
-{{ item.content }}
-</f-tabs-pane>
-</f-tabs>
-</template>
-
-```html
-<template>
-  <f-tabs edit-status type="card" :on-edit="onEdit">
-    <f-tabs-pane
-      v-for="(item, index) in list"
-      :key="index"
-      :label="item.label"
-      :name="item.name"
-    >
-      {{ item.content }}
-    </f-tabs-pane>
-  </f-tabs>
-</template>
-
-<script lang="ts" setup>
-  import { ref } from 'vue'
-
-  let tabIndex = 2
-
-  const list = ref([
-    { label: '第一个', content: '内容 1', name: '1' },
-    { label: '第二个', content: '内容 2', name: '2' }
-  ])
-
-  const onEdit = (action: 'remove' | 'add', name: string, index: number): void => {
-    switch (action) {
-      case 'add':
-        {
-          const newTabName = `${++tabIndex}`
-          list.value.push({
-            label: '新的' + newTabName,
-            content: '新的标签页' + newTabName,
-            name: newTabName
-          })
-        }
-        break
-      case 'remove':
-        list.value.splice(index, 1)
-        break
-    }
-  }
-</script>
 ```
 
 :::
@@ -367,17 +305,17 @@ tabs 的基本使用
 
 <template #source>
 <f-tabs :trigger="trigger">
-<f-tabs-pane label="如烟">
+<f-tabs-item label="如烟">
 
 <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
 <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
-</f-tabs-pane>
-<f-tabs-pane label="盛夏光年">
+</f-tabs-item>
+<f-tabs-item label="盛夏光年">
 <p>长大 难道是人必经的溃烂。</p>
-</f-tabs-pane>
-<f-tabs-pane label="我心中尚未崩坏的地方">
+</f-tabs-item>
+<f-tabs-item label="我心中尚未崩坏的地方">
 <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-</f-tabs-pane>
+</f-tabs-item>
 </f-tabs>
 
 <div>
@@ -392,16 +330,16 @@ tabs 的基本使用
 ```html
 <template>
   <f-tabs :trigger="trigger">
-    <f-tabs-pane label="如烟">
+    <f-tabs-item label="如烟">
       <p>七岁的那一年，抓住那只蝉，以为能抓住夏天；</p>
       <p>十七岁的那年，吻过他的脸，就以为和他能永远。</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="盛夏光年">
+    </f-tabs-item>
+    <f-tabs-item label="盛夏光年">
       <p>长大 难道是人必经的溃烂。</p>
-    </f-tabs-pane>
-    <f-tabs-pane label="我心中尚未崩坏的地方">
+    </f-tabs-item>
+    <f-tabs-item label="我心中尚未崩坏的地方">
       <p>就算会有一天，没人与我合唱，至少在我的心中，还有个尚未崩坏的地方。</p>
-    </f-tabs-pane>
+    </f-tabs-item>
   </f-tabs>
 
   <div>
@@ -431,10 +369,8 @@ tabs 的基本使用
 | `type`                | 风格类型                               | <a href="#tabstype">TabsType</a>                     | `line` `card` `segment`                                                        | line   |
 | `position`            | 头部位置                               | <a href="#tabsposition">TabsPosition</a>             | `left` `right` `top` `bottom`                                                  | top    |
 | `justify-content`     | 对齐方式（仅针对上下方向的 line 有效） | <a href="#tabsjustifycontent">TabsJustifyContent</a> | `flex-start` `center` `flex-end` `space-between` `space-around` `space-evenly` | ——     |
-| `edit-status`         | 编辑模式                               | boolean                                              | ——                                                                             | false  |
 | `trigger`             | 触发方式                               | <a href="#tabstrigger">TabsTrigger</a>               | `click` `hover`                                                                | click  |
 | `on-switch`           | 切换前的回调                           | <a href="#tabsswitch">TabsSwitch</a>                 | ——                                                                             | ——     |
-| `on-edit`             | 编辑模式的回调                         | <a href="#tabsedit">TabsEdit</a>                     | ——                                                                             | ——     |
 
 ## Tabs Slots
 
@@ -472,7 +408,6 @@ import type {
   TabsType,
   TabsJustifyContent,
   TabsSwitch,
-  TabsEdit,
   TabsNavInstance,
   TabsPaneInstance,
   TabsPaneProps
@@ -521,12 +456,6 @@ type TabsJustifyContent =
 type TabsTrigger = 'hover' | 'click'
 ```
 
-### TabsEdit
-
-```ts
-type TabsEdit = (action: 'remove' | 'add', name: string, index: number) => boolean
-```
-
 ## Tabs Methods
 
 | 参数         | 说明         |
@@ -566,32 +495,6 @@ type TabsEdit = (action: 'remove' | 'add', name: string, index: number) => boole
         return false
       default: 
         return true
-    }
-  }
-
-
-  let tabIndex = 2
-
-  const list = ref([
-    { label: '第一个', content: '内容 1', name: '1' },
-    { label: '第二个', content: '内容 2', name: '2' }
-  ])
-
-  const onEdit = (action: 'remove' | 'add', name: string, index: number): void => {
-    switch (action) {
-      case 'add':
-        {
-          const newTabName = `${++tabIndex}`
-          list.value.push({
-            label: '新的' + newTabName,
-            content: '新的标签页' + newTabName,
-            name: newTabName
-          })
-        }
-        break
-      case 'remove':
-        list.value.splice(index, 1)
-        break
     }
   }
 </script>
