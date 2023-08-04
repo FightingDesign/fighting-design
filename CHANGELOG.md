@@ -13,6 +13,10 @@
 - 重构 `f-infinite-scrolling` 组件
 - 重构 `f-tabs` 组件
 - 废除 `f-infinite-scrolling` 组件 `on-scroll-end` 参数类型修改
+- 修复 `f-textarea` 组件在双向绑定空值时的警告问题
+- 修复 `f-input` 组件在双向绑定空值时的警告问题
+- 修复 `f-dialog` 组件在双向绑定空值时的警告问题
+- 修复 `f-drawer` 组件在双向绑定空值时的警告问题
 
 ## 0.52.0 (2023-07-14)
 

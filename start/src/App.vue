@@ -1,24 +1,18 @@
-<script lang="ts" setup>
+<script setup lang="ts">
   import { ref } from 'vue'
 
-  const radio2 = ref('1')
-
-  const option4 = ref([])
+  const visible1 = ref(null)
 </script>
 
 <template>
-  <f-radio-group v-model="radio2" background>
-    <f-radio label="1">备选项1</f-radio>
-    <f-radio label="2">备选项2</f-radio>
-    <f-radio label="3">备选项3</f-radio>
-  </f-radio-group>
+  <f-button type="primary" @click="visible1 = true">打开</f-button>
 
-  <br />
-  <br />
+  <f-drawer v-model:visible="visible1" title="标题文字">
+    这是一个 Dialog
 
-  <f-checkbox-group v-model="option4" background>
-    <f-checkbox label="选项一" />
-    <f-checkbox label="选项二" />
-    <f-checkbox label="选项三" />
-  </f-checkbox-group>
+    <template #footer>
+      <f-button type="default">默认按钮</f-button>
+      <f-button type="primary">主要按钮</f-button>
+    </template>
+  </f-drawer>
 </template>
