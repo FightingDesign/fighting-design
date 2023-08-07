@@ -12,11 +12,11 @@
 ::: demo
 
 <template #source>
-<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/1.jpg" />
 </template>
 
 ```html
-<f-image width="200px" src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/1.jpg" />
 ```
 
 :::
@@ -58,31 +58,31 @@
   width="110px"
   height="110px"
   fit="fill"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
 />
 <f-image
   width="110px"
   height="110px"
   fit="contain"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
 />
 <f-image
   width="110px"
   height="110px"
   fit="cover"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
 />
 <f-image
   width="110px"
   height="110px"
   fit="none"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
 />
 <f-image
   width="110px"
   height="110px"
   fit="scale-down"
-  src="https://tianyuhao.cn/images/auto/4.jpg"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
 />
 ```
 
@@ -95,11 +95,11 @@
 ::: demo
 
 <template #source>
-<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image round="30px" height="190px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/2.jpg" />
 </template>
 
 ```html
-<f-image round="30px" height="190px" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-image round="30px" height="190px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/2.jpg" />
 ```
 
 :::
@@ -111,11 +111,11 @@
 ::: demo
 
 <template #source>
-<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
+<f-image lazy width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/3.jpg" />
 </template>
 
 ```html
-<f-image lazy width="200px" src="https://tianyuhao.cn/images/auto/5.jpg" />
+<f-image lazy width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/3.jpg" />
 ```
 
 :::
@@ -134,7 +134,7 @@
 
 <template #source>
 <f-space spacing="large">
-<f-image width="200px" src="https://abc.com/1.png" err-src="https://tianyuhao.cn/images/auto/1.jpg" />
+<f-image width="200px" src="https://abc.com/1.png" err-src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/1.jpg" />
 <f-image width="200px" src="https://abc.com/1.png" err-src="https://abc.com/1.png" alt="error" />
 </f-space>
 
@@ -144,7 +144,7 @@
 <f-image
   width="200px"
   src="https://abc.com/1.png"
-  err-src="https://tianyuhao.cn/images/auto/1.jpg"
+  err-src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/1.jpg"
 />
 <f-image
   width="200px"

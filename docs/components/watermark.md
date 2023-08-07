@@ -14,7 +14,7 @@
 <template #source>
 <f-watermark content="机密文件" :height="100" :width="130">
 <f-card title="绝对机密">
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 <f-text block>这是一个重要的文件</f-text>
 </f-card>
 </f-watermark>
@@ -24,7 +24,7 @@
 <template>
   <f-watermark content="机密文件" :height="100" :width="130">
     <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+      <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
       <f-text block>这是一个重要的文件</f-text>
     </f-card>
   </f-watermark>
@@ -54,7 +54,7 @@
 <template #source>
 <f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
 <f-card title="绝对机密">
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 <f-text block>这是一个重要的文件</f-text>
 </f-card>
 </f-watermark>
@@ -70,7 +70,7 @@
     font-size="16px"
   >
     <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+      <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
       <f-text block>这是一个重要的文件</f-text>
     </f-card>
   </f-watermark>
@@ -100,9 +100,9 @@
 ::: demo
 
 <template #source>
-<f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
+<f-watermark image="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg">
 <f-card title="绝对机密">
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 <f-text block>这是一个重要的文件</f-text>
 </f-card>
 </f-watermark>
@@ -110,9 +110,9 @@
 
 ```html
 <template>
-  <f-watermark image="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
+  <f-watermark image="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg">
     <f-card title="绝对机密">
-      <f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+      <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
       <f-text block>这是一个重要的文件</f-text>
     </f-card>
   </f-watermark>

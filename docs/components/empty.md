@@ -63,11 +63,14 @@
 ::: demo
 
 <template #source>
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
+<f-empty image-src="https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/1.jpg" image-size="200px" />
 </template>
 
 ```html
-<f-empty image-src="https://tianyuhao.cn/images/auto/1.jpg" image-size="200px" />
+<f-empty
+  image-src="https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/1.jpg"
+  image-size="200px"
+/>
 ```
 
 :::

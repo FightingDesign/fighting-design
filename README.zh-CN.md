@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="160px" src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
+  <img height="160px" src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg">
   <h2 align="center" style="font-weight: 600">Fighting Design</h2>
 </p>
 
@@ -133,7 +133,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 添加微信请备注 `Github` 用户名
 
-![](https://tianyuhao.cn/images/auto/weixin.png)
+![](https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg)
 
 ## 💌 特别感谢
 

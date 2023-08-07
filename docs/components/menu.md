@@ -16,7 +16,7 @@
 <template #source>
 <f-menu active-name="1">
 <template #before>
-<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+<f-avatar round src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg" size="mini" />
 </template>
 
 <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>
@@ -51,7 +51,7 @@
     <template #before>
       <f-avatar
         round
-        src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
+        src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg"
         size="mini"
       />
     </template>
@@ -105,7 +105,7 @@
 <h3>垂直的</h3>
 <f-menu mode="vertical" active-name="1">
 <template #before>
-<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+<f-avatar round src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg" size="mini" />
 </template>
 
 <f-menu-item disabled name="1" :icon="FIconApps">首页</f-menu-item>
@@ -137,7 +137,7 @@
 
 <f-menu mode="inline" active-name="2-1">
 <template #before>
-<f-avatar round src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg" size="mini" />
+<f-avatar round src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg" size="mini" />
 </template>
 
 <f-menu-item name="1" :icon="FIconApps">首页</f-menu-item>

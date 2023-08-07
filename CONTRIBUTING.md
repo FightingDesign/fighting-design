@@ -46,7 +46,7 @@ pnpm start
 pnpm dev:docs
 ```
 
-## 🔍 开发工具和插件
+## 🔍 开发工具
 
 请先阅读 [IDE 支持](https://cn.vuejs.org/guide/typescript/overview.html#ide-support)
 
@@ -138,8 +138,6 @@ pnpm commit
 git push
 ```
 
-可通过 [Markdown Emoji](https://tianyuhao.cn/emoji) 在 message 后面加入表情
-
 ## ✏️ 关于 PR
 
 在你提交 `PR` 之前，请务必保证你 `fork` 的仓库是当前最新的代码，以免发生冲突。
@@ -150,8 +148,8 @@ git push
 
 开发不易，欢迎大家赞助！
 
-<img width="200px" src="https://tianyuhao.cn/images/tyh-ui/weixin.jpg" />
-<img width="200px" src="https://tianyuhao.cn/images/tyh-ui/zhifubao.jpg" />
+<img width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/weixin.jpg" />
+<img width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/zhifubao.jpg" />
 
 ## 💌 非常感谢
 

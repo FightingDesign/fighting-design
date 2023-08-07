@@ -11,7 +11,7 @@ export const head: HeadConfig[] = [
     'link',
     {
       rel: 'icon',
-      href: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
+      href: 'https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg'
     }
   ],
   /** 解决移动端点击输入框自动放大的问题 */
@@ -60,7 +60,7 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:image',
-      content: 'https://tianyuhao.cn/images/fighting-design/FightingDesign.svg'
+      content: 'https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg'
     }
   ],
   /** OG 描述 */

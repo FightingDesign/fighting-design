@@ -14,13 +14,13 @@
 ::: demo
 
 <template #source>
-<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </template>
 
 ```html
-<f-avatar src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar round src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 ```
 
 :::
@@ -58,11 +58,11 @@
 </template>
 
 ```html
-<f-avatar fit="fill" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="contain" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="cover" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="none" src="https://tianyuhao.cn/images/auto/4.jpg" />
-<f-avatar fit="scale-down" src="https://tianyuhao.cn/images/auto/4.jpg" />
+<f-avatar fit="fill" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar fit="contain" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar fit="cover" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar fit="none" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar fit="scale-down" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 ```
 
 :::
@@ -74,19 +74,19 @@
 ::: demo
 
 <template #source>
-<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar :size="85" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="large" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="middle" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="small" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="mini" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </template>
 
 ```html
-<f-avatar :size="85" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="large" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="middle" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="small" src="https://tianyuhao.cn/images/auto/my.jpg" />
-<f-avatar size="mini" src="https://tianyuhao.cn/images/auto/my.jpg" />
+<f-avatar :size="85" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="large" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="middle" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="small" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+<f-avatar size="mini" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 ```
 
 :::
@@ -126,14 +126,14 @@
 ::: demo
 
 <template #source>
-<f-avatar width="200px" lazy src="https://tianyuhao.cn/images/auto/5.jpg" />
+<f-avatar width="200px" lazy src="https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png" />
 </template>
 
 ```html
 <f-avatar
   width="200px"
   lazy
-  src="https://fastly.jsdelivr.net/gh/hututu-tech/IMG-gongfeng@main/2022/06/13/62a72738a7113.png"
+  src="https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png"
 />
 ```
 

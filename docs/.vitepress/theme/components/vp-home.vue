@@ -46,7 +46,7 @@
       <div class="vp-home__logo-box">
         <f-avatar
           class="vp-home__logo"
-          src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
+          src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg"
           alt="Fighting Design logo"
           :draggable="false"
           :size="500"
@@ -63,7 +63,7 @@
           ref="fightingLogo"
           class="vp-home__logo fighting__logo"
           draggable="false"
-          src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
+          src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg"
           alt="Fighting Design logo"
           :size="120"
         />
@@ -115,7 +115,7 @@
           </f-link>
         </div>
 
-        <f-button type="success" href="/docs/contributing.html" round>
+        <f-button type="info" href="/docs/contributing.html" round>
           {{ homeContent.join }}
         </f-button>
       </div>

@@ -30,10 +30,9 @@
   const show1 = ref(false)
 
   const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/1.jpg',
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/2.jpg',
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/3.jpg'
   ]
 </script>
 ```
@@ -63,10 +62,9 @@
   const show2 = ref(false)
 
   const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/1.jpg',
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/2.jpg',
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/3.jpg'
   ]
 </script>
 ```
@@ -108,9 +106,8 @@ import type { ImagePreviewInstance, ImagePreviewProps } from 'fighting-design'
   const show1 = ref(false)
   const show2 = ref(false)
   const listImg = [
-    'https://tianyuhao.cn/images/auto/1.jpg',
-    'https://tianyuhao.cn/images/auto/2.jpg',
-    'https://tianyuhao.cn/images/auto/3.jpg',
-    'https://tianyuhao.cn/images/auto/4.jpg'
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/1.jpg',
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/2.jpg',
+    'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/3.jpg'
   ]
 </script>

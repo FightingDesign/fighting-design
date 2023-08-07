@@ -6,7 +6,7 @@
         width="110px"
         height="110px"
         fit="fill"
-        src="https://tianyuhao.cn/images/auto/4.jpg"
+        src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
       />
     </div>
     <div class="image-block">
@@ -15,7 +15,7 @@
         width="110px"
         height="110px"
         fit="contain"
-        src="https://tianyuhao.cn/images/auto/4.jpg"
+        src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
       />
     </div>
     <div class="image-block">
@@ -24,7 +24,7 @@
         width="110px"
         height="110px"
         fit="cover"
-        src="https://tianyuhao.cn/images/auto/4.jpg"
+        src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
       />
     </div>
     <div class="image-block">
@@ -33,7 +33,7 @@
         width="110px"
         height="110px"
         fit="none"
-        src="https://tianyuhao.cn/images/auto/4.jpg"
+        src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
       />
     </div>
     <div class="image-block">
@@ -42,7 +42,7 @@
         width="110px"
         height="110px"
         fit="scale-down"
-        src="https://tianyuhao.cn/images/auto/4.jpg"
+        src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/4.jpg"
       />
     </div>
   </f-space>

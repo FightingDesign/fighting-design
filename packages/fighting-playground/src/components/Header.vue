@@ -13,7 +13,7 @@
         <f-avatar
           round
           size="mini"
-          src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg"
+          src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg"
         />
         <span class="name">Playground</span>
       </div>
