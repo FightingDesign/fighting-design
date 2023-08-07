@@ -6,8 +6,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'packages/fighting-design/package.json'
+    # paths:
+    #   - 'packages/fighting-design/package.json'
 
 jobs:
   build-deploy:
