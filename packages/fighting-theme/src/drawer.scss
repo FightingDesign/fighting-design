@@ -4,7 +4,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: var(--drawer-z-index);
+  z-index: var(--drawer-z-index, 2000);
 
   // 不同方向
   &__top .f-drawer__container {
