@@ -47,6 +47,9 @@
     "theme/*",
     "*.css"
   ],
+  "peerDependencies": {
+    "vue": "3.3.0"
+  },
   "author": {
     "name": "Tyh2001",
     "url": "https://github.com/Tyh2001"
