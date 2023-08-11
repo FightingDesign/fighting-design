@@ -4,6 +4,7 @@
 
 - 优化 `f-drawer` `f-dialog` 组件样式
 - 优化 `f-radio` 和 `f-checkbox` 样式细节
+- 重构 `f-tree` 组件
 
 ## 0.60.0 (2023-08-04)
 

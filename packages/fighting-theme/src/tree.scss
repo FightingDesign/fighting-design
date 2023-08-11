@@ -1,46 +1,38 @@
 .f-tree {
-  .f-tree {
-    margin-left: 20px;
-  }
+  &-item {
+    list-style: none;
+    cursor: pointer;
 
-  &__data {
-    .f-tree__label {
-      height: 30px;
+    // 标签
+    .f-tree-item__label {
       display: flex;
-      cursor: pointer;
-      padding: 5px 15px;
       align-items: center;
+      transition: 0.3s;
+      background-color: #fff;
+      padding: 2px 11px;
       box-sizing: border-box;
+      border-radius: 1px;
       user-select: none;
-
-      // icon
-      .f-svg-icon {
-        margin-right: 5px;
-        transition: 0.3s;
-
-        &.f-tree__icon-animation {
-          transform: rotate(90deg);
-        }
-      }
-
-      // 文字内容
-      .f-tree-Label-text {
-        user-select: none;
-      }
 
       &:hover {
         background-color: #eee;
       }
+
+      // icon
+      .f-svg-icon {
+        margin-left: 5px;
+        transition: 0.3s;
+
+        &.f-tree-item__icon-animation {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    // 子节点
+    .f-tree-item__children {
+      margin: 0;
+      padding-left: 30px;
     }
   }
-}
-// 动画效果
-.f-tree-animation-enter-active,
-.f-tree-animation-leave-active {
-  transition: all 0.3s ease;
-}
-.f-tree-animation-enter-from,
-.f-tree-animation-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
 }

@@ -1,49 +1,36 @@
-<!--
-一个可以递归渲染自己的嵌套树组件。
-你可以双击一个项目将其转变为一个文件夹。
--->
-
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import TreeItem from './TreeItem.vue'
 
-  const treeData = ref({
-    name: 'My Tree',
-    children: [
-      { name: 'hello', children: [{ name: '123' }] },
-      { name: 'world' },
-      {
-        name: 'child folder',
-        children: [
-          {
-            name: 'child folder',
-            children: [{ name: 'hello' }, { name: 'world' }]
-          },
-          { name: 'hello' },
-          { name: 'world' },
-          {
-            name: 'child folder',
-            children: [{ name: 'hello' }, { name: 'world' }]
-          }
-        ]
-      }
-    ]
-  })
+  const data = ref([
+    {
+      label: 'Node 1',
+      children: [
+        {
+          label: 'Node 1-1',
+          children: [
+            { label: 'Node 1-1-1' },
+            { label: 'Node 1-1-2' },
+            { label: 'Node 1-1-3' }
+          ]
+        },
+        { label: 'Node 1-2' },
+        { label: 'Node 1-3' }
+      ]
+    },
+    {
+      label: 'Node 2',
+      children: [
+        { label: 'Node 2-1' },
+        { label: 'Node 2-2' },
+        { label: 'Node 2-3', children: [{ label: 'Node 2-3-1' }] }
+      ]
+    },
+    {
+      label: 'Node 3'
+    }
+  ])
 </script>
 
 <template>
-  <ul>
-    <tree-item class="item" :model="treeData"></tree-item>
-    <tree-item class="item" :model="treeData"></tree-item>
-  </ul>
+  <f-tree :data="data" />
 </template>
-
-<style>
-  .item {
-    cursor: pointer;
-    line-height: 1.5;
-  }
-  .bold {
-    font-weight: bold;
-  }
-</style>

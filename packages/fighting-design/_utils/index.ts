@@ -1,6 +1,5 @@
 export * from './install'
 export * from './utils'
-export * from './tree'
 export * from './get-children'
 export * from './is'
 export * from './tips'

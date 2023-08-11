@@ -4,7 +4,7 @@ import type { TreeData } from './interface'
 
 export const Props = {
   /** 数据 */
-  data: setArrayProp<TreeData>([])
+  data: setArrayProp<TreeData>()
 } as const
 
 /** tree 组件 props 类型 */
