@@ -32,5 +32,12 @@
 </script>
 
 <template>
-  <f-tree :data="data" />
+  <f-tree :data="data">
+    <template #options>
+      <f-space>
+        <f-button size="mini" round type="danger">删除</f-button>
+        <f-button size="mini" round type="info">查看</f-button>
+      </f-space>
+    </template>
+  </f-tree>
 </template>

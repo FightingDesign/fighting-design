@@ -24,20 +24,33 @@
 
 <template>
   <li class="f-tree-item">
-    <div class="f-tree-item__label" @click="toggle">
-      {{ model.label }}
+    <div class="f-tree-item__label" @click.self="toggle">
+      <!-- 前缀 -->
+      <div class="f-tree-item__label-prefix" @click.self="toggle">
+        <f-svg-icon
+          v-if="isFolder"
+          :class="{ 'f-tree-item__icon-animation': isOpen }"
+          :size="17"
+          :icon="FIconChevronRight"
+        />
+        {{ model.label }}
+      </div>
 
-      <f-svg-icon
-        v-if="isFolder"
-        :class="{ 'f-tree-item__icon-animation': isOpen }"
-        :size="17"
-        :icon="FIconChevronRight"
-      />
+      <!-- 操作栏 -->
+      <div v-if="$slots.options" class="f-tree-item__label-option">
+        <slot name="options" />
+      </div>
     </div>
 
     <!-- 子组件 -->
-    <ul v-show="isOpen" v-if="isFolder" class="f-tree-item__children">
-      <f-tree-item v-for="(item, index) in model.children" :key="index" :model="item" />
-    </ul>
+    <f-collapse-animation :opened="isOpen" :animation-time="0.3">
+      <ul v-if="isFolder" class="f-tree-item__children">
+        <f-tree-item v-for="(item, index) in model.children" :key="index" :model="item">
+          <template #options>
+            <slot name="options" />
+          </template>
+        </f-tree-item>
+      </ul>
+    </f-collapse-animation>
   </li>
 </template>

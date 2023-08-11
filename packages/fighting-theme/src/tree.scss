@@ -13,18 +13,28 @@
       box-sizing: border-box;
       border-radius: 1px;
       user-select: none;
+      justify-content: space-between;
 
       &:hover {
         background-color: #eee;
       }
 
-      // icon
-      .f-svg-icon {
-        margin-left: 5px;
-        transition: 0.3s;
+      // 前缀
+      .f-tree-item__label-prefix {
+        font-size: 15px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
 
-        &.f-tree-item__icon-animation {
-          transform: rotate(90deg);
+        // icon
+        .f-svg-icon {
+          margin-left: 5px;
+          transition: 0.3s;
+
+          &.f-tree-item__icon-animation {
+            transform: rotate(90deg);
+          }
         }
       }
     }
