@@ -5,7 +5,7 @@
   import { TREE_PROPS_KEY } from '../../src/props'
   import { FIconChevronRight } from '../../../_svg'
   import { useRun } from '../../../_hooks'
-  import type { TreeProps } from '../../index'
+  import type { TreeProvide } from '../../index'
 
   const prop = defineProps(Props)
 
@@ -14,7 +14,7 @@
   const { run } = useRun()
 
   /** 获取父组件注入的依赖项 */
-  const parentInject: TreeProps | null = inject(TREE_PROPS_KEY, null)
+  const parentInject: TreeProvide | null = inject(TREE_PROPS_KEY, null)
 
   /** 是否需要展开 */
   const isOpen = ref<boolean>(false)
@@ -37,8 +37,9 @@
         parentInject.onClickLabel,
         evt,
         prop.model.label,
+        prop.model.__level,
         isOpen.value,
-        parentInject.data
+        parentInject.tree
       )
     }
   }

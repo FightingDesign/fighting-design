@@ -1,3 +1,5 @@
+import type { TreeItemModel } from '../components'
+
 export type { TreeProps } from './props'
 
 /**
@@ -14,3 +16,8 @@ export interface TreeDataItem {
 
 /** 树形结构数组类型 */
 export type TreeData = TreeDataItem[]
+
+export interface TreeProvide {
+  onClickLabel: Function
+  tree: TreeItemModel[]
+}

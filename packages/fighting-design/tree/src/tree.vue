@@ -1,15 +1,13 @@
 <script lang="ts" setup>
   import { Props, TREE_PROPS_KEY } from './props'
-  import { provide } from 'vue'
+  import { provide, toRef, reactive } from 'vue'
   import { FTreeItem } from '../components'
-  import type { TreeData } from './interface'
+  import type { TreeData, TreeProvide } from './interface'
   import type { TreeItemModel } from '../components'
 
   defineOptions({ name: 'FTree' })
 
   const prop = defineProps(Props)
-
-  provide(TREE_PROPS_KEY, prop)
 
   /**
    * 给树组件添加层级
@@ -35,6 +33,14 @@
 
   /** 处理后的树形结构 */
   const tree: TreeItemModel[] = markTreeLevels(prop.data)
+
+  provide<TreeProvide>(
+    TREE_PROPS_KEY,
+    reactive({
+      onClickLabel: toRef(prop, 'onClickLabel'),
+      tree
+    })
+  )
 </script>
 
 <template>

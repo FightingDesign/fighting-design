@@ -1,6 +1,6 @@
 import { setArrayProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
-import type { TreeData } from './interface'
+import type { TreeData, TreeProvide } from './interface'
 
 export const Props = {
   /** 数据 */
@@ -13,4 +13,4 @@ export const Props = {
 export type TreeProps = ExtractPropTypes<typeof Props>
 
 /** tree 组件注入的依赖项 */
-export const TREE_PROPS_KEY: InjectionKey<TreeProps> = Symbol('tree-props-key')
+export const TREE_PROPS_KEY: InjectionKey<TreeProvide> = Symbol('tree-props-key')

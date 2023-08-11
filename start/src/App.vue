@@ -33,8 +33,8 @@
     }
   ])
 
-  const onClickLabel = (e, v, r, d) => {
-    console.log(e, v, r, d)
+  const onClickLabel = (e, v, r, d, z) => {
+    console.log(v, r, d, z)
   }
 </script>
 
