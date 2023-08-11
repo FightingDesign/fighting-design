@@ -7,6 +7,7 @@
   position: relative;
   vertical-align: top;
   column-gap: var(--radio-group-column-gap, 30px);
+  overflow: hidden;
 
   // 纵向排列
   &.f-radio-group__vertical {
@@ -32,6 +33,7 @@
       // 选中的
       &.f-radio__checked {
         background-color: #fff;
+        box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
 
         .f-radio__text {
           color: #2d5af1;
@@ -40,43 +42,35 @@
     }
 
     // 不同尺寸
-    &.f-radio-group__large {
-      .f-radio {
-        padding: 4px 30px;
+    &.f-radio-group__large .f-radio {
+      padding: 4px 30px;
 
-        .f-radio__text {
-          font-size: 16px;
-        }
+      .f-radio__text {
+        font-size: 16px;
       }
     }
 
-    &.f-radio-group__middle {
-      .f-radio {
-        padding: 3px 25px;
+    &.f-radio-group__middle .f-radio {
+      padding: 3px 25px;
 
-        .f-radio__text {
-          font-size: 15px;
-        }
+      .f-radio__text {
+        font-size: 15px;
       }
     }
 
-    &.f-radio-group__small {
-      .f-radio {
-        padding: 2px 20px;
+    &.f-radio-group__small .f-radio {
+      padding: 2px 20px;
 
-        .f-radio__text {
-          font-size: 14px;
-        }
+      .f-radio__text {
+        font-size: 14px;
       }
     }
 
-    &.f-radio-group__mini {
-      .f-radio {
-        padding: 2px 15px;
+    &.f-radio-group__mini .f-radio {
+      padding: 2px 15px;
 
-        .f-radio__text {
-          font-size: 12px;
-        }
+      .f-radio__text {
+        font-size: 12px;
       }
     }
   }

@@ -7,6 +7,7 @@
   position: relative;
   vertical-align: top;
   column-gap: var(--checkbox-group-column-gap, 30px);
+  overflow: hidden;
 
   // 纵向排列
   &.f-checkbox-group__vertical {
@@ -32,6 +33,7 @@
     // 选中的
     .f-checkbox__checked {
       background-color: #fff;
+      box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
 
       .f-checkbox__text {
         color: #2d5af1;
