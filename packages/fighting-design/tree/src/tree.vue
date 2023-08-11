@@ -3,7 +3,7 @@
   import { provide } from 'vue'
   import { FTreeItem } from '../components'
   import type { TreeData } from './interface'
-  import type { TreeItemModel } from '../components/tree-item/interface'
+  import type { TreeItemModel } from '../components'
 
   defineOptions({ name: 'FTree' })
 
@@ -33,7 +33,8 @@
     return markedTree
   }
 
-  const tree = markTreeLevels(prop.data)
+  /** 处理后的树形结构 */
+  const tree: TreeItemModel[] = markTreeLevels(prop.data)
 </script>
 
 <template>
