@@ -1,12 +1,20 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { ref, computed } from 'vue'
+  import { ref, computed, inject } from 'vue'
   import { FSvgIcon } from '../../../svg-icon'
+  import { TREE_PROPS_KEY } from '../../src/props'
   import { FIconChevronRight } from '../../../_svg'
+  import { useRun } from '../../../_hooks'
+  import type { TreeProps } from '../../index'
 
   const prop = defineProps(Props)
 
   defineOptions({ name: 'f-tree-item' })
+
+  const { run } = useRun()
+
+  /** 获取父组件注入的依赖项 */
+  const parentInject: TreeProps | null = inject(TREE_PROPS_KEY, null)
 
   /** 是否需要展开 */
   const isOpen = ref<boolean>(false)
@@ -16,15 +24,33 @@
     return !!(prop.model.children && prop.model.children.length)
   })
 
-  /** 切换状态 */
-  const toggle = (): void => {
+  /**
+   * 切换状态
+   *
+   * @param { Object } evt 事件对象
+   */
+  const toggle = (evt: MouseEvent): void => {
     isOpen.value = !isOpen.value
+
+    if (parentInject) {
+      run(
+        parentInject.onClickLabel,
+        evt,
+        prop.model.label,
+        isOpen.value,
+        parentInject.data
+      )
+    }
   }
 </script>
 
 <template>
   <li class="f-tree-item">
-    <div class="f-tree-item__label" @click.self="toggle">
+    <div
+      class="f-tree-item__label"
+      :style="{ '--tree-item-level-padding': `${model.__level * 40}px` }"
+      @click.self="toggle"
+    >
       <!-- 前缀 -->
       <div class="f-tree-item__label-prefix" @click.self="toggle">
         <f-svg-icon

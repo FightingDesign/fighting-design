@@ -27,12 +27,19 @@
     },
     {
       label: 'Node 3'
+    },
+    {
+      label: 'Node'
     }
   ])
+
+  const onClickLabel = (e, v, r, d) => {
+    console.log(e, v, r, d)
+  }
 </script>
 
 <template>
-  <f-tree :data="data">
+  <f-tree :data="data" :on-click-label="onClickLabel">
     <template #options>
       <f-space>
         <f-button size="mini" round type="danger">删除</f-button>
