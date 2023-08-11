@@ -184,7 +184,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
 
-  const option4 = ref([])
+  const option4 = ref(['选项三'])
 </script>
 ```
 
@@ -270,5 +270,5 @@ type CheckboxGroupChange = (val: string[]) => void
   const option1 = ref(false)
   const option2 = ref([])
   const option3 = ref([])
-  const option4 = ref([])
+  const option4 = ref(['选项三'])
 </script>

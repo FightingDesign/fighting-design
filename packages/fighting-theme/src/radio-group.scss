@@ -23,6 +23,8 @@
     row-gap: var(--radio-group-row-gap, 0);
 
     .f-radio {
+      border-radius: 3px;
+
       .f-radio__text {
         color: #8e8ea0;
       }

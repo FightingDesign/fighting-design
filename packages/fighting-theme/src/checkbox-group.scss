@@ -21,8 +21,12 @@
     column-gap: var(--checkbox-group-column-gap, 2px);
     row-gap: var(--checkbox-group-row-gap, 0);
 
-    .f-checkbox .f-checkbox__text {
-      color: #8e8ea0;
+    .f-checkbox {
+      border-radius: 3px;
+
+      .f-checkbox__text {
+        color: #8e8ea0;
+      }
     }
 
     // 选中的

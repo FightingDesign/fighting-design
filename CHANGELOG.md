@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 优化 `f-drawer` `f-dialog` 组件样式
+- 优化 `f-radio` 和 `f-checkbox` 样式细节
 
 ## 0.60.0 (2023-08-04)
 
