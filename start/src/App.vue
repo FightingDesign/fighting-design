@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import type { TreeClickLabel } from 'fighting-design'
 
   const data = ref([
     {
@@ -33,7 +34,7 @@
     }
   ])
 
-  const onClickLabel = (e, v, r, d, z) => {
+  const onClickLabel: TreeClickLabel = (e, v, r, d, z) => {
     console.log(v, r, d, z)
   }
 </script>

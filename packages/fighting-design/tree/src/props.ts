@@ -1,12 +1,12 @@
 import { setArrayProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
-import type { TreeData, TreeProvide } from './interface'
+import type { TreeData, TreeProvide, TreeClickLabel } from './interface'
 
 export const Props = {
   /** 数据 */
   data: setArrayProp<TreeData>(),
   /** 点击标签执行的回调 */
-  onClickLabel: setFunctionProp()
+  onClickLabel: setFunctionProp<TreeClickLabel>()
 } as const
 
 /** tree 组件 props 类型 */
