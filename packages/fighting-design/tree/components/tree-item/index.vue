@@ -67,7 +67,7 @@
 </script>
 
 <template>
-  <li class="f-tree-item">
+  <div class="f-tree-item">
     <div
       :class="[
         'f-tree-item__label',
@@ -111,13 +111,13 @@
 
     <!-- 子组件 -->
     <f-collapse-animation :opened="isOpen" :animation-time="0.3">
-      <ul v-if="isFolder" class="f-tree-item__children">
+      <div v-if="isFolder" class="f-tree-item__children">
         <f-tree-item v-for="(item, index) in model.children" :key="index" :model="item">
           <template #options>
             <slot name="options" />
           </template>
         </f-tree-item>
-      </ul>
+      </div>
     </f-collapse-animation>
-  </li>
+  </div>
 </template>

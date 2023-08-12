@@ -20,6 +20,7 @@
       // 禁用状态
       &.f-tree-item__label-disabled {
         background-color: #f7f7f7;
+        cursor: not-allowed;
 
         .f-tree-item__label-prefix {
           color: #d7d7d7;
