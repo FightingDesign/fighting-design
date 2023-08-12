@@ -5,7 +5,10 @@
   import { TREE_PROPS_KEY } from '../../src/props'
   import { FIconChevronRight } from '../../../_svg'
   import { useRun } from '../../../_hooks'
+  import { FCheckbox } from '../../../checkbox'
+  import { isNumber } from '../../../_utils'
   import type { TreeItemModel } from './interface'
+  import type { CSSProperties } from 'vue'
   import type { TreeProvide } from '../../index'
 
   const prop = defineProps(Props)
@@ -42,6 +45,24 @@
       run(parentInject.onClickLabel, evt, model, isOpen.value, parentInject.tree)
     }
   }
+
+  /** 计算偏移量 */
+  const offset = computed((): number => {
+    if (parentInject && isNumber(parentInject.offset) && parentInject.offset > 1) {
+      return parentInject.offset
+    }
+    return 40
+  })
+
+  /** 计算没一行缩进距离样式 */
+  const offsetSize = computed((): CSSProperties => {
+    const { __level } = prop.model
+
+    if (__level) {
+      return { '--tree-item-level-padding': `${__level * offset.value}px` }
+    }
+    return {}
+  })
 </script>
 
 <template>
@@ -53,7 +74,7 @@
           'f-tree-item__label-disabled': model.disabled
         }
       ]"
-      :style="{ '--tree-item-level-padding': `${model.__level * 40}px` }"
+      :style="offsetSize"
       @click="toggle($event, model)"
     >
       <!-- 前缀 -->
@@ -61,7 +82,8 @@
         <!-- 选择标签 -->
         <f-checkbox
           v-if="parentInject?.isCheck"
-          :label="model.label"
+          :label="model.value || model.label"
+          :disabled="model.disabled"
           :show-label="false"
         />
 

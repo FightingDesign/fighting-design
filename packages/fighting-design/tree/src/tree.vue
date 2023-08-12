@@ -3,12 +3,15 @@
   import { provide, toRef, reactive, ref } from 'vue'
   import { FTreeItem } from '../components'
   import { isArray, isObject } from '../../_utils'
+  import { FCheckboxGroup } from '../../checkbox-group'
   import type { TreeData, TreeProvide, TreeDataItem } from './interface'
   import type { TreeItemModel } from '../components'
-
-  defineOptions({ name: 'FTree' })
+  import type { CheckboxGroupChange } from '../../checkbox-group'
 
   const prop = defineProps(Props)
+  const modelVlaue = defineModel('check', { type: Array, default: [] })
+
+  defineOptions({ name: 'FTree' })
 
   /**
    * 给树组件添加层级
@@ -49,39 +52,47 @@
   /** 多选列表 */
   const checkOption = ref([])
 
+  const checkboxChange: CheckboxGroupChange = (val): void => {
+    modelVlaue.value = val
+  }
+
   /** 注入依赖项 */
   provide<TreeProvide>(
     TREE_PROPS_KEY,
     reactive({
       onClickLabel: toRef(prop, 'onClickLabel'),
       isCheck: toRef(prop, 'isCheck'),
+      offset: toRef(prop, 'offset'),
       tree
     })
   )
 </script>
 
 <template>
-  <!-- 可多选 -->
-  <template v-if="isCheck">
-    <f-checkbox-group v-model="checkOption" style="display: block">
-      <div v-if="tree && tree.length" role="tree" class="f-tree">
-        <f-tree-item v-for="(item, index) in tree" :key="index" :model="item">
+  <div role="tree" class="f-tree">
+    <!-- 可多选的 -->
+    <f-checkbox-group
+      v-if="isCheck"
+      v-model="checkOption"
+      style="display: block"
+      :on-change="checkboxChange"
+    >
+      <template v-for="(item, index) in tree" :key="index">
+        <f-tree-item :model="item">
           <template #options>
             <slot name="options" />
           </template>
         </f-tree-item>
-      </div>
+      </template>
     </f-checkbox-group>
-  </template>
 
-  <!-- 正常的 -->
-  <template v-else>
-    <div v-if="tree && tree.length" role="tree" class="f-tree">
+    <!-- 标准的 -->
+    <template v-else>
       <f-tree-item v-for="(item, index) in tree" :key="index" :model="item">
         <template #options>
           <slot name="options" />
         </template>
       </f-tree-item>
-    </div>
-  </template>
+    </template>
+  </div>
 </template>

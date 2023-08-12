@@ -9,13 +9,13 @@
       align-items: center;
       transition: 0.3s;
       background-color: #fff;
-      padding: 2px 11px;
       box-sizing: border-box;
       border-radius: 1px;
       user-select: none;
       color: #333;
+      padding: 4px 8px;
       justify-content: space-between;
-      padding-left: var(--tree-item-level-padding, 0);
+      padding-left: var(--tree-item-level-padding, 4px);
 
       // 禁用状态
       &.f-tree-item__label-disabled {

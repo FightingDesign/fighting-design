@@ -1,8 +1,10 @@
-import { setBooleanProp, setFunctionProp } from '../../_utils'
+import { setArrayProp, setBooleanProp, setFunctionProp, setNumberProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { TreeData, TreeProvide, TreeClickLabel, TreeDataItem } from './interface'
 
 export const Props = {
+  /** 绑定的多选值 */
+  modelValue: setArrayProp(),
   /** 
    * 树形数据
    *
@@ -14,6 +16,8 @@ export const Props = {
   },
   /** 是否可选择 */
   isCheck: setBooleanProp(),
+  /** 子节点缩进偏移量 */
+  offset: setNumberProp(40),
   /** 点击标签执行的回调 */
   onClickLabel: setFunctionProp<TreeClickLabel>()
 } as const

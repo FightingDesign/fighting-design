@@ -6,11 +6,13 @@ export type { TreeProps } from './props'
  * 树形结构每一项类型接口
  *
  * @param { string } label label
+ * @param { number | string } value 多选 checkbox 绑定的值
  * @param { boolean } disabled 是否禁用当前标签
  * @param { Array } [children] 孩子节点
  */
 export interface TreeDataItem {
   label: string
+  value?: number | string
   disabled?: boolean
   children?: TreeDataItem[]
 }
@@ -34,10 +36,12 @@ export type TreeClickLabel = (evt: MouseEvent, model: TreeItemModel, isOpen: boo
  * 
  * @param { Function } onClickLabel 点击每一项 label 执行的回调方
  * @param { boolean } isCheck 是否可以选择
+ * @param { number } offset 子节点偏移量
  * @param { Array } tree 格式化后的树形数据
  */
 export interface TreeProvide {
   onClickLabel: TreeClickLabel
   isCheck: boolean
+  offset: number
   tree: TreeItemModel[]
 }
