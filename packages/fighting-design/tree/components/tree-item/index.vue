@@ -58,6 +58,13 @@
     >
       <!-- 前缀 -->
       <div class="f-tree-item__label-prefix">
+        <!-- 选择标签 -->
+        <f-checkbox
+          v-if="parentInject?.isCheck"
+          :label="model.label"
+          :show-label="false"
+        />
+
         <f-svg-icon
           v-if="isFolder"
           :class="{ 'f-tree-item__icon-animation': isOpen }"

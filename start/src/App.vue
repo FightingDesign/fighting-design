@@ -2,6 +2,8 @@
   import { ref } from 'vue'
   import type { TreeClickLabel } from 'fighting-design'
 
+  // const option2 = ref(['汉堡'])
+
   const data = ref([
     {
       label: 'Node 1',
@@ -49,4 +51,13 @@
       </f-space>
     </template>
   </f-tree>
+
+  <!-- <div>{{ option2 }}</div>
+  <f-checkbox-group v-model="option2">
+    <f-checkbox label="鸡肉卷" />
+    <f-checkbox label="鸡排" />
+
+    <div>
+    </div>
+  </f-checkbox-group> -->
 </template>

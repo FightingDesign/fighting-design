@@ -1,4 +1,4 @@
-import { setFunctionProp } from '../../_utils'
+import { setBooleanProp, setFunctionProp } from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { TreeData, TreeProvide, TreeClickLabel, TreeDataItem } from './interface'
 
@@ -12,6 +12,8 @@ export const Props = {
     type: [Object, Array] as PropType<TreeDataItem | TreeData>,
     default: (): TreeData => []
   },
+  /** 是否可选择 */
+  isCheck: setBooleanProp(),
   /** 点击标签执行的回调 */
   onClickLabel: setFunctionProp<TreeClickLabel>()
 } as const

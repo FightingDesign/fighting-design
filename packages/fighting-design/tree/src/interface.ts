@@ -33,9 +33,11 @@ export type TreeClickLabel = (evt: MouseEvent, model: TreeItemModel, isOpen: boo
  * 注入的依赖项类型
  * 
  * @param { Function } onClickLabel 点击每一项 label 执行的回调方
+ * @param { boolean } isCheck 是否可以选择
  * @param { Array } tree 格式化后的树形数据
  */
 export interface TreeProvide {
   onClickLabel: TreeClickLabel
+  isCheck: boolean
   tree: TreeItemModel[]
 }

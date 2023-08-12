@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { Props, TREE_PROPS_KEY } from './props'
-  import { provide, toRef, reactive } from 'vue'
+  import { provide, toRef, reactive, ref } from 'vue'
   import { FTreeItem } from '../components'
   import { isArray, isObject } from '../../_utils'
   import type { TreeData, TreeProvide, TreeDataItem } from './interface'
@@ -51,17 +51,37 @@
     TREE_PROPS_KEY,
     reactive({
       onClickLabel: toRef(prop, 'onClickLabel'),
+      isCheck: toRef(prop, 'isCheck'),
       tree
     })
   )
+
+  /** 多选列表 */
+  const checkOption = ref([])
 </script>
 
 <template>
-  <div v-if="tree && tree.length" role="tree" class="f-tree">
-    <f-tree-item v-for="(item, index) in tree" :key="index" :model="item">
-      <template #options>
-        <slot name="options" />
-      </template>
-    </f-tree-item>
-  </div>
+  <!-- 可多选 -->
+  <template v-if="isCheck">
+    <f-checkbox-group v-model="checkOption" style="display: block">
+      <div v-if="tree && tree.length" role="tree" class="f-tree">
+        <f-tree-item v-for="(item, index) in tree" :key="index" :model="item">
+          <template #options>
+            <slot name="options" />
+          </template>
+        </f-tree-item>
+      </div>
+    </f-checkbox-group>
+  </template>
+
+  <!-- 正常的 -->
+  <template v-else>
+    <div v-if="tree && tree.length" role="tree" class="f-tree">
+      <f-tree-item v-for="(item, index) in tree" :key="index" :model="item">
+        <template #options>
+          <slot name="options" />
+        </template>
+      </f-tree-item>
+    </div>
+  </template>
 </template>
