@@ -5,6 +5,7 @@
   const data = ref([
     {
       label: 'Node 1',
+      disabled: true,
       children: [
         {
           label: 'Node 1-1',
@@ -34,8 +35,8 @@
     }
   ])
 
-  const onClickLabel: TreeClickLabel = (e, v, r, d, z) => {
-    console.log(v, r, d, z)
+  const onClickLabel: TreeClickLabel = (e, v, r, d) => {
+    console.log(v, r, d)
   }
 </script>
 

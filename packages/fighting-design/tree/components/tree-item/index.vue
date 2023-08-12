@@ -5,6 +5,7 @@
   import { TREE_PROPS_KEY } from '../../src/props'
   import { FIconChevronRight } from '../../../_svg'
   import { useRun } from '../../../_hooks'
+  import type { TreeItemModel } from './interface'
   import type { TreeProvide } from '../../index'
 
   const prop = defineProps(Props)
@@ -28,19 +29,17 @@
    * 切换状态
    *
    * @param { Object } evt 事件对象
+   * @param { Object } model 每一项参数镀锡
    */
-  const toggle = (evt: MouseEvent): void => {
+  const toggle = (evt: MouseEvent, model: TreeItemModel): void => {
+    if (model.disabled) {
+      return
+    }
+
     isOpen.value = !isOpen.value
 
     if (parentInject) {
-      run(
-        parentInject.onClickLabel,
-        evt,
-        prop.model.label,
-        prop.model.__level,
-        isOpen.value,
-        parentInject.tree
-      )
+      run(parentInject.onClickLabel, evt, model, isOpen.value, parentInject.tree)
     }
   }
 </script>
@@ -48,12 +47,17 @@
 <template>
   <li class="f-tree-item">
     <div
-      class="f-tree-item__label"
+      :class="[
+        'f-tree-item__label',
+        {
+          'f-tree-item__label-disabled': model.disabled
+        }
+      ]"
       :style="{ '--tree-item-level-padding': `${model.__level * 40}px` }"
-      @click.self="toggle"
+      @click="toggle($event, model)"
     >
       <!-- 前缀 -->
-      <div class="f-tree-item__label-prefix" @click.self="toggle">
+      <div class="f-tree-item__label-prefix">
         <f-svg-icon
           v-if="isFolder"
           :class="{ 'f-tree-item__icon-animation': isOpen }"

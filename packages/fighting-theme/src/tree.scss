@@ -13,10 +13,21 @@
       box-sizing: border-box;
       border-radius: 1px;
       user-select: none;
+      color: #333;
       justify-content: space-between;
       padding-left: var(--tree-item-level-padding, 0);
 
-      &:hover {
+      // 禁用状态
+      &.f-tree-item__label-disabled {
+        background-color: #f7f7f7;
+
+        .f-tree-item__label-prefix {
+          color: #d7d7d7;
+        }
+      }
+
+      // 在没有禁用的状态下展示阴影
+      &:not([class~='f-tree-item__label-disabled']):hover {
         background-color: #eee;
       }
 

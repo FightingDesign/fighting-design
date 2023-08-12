@@ -6,10 +6,12 @@ export type { TreeProps } from './props'
  * 树形结构每一项类型接口
  *
  * @param { string } label label
+ * @param { boolean } disabled 是否禁用当前标签
  * @param { Array } [children] 孩子节点
  */
 export interface TreeDataItem {
   label: string
+  disabled?: boolean
   children?: TreeDataItem[]
 }
 
@@ -25,7 +27,7 @@ export type TreeData = TreeDataItem[]
  * @param { Object } isOpen 展开状态
  * @param { Array } tree 格式化后的树形数据
  */
-export type TreeClickLabel = (evt: MouseEvent, label: string, level: number, isOpen: boolean, tree: TreeItemModel[]) => void
+export type TreeClickLabel = (evt: MouseEvent, model: TreeItemModel, isOpen: boolean, tree: TreeItemModel[]) => void
 
 /**
  * 注入的依赖项类型
