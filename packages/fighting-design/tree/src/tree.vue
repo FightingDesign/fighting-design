@@ -46,6 +46,9 @@
   /** 处理后的树形结构 */
   const tree: TreeItemModel[] = markTreeLevels(prop.data)
 
+  /** 多选列表 */
+  const checkOption = ref([])
+
   /** 注入依赖项 */
   provide<TreeProvide>(
     TREE_PROPS_KEY,
@@ -55,9 +58,6 @@
       tree
     })
   )
-
-  /** 多选列表 */
-  const checkOption = ref([])
 </script>
 
 <template>

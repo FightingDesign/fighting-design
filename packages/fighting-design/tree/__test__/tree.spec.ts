@@ -25,6 +25,6 @@ describe('Tree', () => {
     const wrapper = mount(FTree, {
       props: { data }
     })
-    expect(wrapper.classes()).toContain('f-tree')
+    expect(wrapper.find('.f-tree').classes()).toContain('f-tree')
   })
 })
