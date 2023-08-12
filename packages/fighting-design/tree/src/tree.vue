@@ -9,7 +9,7 @@
   import type { CheckboxGroupChange } from '../../checkbox-group'
 
   const prop = defineProps(Props)
-  const modelVlaue = defineModel('check', { type: Array, default: [] })
+  const modelValue = defineModel('check', { type: Array, default: [] })
 
   defineOptions({ name: 'FTree' })
 
@@ -53,7 +53,7 @@
   const checkOption = ref([])
 
   const checkboxChange: CheckboxGroupChange = (val): void => {
-    modelVlaue.value = val
+    modelValue.value = val
   }
 
   /** 注入依赖项 */

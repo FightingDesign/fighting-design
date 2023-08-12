@@ -33,20 +33,26 @@
 
       // 前缀
       .f-tree-item__label-prefix {
-        font-size: 15px;
-        color: #333;
         display: flex;
         align-items: center;
-        column-gap: 8px;
+        column-gap: 6px;
 
         // icon
         .f-svg-icon {
           margin-left: 5px;
           transition: 0.3s;
+          font-size: 15px;
+          color: #333;
 
           &.f-tree-item__icon-animation {
             transform: rotate(90deg);
           }
+        }
+
+        // 文字内容
+        .f-tree-item__text {
+          font-size: 15px;
+          color: #333;
         }
       }
     }

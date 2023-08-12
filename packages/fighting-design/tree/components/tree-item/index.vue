@@ -13,7 +13,7 @@
 
   const prop = defineProps(Props)
 
-  defineOptions({ name: 'f-tree-item' })
+  defineOptions({ name: 'FTreeItem' })
 
   const { run } = useRun()
 
@@ -61,6 +61,7 @@
     if (__level) {
       return { '--tree-item-level-padding': `${__level * offset.value}px` }
     }
+
     return {}
   })
 </script>
@@ -87,13 +88,19 @@
           :show-label="false"
         />
 
+        <!-- 展示的箭头 icon -->
         <f-svg-icon
           v-if="isFolder"
           :class="{ 'f-tree-item__icon-animation': isOpen }"
-          :size="17"
+          :size="15"
           :icon="FIconChevronRight"
         />
-        {{ model.label }}
+
+        <!-- 遍历中需要展示的 icon -->
+        <f-svg-icon v-if="model.icon" :size="15" :icon="model.icon" />
+
+        <!-- label 上的文字内容 -->
+        <div class="f-tree-item__text">{{ model.label }}</div>
       </div>
 
       <!-- 操作栏 -->

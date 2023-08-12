@@ -1,4 +1,5 @@
 import type { TreeItemModel } from '../components'
+import type { FightingIcon } from '../../_interface'
 
 export type { TreeProps } from './props'
 
@@ -8,12 +9,14 @@ export type { TreeProps } from './props'
  * @param { string } label label
  * @param { number | string } value 多选 checkbox 绑定的值
  * @param { boolean } disabled 是否禁用当前标签
+ * @param { Object } icon 自定义 icon
  * @param { Array } [children] 孩子节点
  */
 export interface TreeDataItem {
   label: string
   value?: number | string
   disabled?: boolean
+  icon?: FightingIcon
   children?: TreeDataItem[]
 }
 

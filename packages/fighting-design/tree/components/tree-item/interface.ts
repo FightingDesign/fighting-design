@@ -1,3 +1,5 @@
+import type { FightingIcon } from '../../../_interface'
+
 /**
  * 子数每一项的类型接口
  * 
@@ -10,6 +12,7 @@
 export interface TreeItemModel {
   label: string
   __level: number
+  icon?: FightingIcon
   value?: number | string
   disabled?: boolean
   children?: TreeItemModel[]
