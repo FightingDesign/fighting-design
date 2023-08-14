@@ -231,3 +231,6 @@ export * from './avatar-group'
 
 export { FTabsItem } from './tabs-item'
 export * from './tabs-item'
+
+export { FConfirmBox } from './confirm-box'
+export * from './confirm-box'
