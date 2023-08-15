@@ -1,4 +1,4 @@
-import { setBooleanProp, setFunctionProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setFunctionProp, setStringNumberProp, setStringProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse, HandleChange } from '../../_interface'
 
@@ -9,6 +9,10 @@ export const Props = {
   title: setStringProp(),
   /** 提示内容 */
   content: setStringProp(),
+  /** 确认按钮文字 */
+  confirmText: setStringNumberProp(),
+  /** 取消按钮的文字内容 */
+  cancelText: setStringNumberProp(),
   /** 点击确定执行的回调方法 */
   onConfirm: setFunctionProp<HandleMouse>(),
   /** 点击取消执行的回调方法 */
@@ -19,4 +23,5 @@ export const Props = {
   onOpen: setFunctionProp<HandleChange>()
 } as const
 
+/** confirm box 组件 props 类型 */
 export type ConfirmBoxProps = ExtractPropTypes<typeof Props>

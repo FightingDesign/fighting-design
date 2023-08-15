@@ -205,7 +205,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
   /* 组件即将被卸载时，暂停倒计时 */
   onBeforeUnmount(pause)
 
-  /* keep-alive时，从deactive到active状态下： 继续倒计时 */
+  /* keep-alive时，从 deactive 到active状态下： 继续倒计时 */
   onActivated(() => {
     if (deactivated) {
       isCounting = true
@@ -214,7 +214,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     }
   })
 
-  /* keep-alive时，deactive状态下： 暂停倒计时 */
+  /* keep-alive时，deactive 状态下： 暂停倒计时 */
   onDeactivated(() => {
     if (isCounting) {
       pause()

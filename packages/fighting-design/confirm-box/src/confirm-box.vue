@@ -91,9 +91,11 @@
           <!-- 底部 -->
           <div class="f-confirm-box__footer">
             <f-space>
-              <f-button :loading="isLoading" :on-click="handelCancel">取消</f-button>
+              <f-button :loading="isLoading" :on-click="handelCancel">
+                {{ cancelText || '取消' }}
+              </f-button>
               <f-button :loading="isLoading" type="primary" :on-click="handelConfirm">
-                确定
+                {{ confirmText || '确定' }}
               </f-button>
             </f-space>
           </div>
