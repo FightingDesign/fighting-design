@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.61.0 (2023-08-15)
+
+- Optimize component styles for `f-drawer` and `f-dialog`
+- Optimize style details for `f-radio` and `f-checkbox`
+- Refactoring `f-tree` components
+- Add a `f-confirm-box` component
+
 ## 0.60.0 (2023-08-04)
 
 - Optimize the `f-radio` component styles

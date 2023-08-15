@@ -354,6 +354,11 @@
       "title": "Avatar Group 头像组",
       "rule": "avatar-groupAvatarGroup头像组",
       "url": "components/avatar-group"
+    },
+    {
+      "title": "Confirm Box 确认框",
+      "rule": "confirm-boxConfirmBox确认框",
+      "url": "components/confirm-box"
     }
   ]
 }

@@ -19,7 +19,7 @@
   const isLoading = ref(false)
 
   /** 关闭确认框 */
-  const handelClose = (): void => {
+  const handleClose = (): void => {
     isShow.value = false
   }
 
@@ -38,14 +38,14 @@
    *
    * @param { Object } evt 事件对象
    */
-  const handelConfirm = async (evt: MouseEvent): Promise<void> => {
+  const handleConfirm = async (evt: MouseEvent): Promise<void> => {
     isLoading.value = true
 
     if (isFunction(prop.onConfirm)) {
       await prop.onConfirm(evt)
     }
 
-    handelClose()
+    handleClose()
   }
 
   /**
@@ -53,14 +53,14 @@
    *
    * @param { Object } evt 事件对象
    */
-  const handelCancel = async (evt: MouseEvent): Promise<void> => {
+  const handleCancel = async (evt: MouseEvent): Promise<void> => {
     isLoading.value = true
 
     if (isFunction(prop.onCancel)) {
       await prop.onCancel(evt)
     }
 
-    handelClose()
+    handleClose()
   }
 </script>
 
@@ -82,7 +82,7 @@
           <div class="f-confirm-box__header">
             <div class="f-confirm-box__title">{{ title }}</div>
 
-            <f-close-btn :disabled="isLoading" :on-click="handelClose" />
+            <f-close-btn :disabled="isLoading" :on-click="handleClose" />
           </div>
 
           <!-- 身体 -->
@@ -91,10 +91,10 @@
           <!-- 底部 -->
           <div class="f-confirm-box__footer">
             <f-space>
-              <f-button :loading="isLoading" :on-click="handelCancel">
+              <f-button :loading="isLoading" :on-click="handleCancel">
                 {{ cancelText || '取消' }}
               </f-button>
-              <f-button :loading="isLoading" type="primary" :on-click="handelConfirm">
+              <f-button :loading="isLoading" type="primary" :on-click="handleConfirm">
                 {{ confirmText || '确定' }}
               </f-button>
             </f-space>
