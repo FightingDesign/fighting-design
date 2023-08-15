@@ -5,6 +5,7 @@
   import { FCloseBtn } from '../../close-btn'
   import { ref } from 'vue'
   import { useRun } from '../../_hooks'
+  import { isFunction } from '../../_utils'
 
   defineOptions({ name: 'FConfirmBox' })
 
@@ -14,6 +15,8 @@
 
   /** 是否展示确认框 */
   const isShow = ref(prop.show)
+  /** button loading */
+  const isLoading = ref(false)
 
   /** 关闭确认框 */
   const handelClose = (): void => {
@@ -28,6 +31,36 @@
   /** 关闭之后执行的回调方法 */
   const handleCloseEnd = (): void => {
     run(prop.onClose, isShow.value)
+  }
+
+  /**
+   * 点击确认执行的回调方法
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handelConfirm = async (evt: MouseEvent): Promise<void> => {
+    isLoading.value = true
+
+    if (isFunction(prop.onConfirm)) {
+      await prop.onConfirm(evt)
+    }
+
+    handelClose()
+  }
+
+  /**
+   * 点击取消执行的回调方法
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handelCancel = async (evt: MouseEvent): Promise<void> => {
+    isLoading.value = true
+
+    if (isFunction(prop.onCancel)) {
+      await prop.onCancel(evt)
+    }
+
+    handelClose()
   }
 </script>
 
@@ -49,7 +82,7 @@
           <div class="f-confirm-box__header">
             <div class="f-confirm-box__title">{{ title }}</div>
 
-            <f-close-btn :on-click="handelClose" />
+            <f-close-btn :disabled="isLoading" :on-click="handelClose" />
           </div>
 
           <!-- 身体 -->
@@ -58,8 +91,10 @@
           <!-- 底部 -->
           <div class="f-confirm-box__footer">
             <f-space>
-              <f-button :on-click="onCancel">取消</f-button>
-              <f-button type="primary" :on-click="onConfirm">确定</f-button>
+              <f-button :loading="isLoading" :on-click="handelCancel">取消</f-button>
+              <f-button :loading="isLoading" type="primary" :on-click="handelConfirm">
+                确定
+              </f-button>
             </f-space>
           </div>
         </div>
