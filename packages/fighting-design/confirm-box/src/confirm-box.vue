@@ -4,10 +4,13 @@
   import { FSpace } from '../../space'
   import { FCloseBtn } from '../../close-btn'
   import { ref } from 'vue'
+  import { useRun } from '../../_hooks'
 
   defineOptions({ name: 'FConfirmBox' })
 
   const prop = defineProps(Props)
+
+  const { run } = useRun()
 
   /** 是否展示确认框 */
   const isShow = ref(prop.show)
@@ -16,34 +19,51 @@
   const handelClose = (): void => {
     isShow.value = false
   }
+
+  /** 开启之后执行的回调方法 */
+  const handleOpenEnd = (): void => {
+    run(prop.onOpen, isShow.value)
+  }
+
+  /** 关闭之后执行的回调方法 */
+  const handleCloseEnd = (): void => {
+    run(prop.onClose, isShow.value)
+  }
 </script>
 
 <template>
-  <transition name="modal">
-    <div v-if="isShow" class="f-confirm-box">
-      <!-- 遮罩层 -->
-      <div class="f-confirm-box__mask" />
+  <teleport to="body">
+    <transition
+      name="f-confirm-box__trans"
+      appear
+      @after-enter="handleOpenEnd"
+      @after-leave="handleCloseEnd"
+    >
+      <div v-if="isShow" class="f-confirm-box">
+        <!-- 遮罩层 -->
+        <div class="f-confirm-box__mask" />
 
-      <!-- 容器 -->
-      <div class="f-confirm-box__container">
-        <!-- 头部 -->
-        <div class="f-confirm-box__header">
-          <div class="f-confirm-box__title">{{ title }}</div>
+        <!-- 容器 -->
+        <div class="f-confirm-box__container">
+          <!-- 头部 -->
+          <div class="f-confirm-box__header">
+            <div class="f-confirm-box__title">{{ title }}</div>
 
-          <f-close-btn :on-click="handelClose" />
-        </div>
+            <f-close-btn :on-click="handelClose" />
+          </div>
 
-        <!-- 身体 -->
-        <div class="f-confirm-box__body">{{ content }}</div>
+          <!-- 身体 -->
+          <div class="f-confirm-box__body">{{ content }}</div>
 
-        <!-- 底部 -->
-        <div class="f-confirm-box__footer">
-          <f-space>
-            <f-button :on-click="onCancel">取消</f-button>
-            <f-button type="primary" :on-click="onConfirm">确定</f-button>
-          </f-space>
+          <!-- 底部 -->
+          <div class="f-confirm-box__footer">
+            <f-space>
+              <f-button :on-click="onCancel">取消</f-button>
+              <f-button type="primary" :on-click="onConfirm">确定</f-button>
+            </f-space>
+          </div>
         </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </teleport>
 </template>

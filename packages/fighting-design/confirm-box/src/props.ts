@@ -4,7 +4,7 @@ import type { HandleMouse, HandleChange } from '../../_interface'
 
 export const Props = {
   /** 是否展示 */
-  show: setBooleanProp(),
+  show: setBooleanProp(false),
   /** 标题内容 */
   title: setStringProp(),
   /** 提示内容 */

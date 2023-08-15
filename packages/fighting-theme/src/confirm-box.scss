@@ -50,7 +50,7 @@
     // 身体
     .f-confirm-box__body {
       margin-top: 24px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
       font-size: 15px;
       color: #333;
     }
@@ -61,17 +61,16 @@
       align-items: center;
       justify-content: flex-end;
     }
+  }
 
-    // // 主内容动画样式
-    // &-trans-enter-active,
-    // &-trans-leave-active {
-    //   transition: all 0.2s ease-out;
-    // }
+  &__trans-enter-active,
+  &__trans-leave-active {
+    transition: all 0.2s ease-out;
+  }
 
-    // &-trans-enter-from,
-    // &-trans-leave-to {
-    //   transform: scale(0.4);
-    //   opacity: 0;
-    // }
+  &__trans-enter-from,
+  &__trans-leave-to {
+    transform: scale(1.1);
+    opacity: 0;
   }
 }

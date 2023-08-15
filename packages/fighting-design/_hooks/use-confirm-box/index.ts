@@ -11,7 +11,6 @@ export const useConfirmBox = (component: Component) => {
 
     render(vNode, container)
 
-    document.body.appendChild(container.firstElementChild as HTMLElement)
     return vNode.component as ComponentInternalInstance
   }
 
