@@ -1,0 +1,21 @@
+@import "../config/var-check-tag.scss";
+.f-check-tag {
+  cursor: default;
+  display: inline-flex;
+  white-space: nowrap;
+  justify-content: center;
+  position: relative;
+  flex-wrap: nowrap;
+  align-items: center;
+  vertical-align: middle;
+  font-size: var(--tag-font-size);
+  padding: 0 var(--tag-padding);
+  transition: 0.3s;
+  border-radius: var(--tag-border-radius);
+  height: var(--tag-height);
+  background-color: var(--tag-background);
+  color: var(--tag-color);
+  &__checked{
+    // border: solid 1px red;
+  }
+}

@@ -5,6 +5,8 @@
 # 直接书写单词将同时匹配所有文件或目录，无论位置
 node_modules
 dist
+.idea
+.DS_Store
 dist-icon
 stats.html
 .eslintcache

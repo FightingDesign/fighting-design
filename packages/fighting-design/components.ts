@@ -234,3 +234,6 @@ export * from './tabs-item'
 
 export { FConfirmBox } from './confirm-box'
 export * from './confirm-box'
+
+export { FCheckTag } from './check-tag'
+export * from './check-tag'
