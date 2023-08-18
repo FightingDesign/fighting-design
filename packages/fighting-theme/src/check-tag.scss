@@ -1,5 +1,6 @@
 @import "../config/var-check-tag.scss";
 .f-check-tag {
+  user-select: none;
   cursor: default;
   display: inline-flex;
   white-space: nowrap;

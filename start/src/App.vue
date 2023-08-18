@@ -3,28 +3,43 @@
 
   const checked = ref(false)
 
-  const handleChange = () => {}
-
-  const handleClick = (): void => {
-    console.log('xx')
+  const onChange = (val: boolean): void => {
+    checked.value = val
   }
 </script>
 
 <template>
   <div>
-    <f-tag :key="1" color="red" simple close type="primary" @click="handleClick">
-      默认
-    </f-tag>
-    <f-tag :key="2" color="red" simple close type="danger"> 默认 </f-tag>
+    <f-check-tag style="margin-right: 10px" checked> checked </f-check-tag>
+    <f-check-tag :checked="false"> un checked </f-check-tag>
 
     <br />
     <br />
-    <f-check-tag type="primary" checked style="margin-right: 10px">checked</f-check-tag>
-    <f-check-tag type="primary" :checked="false">unchecked</f-check-tag>
-    <br />
-    <br />
 
-    <f-check-tag type="danger" :checked="checked" @change="handleChange">
+    <f-check-tag
+      style="margin-right: 10px"
+      type="warning"
+      :checked="checked"
+      :on-change="onChange"
+    >
+      toggle
+    </f-check-tag>
+
+    <f-check-tag
+      style="margin-right: 10px"
+      type="success"
+      :checked="checked"
+      :on-change="onChange"
+    >
+      toggle
+    </f-check-tag>
+
+    <f-check-tag
+      style="margin-right: 10px"
+      type="danger"
+      :checked="checked"
+      :on-change="onChange"
+    >
       toggle
     </f-check-tag>
   </div>

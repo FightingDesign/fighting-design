@@ -1,11 +1,11 @@
 import type { ExtractPropTypes } from 'vue'
-import { setBooleanProp, setStringProp } from '../../_utils'
+import { setBooleanProp, setFunctionProp, setStringProp } from '../../_utils'
 import type { FightingSize, FightingType } from '../../_interface'
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 
 export const Props = {
   /** 是否选中 */
-  checked: setBooleanProp(true),
+  checked: setBooleanProp(false),
   /**
    * 尺寸
    *
@@ -19,9 +19,11 @@ export const Props = {
    *
    * @values default primary success danger warning info
    */
-  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>('primary', (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
-  })
+  }),
+  /**点击 Check Tag 时触发的事件*/
+  onChange: setFunctionProp<(value: boolean) => void>()
 } as const
 
 export type CheckTagProps = ExtractPropTypes<typeof Props>
