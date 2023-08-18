@@ -50,7 +50,7 @@ export const Props = {
   line: setBooleanProp(),
   /** 点击关闭按钮触发 */
   onClose: setFunctionProp<HandleMouse>(),
-  /** 点击关闭按钮触发 */
+  /** 点击按钮触发 */
   onClick: setFunctionProp<HandleMouse>()
 } as const
 
