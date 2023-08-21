@@ -14,12 +14,15 @@
   const classList = classes(['size', 'type'], 'f-check-tag')
   /** 样式列表 */
   //
+  const handleClick = (): void => {
+    prop.onChange(!prop.checked)
+  }
 </script>
 
 <template>
   <div
-    :class="[...classList, prop.checked ? null : 'f-check-tag__simple']"
-    @click="prop.onChange(!prop.checked)"
+    :class="[...classList, checked ? null : 'f-check-tag__simple']"
+    @click="handleClick"
   >
     <slot />
   </div>

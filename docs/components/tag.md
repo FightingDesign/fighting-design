@@ -165,6 +165,64 @@
 
 :::
 
+## 可选中的标签
+
+`check-tag` 类似单选框的标签, 支持`type`、`size`配置
+
+::: demo
+
+<template #source>
+<f-check-tag style="margin-right: 10px" checked> checked </f-check-tag>
+<f-check-tag :checked="false"> un checked </f-check-tag>
+
+<br />
+<br />
+
+<f-check-tag
+  style="margin-right: 10px"
+  type="danger"
+  size="large"
+  :checked="checked"
+  :on-change="onChange"
+>
+  toggle
+</f-check-tag>
+
+</template>
+
+```html
+<template>
+  <f-check-tag style="margin-right: 10px" checked> checked </f-check-tag>
+  <f-check-tag :checked="false"> un checked </f-check-tag>
+
+  <br />
+  <br />
+  
+  <f-check-tag
+    style="margin-right: 10px"
+    type="danger"
+    size="large"
+    :checked="checked"
+    :on-change="onChange"
+  >
+    toggle
+  </f-check-tag>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const checked = ref<boolean>(false)
+
+  const onChange = (val: boolean): void => {
+    checked.value = val
+  }
+</script>
+```
+
+:::
+
+
 ## Attributes
 
 | 参数          | 说明                   | 类型                                                               | 可选值                                           | 默认值 |
@@ -197,6 +255,13 @@
 import type { TagInstance, TagProps } from 'fighting-design'
 ```
 
+## CheckTag Attributes 
+| 参数          | 说明                   | 类型                                                                 | 可选值                                           | 默认值 |
+|-------------| ---------------------- |--------------------------------------------------------------------| ------------------------------------------------ | ------ |
+| `type`      | 标签类型               | <a href="/components/interface.html#fightingtype">FightingType</a> | `default` `success` `danger` `warning` `primary` | primary     |
+| `size`      | 标签大小               | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini`                  | small  |
+| `on-change` | 点击执行的回调         | boolean                                                            | ——                                               | ——     |
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
@@ -206,6 +271,16 @@ import type { TagInstance, TagProps } from 'fighting-design'
 <a href="https://github.com/konvyi" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
 </a>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const checked = ref<boolean>(false)
+
+const onChange = (val: boolean): void => {
+    checked.value = val
+}
+</script>
 
 <style scoped>
   .f-tag {
