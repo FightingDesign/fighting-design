@@ -272,6 +272,10 @@ import type { TagInstance, TagProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/44802220?v=4" />
 </a>
 
+<a href="https://github.com/zhoufanglu" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/24451091?v=4" />
+</a>
+
 <script lang="ts" setup>
 import { ref } from 'vue'
 
