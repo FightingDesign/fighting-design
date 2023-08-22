@@ -11,9 +11,13 @@ import type { CollapseAnimationProps } from '../../collapse-animation'
  * @param { Function } after 动画结束
  */
 export interface UseCollapseAnimationReturn {
-  before: (el: Element) => void
-  ing: (el: Element) => void
-  after: (el: Element) => void
+  onBeforeEnter: (el: Element) => void
+  onEnter: (el: Element) => void
+  onAfterEnter: (el: Element) => void
+  onBeforeLeave: (el: Element) => void
+  onLeave: (el: Element) => void
+  onAfterLeave: (el: Element) => void
+
 }
 
 /**
@@ -36,140 +40,139 @@ export const useCollapseAnimation = (
   })
 
   /**
-   * 在动画开始之前，加点样式
-   *
+   * 在开启动画之前
+   * 
+   * 给元素设置动画样式和默认宽高
+   * 
    * @param { Object } el 元素节点
    */
-  const before = (el: Element): void => {
+  const onBeforeEnter = (el: Element): void => {
     const node = el as HTMLElement
 
     node.style.transition = transitionStyle.value
-
-    if (prop.heightAnimation) {
-      node.style.width = 'auto'
-    }
-
-    if (prop.widthAnimation) {
-      node.style.height = 'auto'
-    }
-
-    /** 
-     * 开启动画
-     */
-    if (prop.opened) {
-      // node.style.height = '0'
-
-      if (prop.heightAnimation) {
-        node.style.height = '0'
-      }
-
-      if (prop.widthAnimation) {
-        node.style.width = '0'
-      }
-
-      run(prop.onOpen, el)
-    } else {
-      node.style.height = node.scrollHeight + 'px'
-
-      if (prop.widthAnimation) {
-        /** 获取父节点 */
-        const parent = node.parentElement as HTMLElement
-        /**
-         * 获取父节点的宽度
-         *
-         * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
-         * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
-         */
-        const parentWidth: number = parent.offsetWidth || parent.clientWidth
-
-        node.style.width = `${parentWidth}px`
-      }
-
-      run(prop.onClose, el)
-    }
+    node.style.height = '0'
+    node.style.width = '0'
   }
 
   /**
-   * 运动过程中干点事儿
-   *
+   * 开启过度前插入 DOM
+   * 
    * @param { Object } el 元素节点
    */
-  const ing = (el: Element): void => {
+  const onEnter = (el: Element): void => {
     const node = el as HTMLElement
 
     node.style.overflow = 'hidden'
 
     /**
-     * 开启状态下的逻辑
+     * 将元素的高度设置为元素内容高度的度量
+     * 
+     * @see Element.scrollHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
+     * 
+     * 如果需要高度过度动画，则将高度设置为滚动高度，否则不做动画处理，设置 auto
      */
-    if (prop.opened) {
+    if (prop.heightAnimation) {
+      node.style.height = node.scrollHeight + 'px'
+    } else {
+      node.style.height = 'auto'
+    }
+
+    /** 
+     * 如果需要宽度过度
+     */
+    if (prop.widthAnimation) {
+      const parent = node.parentElement as HTMLElement
 
       /**
-       * 将元素的高度设置为元素内容高度的度量
-       * 
-       * @see Element.scrollHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
+       * 获取父节点的宽度
+       *
+       * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
+       * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
        */
-      if (prop.heightAnimation) {
-        node.style.height = node.scrollHeight + 'px'
-      } else {
-        node.style.height = 'auto'
-      }
-      // debugger
+      const parentWidth: number = parent.offsetWidth || parent.clientWidth
 
-      /** 如果需要宽度过度 */
-      if (prop.widthAnimation) {
-        node.style.width = '0'
-
-        /** 获取父节点 */
-        const parent = node.parentElement as HTMLElement
-        /**
-         * 获取父节点的宽度
-         *
-         * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
-         * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
-         */
-        const parentWidth: number = parent.offsetWidth || parent.clientWidth
-
-        /** 如果两个方法都没有获取到宽度，使用 auto */
-        node.style.width = isNumber(parentWidth) ? `${parentWidth}px` : 'auto'
-      }
+      /** 如果两个方法都没有获取到宽度，使用 auto */
+      node.style.width = isNumber(parentWidth) ? parentWidth + 'px' : 'auto'
     } else {
-      /** 
-       * 关闭状态下执行的逻辑
-       */
-
-      if (prop.heightAnimation) {
-        node.style.height = '0'
-      }
-
-      if (prop.widthAnimation) {
-        node.style.width = '0'
-      }
+      node.style.width = 'auto'
     }
   }
 
   /**
-   * 在打开和关闭完成之后，移除样式
-   *
+   * 开启过度完整
+   * 
    * @param { Object } el 元素节点
    */
-  const after = (el: Element): void => {
+  const onAfterEnter = (el: Element): void => {
     const node = el as HTMLElement
 
     node.style.transition = ''
     node.style.height = ''
     node.style.width = ''
+  }
 
-    if (prop.opened) {
-      run(prop.onOpenEnd, el)
-    } else {
-      run(prop.onCloseEnd, el)
+  /**
+   * 关闭动画之前
+   * 
+   * @param { Object } el 元素节点
+   */
+  const onBeforeLeave = (el: Element): void => {
+    const node = el as HTMLElement
+
+    node.style.transition = transitionStyle.value
+
+    if (prop.heightAnimation) {
+      node.style.height = node.scrollHeight + 'px'
+    }
+
+    if (prop.widthAnimation) {
+      /** 获取父节点 */
+      const parent = node.parentElement as HTMLElement
+      /**
+       * 获取父节点的宽度
+       *
+       * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
+       * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
+       */
+      const parentWidth: number = parent.offsetWidth || parent.clientWidth
+
+      node.style.width = parentWidth + 'px'
+    }
+
+    run(prop.onClose, el)
+  }
+
+  /**
+   * 关闭动画离开之前
+   * 
+   * @param { Object } el 元素节点
+   */
+  const onLeave = (el: Element): void => {
+    const node = el as HTMLElement
+
+    node.style.overflow = 'hidden'
+
+    if (prop.heightAnimation) {
+      node.style.height = '0'
+    }
+
+    if (prop.widthAnimation) {
+      node.style.width = '0'
     }
   }
 
-  return {
-    after,
-    before,
-    ing
+  /**
+   * 关闭动画结束之后
+   * 
+   * @param { Object } el 元素节点
+   */
+  const onAfterLeave = (el: Element): void => {
+    const node = el as HTMLElement
+
+    node.style.transition = ''
+    node.style.height = ''
+    node.style.width = ''
   }
+
+  return { onBeforeEnter, onEnter, onAfterEnter, onBeforeLeave, onLeave, onAfterLeave }
 }

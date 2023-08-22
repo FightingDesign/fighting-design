@@ -13,7 +13,8 @@
 
   const prop = defineProps(Props)
 
-  const { after, before, ing } = useCollapseAnimation(prop)
+  const { onBeforeEnter, onEnter, onAfterEnter, onBeforeLeave, onLeave, onAfterLeave } =
+    useCollapseAnimation(prop)
 
   /** 获取当前的展示状态 */
   const open: boolean = prop.opened
@@ -32,12 +33,12 @@
 
 <template>
   <transition
-    @before-enter="before"
-    @enter="ing"
-    @after-enter="after"
-    @before-leave="before"
-    @leave="ing"
-    @after-leave="after"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @after-enter="onAfterEnter"
+    @before-leave="onBeforeLeave"
+    @leave="onLeave"
+    @after-leave="onAfterLeave"
   >
     <div v-show="isOpened" class="f-collapse-animation">
       <slot />

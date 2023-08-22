@@ -7,7 +7,7 @@
 <template>
   <f-switch v-model="isOpen" size="middle" />
 
-  <f-collapse-animation :opened="isOpen" :animation-time="8" :width-animation="true" :height-animation="true">
+  <f-collapse-animation :opened="isOpen" :width-animation="true" :height-animation="true">
     <div class="box"></div>
   </f-collapse-animation>
 </template>
