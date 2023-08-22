@@ -7,6 +7,8 @@ export const Props = {
   opened: setBooleanProp(),
   /** 是否禁用 */
   disabled: setBooleanProp(),
+  /** 是否开启高度过度动画 */
+  heightAnimation: setBooleanProp(true),
   /** 是否开启宽度过度动画 */
   widthAnimation: setBooleanProp(),
   /** 过度动画时间 */
