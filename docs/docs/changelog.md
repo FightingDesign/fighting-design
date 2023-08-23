@@ -2,6 +2,17 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.62.0 (2023-08-23)
+
+- `f-collapse-animation` 组件新增 `width-animation` 配置项
+
+## 0.61.0 (2023-08-15)
+
+- 优化 `f-drawer` `f-dialog` 组件样式
+- 优化 `f-radio` 和 `f-checkbox` 样式细节
+- 重构 `f-tree` 组件
+- 新增 `f-confirm-box` 组件
+
 ## 0.60.0 (2023-08-04)
 
 - 优化 `f-radio` 组件样式

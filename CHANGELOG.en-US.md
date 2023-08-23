@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.62.0 (2023-08-23)
+
+- `f-collapse-animation` 组件新增 `width-animation` 配置项
+
 ## 0.61.0 (2023-08-15)
 
 - Optimize component styles for `f-drawer` and `f-dialog`
