@@ -38,8 +38,7 @@ export const useCollapseAnimation = (
     if (isNumber(prop.animationTime)) {
       return `${prop.animationTime}s all ease-in-out`
     }
-    // return '0.747s all ease-in-out'
-    return '8s all ease-in-out'
+    return '0.747s all ease-in-out'
   })
 
   /**
@@ -61,7 +60,6 @@ export const useCollapseAnimation = (
     if (prop.heightAnimation) {
       node.style.height = '0'
     }
-    // debugger
 
     run(prop.onOpen, el)
   }

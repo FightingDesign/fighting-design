@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.62.2 (2023-08-23)
+
+- Fix `f-collapse-animation` component style details
+
 ## 0.62.1 (2023-08-23)
 
 - Fix `f-collapse-animation` component style details
