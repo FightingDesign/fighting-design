@@ -1,21 +1,5 @@
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<script lang="ts" setup></script>
 
-  const isOpen = ref(false)
-</script>
+<template></template>
 
-<template>
-  <f-switch v-model="isOpen" size="middle" />
-
-  <f-collapse-animation :opened="isOpen" :width-animation="true" :height-animation="true">
-    <div class="box"></div>
-  </f-collapse-animation>
-</template>
-
-<style>
-  .box {
-    width: 500px;
-    height: 600px;
-    background: orange;
-  }
-</style>
+<style lang="scss" scoped></style>

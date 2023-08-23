@@ -6,9 +6,12 @@ import type { CollapseAnimationProps } from '../../collapse-animation'
 /**
  * useCollapseAnimation 返回值类型接口
  * 
- * @param { Function } before 动画开始之前 
- * @param { Function } ing 动画进行中
- * @param { Function } after 动画结束
+ * @param { Function } onBeforeEnter 在开启动画之前 
+ * @param { Function } onEnter 开启过渡前插入 DOM
+ * @param { Function } onAfterEnter 开启过渡完成
+ * @param { Function } onBeforeLeave 关闭动画之前
+ * @param { Function } onLeave 关闭动画离开之前
+ * @param { Function } onAfterLeave 关闭动画结束之后
  */
 export interface UseCollapseAnimationReturn {
   onBeforeEnter: (el: Element) => void
@@ -17,7 +20,6 @@ export interface UseCollapseAnimationReturn {
   onBeforeLeave: (el: Element) => void
   onLeave: (el: Element) => void
   onAfterLeave: (el: Element) => void
-
 }
 
 /**
@@ -36,7 +38,8 @@ export const useCollapseAnimation = (
     if (isNumber(prop.animationTime)) {
       return `${prop.animationTime}s all ease-in-out`
     }
-    return '0.747s all ease-in-out'
+    // return '0.747s all ease-in-out'
+    return '8s all ease-in-out'
   })
 
   /**
@@ -50,12 +53,21 @@ export const useCollapseAnimation = (
     const node = el as HTMLElement
 
     node.style.transition = transitionStyle.value
-    node.style.height = '0'
-    node.style.width = '0'
+
+    if (prop.widthAnimation) {
+      node.style.width = '0'
+    }
+
+    if (prop.heightAnimation) {
+      node.style.height = '0'
+    }
+    // debugger
+
+    run(prop.onOpen, el)
   }
 
   /**
-   * 开启过度前插入 DOM
+   * 开启过渡前插入 DOM
    * 
    * @param { Object } el 元素节点
    */
@@ -69,16 +81,17 @@ export const useCollapseAnimation = (
      * 
      * @see Element.scrollHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
      * 
-     * 如果需要高度过度动画，则将高度设置为滚动高度，否则不做动画处理，设置 auto
+     * 如果需要高度过渡动画，则将高度设置为滚动高度，否则不做动画处理，设置 auto
      */
     if (prop.heightAnimation) {
       node.style.height = node.scrollHeight + 'px'
+      console.log(node.style.height)
     } else {
       node.style.height = 'auto'
     }
 
     /** 
-     * 如果需要宽度过度
+     * 如果需要宽度过渡
      */
     if (prop.widthAnimation) {
       const parent = node.parentElement as HTMLElement
@@ -99,7 +112,7 @@ export const useCollapseAnimation = (
   }
 
   /**
-   * 开启过度完整
+   * 开启过渡完成
    * 
    * @param { Object } el 元素节点
    */
@@ -109,6 +122,8 @@ export const useCollapseAnimation = (
     node.style.transition = ''
     node.style.height = ''
     node.style.width = ''
+
+    run(prop.onOpenEnd, el)
   }
 
   /**
@@ -172,6 +187,8 @@ export const useCollapseAnimation = (
     node.style.transition = ''
     node.style.height = ''
     node.style.width = ''
+
+    run(prop.onCloseEnd, el)
   }
 
   return { onBeforeEnter, onEnter, onAfterEnter, onBeforeLeave, onLeave, onAfterLeave }

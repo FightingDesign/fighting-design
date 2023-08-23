@@ -40,7 +40,7 @@
     @leave="onLeave"
     @after-leave="onAfterLeave"
   >
-    <div v-show="isOpened" class="f-collapse-animation">
+    <div v-show="isOpened" class="f-collapse-animation" style="background: skyblue">
       <slot />
     </div>
   </transition>
