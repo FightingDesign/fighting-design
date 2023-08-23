@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.62.1 (2023-08-23)
+
+- 修复 `f-collapse-animation` 组件样式细节
+
 ## 0.62.0 (2023-08-23)
 
 - `f-collapse-animation` 组件新增 `width-animation` 配置项

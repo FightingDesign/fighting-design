@@ -4,9 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.62.1 (2023-08-23)
+
+- Fix `f-collapse-animation` component style details
+
 ## 0.62.0 (2023-08-23)
 
-- `f-collapse-animation` 组件新增 `width-animation` 配置项
+- Add `width-animation` configuration item to the `f-collapse-animation` component
 
 ## 0.61.0 (2023-08-15)
 
