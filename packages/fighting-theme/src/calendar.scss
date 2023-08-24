@@ -76,14 +76,24 @@
       border-top: 3px solid transparent;
       transition: 0.3s;
       height: var(--calendar-day-cell-height, 85px);
+      color: #c6c6c6;
 
-      &:hover {
-        background: #f7f7f7;
+      // 当前月份
+      &.f-calendar__day-current {
+        color: #333;
       }
 
-      &.f-calendar__day-li-last {
-        color: #c6c6c6;
+      // 今天
+      &.f-calendar__day-today {
+        transition: 0.3s;
+        color: #2d5af1;
+        background-color: #dee5fd;
+        border-top: 3px solid #2d5af1;
       }
+
+      // &:hover {
+      //   background: #f7f7f7;
+      // }
 
       // 阳历
       .f-calendar__solar {
@@ -93,14 +103,6 @@
       // 农历
       .f-calendar__lunar {
         font-size: 14px;
-      }
-
-      // 今天
-      &.f-calendar__day-today {
-        transition: 0.3s;
-        color: #2d5af1;
-        background-color: #dee5fd;
-        border-top: 3px solid #2d5af1;
       }
 
       // 不是当月的时间

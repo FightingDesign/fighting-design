@@ -127,11 +127,11 @@ export const setFunctionProp = <T extends Function>(
   defaultVal = null
 ): {
   readonly type: PropType<T>
-  readonly default: () => T | null
+  readonly default: T | null
 } => {
   return {
     type: Function as PropType<T>,
-    default: (): T | null => defaultVal
+    default: defaultVal
   } as const
 }
 

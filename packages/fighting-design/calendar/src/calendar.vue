@@ -3,65 +3,69 @@
   import { computed, watch, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronLeft, FIconChevronRight } from '../../_svg'
-  import { addZero, isDate } from '../../_utils'
+  import { addZero, isDate, isFunction } from '../../_utils'
   import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
-  import type { GetLunarDetailReturn } from '../../_hooks'
+  import type { GenerateCalendarItem } from '../../_hooks'
 
   defineOptions({ name: 'FCalendar' })
 
   const prop = defineProps(Props)
+
+  const { getLang } = useGlobal()
+  const { run } = useRun()
+  const { styles, classes } = useList(prop, 'calendar')
+  const { generateCalendar } = useCalendar()
 
   /**
    * 获取日期参数
    *
    * 如果传入的不是一个 Date 对象，则实例化一个当前日期对象
    */
-  const nowDate = computed((): Date => (isDate(prop.date) ? prop.date : new Date()))
+  const currentDate = computed((): Date => (isDate(prop.date) ? prop.date : new Date()))
 
   /** 日期集合 */
-  const dateParams = reactive({
-    year: nowDate.value.getFullYear(),
-    month: nowDate.value.getMonth() + 1,
-    date: nowDate.value.getDate()
+  const dates = reactive({
+    year: currentDate.value.getFullYear(),
+    month: currentDate.value.getMonth() + 1,
+    date: currentDate.value.getDate()
   })
 
-  // const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalendar(dateParams)
-  const { generateCalendar } = useCalendar()
+  const AllMonthDays = computed(() => {
+    return generateCalendar(dates.year, dates.month, dates.date)
+  })
 
-  const AllMonthDays = generateCalendar(
-    dateParams.year,
-    dateParams.month,
-    dateParams.date
-  )
+  // const AllMonthDays = ref(generateCalendar(dates.year, dates.month, dates.date))
+
+  // const AllMonthDays = computed({
+  //   get: () => {
+  //     return generateCalendar(dates.year, dates.month, dates.date)
+  //   },
+  //   set: val => {
+  //     console.log(val)
+  //     return val
+  //   }
+  // })
 
   console.log(AllMonthDays)
-
-  const { getLang } = useGlobal()
-  const { run } = useRun()
-  const { styles, classes } = useList(prop, 'calendar')
 
   /** 星期列表 */
   const weekList = computed((): string[] => getLang('calendar').value.weekList)
 
-  /**
-   * 当前日期高亮显示
-   *
-   * @param { number } month 月份
-   * @param { number } date 日期
-   * @returns { string } class 类名
-   */
-  const mowDataClassList = (month: number, date: number): string => {
-    /** 如果当前的月份和日期和绑定的日期相同，则高亮显示 */
-    if (date === dateParams.date && month === dateParams.month) {
-      return 'f-calendar__day-today'
+  const changeLastMonth = (): void => {
+    if (dates.month === 1) {
+      dates.year -= 1
+      dates.month = 12
+    } else {
+      dates.month -= 1
     }
-
-    /** 如果不是当前月份的时间 */
-    if (month !== dateParams.month) {
-      return 'f-calendar__not-month'
+  }
+  const changeNextMonth = (): void => {
+    if (dates.month === 12) {
+      dates.year += 1
+      dates.month = 1
+    } else {
+      dates.month += 1
     }
-
-    return ''
   }
 
   /**
@@ -72,39 +76,40 @@
    * @param { Function } now 点击今天执行的方法
    */
   const option = {
-    last: (): void => changeLastMonth(),
+    prev: (): void => changeLastMonth(),
     next: (): void => changeNextMonth(),
-    now: (): void => {
-      dateParams.year = prop.date.getFullYear()
-      dateParams.month = prop.date.getMonth() + 1
-      dateParams.date = prop.date.getDate()
+    current: (): void => {
+      dates.year = prop.date.getFullYear()
+      dates.month = prop.date.getMonth() + 1
+      dates.date = prop.date.getDate()
     }
   } as const
 
   /**
    * 点击操作栏
    *
-   * @param { 'last' | 'now' | 'next' } target 不同类型用于切换当前时间、下个月、上个月
+   * @param { 'last' | 'current' | 'next' } target 不同类型用于切换当前时间、下个月、上个月
    */
-  const optionClick = (target: 'last' | 'now' | 'next'): void => {
+  const optionClick = (target: 'prev' | 'current' | 'next'): void => {
     /** 如果存在则执行指定方法 */
     option[target] && option[target]()
   }
 
   /** 改变日期的监听器 */
-  watch(
-    () => dateParams,
-    (): void => {
-      run(prop.onChange, dateParams.year, dateParams.month, dateParams.date)
-    },
-    { deep: true }
-  )
+  if (prop.onChange && isFunction(prop.onChange)) {
+    watch(
+      () => dates,
+      (): void => {
+        console.log(dates)
+        run(prop.onChange, dates.year, dates.month, dates.date)
+      },
+      { deep: true }
+    )
+  }
 
   /** 当前时间 */
   const nowTime = computed((): string => {
-    return `${dateParams.year} / ${addZero(dateParams.month)} / ${addZero(
-      dateParams.date
-    )}`
+    return `${dates.year} / ${addZero(dates.month)} / ${addZero(dates.date)}`
   })
 
   /**
@@ -112,53 +117,39 @@
    *
    * @param { number } days 日期对象
    */
-  const handleClick = (days: GetLunarDetailReturn): void => {
-    /**
-     * 上一次的时间
-     *
-     * 用于判断点击的时间是否和上一次的相同
-     */
-    const lastDay: number = dateParams.date
+  const handleClick = (days: GenerateCalendarItem): void => {
+    const { target } = days
 
-    /** 同步更新日期 */
-    dateParams.date = days.day
-
-    /**
-     * 切换到下一年
-     *
-     * 如果年份大于当前绑定的年份，或者月份大于当前绑定的月份
-     */
-    if (days.year > dateParams.year || days.month > dateParams.month) {
-      changeNextMonth()
-    } else if (days.year > dateParams.year || days.month < dateParams.month) {
-      /**
-       * 切换到上一年
-       *
-       * 如果年份小于当前绑定的年份，或者月份小于当前绑定的月份
-       */
-      changeLastMonth()
+    /** 切换上个月 */
+    if (target === 'prev') {
+      option[target]()
     }
 
-    /**
-     * 执行回调方法
-     *
-     * 点击对应着日期的切换，如果切换则执行回调
-     *
-     * 判断显示点击相同时间指定回调
-     */
-    if (lastDay !== days.day) {
-      run(prop.onChangeDate, dateParams.year, days.month || dateParams.month, days.day)
+    /** 切换下个月 */
+    if (target === 'next') {
+      option[target]()
+    }
+
+    /** 点击当前月份的日期，高亮显示 */
+    if (target === 'current') {
+      // AllMonthDays.value = AllMonthDays.value.map(
+      //   (x: GenerateCalendarItem): GenerateCalendarItem => {
+      //     x.isToday = false
+      //     return x
+      //   }
+      // )
+      // AllMonthDays.value[index].isToday = true
     }
   }
 
   /** 当月份发生改变时候触发的回调 */
   watch(
-    (): number => dateParams.month,
+    (): number => dates.month,
     /**
      * @param { number } month 最新的月份
      */
     (month: number): void => {
-      run(prop.onChangeMonth, dateParams.year, month, dateParams.date)
+      run(prop.onChangeMonth, dates.year, month, dates.date)
     }
   )
 
@@ -174,12 +165,12 @@
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
       <!-- 上个月切换按钮 -->
-      <f-svg-icon :icon="FIconChevronLeft" @click.stop="optionClick('last')" />
+      <f-svg-icon :icon="FIconChevronLeft" @click.stop="optionClick('prev')" />
 
       <!-- 操作栏 -->
       <div class="f-calendar__option">
         <span class="f-calendar__now-time">{{ nowTime }}</span>
-        <span class="f-calendar__now-date" @click.stop="optionClick('now')">今天</span>
+        <span class="f-calendar__now-date" @click.stop="optionClick('current')">今天</span>
       </div>
 
       <!-- 下个月切换按钮 -->
@@ -198,13 +189,19 @@
       <div
         v-for="(days, index) in AllMonthDays"
         :key="index"
-        :class="['f-calendar__day-item', mowDataClassList(days.month, days.day)]"
+        :class="[
+          'f-calendar__day-item',
+          {
+            'f-calendar__day-current': days.isCurrentMonth,
+            'f-calendar__day-today': days.isToday
+          }
+        ]"
         @click.stop="handleClick(days)"
       >
         <span class="f-calendar__solar">{{ days.day }}</span>
         <span v-if="lunar" class="f-calendar__lunar">
           <!-- 农历节日 -> 阳历节日 -> 节气 -> 农历日期 -->
-          {{ days.lunarFestival || days.festival || days.term || days.IDayCn }}
+          <!-- {{ days.lunarFestival || days.festival || days.term || days.IDayCn }} -->
         </span>
       </div>
     </div>
