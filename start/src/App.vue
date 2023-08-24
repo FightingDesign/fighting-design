@@ -1,3 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  const date = new Date()
+</script>
 
-<template></template>
+<template>
+  <f-calendar v-model:date="date" />
+</template>

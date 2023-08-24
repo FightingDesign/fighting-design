@@ -55,28 +55,28 @@
   }
 
   /**
+   * 操作栏可选项对象映射
+   *
+   * @param { Function } last 点击上个月执行的方法
+   * @param { Function } next 点击下个月执行的方法
+   * @param { Function } now 点击今天执行的方法
+   */
+  const option = {
+    last: (): void => changeLastMonth(),
+    next: (): void => changeNextMonth(),
+    now: (): void => {
+      dateParams.year = prop.date.getFullYear()
+      dateParams.month = prop.date.getMonth() + 1
+      dateParams.date = prop.date.getDate()
+    }
+  } as const
+
+  /**
    * 点击操作栏
    *
    * @param { 'last' | 'now' | 'next' } target 不同类型用于切换当前时间、下个月、上个月
    */
   const optionClick = (target: 'last' | 'now' | 'next'): void => {
-    /**
-     * 操作栏可选项对象映射
-     *
-     * @param { Function } last 点击上个月执行的方法
-     * @param { Function } next 点击下个月执行的方法
-     * @param { Function } now 点击今天执行的方法
-     */
-    const option = {
-      last: (): void => changeLastMonth(),
-      next: (): void => changeNextMonth(),
-      now: (): void => {
-        dateParams.year = prop.date.getFullYear()
-        dateParams.month = prop.date.getMonth() + 1
-        dateParams.date = prop.date.getDate()
-      }
-    } as const
-
     /** 如果存在则执行指定方法 */
     option[target] && option[target]()
   }

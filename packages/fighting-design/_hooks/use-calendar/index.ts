@@ -68,7 +68,7 @@ export const useCalendar = (params: {
     return new Date(`${params.year}/${params.month}/1`).getDay()
   })
 
-  /** 初始化农历类 */
+  /** 初始化农历 */
   const getLunarDetail = useLunar()
 
   /** 上个月需要展示的天数 */
