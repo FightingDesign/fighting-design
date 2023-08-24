@@ -25,7 +25,17 @@
     date: nowDate.value.getDate()
   })
 
-  const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalendar(dateParams)
+  // const { AllMonthDays, changeLastMonth, changeNextMonth } = useCalendar(dateParams)
+  const { generateCalendar } = useCalendar()
+
+  const AllMonthDays = generateCalendar(
+    dateParams.year,
+    dateParams.month,
+    dateParams.date
+  )
+
+  console.log(AllMonthDays)
+
   const { getLang } = useGlobal()
   const { run } = useRun()
   const { styles, classes } = useList(prop, 'calendar')
