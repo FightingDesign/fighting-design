@@ -60,7 +60,8 @@ export const head: HeadConfig[] = [
     'meta',
     {
       property: 'og:image',
-      content: 'https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg'
+      content:
+        'https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg'
     }
   ],
   /** OG 描述 */

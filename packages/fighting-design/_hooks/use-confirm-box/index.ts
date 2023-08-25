@@ -13,18 +13,17 @@ export interface UseConfirmBoxReturn {
 
 /**
  * 确认框组件方法
- * 
+ *
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } component 组件实例
- * @returns 
+ * @returns
  */
 export const useConfirmBox = (component: Component): UseConfirmBoxReturn => {
-
   /**
    * 创建组件
-   * 
+   *
    * @param { Object } options 配置参数
-   * @returns 
+   * @returns
    */
   const create = (options: Partial<ConfirmBoxProps>): ComponentInternalInstance => {
     const vNode = h(component, options)
@@ -38,9 +37,9 @@ export const useConfirmBox = (component: Component): UseConfirmBoxReturn => {
 
   /**
    * 暴露出去的方法
-   * 
-   * @param { Object } options 配置对象 
-   * @returns 
+   *
+   * @param { Object } options 配置对象
+   * @returns
    */
   const confirmBox = (options: Partial<ConfirmBoxProps>): ComponentInternalInstance => {
     return create(reactive({ ...options, show: true }))

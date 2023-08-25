@@ -4,8 +4,14 @@ import { FExpandCard } from '../index'
 import type { ExpandCardImageList } from '../index'
 
 const imageList: ExpandCardImageList = [
-  { url: 'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/1.jpg', text: '1' },
-  { url: 'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/2.jpg', text: '2' }
+  {
+    url: 'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/1.jpg',
+    text: '1'
+  },
+  {
+    url: 'https://raw.githubusercontent.com/Tyh2001/images/master/fighting-design/2.jpg',
+    text: '2'
+  }
 ]
 
 describe('FExpandCard', () => {

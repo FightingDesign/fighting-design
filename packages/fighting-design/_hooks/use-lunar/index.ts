@@ -170,7 +170,6 @@ export const useLunar = (): UseLunarReturn => {
     mPara: number,
     dPara: number
   ): -1 | GetLunarDetailReturn => {
-
     /**
      * @see parseInt https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt
      */

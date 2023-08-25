@@ -16,7 +16,10 @@
 </template>
 
 ```html
-<f-image width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/1.jpg" />
+<f-image
+  width="200px"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/1.jpg"
+/>
 ```
 
 :::
@@ -99,7 +102,11 @@
 </template>
 
 ```html
-<f-image round="30px" height="190px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/2.jpg" />
+<f-image
+  round="30px"
+  height="190px"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/2.jpg"
+/>
 ```
 
 :::
@@ -115,7 +122,11 @@
 </template>
 
 ```html
-<f-image lazy width="200px" src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/3.jpg" />
+<f-image
+  lazy
+  width="200px"
+  src="https://raw.githubusercontent.com/Tyh2001/images/master/auto/3.jpg"
+/>
 ```
 
 :::

@@ -1,11 +1,16 @@
-import { setArrayProp, setBooleanProp, setFunctionProp, setNumberProp } from '../../_utils'
+import {
+  setArrayProp,
+  setBooleanProp,
+  setFunctionProp,
+  setNumberProp
+} from '../../_utils'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
 import type { TreeData, TreeProvide, TreeClickLabel, TreeDataItem } from './interface'
 
 export const Props = {
   /** 绑定的多选值 */
   modelValue: setArrayProp(),
-  /** 
+  /**
    * 树形数据
    *
    * 可以是对象或者数组两种状态

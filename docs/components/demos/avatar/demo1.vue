@@ -6,7 +6,10 @@
     </div>
     <div class="avatar-block">
       <code>contain</code>
-      <f-avatar fit="contain" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+      <f-avatar
+        fit="contain"
+        src="https://avatars.githubusercontent.com/u/73180970?v=4"
+      />
     </div>
     <div class="avatar-block">
       <code>cover</code>
@@ -18,7 +21,10 @@
     </div>
     <div class="avatar-block">
       <code>scale-down</code>
-      <f-avatar fit="scale-down" src="https://avatars.githubusercontent.com/u/73180970?v=4" />
+      <f-avatar
+        fit="scale-down"
+        src="https://avatars.githubusercontent.com/u/73180970?v=4"
+      />
     </div>
   </f-space>
 </template>

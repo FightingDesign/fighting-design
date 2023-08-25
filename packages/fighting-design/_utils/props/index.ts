@@ -4,12 +4,12 @@ import type { PropType } from 'vue'
  * 设置组件的 prop 参数
  *
  * @see 为组件的props标注类型 https://cn.vuejs.org/guide/typescript/options-api.html#typing-component-props
- * 
+ *
  * 注意：你需要了解 null 和 undefined 的区别
- * 
+ *
  * null       表示无对象  表示 no object
  * undefined  表示空值    表示 no value
- * 
+ *
  * 如果一个值将来可能会是一个对象，但是目前还不是，则使用 null，也就是说 Object 类型的默认值都需要使用 null
  * 基本类型都使用 undefined 默认值
  */

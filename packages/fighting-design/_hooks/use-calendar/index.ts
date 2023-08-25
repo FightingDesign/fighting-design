@@ -34,10 +34,10 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
 
   /**
    * 获取指定月份的天数
-   * 
+   *
    * @param { number } year 年份
    * @param { number } month 月份
-   * @returns 
+   * @returns
    */
   const getDaysInMonth = (year: number, month: number): number => {
     const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -56,10 +56,10 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
 
   /**
    * 获取指定年份指定月份的 1号是星期几
-   * 
+   *
    * @param { number } year 年份
    * @param { number } month 月份
-   * @returns 
+   * @returns
    */
   const getFirstDayOfWeek = (year: number, month: number): number => {
     /**
@@ -67,7 +67,7 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
      *
      * 月份要减 1，因为月份是从 0 开始计数的
      */
-    const firstDay = new Date(year, month - 1, 1) // 
+    const firstDay = new Date(year, month - 1, 1) //
 
     /** 获取当前月份1号是星期几，0 表示星期日，1 表示星期一，以此类推 */
     const dayOfWeek = firstDay.getDay()
@@ -77,20 +77,20 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
 
   /**
    * 判断是否为闰年
-   * 
+   *
    * @param { number } year 年份
-   * @returns 
+   * @returns
    */
   const isLeapYear = (year: number): boolean => {
-    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
   }
 
   /**
    * 生成日历数组
-   * 
+   *
    * @param { number } year 年份
    * @param { number } month 月份
-   * @returns 
+   * @returns
    */
   const generateCalendar = (year: number, month: number): GenerateCalendarItem[] => {
     /** 日历详情 */

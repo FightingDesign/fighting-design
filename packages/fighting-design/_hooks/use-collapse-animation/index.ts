@@ -5,8 +5,8 @@ import type { CollapseAnimationProps } from '../../collapse-animation'
 
 /**
  * useCollapseAnimation 返回值类型接口
- * 
- * @param { Function } onBeforeEnter 在开启动画之前 
+ *
+ * @param { Function } onBeforeEnter 在开启动画之前
  * @param { Function } onEnter 开启过渡前插入 DOM
  * @param { Function } onAfterEnter 开启过渡完成
  * @param { Function } onBeforeLeave 关闭动画之前
@@ -24,9 +24,9 @@ export interface UseCollapseAnimationReturn {
 
 /**
  * 对于 Collapse Animation 折叠动画样式处理
- * 
+ *
  * @param prop prop 参数
- * @returns 
+ * @returns
  */
 export const useCollapseAnimation = (
   prop: CollapseAnimationProps
@@ -43,9 +43,9 @@ export const useCollapseAnimation = (
 
   /**
    * 在开启动画之前
-   * 
+   *
    * 给元素设置动画样式和默认宽高
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const onBeforeEnter = (el: Element): void => {
@@ -66,7 +66,7 @@ export const useCollapseAnimation = (
 
   /**
    * 开启过渡前插入 DOM
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const onEnter = (el: Element): void => {
@@ -76,9 +76,9 @@ export const useCollapseAnimation = (
 
     /**
      * 将元素的高度设置为元素内容高度的度量
-     * 
+     *
      * @see Element.scrollHeight https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
-     * 
+     *
      * 如果需要高度过渡动画，则将高度设置为滚动高度，否则不做动画处理，设置 auto
      */
     if (prop.heightAnimation) {
@@ -87,7 +87,7 @@ export const useCollapseAnimation = (
       node.style.height = 'auto'
     }
 
-    /** 
+    /**
      * 如果需要宽度过渡
      */
     if (prop.widthAnimation) {
@@ -95,7 +95,7 @@ export const useCollapseAnimation = (
 
       /**
        * 获取到宽度
-       * 
+       *
        * @see Element.getBoundingClientRect() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
        */
       const width: number = node.getBoundingClientRect().width
@@ -104,7 +104,7 @@ export const useCollapseAnimation = (
 
       /**
        * offsetWidth 的访问行为会触发浏览器的重排
-       * 
+       *
        * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
        */
       node.offsetWidth
@@ -117,7 +117,7 @@ export const useCollapseAnimation = (
 
   /**
    * 开启过渡完成
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const onAfterEnter = (el: Element): void => {
@@ -132,7 +132,7 @@ export const useCollapseAnimation = (
 
   /**
    * 关闭动画之前
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const onBeforeLeave = (el: Element): void => {
@@ -155,7 +155,7 @@ export const useCollapseAnimation = (
 
   /**
    * 关闭动画离开之前
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const onLeave = (el: Element): void => {
@@ -174,7 +174,7 @@ export const useCollapseAnimation = (
 
   /**
    * 关闭动画结束之后
-   * 
+   *
    * @param { Object } el 元素节点
    */
   const onAfterLeave = (el: Element): void => {
