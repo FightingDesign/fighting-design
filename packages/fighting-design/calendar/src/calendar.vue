@@ -14,7 +14,7 @@
   const { getLang } = useGlobal()
   const { run } = useRun()
   const { styles, classes } = useList(prop, 'calendar')
-  const { generateCalendar } = useCalendar()
+  const { generateCalendar } = useCalendar(prop)
 
   /**
    * 获取日期参数
@@ -30,23 +30,10 @@
     date: currentDate.value.getDate()
   })
 
+  /** 日期集合 */
   const AllMonthDays = computed(() => {
-    return generateCalendar(dates.year, dates.month, dates.date)
+    return generateCalendar(dates.year, dates.month)
   })
-
-  // const AllMonthDays = ref(generateCalendar(dates.year, dates.month, dates.date))
-
-  // const AllMonthDays = computed({
-  //   get: () => {
-  //     return generateCalendar(dates.year, dates.month, dates.date)
-  //   },
-  //   set: val => {
-  //     console.log(val)
-  //     return val
-  //   }
-  // })
-
-  console.log(AllMonthDays)
 
   /** 星期列表 */
   const weekList = computed((): string[] => getLang('calendar').value.weekList)
@@ -59,6 +46,7 @@
       dates.month -= 1
     }
   }
+
   const changeNextMonth = (): void => {
     if (dates.month === 12) {
       dates.year += 1
@@ -132,13 +120,7 @@
 
     /** 点击当前月份的日期，高亮显示 */
     if (target === 'current') {
-      // AllMonthDays.value = AllMonthDays.value.map(
-      //   (x: GenerateCalendarItem): GenerateCalendarItem => {
-      //     x.isToday = false
-      //     return x
-      //   }
-      // )
-      // AllMonthDays.value[index].isToday = true
+      console.log('Current')
     }
   }
 
@@ -165,16 +147,16 @@
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
       <!-- 上个月切换按钮 -->
-      <f-svg-icon :icon="FIconChevronLeft" @click.stop="optionClick('prev')" />
+      <f-svg-icon :icon="FIconChevronLeft" @click="optionClick('prev')" />
 
       <!-- 操作栏 -->
       <div class="f-calendar__option">
         <span class="f-calendar__now-time">{{ nowTime }}</span>
-        <span class="f-calendar__now-date" @click.stop="optionClick('current')">今天</span>
+        <span class="f-calendar__now-date" @click="optionClick('current')">今天</span>
       </div>
 
       <!-- 下个月切换按钮 -->
-      <f-svg-icon :icon="FIconChevronRight" @click.stop="optionClick('next')" />
+      <f-svg-icon :icon="FIconChevronRight" @click="optionClick('next')" />
     </header>
 
     <!-- 周几 -->
@@ -192,16 +174,15 @@
         :class="[
           'f-calendar__day-item',
           {
-            'f-calendar__day-current': days.isCurrentMonth,
-            'f-calendar__day-today': days.isToday
+            'f-calendar__day-current': days.target === 'current'
           }
         ]"
-        @click.stop="handleClick(days)"
+        @click="handleClick(days)"
       >
         <span class="f-calendar__solar">{{ days.day }}</span>
         <span v-if="lunar" class="f-calendar__lunar">
           <!-- 农历节日 -> 阳历节日 -> 节气 -> 农历日期 -->
-          <!-- {{ days.lunarFestival || days.festival || days.term || days.IDayCn }} -->
+          {{ days.lunarFestival || days.festival || days.term || days.lunar }}
         </span>
       </div>
     </div>

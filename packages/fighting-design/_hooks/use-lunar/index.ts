@@ -1,6 +1,5 @@
 import {
   LUNAR_INFO,
-  ANIMALS,
   SOLAR_CALENDAR_FESTIVE,
   LUNAR_FESTIVE,
   SOLAR_TERM,
@@ -14,8 +13,7 @@ import {
  *
  * @param { string } festival 阳历节日
  * @param { string } lunarFestival 农历节日
- * @param { string } animal 生肖
- * @param { string } IDayCn 农历日期
+ * @param { string } lunar 农历日期
  * @param { number } year 阳历年份
  * @param { number } month 阳历月份
  * @param { number } day 阳历日期
@@ -25,13 +23,8 @@ import {
 export interface GetLunarDetailReturn {
   festival: string
   lunarFestival: string
-  animal: string
-  IDayCn: string
-  year: number
-  month: number
-  day: number
-  week: number
-  term: string | null
+  lunar: string
+  term: string
   constellation: string
 }
 
@@ -51,6 +44,9 @@ export type UseLunarReturn = (
  * @returns { Function } 传入阳历年月日获得详细的信息
  */
 export const useLunar = (): UseLunarReturn => {
+
+  console.log('调用')
+
   /**
    * 返回农历 year 年一整年的总天数
    *
@@ -165,16 +161,6 @@ export const useLunar = (): UseLunarReturn => {
   }
 
   /**
-   * 年份转生肖[!仅能大致转换] => 精确划分生肖分界线是 “立春”
-   *
-   * @param { number } year 年份
-   * @returns { string }
-   */
-  const getAnimal = (year: number): string => {
-    return ANIMALS[(year - 4) % 12]
-  }
-
-  /**
    * 传入阳历年月日获得详细的信息
    *
    * @param { number } yPara 阳历年份
@@ -186,6 +172,9 @@ export const useLunar = (): UseLunarReturn => {
     mPara: number,
     dPara: number
   ): -1 | GetLunarDetailReturn => {
+
+    // console.log(yPara, mPara, dPara)
+
     /**
      * @see parseInt https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt
      */
@@ -285,7 +274,7 @@ export const useLunar = (): UseLunarReturn => {
     const secondNode: number = getTerm(y, m * 2) /** 返回当月「节」为几日开始 */
 
     /** 传入的日期的节气与否 */
-    let term = null
+    let term = ''
 
     if (secondNode === d) {
       term = SOLAR_TERM[m * 2 - 1]
@@ -321,15 +310,8 @@ export const useLunar = (): UseLunarReturn => {
       lunarFestival: LUNAR_FESTIVE[lunarFestivalDate]
         ? LUNAR_FESTIVE[lunarFestivalDate].title
         : '',
-      /** 生肖 */
-      animal: getAnimal(year),
       /** 农历日期 */
-      IDayCn: toChinaDay(day),
-      year: y,
-      month: m,
-      day: d,
-      /** 星期 */
-      week,
+      lunar: toChinaDay(day),
       /** 节气 */
       term,
       /** 星座 */

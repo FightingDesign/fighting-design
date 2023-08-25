@@ -28,29 +28,9 @@ export const LUNAR_INFO = [
   0x0d150, 0x0f252, 0x0d520
 ] as const
 
-/**
- * 天干地支 - 生肖速查表
- *
- * ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪']
- */
-export const ANIMALS = [
-  '\u9f20',
-  '\u725b',
-  '\u864e',
-  '\u5154',
-  '\u9f99',
-  '\u86c7',
-  '\u9a6c',
-  '\u7f8a',
-  '\u7334',
-  '\u9e21',
-  '\u72d7',
-  '\u732a'
-] as const
-
 /** 阳历节日 */
 export const SOLAR_CALENDAR_FESTIVE: Record<string, { title: string }> = {
-  '1-1': { title: '元旦节' },
+  '1-1': { title: '元旦' },
   '2-14': { title: '情人节' },
   '5-1': { title: '劳动节' },
   '5-4': { title: '青年节' },
