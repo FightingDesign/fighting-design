@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 优化 `f-calendar` 组件
+
 ## 0.62.2 (2023-08-23)
 
 - 修复 `f-collapse-animation` 组件样式细节
