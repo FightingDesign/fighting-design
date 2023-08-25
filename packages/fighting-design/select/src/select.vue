@@ -2,9 +2,9 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import { provide, computed, useSlots, ref, reactive, toRef } from 'vue'
+  import { provide, computed, useSlots, ref, reactive, toRef, nextTick } from 'vue'
   import { FDropdown } from '../../dropdown'
-  import { getChildren } from '../../_utils'
+  import { getChildren, isFunction } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronDown } from '../../_svg'
   import type { VNode, Slots } from 'vue'
@@ -92,8 +92,8 @@
   /**
    * 设置新的值
    *
-   * @param { string } newValue 新的 value 值
-   * @param { string | number | boolean } newLabel 新增 label 值
+   * @param { string | number } newValue 新的 value 值
+   * @param { string | number } newLabel 新增 label 值
    * @param { Object } evt 事件对象
    */
   const setValue = (
@@ -123,11 +123,28 @@
 
   /** 当前是否聚焦 */
   const isFocus = ref(false)
+
+  /** 下拉菜单开启之后的回调 */
+  const onOpen = async (): Promise<void> => {
+    await nextTick()
+
+    /** 获取到当前选中的元素 */
+    const active: Element | null = document.querySelector('.f-option.f-option__active')
+
+    if (active && isFunction(active.scrollIntoView)) {
+      /**
+       * 将元素滚动到可是区域
+       *
+       * @see Element.scrollIntoView() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
+       */
+      active.scrollIntoView({ block: 'end' })
+    }
+  }
 </script>
 
 <template>
   <div class="f-select" :style="styleList">
-    <f-dropdown trigger="click" :disabled="disabled" :width="width">
+    <f-dropdown trigger="click" :disabled="disabled" :width="width" :on-open="onOpen">
       <f-input
         v-model="keyword"
         readonly

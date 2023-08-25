@@ -2,6 +2,7 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-select` 组件展开默认滚动到选中元素效果
 - 优化 `f-calendar` 组件
 - 修复 `f-collapse-animation` 组件宽度过渡失效问题
 
