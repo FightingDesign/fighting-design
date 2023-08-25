@@ -22,24 +22,10 @@
       }
     }
 
-    // 当前时间
     .f-calendar__option {
-      display: inline-flex;
-      justify-content: center;
+      display: flex;
       align-items: center;
-      font-size: 15px;
-
-      .f-calendar__now-time {
-        color: #333;
-        margin-right: 7px;
-      }
-
-      // 今天
-      .f-calendar__now-date {
-        color: #2d5af1;
-        cursor: pointer;
-        font-weight: 600;
-      }
+      column-gap: 20px;
     }
   }
 
@@ -77,6 +63,7 @@
       transition: 0.3s;
       height: var(--calendar-day-cell-height, 85px);
       color: #c6c6c6;
+      row-gap: 3px;
 
       // 当前月份
       &.f-calendar__day-current {

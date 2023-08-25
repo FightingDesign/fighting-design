@@ -3,7 +3,7 @@
   import { computed, watch, reactive } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronLeft, FIconChevronRight } from '../../_svg'
-  import { addZero, isDate, isFunction } from '../../_utils'
+  import { isDate, isFunction } from '../../_utils'
   import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
   import type { GenerateCalendarItem } from '../../_hooks'
 
@@ -38,6 +38,7 @@
   /** 星期列表 */
   const weekList = computed((): string[] => getLang('calendar').value.weekList)
 
+  /** 切换上个月 */
   const changeLastMonth = (): void => {
     if (dates.month === 1) {
       dates.year -= 1
@@ -47,6 +48,7 @@
     }
   }
 
+  /** 切换下个月 */
   const changeNextMonth = (): void => {
     if (dates.month === 12) {
       dates.year += 1
@@ -94,11 +96,6 @@
       { deep: true }
     )
   }
-
-  /** 当前时间 */
-  const nowTime = computed((): string => {
-    return `${dates.year} / ${addZero(dates.month)} / ${addZero(dates.date)}`
-  })
 
   /**
    * 点击对每一天
@@ -151,8 +148,17 @@
 
       <!-- 操作栏 -->
       <div class="f-calendar__option">
-        <span class="f-calendar__now-time">{{ nowTime }}</span>
-        <span class="f-calendar__now-date" @click="optionClick('current')">今天</span>
+        <!-- 年份选择器 -->
+        <f-select v-model="dates.year" :width="116">
+          <f-option v-for="i in 200" :key="i" :value="1900 + i">{{ 1900 + i }}</f-option>
+        </f-select>
+
+        <!-- 月份选择器 -->
+        <f-select v-model="dates.month" :width="116">
+          <f-option v-for="i in 12" :key="i" :value="i">{{ i }}</f-option>
+        </f-select>
+
+        <f-button type="default" @click="optionClick('current')">今天</f-button>
       </div>
 
       <!-- 下个月切换按钮 -->
