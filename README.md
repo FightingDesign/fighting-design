@@ -133,7 +133,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 Add WeChat & please note the `Github` username
 
-![WeChat](https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg)
+<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg" >
 
 ## 💌 Special Thanks
 

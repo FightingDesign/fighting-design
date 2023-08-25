@@ -94,7 +94,7 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
    */
   const generateCalendar = (year: number, month: number): GenerateCalendarItem[] => {
     /** 日历详情 */
-    const calendar = []
+    const calendar: GenerateCalendarItem[] = []
 
     /** 获取开始日期是星期几 */
     const startDay = getFirstDayOfWeek(year, month)

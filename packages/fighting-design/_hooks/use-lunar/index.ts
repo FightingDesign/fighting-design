@@ -14,9 +14,6 @@ import {
  * @param { string } festival 阳历节日
  * @param { string } lunarFestival 农历节日
  * @param { string } lunar 农历日期
- * @param { number } year 阳历年份
- * @param { number } month 阳历月份
- * @param { number } day 阳历日期
  * @param { string } term 节气
  * @param { string } constellation 星座
  */
@@ -29,7 +26,11 @@ export interface GetLunarDetailReturn {
 }
 
 /**
- * useLunar 返回值类型
+ * 传入阳历年月日获得详细的信息
+ *
+ * @param { number } yPara 阳历年份
+ * @param { number } mPara 阳历月份
+ * @param { number } dPara 阳历日期
  */
 export type UseLunarReturn = (
   yPara: number,
@@ -41,12 +42,9 @@ export type UseLunarReturn = (
  * 农历方法
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @returns { Function } 传入阳历年月日获得详细的信息
+ * @returns
  */
 export const useLunar = (): UseLunarReturn => {
-
-  console.log('调用')
-
   /**
    * 返回农历 year 年一整年的总天数
    *
@@ -172,8 +170,6 @@ export const useLunar = (): UseLunarReturn => {
     mPara: number,
     dPara: number
   ): -1 | GetLunarDetailReturn => {
-
-    // console.log(yPara, mPara, dPara)
 
     /**
      * @see parseInt https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt

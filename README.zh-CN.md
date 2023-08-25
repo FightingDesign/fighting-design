@@ -133,7 +133,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 添加微信请备注 `Github` 用户名
 
-![](https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg)
+<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg" >
 
 ## 💌 特别感谢
 

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { computed, watch, reactive } from 'vue'
+  import { computed, watch, reactive, onBeforeMount } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronLeft, FIconChevronRight } from '../../_svg'
-  import { isDate, isFunction } from '../../_utils'
+  import { isDate } from '../../_utils'
   import { useCalendar, useRun, useGlobal, useList } from '../../_hooks'
   import type { GenerateCalendarItem } from '../../_hooks'
 
@@ -31,7 +31,7 @@
   })
 
   /** 日期集合 */
-  const AllMonthDays = computed(() => {
+  const allMonthDays = computed((): GenerateCalendarItem[] => {
     return generateCalendar(dates.year, dates.month)
   })
 
@@ -85,25 +85,13 @@
     option[target] && option[target]()
   }
 
-  /** 改变日期的监听器 */
-  if (prop.onChange && isFunction(prop.onChange)) {
-    watch(
-      () => dates,
-      (): void => {
-        console.log(dates)
-        run(prop.onChange, dates.year, dates.month, dates.date)
-      },
-      { deep: true }
-    )
-  }
-
   /**
    * 点击对每一天
    *
    * @param { number } days 日期对象
    */
   const handleClick = (days: GenerateCalendarItem): void => {
-    const { target } = days
+    const { target, day } = days
 
     /** 切换上个月 */
     if (target === 'prev') {
@@ -117,12 +105,13 @@
 
     /** 点击当前月份的日期，高亮显示 */
     if (target === 'current') {
-      console.log('Current')
+      dates.date = day
+      run(prop.onChangeDate, dates.year, dates.month, dates.date)
     }
   }
 
   /** 当月份发生改变时候触发的回调 */
-  watch(
+  const watchMonth = watch(
     (): number => dates.month,
     /**
      * @param { number } month 最新的月份
@@ -131,6 +120,36 @@
       run(prop.onChangeMonth, dates.year, month, dates.date)
     }
   )
+
+  /** 改变日期的监听器 */
+  const watchChange = watch(
+    () => dates,
+    (): void => {
+      run(prop.onChange, dates.year, dates.month, dates.date)
+    },
+    { deep: true }
+  )
+
+  /**
+   * 当前日期高亮显示
+   *
+   * @param { number } month 月份
+   * @param { number } date 日期
+   * @returns
+   */
+  const currentDataClass = (month: number, date: number): string => {
+    /** 如果当前的月份和日期和绑定的日期相同，则高亮显示 */
+    if (date === dates.date && month === dates.month) {
+      return 'f-calendar__day-today'
+    }
+
+    return ''
+  }
+
+  onBeforeMount(() => {
+    watchChange()
+    watchMonth()
+  })
 
   /** 样式列表 */
   const styleList = styles(['borderColor', 'dayCellHeight', 'weekCellHeight'])
@@ -175,12 +194,13 @@
     <!-- 每一天 -->
     <div class="f-calendar__day">
       <div
-        v-for="(days, index) in AllMonthDays"
+        v-for="(days, index) in allMonthDays"
         :key="index"
         :class="[
           'f-calendar__day-item',
           {
-            'f-calendar__day-current': days.target === 'current'
+            'f-calendar__day-current': days.target === 'current',
+            [currentDataClass(days.month, days.day)]: days.target === 'current'
           }
         ]"
         @click="handleClick(days)"

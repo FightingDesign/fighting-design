@@ -31,25 +31,25 @@ export const LUNAR_INFO = [
 /** 阳历节日 */
 export const SOLAR_CALENDAR_FESTIVE: Record<string, { title: string }> = {
   '1-1': { title: '元旦' },
+  '2-2': { title: '湿地日' },
   '2-14': { title: '情人节' },
-  '5-1': { title: '劳动节' },
-  '5-4': { title: '青年节' },
-  '6-1': { title: '儿童节' },
-  '9-10': { title: '教师节' },
-  '10-1': { title: '国庆节' },
-  '12-25': { title: '圣诞节' },
   '3-8': { title: '妇女节' },
   '3-12': { title: '植树节' },
   '4-1': { title: '愚人节' },
+  '5-1': { title: '劳动节' },
+  '5-4': { title: '青年节' },
   '5-12': { title: '护士节' },
+  '6-1': { title: '儿童节' },
   '7-1': { title: '建党节' },
   '8-1': { title: '建军节' },
-  '12-24': { title: '平安夜' }
+  '9-10': { title: '教师节' },
+  '10-1': { title: '国庆节' },
+  '12-24': { title: '平安夜' },
+  '12-25': { title: '圣诞节' }
 } as const
 
 /** 农历节日 */
 export const LUNAR_FESTIVE: Record<string, { title: string }> = {
-  '12-30': { title: '除夕' },
   '1-1': { title: '春节' },
   '1-15': { title: '元宵节' },
   '2-2': { title: '龙抬头' },
@@ -61,8 +61,9 @@ export const LUNAR_FESTIVE: Record<string, { title: string }> = {
   '10-1': { title: '寒衣节' },
   '10-15': { title: '下元节' },
   '12-8': { title: '腊八节' },
-  '12-23': { title: '北方小年' },
-  '12-24': { title: '南方小年' }
+  '12-23': { title: '北小年' },
+  '12-24': { title: '南小年' },
+  '12-30': { title: '除夕' }
 } as const
 
 /**

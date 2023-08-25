@@ -83,7 +83,6 @@ export const useCollapseAnimation = (
      */
     if (prop.heightAnimation) {
       node.style.height = node.scrollHeight + 'px'
-      console.log(node.style.height)
     } else {
       node.style.height = 'auto'
     }
