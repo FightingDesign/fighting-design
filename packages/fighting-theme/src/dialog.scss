@@ -32,6 +32,8 @@
     z-index: 1999;
     transition: 0.3s;
     overflow: auto;
+    padding: 24px;
+    box-sizing: border-box;
     text-align: center;
 
     // 主要内容容器
@@ -49,43 +51,33 @@
       .f-dialog__header {
         display: flex;
         align-items: center;
-        height: 55px;
+        flex-wrap: wrap;
         min-height: 56px;
-        width: 100%;
-        max-width: inherit;
+        justify-content: space-between;
         border-bottom: 1px solid #eee;
-
-        // 前缀
-        &-before {
-          width: 56px;
-          display: inline-block;
-          margin-left: 13px;
-          margin-right: auto;
-        }
+        padding: 5px 10px;
+        box-sizing: border-box;
 
         // 中间的标题
         &-center {
           color: rgb(95, 99, 104);
           font-size: 17px;
-          font-weight: normal;
-          line-height: 22px;
-          text-align: center;
-          width: 100%;
         }
 
         // 后缀
+        &-before,
         &-after {
-          width: 56px;
-          display: inline-block;
-          margin-left: auto;
-          margin-right: 4px;
+          width: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
 
       // 身体
       .f-dialog__body {
         box-sizing: border-box;
-        padding: 15px;
+        padding: 5px 15px;
         text-align: left;
       }
 
@@ -93,7 +85,7 @@
       .f-dialog__footer {
         padding: 10px 14px;
         display: flex;
-        flex-flow: row nowrap;
+        flex-wrap: wrap;
         justify-content: flex-end;
         align-items: center;
         border-top: 1px solid #eee;
