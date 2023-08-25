@@ -93,6 +93,11 @@ export const useCollapseAnimation = (
     if (prop.widthAnimation) {
       node.style.width = 'auto'
 
+      /**
+       * 获取到宽度
+       * 
+       * @see Element.getBoundingClientRect() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
+       */
       const width: number = node.getBoundingClientRect().width
 
       node.style.width = '0'
