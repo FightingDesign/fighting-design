@@ -2,6 +2,13 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.63.0 (2023-08-25)
+
+- 优化 `f-dialog` 组件样式
+- 新增 `f-select` 组件展开默认滚动到选中元素效果
+- 优化 `f-calendar` 组件
+- 修复 `f-collapse-animation` 组件宽度过渡失效问题
+
 ## 0.62.2 (2023-08-23)
 
 - 修复 `f-collapse-animation` 组件样式细节

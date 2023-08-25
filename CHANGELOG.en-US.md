@@ -4,6 +4,13 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.63.0 (2023-08-25)
+
+- Optimize component styles for `f-dialog`
+- Add a `f-select` component to expand and scroll to the selected element by default
+- Optimize `f-calendar` components
+- Fix the issue of `f-collapse-animation` component width transition failure
+
 ## 0.62.2 (2023-08-23)
 
 - Fix `f-collapse-animation` component style details
