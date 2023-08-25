@@ -91,18 +91,20 @@ export const useCollapseAnimation = (
      * 如果需要宽度过渡
      */
     if (prop.widthAnimation) {
-      const parent = node.parentElement as HTMLElement
+      node.style.width = 'auto'
+
+      const width: number = node.getBoundingClientRect().width
+
+      node.style.width = '0'
 
       /**
-       * 获取父节点的宽度
-       *
+       * offsetWidth 的访问行为会触发浏览器的重排
+       * 
        * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
-       * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
        */
-      const parentWidth: number = parent.offsetWidth || parent.clientWidth
+      node.offsetWidth
 
-      /** 如果两个方法都没有获取到宽度，使用 auto */
-      node.style.width = isNumber(parentWidth) ? parentWidth + 'px' : 'auto'
+      node.style.width = width + 'px'
     } else {
       node.style.width = 'auto'
     }
@@ -138,17 +140,9 @@ export const useCollapseAnimation = (
     }
 
     if (prop.widthAnimation) {
-      /** 获取父节点 */
-      const parent = node.parentElement as HTMLElement
-      /**
-       * 获取父节点的宽度
-       *
-       * @see HTMLElement.offsetWidth https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth
-       * @see Element.clientWidth https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientWidth
-       */
-      const parentWidth: number = parent.offsetWidth || parent.clientWidth
+      const width = node.getBoundingClientRect().width
 
-      node.style.width = parentWidth + 'px'
+      node.style.width = width + 'px'
     }
 
     run(prop.onClose, el)
