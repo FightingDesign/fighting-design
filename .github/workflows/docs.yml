@@ -40,13 +40,13 @@ jobs:
 
       # 创建并提交 CNAME 文件
       - name: Create CNAME file
-        run: echo "fighting.tianyuhao.cn" > docs/.vitepress/dist/CNAME
+        run: echo 'fighting.tianyuhao.cn' > docs/.vitepress/dist/CNAME
       - name: Commit CNAME file
         run: |
-          git config --local user.email "1469442737@qq.com"
-          git config --local user.name "Tyh2001"
+          git config --local user.email '1469442737@qq.com'
+          git config --local user.name 'Tyh2001'
           git add -f docs/.vitepress/dist/CNAME
-          git commit -m "Add CNAME file for custom domain"
+          git commit -m 'Add CNAME file for custom domain'
 
       # 向 Codecov 报告覆盖率
       - name: Report coverage to Codecov
