@@ -45,7 +45,7 @@ jobs:
         run: |
           git config --local user.email "1469442737@qq.com"
           git config --local user.name "Tyh2001"
-          git add docs/.vitepress/dist/CNAME
+          git add -f docs/.vitepress/dist/CNAME
           git commit -m "Add CNAME file for custom domain"
 
       # 向 Codecov 报告覆盖率
