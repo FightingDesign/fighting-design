@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.63.1 (2023-08-28)
+
+- Fix the issue of multiple ·f-select· components not triggering scrolling to selected elements
+
 ## 0.63.0 (2023-08-25)
 
 - Optimize component styles for `f-dialog`

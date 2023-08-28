@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.63.1 (2023-08-28)
+
+- 修复 `f-select` 组件多个不会触发滚动到选中元素问题
+
 ## 0.63.0 (2023-08-25)
 
 - 优化 `f-dialog` 组件样式
