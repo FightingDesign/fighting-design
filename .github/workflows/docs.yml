@@ -1,13 +1,12 @@
 name: Fighting Design Build Docs
 
-# 当 master 分支 push 代码
-# 并且 'packages/fighting-design/package.json' 文件修改的时候
+# 当 master 分支 push 代码，并且 package.json 修改的时候执行
 on:
   push:
     branches:
       - master
-    paths:
-      - 'packages/fighting-design/package.json'
+    # paths:
+    #   - 'packages/fighting-design/package.json'
 
 jobs:
   build-deploy:
@@ -16,7 +15,6 @@ jobs:
     steps:
       # 下载仓库代码 / 校验
       - name: Checkout
-        # actions/checkout@v3 是 github 官方的一个action，用于 clone 该仓库的源码到工作流中
         uses: actions/checkout@v3
 
       # 安装 pnpm
@@ -39,6 +37,16 @@ jobs:
       # 打包文档
       - name: Build docs
         run: pnpm build:docs
+
+      # 创建并提交 CNAME 文件
+      - name: Create CNAME file
+        run: echo "fighting.tianyuhao.cn" > docs/.vitepress/dist/CNAME
+      - name: Commit CNAME file
+        run: |
+          git config --local user.email "1469442737@qq.com"
+          git config --local user.name "Tyh2001"
+          git add docs/.vitepress/dist/CNAME
+          git commit -m "Add CNAME file for custom domain"
 
       # 向 Codecov 报告覆盖率
       - name: Report coverage to Codecov
