@@ -124,12 +124,17 @@
   /** 当前是否聚焦 */
   const isFocus = ref(false)
 
+  /** 展开的内容元素 */
+  const secletContentRef = ref<HTMLDivElement | undefined>()
+
   /** 下拉菜单开启之后的回调 */
   const onOpen = async (): Promise<void> => {
     await nextTick()
 
     /** 获取到当前选中的元素 */
-    const active: Element | null = document.querySelector('.f-option.f-option__active')
+    const active =
+      secletContentRef.value &&
+      secletContentRef.value.querySelector('.f-option.f-option__active')
 
     if (active && isFunction(active.scrollIntoView)) {
       /**
@@ -167,7 +172,7 @@
       </f-input>
 
       <template #content>
-        <div class="f-select__content">
+        <div ref="secletContentRef" class="f-select__content">
           <slot />
         </div>
       </template>
