@@ -101,3 +101,12 @@ export const convertFormat = (str: string): string => {
     return '-' + p1.toLowerCase()
   })
 }
+
+/**
+ * 延迟函数
+ * @param ms
+ */
+export const sleep = (ms = 2000): Promise<void> => {
+  // console.log('Kindly remember to remove `sleep`')
+  return new Promise(resolve => setTimeout(resolve, ms))
+}

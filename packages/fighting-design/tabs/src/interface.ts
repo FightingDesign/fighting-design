@@ -44,4 +44,5 @@ export interface TabsOpts {
 export interface TabsProvide {
   activeName: Ref<number | string>
   registerChild: (opts: TabsOpts) => void
+  unRegisterChild: (name: number | string) => void
 }

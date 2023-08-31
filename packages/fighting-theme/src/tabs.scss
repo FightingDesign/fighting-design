@@ -10,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 13px;
+    overflow: hidden;
 
     // 前缀后缀
     .f-tabs__prefix,
@@ -19,14 +20,35 @@
       box-sizing: border-box;
     }
 
+    // 移动前后按钮
+    .f-tabs__move-icon{
+      cursor: pointer;
+      display: inline-block;
+      &:hover{
+        color: #2d5af1;
+      }
+    }
+
+         // 容器
+        .f-tabs__wrapper{
+                overflow: hidden;
+          display: flex;
+          //align-content: center;
+        }
+
     // 菜单栏
     .f-tabs__navs {
-      width: 100%;
-
+      //width: 100%;
+      transition: transform 0.5s;
       .f-tabs__nav-item {
         font-size: 15px;
       }
     }
+  }
+
+  // 可移动的头部
+  &__move{
+    box-sizing: border-box;
   }
 
   // 菜单栏
@@ -43,6 +65,7 @@
         box-sizing: border-box;
         font-size: 15px;
         user-select: none;
+        white-space: nowrap;
 
         // 选中状态
         &.f-tabs__nav-active {
@@ -165,7 +188,8 @@
 
     .f-tabs__head {
       border-bottom: 1px solid #ddd;
-      align-items: end;
+      // align-items: end;
+      align-items: center;
     }
   }
 
@@ -215,6 +239,18 @@
 
       .f-tabs__navs {
         flex-direction: column;
+      }
+    }
+  }
+
+
+  // 是否可编辑-可滑动区域
+  &__nav-editable{
+    box-sizing: border-box;
+    .f-tabs__nav-close{
+      color: #8e8ea0;
+      &:hover{
+        color: #2d5af1;
       }
     }
   }

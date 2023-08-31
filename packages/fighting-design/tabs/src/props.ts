@@ -1,4 +1,9 @@
-import { setStringNumberProp, setStringProp, setFunctionProp } from '../../_utils'
+import {
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp,
+  setBooleanProp
+} from '../../_utils'
 import type { ExtractPropTypes, InjectionKey } from 'vue'
 import type {
   TabsTrigger,
@@ -62,7 +67,11 @@ export const Props = {
     return (['click', 'hover'] as const).includes(val)
   }),
   /** 切换前的回调 */
-  onSwitch: setFunctionProp<TabsSwitch>()
+  onSwitch: setFunctionProp<TabsSwitch>(),
+  /** 是否为动态增减标签页 */
+  editable: setBooleanProp(false),
+  /** tabs的操作事件 */
+  handleTabClose: setFunctionProp<(targetName: string | number) => void>()
 } as const
 
 /** tabs 组件 props 类型 */

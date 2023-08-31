@@ -1,7 +1,15 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { TABS_PROPS_KEY } from '../../tabs/src/props'
-  import { inject, computed, getCurrentInstance, ref, onMounted, reactive } from 'vue'
+  import {
+    inject,
+    computed,
+    getCurrentInstance,
+    ref,
+    onMounted,
+    reactive,
+    onBeforeUnmount
+  } from 'vue'
   import type { ComponentInternalInstance } from 'vue'
 
   defineOptions({ name: 'FTabsItem' })
@@ -46,9 +54,9 @@
     parentInject && parentInject.registerChild(options)
   })
 
-  // onBeforeUnmount((): void => {
-  //   parentInject && parentInject.unRegisterChild(pane)
-  // })
+  onBeforeUnmount((): void => {
+    parentInject && parentInject.unRegisterChild(activeName.value)
+  })
 </script>
 
 <template>

@@ -1,8 +1,9 @@
 <script lang="ts" setup>
   import { Props, TABS_PROPS_KEY } from './props'
-  import { provide, getCurrentInstance, ref, isVNode, computed, shallowRef } from 'vue'
+  import { provide, getCurrentInstance, ref, isVNode, computed } from 'vue'
   import { isObject, isArray, isBoolean } from '../../_utils'
   import { useList } from '../../_hooks'
+  import { FIconCross, FIconChevronLeft, FIconChevronRight } from '../../_svg'
   import type { TabsItemProps } from '../../tabs-item'
   import type {
     ComponentInternalInstance,
@@ -11,6 +12,7 @@
     VNodeNormalizedChildren
   } from 'vue'
   import type { TabsOpts, TabsProvide } from './interface'
+  import { useEditableTabs } from './useEditableTabs'
 
   defineOptions({ name: 'FTabs' })
 
@@ -26,7 +28,7 @@
   const activeName = ref<string | number>(0)
 
   const childrenMap = new Map<number, TabsOpts>()
-  const children = shallowRef<TabsOpts[]>()
+  const children = ref<TabsOpts[]>()
 
   const flattedChildren = (children: VNode | VNodeNormalizedChildren): VNode[] => {
     const vNodes = isArray(children) ? children : [children]
@@ -86,6 +88,39 @@
     }
   }
 
+  const unRegisterChild = (name: string | number): void => {
+    if (!children.value) {
+      return
+    }
+    // 当前索引
+    const curIndex: number = children.value.findIndex(
+      (e: TabsOpts): boolean => e.activeName === name
+    )
+    const [prevIndex, nextIndex] = [curIndex - 1, curIndex + 1]
+
+    /**如果删除的是当前选中的项，跳转到前一个， 若前一个没有 跳转到后一个*/
+    if (name === activeName.value) {
+      // 如果前面有，跳转到前一个
+      if (prevIndex !== -1) {
+        activeName.value = children.value[prevIndex].activeName
+      }
+      // 如果前面没有 并且后面有
+      else if (
+        prevIndex === -1 &&
+        nextIndex <= children.value.length &&
+        children.value.length !== 1
+      ) {
+        activeName.value = children.value[nextIndex].activeName
+      }
+    }
+
+    // 删除children
+    children.value?.splice(
+      children.value.findIndex((e: TabsOpts): boolean => e.activeName === name),
+      1
+    )
+  }
+
   /** nav 列表 */
   const navs = computed(() => {
     return (
@@ -101,11 +136,16 @@
       })
     )
   })
+  /**tab删除事件*/
+  const handleTabClose = (name: string | number): void => {
+    prop.handleTabClose(name)
+  }
 
   /** 将信息传递给子组件 */
   provide<TabsProvide>(TABS_PROPS_KEY, {
     activeName,
-    registerChild
+    registerChild,
+    unRegisterChild
   })
 
   /**
@@ -136,34 +176,69 @@
   const trigger = computed((): 'click' | 'mouseenter' => {
     return prop.trigger === 'hover' ? 'mouseenter' : 'click'
   })
+  /** 可编辑的tab */
+  const { variables, tabRef, tabWrapperRef, handleMove } = useEditableTabs(navs)
 </script>
 
 <template>
   <div role="tab" :class="classList" :style="styleList">
     <!-- 头部内容 -->
-    <div class="f-tabs__head">
+    <div class="f-tabs__head" :class="variables.isCanMove ? 'f-tabs__move' : null">
       <!-- 前缀插槽 -->
       <div v-if="$slots.prefix" class="f-tabs__prefix">
         <slot name="prefix" />
       </div>
 
-      <!-- 标签列表 -->
-      <div class="f-tabs__navs">
+      <!--?可编辑移动icon-prev -->
+      <f-svg-icon
+        v-show="variables.isCanMove"
+        v-if="prop.editable"
+        :icon="FIconChevronLeft"
+        class="f-tabs__prev--icon f-tabs__move-icon"
+        @click="handleMove('prev')"
+      />
+
+      <div id="tabWrapperId" ref="tabWrapperRef" class="f-tabs__wrapper">
+        <!-- 标签列表 -->
         <div
-          v-for="(item, index) in navs"
-          :key="index"
-          :class="[
-            'f-tabs__nav-item',
-            { 'f-tabs__nav-active': item.name === activeName }
-          ]"
-          @[trigger]="changeNavs(item.name)"
+          ref="tabRef"
+          class="f-tabs__navs"
+          :class="prop.editable ? 'f-tabs__nav-editable' : null"
         >
-          {{ item.label }}
+          <div
+            v-for="(item, index) in navs"
+            :key="index"
+            :class="[
+              'f-tabs__nav-item',
+              {
+                'f-tabs__nav-active': item.name === activeName
+              }
+            ]"
+            @[trigger]="changeNavs(item.name)"
+          >
+            {{ item.label }}
+            <!--删除按钮-->
+            <f-svg-icon
+              v-if="prop.editable"
+              class="f-tabs__nav-close"
+              :icon="FIconCross"
+              @click.stop="handleTabClose(item.name)"
+            />
+          </div>
         </div>
       </div>
 
+      <!--?可编辑移动icon-next -->
+      <f-svg-icon
+        v-show="variables.isCanMove"
+        v-if="prop.editable"
+        :icon="FIconChevronRight"
+        class="f-tabs__next--icon f-tabs__move-icon"
+        @click="handleMove('next')"
+      />
+
       <!-- 后缀插槽 -->
-      <div v-if="$slots.suffix" class="f-tabs__suffix">
+      <div v-if="$slots.suffix" class="f-tabs__suffix f-tabs__move-icon">
         <slot name="suffix" />
       </div>
     </div>
