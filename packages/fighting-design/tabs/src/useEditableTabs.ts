@@ -85,28 +85,34 @@ const useEditableTabs = (navs: ComputedRef): useEditableTabsReturn => {
    * 让选中的项定位在tabWrapper中
    */
   const setPosition = async (): Promise<boolean | undefined> => {
-    const activeTab = document.querySelector('.f-tabs__nav-active')
-    if (!tabWrapperRef.value || !activeTab || !variables.isCanMove) {
+    if (!tabWrapperRef.value) {
+      return false
+    }
+    const activeTab = tabWrapperRef.value.querySelector('.f-tabs__nav-active')
+    if (!activeTab || !variables.isCanMove || variables.moveCount < 0) {
       return false
     }
 
-    const tabWrapperWidth = tabWrapperRef.value.offsetWidth // 容器区域
+    const tabWrapperWidth = tabWrapperRef.value.offsetWidth - 20 // 容器区域
     // 当前选中项的位置
     const activePos =
       parseInt(String(activeTab.getBoundingClientRect().x)) -
       parseInt(String(tabWrapperRef.value.getBoundingClientRect().x))
-    // 判断当前选项在不在可视区域内， 如果不在，进行定位
-    if (activePos >= 0 && activePos + activeTab.clientWidth / 2 < tabWrapperWidth) {
+    const activeMidPos = activeTab.clientWidth / 2 + activePos
+    // 判断当前选项(中心位置)在不在可视区域内， 如果不在，进行定位
+    if (activePos >= 0 && activeMidPos < tabWrapperWidth) {
       return false
     } else {
       if (activePos < 0) {
         // 左移
         variables.moveCount--
-      } else if (activePos > tabWrapperWidth) {
+      } else if (activeMidPos >= tabWrapperWidth) {
         // 右移
         variables.moveCount++
+      } else {
+        return false
       }
-      judgeMove()
+      // judgeMove()
       translateX()
       await sleep(100)
       await setPosition()

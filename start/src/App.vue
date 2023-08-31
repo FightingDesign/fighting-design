@@ -7,11 +7,7 @@
     { name: 1, label: '1' },
     { name: 2, label: '2' },
     { name: 3, label: '3' },
-    { name: 4, label: '4' },
-    { name: 5, label: '5' },
-    { name: 6, label: '6' },
-    { name: 7, label: '7' },
-    { name: 8, label: '8' }
+    { name: 4, label: '4' }
   ])
 
   const handleTabAdd = (): void => {
@@ -27,7 +23,6 @@
       arr.value.findIndex(i => i.name === name),
       1
     )
-    console.log(41, arr.value)
   }
   const removeAll = (): void => {
     arr.value = []
@@ -43,27 +38,13 @@
   <br />
   <br />
 
-  <div class="box1">
-    <f-tabs v-model="activeName" editable :handle-tab-close="handleTabClose">
+  <div class="box1" style="width: 400px">
+    <f-tabs v-model="activeName" type="card" editable :handle-tab-close="handleTabClose">
       <f-tabs-item v-for="i in arr" :key="i.name" :name="i.name" :label="i.name">
         {{ i.name }}
       </f-tabs-item>
     </f-tabs>
   </div>
-
-  <!--  <div style="width: 600px; border: solid 1px #eeeeee">
-    <f-tabs editable :handle-tab-close="handleTabClose">
-      <f-tabs-item v-for="i in arr" :key="i.name" :name="i.name" :label="i.name">
-        {{ i.name }}
-      </f-tabs-item>
-    </f-tabs>
-  </div>-->
 </template>
 
-<style>
-  .box1 {
-    border: solid 1px green;
-    margin-bottom: 20px;
-    width: 300px;
-  }
-</style>
+<style></style>

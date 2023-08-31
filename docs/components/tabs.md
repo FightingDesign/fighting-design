@@ -361,16 +361,95 @@ tabs 的基本使用
 
 :::
 
+## 动态增减标签页
+
+配置`editable`动态标签页
+
+::: demo
+
+<template #source>
+<f-button size="mini" style="margin-right: 10px" @click="handleTabAdd()">
+add tab
+</f-button>
+<f-button size="mini" @click="removeAll()"> remove all tab </f-button>
+
+  <br />
+  <br />
+
+  <div>
+    <f-tabs type="card" v-model="activeName" editable :handle-tab-close="handleTabClose">
+      <f-tabs-item v-for="i in arr" :key="i.name" :name="i.name" :label="i.name">
+        {{ i.name }}
+      </f-tabs-item>
+    </f-tabs>
+  </div>
+</template>
+
+```html
+<template>
+  <f-button size="mini" style="margin-right: 10px" @click="handleTabAdd()">
+    add tab
+  </f-button>
+  <f-button size="mini" @click="removeAll()"> remove all tab </f-button>
+
+  <br />
+  <br />
+
+  <div>
+    <f-tabs v-model="activeName" editable :handle-tab-close="handleTabClose">
+      <f-tabs-item v-for="i in arr" :key="i.name" :name="i.name" :label="i.name">
+        {{ i.name }}
+      </f-tabs-item>
+    </f-tabs>
+  </div>
+</template>
+
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+
+  const activeName = ref()
+
+  let arr = ref([
+    { name: 1, label: '1' },
+    { name: 2, label: '2' },
+    { name: 3, label: '3' },
+  ])
+
+  const handleTabAdd = (): void => {
+    const addItem = {
+      name: arr.value.length + 1,
+      label: String(arr.value.length + 1)
+    }
+    arr.value.push(addItem)
+    activeName.value = addItem.name
+  }
+  const handleTabClose = (name: string | number): void => {
+    arr.value.splice(
+      arr.value.findIndex(i => i.name === name),
+      1
+    )
+  }
+  const removeAll = (): void => {
+    arr.value = []
+  }
+</script>
+```
+
+:::
+
 ## Tabs Attributes
 
-| 参数                  | 说明                                   | 类型                                                 | 可选值                                                                         | 默认值 |
-| --------------------- | -------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------ | ------ |
-| `v-model:model-value` | 绑定值，选中选项卡的 name              | <a href="#tabsmodelvalue">TabsModelValue</a>         | ——                                                                             | ——     |
-| `type`                | 风格类型                               | <a href="#tabstype">TabsType</a>                     | `line` `card` `segment`                                                        | line   |
-| `position`            | 头部位置                               | <a href="#tabsposition">TabsPosition</a>             | `left` `right` `top` `bottom`                                                  | top    |
-| `justify-content`     | 对齐方式（仅针对上下方向的 line 有效） | <a href="#tabsjustifycontent">TabsJustifyContent</a> | `flex-start` `center` `flex-end` `space-between` `space-around` `space-evenly` | ——     |
-| `trigger`             | 触发方式                               | <a href="#tabstrigger">TabsTrigger</a>               | `click` `hover`                                                                | click  |
-| `on-switch`           | 切换前的回调                           | <a href="#tabsswitch">TabsSwitch</a>                 | ——                                                                             | ——     |
+| 参数                    | 说明                     | 类型                                                | 可选值                                                                            | 默认值   |
+|-----------------------|------------------------|---------------------------------------------------|--------------------------------------------------------------------------------|-------|
+| `v-model:model-value` | 绑定值，选中选项卡的 name        | <a href="#tabsmodelvalue">TabsModelValue</a>      | ——                                                                             | ——    |
+| `type`                | 风格类型                   | <a href="#tabstype">TabsType</a>                  | `line` `card` `segment`                                                        | line  |
+| `position`            | 头部位置                   | <a href="#tabsposition">TabsPosition</a>          | `left` `right` `top` `bottom`                                                  | top   |
+| `justify-content`     | 对齐方式（仅针对上下方向的 line 有效） | <a href="#tabsjustifycontent">TabsJustifyContent</a> | `flex-start` `center` `flex-end` `space-between` `space-around` `space-evenly` | ——    |
+| `trigger`             | 触发方式                   | <a href="#tabstrigger">TabsTrigger</a>            | `click` `hover`                                                                | click |
+| `editable`            | 是否可以编辑                 | Boolean                                           | `true` / `false`                                                               | false |
+| `on-switch`           | 切换前的回调                 | <a href="#tabsswitch">TabsSwitch</a>              | ——                                                                             | ——    |
+| `handle-tab-close`    | 关闭`tab`的回调,`editable`状态下生效 | (name):void => {}                                | ——                                                                             | ——    |
 
 ## Tabs Slots
 
@@ -472,6 +551,10 @@ type TabsTrigger = 'hover' | 'click'
   <f-avatar round src="https://avatars.githubusercontent.com/u/36356701?v=4" />
 </a>
 
+<a href="https://github.com/zhoufanglu" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/24451091?v=4" />
+</a>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FMessage } from 'fighting-design'
@@ -496,5 +579,32 @@ type TabsTrigger = 'hover' | 'click'
       default: 
         return true
     }
+  }
+  
+  //可编辑的tabs
+  const activeName = ref()
+
+  let arr = ref([
+    { name: 1, label: '1' },
+    { name: 2, label: '2' },
+    { name: 3, label: '3' },
+  ])
+
+  const handleTabAdd = (): void => {
+    const addItem = {
+      name: arr.value.length + 1,
+      label: String(arr.value.length + 1)
+    }
+    arr.value.push(addItem)
+    activeName.value = addItem.name
+  }
+  const handleTabClose = (name: string | number): void => {
+    arr.value.splice(
+      arr.value.findIndex(i => i.name === name),
+      1
+    )
+  }
+  const removeAll = (): void => {
+    arr.value = []
   }
 </script>
