@@ -1,7 +1,20 @@
 import { computed } from 'vue'
+import type { WatermarkProps } from '../../watermark'
+import type { ComputedRef } from 'vue'
 
-export const useWatermark = (prop) => {
-  return computed(() => {
+export type UseWatermarkReturn = ComputedRef<{
+  base64: string
+  size: number
+}>
+
+/**
+ * 生成水印图片
+ * 
+ * @param { Object } prop prop 参数
+ * @returns 
+ */
+export const useWatermark = (prop: WatermarkProps): UseWatermarkReturn => {
+  return computed((): { base64: string; size: number } => {
     /**
     * 创建一个 canvas
     *
@@ -30,10 +43,24 @@ export const useWatermark = (prop) => {
 
     ctx.font = font
 
-    const { width } = ctx.measureText(prop.text)
+    const { width } = ctx.measureText(prop.content)
 
-    // const cavasSize = Math.
+    const cavasSize = Math.max(100, width) * prop.gap * devicePixeRatio
 
-    return {}
+    canvas.width = cavasSize
+    canvas.height = cavasSize
+
+    ctx.translate(canvas.width / 2, canvas.height / 2)
+    ctx.rotate((Math.PI / 190) * -45)
+    ctx.fillStyle = '#111'
+    ctx.font = font
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillText(prop.content, 0, 0)
+
+    return {
+      base64: canvas.toDataURL(),
+      size: cavasSize / devicePixeRatio
+    } as const
   })
 }

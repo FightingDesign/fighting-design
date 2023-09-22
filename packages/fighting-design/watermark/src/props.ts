@@ -1,7 +1,6 @@
 import {
   setBooleanProp,
   setStringProp,
-  setStringNumberProp,
   setNumberProp
 } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
@@ -13,8 +12,9 @@ export const Props = {
   width: setNumberProp(280),
   /** 水印的高度 */
   height: setNumberProp(200),
+  gap: setNumberProp(20),
   /** 文字大小 */
-  fontSize: setStringNumberProp('30px'),
+  fontSize: setNumberProp(24),
   /** 文字颜色 */
   fontColor: setStringProp<string>('#333'),
   /** 自定义图片水印 */
