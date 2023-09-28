@@ -7,12 +7,12 @@
 
 ## 基本使用
 
-`content` 可以配置想要显示的文字内容，`height` 和 `width` 可以配置背景图片的尺寸
+`content` 可以配置想要显示的文字内容
 
 ::: demo
 
 <template #source>
-<f-watermark content="机密文件" :height="100" :width="130">
+<f-watermark content="机密文件">
 <f-card title="绝对机密">
 <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 <f-text block>这是一个重要的文件</f-text>
@@ -22,7 +22,7 @@
 
 ```html
 <template>
-  <f-watermark content="机密文件" :height="100" :width="130">
+  <f-watermark content="机密文件">
     <f-card title="绝对机密">
       <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
       <f-text block>这是一个重要的文件</f-text>
@@ -52,7 +52,7 @@
 ::: demo
 
 <template #source>
-<f-watermark content="机密文件" :height="100" :width="130" font-color="red" font-size="16px">
+<f-watermark content="保密协议" font-color="blue" :font-size="30">
 <f-card title="绝对机密">
 <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 <f-text block>这是一个重要的文件</f-text>
@@ -62,57 +62,7 @@
 
 ```html
 <template>
-  <f-watermark
-    content="机密文件"
-    :height="100"
-    :width="130"
-    font-color="red"
-    font-size="16px"
-  >
-    <f-card title="绝对机密">
-      <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
-      <f-text block>这是一个重要的文件</f-text>
-    </f-card>
-  </f-watermark>
-</template>
-
-<style scoped>
-  .f-watermark {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-  }
-  .f-card {
-    width: 240px;
-  }
-</style>
-```
-
-:::
-
-## 自定义背景
-
-如果你不喜欢文字的背景，也可以使用你喜欢的自定义图片当作背景，只需要通过 `image` 传入一个地址即可
-
-`image` 的优先级高于 `content` 的水印内容
-
-::: demo
-
-<template #source>
-<f-watermark image="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg">
-<f-card title="绝对机密">
-<f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
-<f-text block>这是一个重要的文件</f-text>
-</f-card>
-</f-watermark>
-</template>
-
-```html
-<template>
-  <f-watermark
-    image="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg"
-  >
+  <f-watermark content="保密协议" font-color="blue" :font-size="16">
     <f-card title="绝对机密">
       <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
       <f-text block>这是一个重要的文件</f-text>
@@ -140,13 +90,10 @@
 | 参数        | 说明                                                                          | 类型            | 可选值 | 默认值 |
 | ----------- | ----------------------------------------------------------------------------- | --------------- | ------ | ------ |
 | `content`   | 水印内容                                                                      | string          | ——     | ——     |
-| `width`     | 水印的宽度                                                                    | number          | ——     | 280    |
-| `height`    | 水印的高度                                                                    | number          | ——     | 200    |
-| `fontSize`  | 文字大小                                                                      | string / number | ——     | 30px   |
-| `fontColor` | 文字颜色                                                                      | string          | ——     | #333   |
-| `image`     | 自定义图片水印                                                                | string          | ——     | ——     |
-| `block`     | 是否为块级元素                                                                | boolean         | ——     | false  |
-| `zIndex`    | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number          | ——     | 100    |
+| `gap`       | 间距                                                                          | number          | ——     | 40     |
+| `fontSize`  | 文字大小                                                                      | number          | ——     | 40     |
+| `fontColor` | 文字颜色                                                                      | string          | ——     | #111   |
+| `zIndex`    | 原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number / string | ——     | 9999   |
 
 ## Slots
 

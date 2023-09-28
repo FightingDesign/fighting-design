@@ -1,5 +1,4 @@
 import {
-  setBooleanProp,
   setStringProp,
   setNumberProp,
   setStringNumberProp
@@ -15,8 +14,6 @@ export const Props = {
   gap: setNumberProp(40),
   /** 文字颜色 */
   fontColor: setStringProp<string>('#111'),
-  /** 是否为块级元素 */
-  block: setBooleanProp(),
   /**
    * 原生 z-index 属性
    *
