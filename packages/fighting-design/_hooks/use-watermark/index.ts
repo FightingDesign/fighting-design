@@ -41,8 +41,6 @@ export const useWatermark = (prop: WatermarkProps): UseWatermarkReturn => {
      */
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
 
-    ctx.font = font
-
     const { width } = ctx.measureText(prop.content)
 
     const cavasSize = Math.max(100, width) * devicePixeRatio + prop.gap
