@@ -45,14 +45,14 @@ export const useWatermark = (prop: WatermarkProps): UseWatermarkReturn => {
 
     const { width } = ctx.measureText(prop.content)
 
-    const cavasSize = Math.max(100, width) * prop.gap * devicePixeRatio
+    const cavasSize = Math.max(100, width) * devicePixeRatio + prop.gap
 
     canvas.width = cavasSize
     canvas.height = cavasSize
 
     ctx.translate(canvas.width / 2, canvas.height / 2)
     ctx.rotate((Math.PI / 190) * -45)
-    ctx.fillStyle = '#111'
+    ctx.fillStyle = prop.fontColor
     ctx.font = font
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
