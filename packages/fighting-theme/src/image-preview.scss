@@ -1,18 +1,12 @@
 .f-image-preview {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 2000;
 
   // 遮罩层
   &__mask {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     opacity: 0.5;
     background-color: #23272e;
   }
@@ -20,10 +14,7 @@
   // 主容器
   &__container {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 1999;
     transition: 0.3s;
     display: flex;

@@ -55,10 +55,8 @@
   }
 
   // 居中
-  &.f-alert__center {
-    .f-alert__content {
-      justify-content: center;
-    }
+  &.f-alert__center .f-alert__content {
+    justify-content: center;
   }
 
   // 固定定位
