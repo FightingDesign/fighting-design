@@ -1,18 +1,12 @@
 .f-dialog {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  inset: 0;
   z-index: var(--dialog-z-index, 2000);
 
   // 遮罩层
   &__mask {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     opacity: var(--dialog-mask-opacity, 0.4);
     background-color: var(--dialog-mask-background, #000);
   }
@@ -25,25 +19,21 @@
   // 主容器公共样式
   &__wrapper {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 1999;
     transition: 0.3s;
     overflow: auto;
-    padding: 24px;
-    box-sizing: border-box;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     // 主要内容容器
     .f-dialog__container {
       background-color: #fff;
-      display: inline-block;
-      top: 0;
-      position: relative;
+      display: flex;
+      flex-direction: column;
       border-radius: 6px;
-      vertical-align: middle;
+      margin: auto;
       padding: var(--dialog-padding);
       width: var(--dialog-width);
 
@@ -79,6 +69,7 @@
         box-sizing: border-box;
         padding: 5px 15px;
         text-align: left;
+        flex: 1;
       }
 
       // 页脚
@@ -102,14 +93,6 @@
         transform: scale(0.4);
         opacity: 0;
       }
-    }
-
-    &::after {
-      content: '';
-      display: inline-block;
-      width: 0;
-      vertical-align: middle;
-      height: 100%;
     }
   }
 
