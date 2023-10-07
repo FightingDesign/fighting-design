@@ -2,8 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
-- 修复 `f-dialog` 样式细节
-- 修复 `f-watermark` 可去除的问题
+## 0.64.0 (2023-10-07)
+
+- Fixed `f-dialog` style details
+- Fix `f-watermark` removable issue
 
 ## 0.63.1 (2023-08-28)
 
