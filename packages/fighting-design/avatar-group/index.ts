@@ -1,6 +1,6 @@
 import AvatarGroup from './src/avatar-group.vue'
 
-import style from '../../fighting-theme/src/avatar-group..scss'
+import style from '../../fighting-theme/src/avatar-group.scss'
 
 import { installWebComponent } from '../_utils'
 

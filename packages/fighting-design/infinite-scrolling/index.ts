@@ -1,6 +1,6 @@
 import InfiniteScrolling from './src/infinite-scrolling.vue'
 
-import style from '../../fighting-theme/src/form.scss'
+import style from '../../fighting-theme/src/infinite-scrolling.scss'
 
 import { installWebComponent } from '../_utils'
 

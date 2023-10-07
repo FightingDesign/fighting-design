@@ -1,6 +1,6 @@
 import FormItem from './src/form-item.vue'
 
-import style from '../../fighting-theme/src/form.scss'
+import style from '../../fighting-theme/src/form-item.scss'
 
 import { installWebComponent } from '../_utils'
 

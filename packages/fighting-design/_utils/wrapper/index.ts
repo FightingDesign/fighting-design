@@ -1,6 +1,4 @@
-import type { SetWebComponentNameInterface } from './interface'
-
-export const setWebComponentName: SetWebComponentNameInterface = (
+export const setWebComponentName = (
   name: string
 ): string => {
   const result = name.replace(/([A-Z])/g, ' $1').trim()
