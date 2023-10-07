@@ -1,147 +1,60 @@
-<script lang="ts" setup name="FMessage">
-  import { computed, onMounted, ref, isVNode, nextTick } from 'vue'
-  import { FSvgIcon } from '../../svg-icon'
-  import { FCloseBtn } from '../../close-btn'
-  import { Props, Emits } from './props'
+<script lang="ts" setup>
+  import { Props } from './props'
   import { isString } from '../../_utils'
-  import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import { massageManage } from '../../_hooks'
-  import type { MessagePropsType } from './props'
+  import { useMessageWork } from '../../_hooks'
+  import { FSvgIcon } from '../../svg-icon'
+  import { isVNode } from 'vue'
+  import { FCloseBtn } from '../../close-btn'
 
-  const prop: MessagePropsType = defineProps(Props)
-  defineEmits(Emits)
+  defineOptions({ name: 'FMessage' })
 
-  const messageRef = ref<HTMLDivElement>()
-  const messageHeight: Ref<number> = ref<number>(0)
-  const visible: Ref<boolean> = ref<boolean>(false)
+  const prop = defineProps(Props)
 
-  const isTop: ComputedRef<boolean> = computed((): boolean =>
-    prop.placement.includes('top')
-  )
-
-  const siblingOffset: ComputedRef<number> = computed((): number =>
-    massageManage.getSiblingOffset(prop.placement, prop.id, !isTop.value)
-  )
-
-  const offset: ComputedRef<number> = computed(
-    (): number => prop.offset + siblingOffset.value
-  )
-
-  const bottom: ComputedRef<number> = computed(
-    (): number => messageHeight.value + offset.value
-  )
-
-  onMounted((): void => {
-    nextTick((): void => {
-      messageHeight.value = (
-        messageRef.value as HTMLDivElement
-      ).getBoundingClientRect().height
-    })
-  })
-
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, round, placement } = prop
-
-      return [
-        'f-message',
-        {
-          [`f-message__${type}`]: type,
-          [`f-message__${placement}`]: placement,
-          'f-message__round': round
-        }
-      ] as const
-    }
-  )
-
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { color, background, zIndex } = prop
-
-    const styles: CSSProperties = {
-      color,
-      background,
-      zIndex
-    } as const
-
-    if (prop.placement.includes('bottom')) {
-      styles.bottom = offset.value + 'px'
-    } else {
-      styles.top = offset.value + 'px'
-    }
-
-    return styles
-  })
-
-  const timer = ref<NodeJS.Timeout>()
-
-  const clearTimer: OrdinaryFunctionInterface = (): void => {
-    if (!timer.value) return
-    clearTimeout(timer.value)
-  }
-
-  const closeMessage: OrdinaryFunctionInterface = (): void => {
-    clearTimer()
-    visible.value = false
-  }
-  const closeMessageEnd: OrdinaryFunctionInterface = (): void => {
-    massageManage.removeInstance(prop.placement, prop.id)
-  }
-
-  const startTime: OrdinaryFunctionInterface = (): void => {
-    if (!prop.duration) return
-    timer.value = setTimeout((): void => {
-      closeMessage()
-    }, prop.duration)
-  }
-
-  onMounted((): void => {
-    startTime()
-    visible.value = true
-  })
-
-  defineExpose({
+  const {
+    classList,
+    styleList,
     visible,
-    bottom,
-    close: closeMessage
-  })
+    isPosition,
+    offsetStyle,
+    offsetVal,
+    onBeforeLeave,
+    onAfterLeave,
+    clearTimer,
+    startTime,
+    handelClose
+  } = useMessageWork(prop, 'message')
+
+  defineExpose({ offsetVal })
 </script>
 
 <template>
   <transition
     mode="out-in"
-    :name="`f-message-fade` + (isTop ? '-top' : '-bottom')"
-    @before-leave="closeMessageEnd"
-    @after-leave="$emit('destroy')"
+    appear
+    :name="'f-message-fade' + (isPosition ? '-top' : '-bottom')"
+    @before-leave="onBeforeLeave"
+    @after-leave="onAfterLeave"
   >
     <div
       v-show="visible"
-      ref="messageRef"
       :class="classList"
-      :style="styleList"
+      :style="[offsetStyle, styleList]"
       @mouseleave="startTime"
       @mouseenter="clearTimer"
     >
-      <!-- icon -->
-      <f-svg-icon v-if="isVNode(icon)" :size="24" class="f-message__icon">
-        <component :is="icon" />
-      </f-svg-icon>
-
-      <!-- 消息文本 -->
-      <component :is="message" v-if="isVNode(message)" />
-      <div v-else class="f-message__text">
-        {{ message }}
+      <!-- 前缀 icon -->
+      <div v-if="icon" class="f-message__before_icon">
+        <f-svg-icon :icon="icon" :size="16" />
       </div>
 
+      <!-- 提示信息 -->
+      <component :is="message" v-if="isVNode(message)" />
+      <div v-else class="f-message__text">{{ message }}</div>
+
       <!-- 关闭按钮 -->
-      <div v-if="prop.close" class="f-message__close" @click="closeMessage">
+      <div v-if="close" class="f-message__close" @click="handelClose">
         <template v-if="isString(closeBtn)">{{ closeBtn }}</template>
-        <f-close-btn v-else :size="16">
-          <component :is="closeBtn" />
-        </f-close-btn>
+        <f-close-btn v-else :icon="closeBtn" :size="15" color="#a4a4a4" />
       </div>
     </div>
   </transition>

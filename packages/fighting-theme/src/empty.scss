@@ -1,31 +1,25 @@
 .f-empty {
-  display: flex;
-  padding: 20px;
+  display: inline-flex;
+  padding: 8px 20px;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  background-color: var(--empty-background);
 
-  &__pic-wrap {
-    width: 100%;
+  &__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    img {
-      width: 100%;
-    }
-
-    & svg {
-      width: 100%;
-    }
   }
 
   // 描述文字
-  &__desc {
-    margin: 10px 0px;
-    color: #7f7f7f;
+  &__content {
+    margin: 8px 0px;
     font-weight: 500;
+    color: var(--empty-content-color, #7f7f7f);
+    font-size: var(--empty-content-size, 15px);
   }
 
   &__footer {

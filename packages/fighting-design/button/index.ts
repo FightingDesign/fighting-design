@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FButton: ComponentPublicInstance = installWebComponent(Button, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FButton

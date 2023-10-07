@@ -1,58 +1,11 @@
-@import '../config/const-size.scss';
-
 .f-button-group {
-  display: inline-block;
+  display: inline-flex;
 
-  // 按钮的尺寸
-  &.f-button-group__large {
-    .f-button {
-      height: $large;
-      padding: 0 28px;
-
-      .f-text {
-        line-height: $large;
-        font-size: 15px;
-      }
-    }
+  .f-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
   }
 
-  &.f-button-group__middle {
-    .f-button {
-      height: $middle;
-      padding: 0 25px;
-
-      .f-text {
-        line-height: $middle;
-        font-size: 14px;
-      }
-    }
-  }
-
-  &.f-button-group__small {
-    .f-button {
-      height: $small;
-      padding: 0 22px;
-
-      .f-text {
-        line-height: $small;
-        font-size: 13px;
-      }
-    }
-  }
-
-  &.f-button-group__mini {
-    .f-button {
-      height: $mini;
-      padding: 0 19px;
-
-      .f-text {
-        line-height: $mini;
-        font-size: 12px;
-      }
-    }
-  }
-
-  // 横向排列
+  // 水平的
   &.f-button-group__horizontal {
     .f-button:first-child {
       border-top-right-radius: 0;
@@ -63,15 +16,10 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
-
-    .f-button:not(:first-child):not(:last-child) {
-      border-radius: 0;
-    }
   }
 
-  // 纵向排列
+  // 垂直的
   &.f-button-group__vertical {
-    display: inline-flex;
     flex-direction: column;
 
     .f-button:first-child {
@@ -80,12 +28,8 @@
     }
 
     .f-button:last-child {
-      border-top-right-radius: 0;
       border-top-left-radius: 0;
-    }
-
-    .f-button:not(:first-child):not(:last-child) {
-      border-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 }

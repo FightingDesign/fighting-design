@@ -79,11 +79,6 @@ export * from './list'
 export { FListItem } from './list-item'
 export * from './list-item'
 
-export { FLoading } from './loading'
-export * from './loading'
-
-// export { LoadingBar as useLoadingBar } from './loading-bar'
-
 export { FMain } from './main'
 export * from './main'
 
@@ -95,9 +90,6 @@ export * from './main'
 
 export { FPageHeader } from './page-header'
 export * from './page-header'
-
-export { FPopup } from './popup'
-export * from './popup'
 
 export { FProgress } from './progress'
 export * from './progress'
@@ -159,5 +151,86 @@ export * from './swap'
 export { FUpLoad } from './up-load'
 export * from './up-load'
 
+export { FPagination } from './pagination'
+export * from './pagination'
+
 export { FTable } from './table'
 export * from './table'
+
+export { FDropdown } from './dropdown'
+export * from './dropdown'
+
+export { FDropdownItem } from './dropdown-item'
+export * from './dropdown-item'
+
+export { FTextarea } from './textarea'
+export * from './textarea'
+
+export { FSelect } from './select'
+export * from './select'
+
+export { FOption } from './option'
+export * from './option'
+
+export { FInputNumber } from './input-number'
+export * from './input-number'
+
+export { FTabs } from './tabs'
+export * from './tabs'
+
+export { FDatePicker } from './date-picker'
+export * from './date-picker'
+
+export { FTimePicker } from './time-picker'
+export * from './time-picker'
+
+export { FTrigger } from './trigger'
+export * from './trigger'
+
+export { FMenu } from './menu'
+export * from './menu'
+
+export { FMenuItem } from './menu-item'
+export * from './menu-item'
+
+export { FSubmenu } from './submenu'
+export * from './submenu'
+
+export { FMenuItemGroup } from './menu-item-group'
+export * from './menu-item-group'
+
+export { FCollapseAnimation } from './collapse-animation'
+export * from './collapse-animation'
+
+export { FSlider } from './slider'
+export * from './slider'
+
+export { FFightingGlobal } from './fighting-global'
+export * from './fighting-global'
+
+export { FForm } from './form'
+export * from './form'
+
+export { FFormItem } from './form-item'
+export * from './form-item'
+
+export { FBox } from './box'
+export * from './box'
+
+export { FInfiniteScrolling } from './infinite-scrolling'
+export * from './infinite-scrolling'
+
+export { FNumberAnimate } from './number-animate'
+export * from './number-animate'
+
+export { FCountDown } from './count-down'
+export * from './count-down'
+
+export { FAvatarGroup } from './avatar-group'
+export * from './avatar-group'
+
+export { FTabsItem } from './tabs-item'
+export * from './tabs-item'
+
+export { FConfirmBox } from './confirm-box'
+export * from './confirm-box'

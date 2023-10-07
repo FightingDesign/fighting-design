@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FRate: ComponentPublicInstance = installWebComponent(Rate, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FRate

@@ -1,0 +1,66 @@
+.f-form-item {
+  position: relative;
+  padding-bottom: 20px;
+
+  // 左侧位置的 label
+  &__label-left {
+    display: flex;
+    align-items: center;
+
+    // label
+    .f-form-item__label {
+      width: var(--form-item-label-width, 90px);
+      text-align: right;
+      padding-right: 15px;
+      box-sizing: border-box;
+      font-size: 15px;
+      position: absolute;
+    }
+
+    .f-form-item__content {
+      margin-left: var(--form-item-label-width, 90px);
+    }
+  }
+
+  // 上方位置的 label
+  &__label-top {
+    .f-form-item__label {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+  }
+
+  // label 公共样式
+  &__content,
+  &__label {
+    transition: all 0.4s;
+  }
+
+  // 主内容
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+
+    // 错误信息
+    .f-form-item__error {
+      font-size: 12px;
+      position: absolute;
+      bottom: 3px;
+      line-height: 1;
+      color: #ff0200;
+    }
+  }
+}
+
+.f-form-item__err-transition-leave-active,
+.f-form-item__err-transition-enter-active {
+  transition: all 0.13s ease-out;
+}
+
+.f-form-item__err-transition-enter-from,
+.f-form-item__err-transition-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}

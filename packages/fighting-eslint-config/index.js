@@ -1,13 +1,10 @@
 module.exports = {
-  extends: [
-    'plugin:vue/vue3-recommended',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended'
-  ],
+  extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   rules: {
     /**
      * vue.js 规则
-     * 参考文档：https://eslint.vuejs.org/rules/
+     *
+     * @see 参考文档 https://eslint.vuejs.org/rules/
      *
      *  0 = off, 1 = warn, 2 = error
      */
@@ -35,24 +32,26 @@ module.exports = {
     // 禁止在模板中使用 this https://eslint.vuejs.org/rules/this-in-template.html
     'vue/this-in-template': 'error',
     // 禁止使用其他 lang https://eslint.vuejs.org/rules/block-lang.html
-    'vue/block-lang': ['error',
+    'vue/block-lang': [
+      'error',
       {
-        'script': {
-          'lang': 'ts'
+        script: {
+          lang: 'ts'
         }
       }
     ],
     // 强制 api 形式 https://eslint.vuejs.org/rules/component-api-style.html
-    'vue/component-api-style': ['error',
-      ['script-setup', 'composition']
-    ],
+    'vue/component-api-style': ['error', ['script-setup', 'composition']],
     // 自定义事件强制大小写 https://eslint.vuejs.org/rules/custom-event-name-casing.html
-    'vue/custom-event-name-casing': ['error',
+    'vue/custom-event-name-casing': [
+      'error',
       'kebab-case',
       {
-        'ignores': []
+        ignores: []
       }
     ],
+    // 可以从“＜script setup＞”的根作用域中的“props”获取值将导致该值失去反应性 https://eslint.vuejs.org/rules/no-setup-props-destructure.html
+    'vue/no-setup-props-destructure': 'off',
     // 禁止使用 v-html 来防止 XSS 攻击 https://eslint.vuejs.org/rules/no-v-html.html
     'vue/no-v-html': 'error',
     // v-bind 当 value 为时需要简写形式属性 true https://eslint.vuejs.org/rules/prefer-true-attribute-shorthand.html
@@ -237,16 +236,20 @@ module.exports = {
     // 需要 props 的默认值 https://eslint.vuejs.org/rules/require-default-prop.html
     'vue/require-default-prop': 'error',
     // emit 必须是已经声名的方法 https://eslint.vuejs.org/rules/require-explicit-emits.html
-    'vue/require-explicit-emits': ['error', {
-      'allowProps': false
-    }],
+    'vue/require-explicit-emits': [
+      'error',
+      {
+        allowProps: false
+      }
+    ],
     // props 必须定义详细的类型 https://eslint.vuejs.org/rules/require-prop-types.html
     'vue/require-prop-types': 'error',
     // 支持＜template＞中的注释指令 https://eslint.vuejs.org/rules/comment-directive.html
     'vue/comment-directive': 'off',
     /**
      * typescript 规则配置
-     * https://typescript-eslint.io/rules/
+     *
+     * @see Overview https://typescript-eslint.io/rules/
      */
     // 规定数组类型定义方式 https://typescript-eslint.io/rules/array-type
     '@typescript-eslint/array-type': 'error',
@@ -256,14 +259,11 @@ module.exports = {
     '@typescript-eslint/comma-dangle': 'error',
     // 强制使用 interface 定义类型 https://typescript-eslint.io/rules/consistent-type-definitions
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-    // 统一导出规则 https://typescript-eslint.io/rules/consistent-type-exports
-    // '@typescript-eslint/consistent-type-exports': 'error',
     // 自定义对象类型样式 https://typescript-eslint.io/rules/consistent-indexed-object-style
     '@typescript-eslint/consistent-indexed-object-style': ['warn', 'record'],
     // !禁止使用后缀运算符的非空断言 https://typescript-eslint.io/rules/no-non-null-assertion/
     '@typescript-eslint/no-non-null-assertion': 'error',
-    // 强制一致地使用类型导入 https://typescript-eslint.io/rules/consistent-type-imports
-    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: true }],
     // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
     '@typescript-eslint/no-unused-vars': 'error',
     // 不可以有 any https://typescript-eslint.io/rules/no-explicit-any/
@@ -274,20 +274,23 @@ module.exports = {
     '@typescript-eslint/default-param-last': 'error',
     // 必须标记函数返回值 https://typescript-eslint.io/rules/explicit-function-return-type
     '@typescript-eslint/explicit-function-return-type': 'error',
+    // 不允许不必要的分号 https://typescript-eslint.io/rules/no-extra-semi
+    '@typescript-eslint/no-extra-semi': 'error',
     /**
      * eslint 配置项
-     * https://eslint.org/docs/latest/
+     *
+     * @see Documentation https://eslint.org/docs/latest/
      */
     // 不允许不必要的转义字符 https://eslint.org/docs/latest/rules/no-useless-escape
     'no-useless-escape': 'off',
-    // 
-    'comma-dangle': 'off',
+    // 强制执行程序中允许的最大圈复杂度 https://eslint.org/docs/latest/rules/complexity#rule-details
+    // 'complexity': ['error', 8],
+    // 不允许后面的逗号在对象和数组文本 https://eslint.org/docs/latest/rules/no-comma-dangle#rule-details
+    'no-comma-dangle': 'off',
     // 禁止使用 var https://eslint.org/docs/latest/rules/no-var#rule-details
     'no-var': 'error',
     // 使用单引号 https://eslint.org/docs/latest/rules/quotes#version
     quotes: ['error', 'single'],
-    // 禁止分号 https://eslint.org/docs/latest/rules/semi#rule-details
-    // semi: 'error',
     // 禁止 debugger https://eslint.org/docs/latest/rules/no-debugger#rule-details
     'no-debugger': 'error',
     // 禁止未使用的变量 https://eslint.org/docs/latest/rules/no-unused-vars#rule-details
@@ -302,13 +305,20 @@ module.exports = {
     'eol-last': 'error',
     // 禁止所有选项卡 https://eslint.org/docs/latest/rules/no-tabs#rule-details
     'no-tabs': 'error',
-    'default-param-last': 'off'
+    // 强制默认参数为最后一个 https://eslint.org/docs/latest/rules/default-param-last#rule-details
+    'default-param-last': 'off',
+    // 不允许不必要的分号 https://eslint.org/docs/latest/rules/no-extra-semi#rule-details
+    'no-extra-semi': 'off'
   },
-  // parser: '@typescript-eslint/parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   parser: 'vue-eslint-parser', // https://stackoverflow.com/questions/66597732/eslint-vue-3-parsing-error-expected-eslint
   plugins: ['@typescript-eslint'],
   root: true,
   parserOptions: {
     parser: '@typescript-eslint/parser' // 解决引入 type {} 报错问题
-  }
+  },
+  overrides: [
+    {
+      files: '*',
+    }
+  ]
 }

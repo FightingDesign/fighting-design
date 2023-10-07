@@ -1,0 +1,70 @@
+.f-confirm-box {
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+
+  // 遮罩层
+  &__mask {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    transition: opacity 0.3s ease;
+  }
+
+  // 容器
+  &__container {
+    width: 300px;
+    margin: auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    transition: all 0.3s ease;
+    z-index: 1999;
+    display: flex;
+    flex-direction: column;
+
+    // 头部
+    .f-confirm-box__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .f-confirm-box__title {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+
+    // 身体
+    .f-confirm-box__body {
+      margin-top: 24px;
+      margin-bottom: 18px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    // 页脚
+    .f-confirm-box__footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  &__trans-enter-active,
+  &__trans-leave-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &__trans-enter-from,
+  &__trans-leave-to {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}

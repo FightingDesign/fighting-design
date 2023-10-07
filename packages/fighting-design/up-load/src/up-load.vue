@@ -1,102 +1,136 @@
-<script lang="ts" setup name="FUpLoad">
-  import { Props, Emits } from './props'
+<script lang="ts" setup>
+  import { Props } from './props'
   import { FButton } from '../../button'
-  import { ref, watch } from 'vue'
+  import { useRun } from '../../_hooks'
+  import { ref, watch, toRefs } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import { FIconNotesVue, FIconPlusVue } from '../../_svg'
-  import type { Ref } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    HandleEventInterface,
-    HandleDragEventInterface
-  } from '../../_interface'
-  import type {
-    UpLoadPropsType,
-    UpLoadUpdateFilesInterface,
-    UpLoadFilterFilesInterface,
-    UpLoadRemoveFileInterface
-  } from './interface'
+  import { FIconNotes, FIconPlus } from '../../_svg'
 
-  const prop: UpLoadPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  defineOptions({ name: 'FUpLoad' })
 
-  const dragIng: Ref<boolean> = ref(false)
-  const fileList: Ref<File[] | null> = ref<File[]>(null as unknown as File[])
-  const FUpLoadInput: Ref<HTMLInputElement> = ref(
-    null as unknown as HTMLInputElement
-  )
+  const prop = defineProps(Props)
+  const filesModelValue = defineModel<File[]>('files', { default: [], type: Array })
 
-  // 点击上传
-  const handleClick: OrdinaryFunctionInterface = (): void => {
-    FUpLoadInput.value.click()
+  const { run } = useRun()
+
+  const dragIng = ref(false)
+
+  /** 文件列表 */
+  const fileList = ref<File[]>()
+
+  /** 文件上传输入框 */
+  const inputRef = ref<HTMLInputElement | undefined>()
+
+  /** 点击上传 */
+  const handleClick = (): void => {
+    inputRef.value && inputRef.value.click()
   }
 
-  // 更新最新的文件列表
-  const updateFiles: UpLoadUpdateFilesInterface = (files: File[]): void => {
-    fileList.value = files
-    emit('update:files', files)
-    prop.load && prop.load()
-  }
-
-  // 过滤文件
-  const filterFiles: UpLoadFilterFilesInterface = (files: FileList): File[] => {
-    const { maxSize, maxLength } = prop
-    let list: File[] = [...files]
-
-    // 拦截过大的文件
-    if (maxSize) {
-      list = list.filter((file: File): boolean => file.size < maxSize)
+  /**
+   * 更新最新的文件列表
+   *
+   * @param { Array } files 文件列表
+   */
+  const updateFiles = (files: File[]): void => {
+    if (fileList.value && fileList.value.length) {
+      fileList.value.push(...files)
+    } else {
+      fileList.value = files
     }
 
-    // 截取最大上传的数量
-    if (maxLength) {
-      list = list.splice(0, maxLength)
+    filesModelValue.value = fileList.value
+    run(prop.onLoad, files)
+  }
+
+  /**
+   * 过滤文件
+   *
+   * @param { Array } files 文件列表
+   * @return { Array } 过滤后的文件列表
+   */
+  const filterFiles = (files: File[]): File[] => {
+    const { maxSize, maxLength } = toRefs(prop)
+
+    /** 文件列表 */
+    let list: File[] = [...files]
+
+    /** 拦截过大的文件 */
+    if (maxSize.value) {
+      list = list.filter((file: File): boolean => file.size < maxSize.value)
+    }
+
+    /** 截取最大上传的数量 */
+    if (maxLength.value) {
+      list = list.splice(0, maxLength.value)
     }
 
     return list
   }
 
-  // 当文本框发生改变时
-  const handleChange: HandleEventInterface = (evt: Event): void => {
+  /**
+   * 当文本框发生改变时
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handleChange = (evt: Event): void => {
+    /** 获取文件列表 */
     const files: FileList | null = (evt.target as HTMLInputElement).files
+
     if (files) {
-      updateFiles(filterFiles(files))
+      updateFiles(filterFiles(files as unknown as File[]))
     }
   }
 
-  // 删除文件
-  const removeFile: UpLoadRemoveFileInterface = (index: number): void => {
-    (fileList.value as File[]).splice(index, 1)
+  /**
+   * 删除文件
+   *
+   * @see Array.prototype.splice() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+   * @param { number } index 需要删除的文件索引
+   */
+  const removeFile = (index: number): void => {
+    fileList.value && fileList.value.splice(index, 1)
   }
 
-  // 将文件拖拽进来时触发
-  const onDragover: HandleDragEventInterface = (evt: DragEvent): void => {
+  /**
+   * 将文件拖拽进来时触发
+   *
+   * @param { Object } evt 事件对象
+   * @see DragEvent https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent
+   */
+  const onDragover = (evt: DragEvent): void => {
     evt.preventDefault()
     dragIng.value = true
   }
 
-  // 放置时触发
-  const onDrop: HandleDragEventInterface = (evt: DragEvent): void => {
+  /**
+   * 放置时触发
+   *
+   * @param { Object } evt 事件对象
+   * @see DragEvent https://developer.mozilla.org/zh-CN/docs/Web/API/DragEvent
+   */
+  const onDrop = (evt: DragEvent): void => {
     dragIng.value = false
-    const files = (evt.dataTransfer as DataTransfer).files
+
+    /** 获取文件列表 */
+    const files: FileList = (evt.dataTransfer as DataTransfer).files
     if (files) {
-      updateFiles(filterFiles(files))
+      updateFiles(filterFiles(files as unknown as File[]))
     }
   }
 
-  // 如果文件发生改变时触发
-  const onChange: OrdinaryFunctionInterface = (): void => {
-    if (!prop.change) return
+  /** 如果文件发生改变时触发 */
+  const loadChange = (): void => {
+    if (!prop.onChange) return
     watch(
       (): File[] => prop.files,
       (): void => {
-        prop.change && prop.change()
+        run(prop.onChange, fileList.value)
       },
       { deep: true }
     )
   }
-  onChange()
+  loadChange()
 </script>
 
 <template>
@@ -109,7 +143,7 @@
       @dragover.prevent="onDragover"
     >
       <slot>
-        <f-svg-icon :icon="FIconPlusVue" />
+        <f-svg-icon :icon="FIconPlus" />
       </slot>
     </div>
 
@@ -119,8 +153,9 @@
       </slot>
     </div>
 
+    <!-- 文件上传输入框 -->
     <input
-      ref="FUpLoadInput"
+      ref="inputRef"
       type="file"
       hidden
       :name="name"
@@ -132,17 +167,10 @@
   </div>
 
   <!-- 文件列表 -->
-  <ul
-    v-if="showList && fileList && fileList.length"
-    class="f-up-load__file-list"
-  >
-    <li
-      v-for="(file, index) in fileList"
-      :key="index"
-      class="f-up-load__file-list-item"
-    >
+  <ul v-if="showList && fileList && fileList.length" class="f-up-load__file-list">
+    <li v-for="(file, index) in fileList" :key="index" class="f-up-load__file-list-item">
       <span class="f-up-load__file-name">
-        <f-svg-icon :icon="FIconNotesVue" />
+        <f-svg-icon :icon="FIconNotes" />
         {{ file.name }}
       </span>
 

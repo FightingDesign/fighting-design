@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FTable: ComponentPublicInstance = installWebComponent(Table, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FTable

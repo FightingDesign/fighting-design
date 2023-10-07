@@ -1,0 +1,39 @@
+.f-dropdown {
+  vertical-align: middle;
+  position: relative;
+
+  // 触发器
+  &__trigger {
+    width: 100%;
+  }
+
+  // 主要内容盒子
+  &__content-box {
+    position: absolute;
+    padding-top: var(--dropdown-spacing-size, 8px);
+    right: 0;
+    left: 0;
+    z-index: 2000;
+
+    // 主要内容
+    .f-dropdown__content {
+      background-color: #fff;
+      box-shadow: 0 1px 6px #00000033;
+    }
+  }
+
+  // 出入动画
+  &-enter-active {
+    transition: all 0.1s ease-out;
+  }
+
+  &-leave-active {
+    transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translateY(-16px);
+    opacity: 0;
+  }
+}

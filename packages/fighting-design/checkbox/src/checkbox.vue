@@ -1,93 +1,72 @@
-<script lang="ts" setup name="FCheckbox">
-  import { computed, inject, getCurrentInstance, ref } from 'vue'
-  import { Props, Emits } from './props'
-  import { checkboxGroupPropsKey } from '../../checkbox-group/src/props'
-  import type { ClassListInterface } from '../../_interface'
-  import type {
-    CheckboxGroupLabelType,
-    CheckboxGroupInjectPropsType
-  } from '../../checkbox-group/src/interface'
-  import type {
-    ComputedRef,
-    Ref,
-    ComponentInternalInstance,
-    WritableComputedRef
-  } from 'vue'
-  import type { CheckboxPropsType } from './interface'
+<script lang="ts" setup>
+  import { Props } from './props'
+  import { computed, inject, reactive } from 'vue'
+  import { useRun, useList } from '../../_hooks'
+  import { CHECKBOX_GROUP_PROPS_KEY } from '../../checkbox-group/src/props'
+  import { isArray, isBoolean } from '../../_utils'
+  import type { CheckboxGroupProvide } from '../../checkbox-group'
+  import type { CheckboxModelValue } from './interface'
 
-  const prop: CheckboxPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  defineOptions({ name: 'FCheckbox' })
 
-  const groupProps: Ref<CheckboxGroupInjectPropsType | null> = ref(null)
+  const prop = defineProps(Props)
+  const modelValue = defineModel<CheckboxModelValue | string[]>({
+    default: false,
+    type: [Boolean, Array]
+  })
 
-  // 获取父组件注入的依赖项
-  const getGroupInject = (): void => {
-    const { parent } = getCurrentInstance() as ComponentInternalInstance
-    const parentName: string | undefined = (parent as ComponentInternalInstance)
-      .type.name
+  const { run } = useRun()
 
-    /**
-     * 检测父组件是不是 FCheckboxGroup
-     * 只有 FCheckboxGroup 才是可注入依赖的父组件
-     */
-    if (parentName && parentName === 'FCheckboxGroup') {
-      groupProps.value = inject<CheckboxGroupInjectPropsType>(
-        checkboxGroupPropsKey
-      ) as CheckboxGroupInjectPropsType
-    }
-  }
-  getGroupInject()
-
-  /**
-   * 绑定值
-   */
-  const modelValue: WritableComputedRef<CheckboxGroupLabelType> = computed({
-    /**
-     * 获取值
-     */
-    get () {
-      return (
-        (groupProps.value && groupProps.value.modelValue) || prop.modelValue
-      )
+  /** 当前绑定的值 */
+  const keyword = computed({
+    get: (): CheckboxModelValue | string[] => {
+      return (parentInject && parentInject.modelValue) || prop.modelValue
     },
-    /**
-     * 设置值
-     */
-    set (val) {
-      if (groupProps.value && !groupProps.value.disabled) {
-        groupProps.value.changeEvent(val)
+    set: (val: CheckboxModelValue | string[]): void => {
+      if (!parentInject) {
+        modelValue.value = val
+        run(prop.onChange, val)
         return
       }
-      if (prop.disabled) return
-      emit('update:modelValue', val)
+      parentInject.setChange(val)
     }
   })
 
-  // 是否被选中
-  const isChecked: ComputedRef<boolean> = computed((): boolean => {
-    const val: CheckboxGroupLabelType = modelValue.value
-    if (Array.isArray(val)) {
-      return val.includes(prop.label)
-    } else if (typeof val === 'boolean') {
-      return val
+  /** 获取父组件注入的依赖项 */
+  const parentInject: CheckboxGroupProvide | null = inject(CHECKBOX_GROUP_PROPS_KEY, null)
+
+  /** 是否被选中 */
+  const isActive = computed((): boolean => {
+    /** 绑定值 */
+    const value: CheckboxModelValue | string[] = keyword.value
+
+    if (isArray(value)) {
+      return value.includes(prop.label as never)
+    } else if (isBoolean(value)) {
+      return value
     }
-    return (val === prop.label) as boolean
+
+    return value === prop.label
   })
 
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      return [
-        'f-checkbox',
-        {
-          'f-checkbox__selected': isChecked.value,
-          'f-checkbox__bordered': groupProps.value && groupProps.value.border,
-          'f-checkbox__disabled':
-            prop.disabled || (groupProps.value && groupProps.value.disabled)
-        }
-      ] as const
-    }
+  /** 父级是否带有禁用 */
+  const isParentDisabled = computed(
+    (): boolean => !!(parentInject && parentInject.disabled)
   )
+
+  /** 判断是否被禁用 */
+  const isDisabled = computed((): boolean => prop.disabled || isParentDisabled.value)
+
+  const { classes } = useList(
+    reactive({
+      checked: isActive,
+      disabled: isDisabled
+    }),
+    'checkbox'
+  )
+
+  /** 类名列表 */
+  const classList = classes(['checked', 'disabled'], 'f-checkbox')
 </script>
 
 <template>
@@ -99,14 +78,17 @@
     :class="classList"
   >
     <input
-      v-model="modelValue"
+      v-model="keyword"
       type="checkbox"
       class="f-checkbox__input"
       hidden
       :value="label"
-      :disabled="disabled || (!!groupProps && groupProps.disabled)"
+      :disabled="disabled || (!!parentInject && parentInject.disabled)"
     />
-    <span v-if="!(groupProps && groupProps.border)" class="f-checkbox__box" />
+    <!-- 选择框 -->
+    <span v-if="!(parentInject && parentInject.background)" class="f-checkbox__box" />
+
+    <!-- 文字内容 -->
     <span class="f-checkbox__text">
       <slot />
       <template v-if="!$slots.default && showLabel">{{ label }}</template>

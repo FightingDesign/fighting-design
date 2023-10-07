@@ -1,31 +1,45 @@
-<script lang="ts" setup name="FSkeleton">
-  import { computed, useSlots } from 'vue'
+<script lang="ts" setup>
   import { Props } from './props'
-  import type { ComputedRef } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
-  import type { SkeletonPropsType } from './props'
+  import { computed, useSlots } from 'vue'
+  import { useList } from '../../_hooks'
+  import { isNumber } from '../../_utils'
+  import type { Slots } from 'vue'
 
-  const prop: SkeletonPropsType = defineProps(Props)
+  defineOptions({ name: 'FSkeleton' })
 
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { rounded, animated, circled, size } = prop
+  const prop = defineProps(Props)
 
-      return [
-        'f-skeleton',
-        {
-          'f-skeleton__rounded': rounded,
-          'f-skeleton__animated': animated,
-          'f-skeleton__circled': circled,
-          [`f-skeleton__${size}`]: size
+  const { classes, styles } = useList(prop, 'skeleton')
+
+  /** 类名列表 */
+  const classList = classes(
+    [
+      'round',
+      'animated',
+      'size',
+      {
+        key: 'difference',
+        callback: (): boolean => {
+          return prop.difference && isNumber(prop.rows) && prop.rows >= 3
         }
-      ] as const
-    }
+      }
+    ],
+    'f-skeleton'
   )
 
-  const isRender: ComputedRef<boolean> = computed((): boolean => {
-    const slots = useSlots()
+  /** 样式列表 */
+  const styleList = styles(['rowGap'])
+
+  /**
+   * 如果 loading 为 true 展示骨架屏
+   *
+   * 否则展示插槽内容
+   */
+  const isRender = computed((): boolean => {
+    /** 获取到插槽内容 */
+    const slots: Slots = useSlots()
+
+    /** 判断是否有插槽 */
     if (slots.default) {
       return prop.loading === true
     }
@@ -34,8 +48,9 @@
 </script>
 
 <template>
-  <template v-if="isRender">
-    <div v-for="(n, i) in rows" :key="i" :class="classList" v-bind="$attrs" />
-  </template>
+  <div v-if="isRender" role="section" :class="classList" :style="styleList">
+    <div v-for="n in rows" :key="n" class="f-skeleton__item" />
+  </div>
+
   <slot v-else />
 </template>

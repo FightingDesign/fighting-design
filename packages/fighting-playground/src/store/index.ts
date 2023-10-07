@@ -1,12 +1,20 @@
+import { isString } from './../../../fighting-design/_utils'
 import * as defaultCompiler from 'vue/compiler-sfc'
 import { reactive, watchEffect, version } from 'vue'
 import { compileFile, File } from '@vue/repl'
 import { utoa, atou } from '../utils/index'
 import { FMessage } from '../../../fighting-design/message'
-import { defaultMainFile, fightingPlugin, fightingPluginCode, defaultCode, fightingImports, publicPath } from '../utils/code'
+import {
+  defaultMainFile,
+  fightingPlugin,
+  fightingPluginCode,
+  defaultCode,
+  fightingImports,
+  publicPath
+} from '../utils/code'
 import type { Store, SFCOptions, StoreState, OutputModes } from '@vue/repl'
 
-export class ReplStore implements Store {
+export class ReplStore {
   state: StoreState
   compiler = defaultCompiler
   options?: SFCOptions
@@ -57,14 +65,14 @@ export class ReplStore implements Store {
 
     this.initImportMap()
 
-    // 注入 Fighting Design
-    this.state.files[fightingPlugin] = new File(fightingPlugin, fightingPluginCode, !import.meta.env.DEV)
+    /** 注入 Fighting Design */
+    this.state.files[fightingPlugin] = new File(fightingPlugin, fightingPluginCode)
 
-    watchEffect(() => compileFile(this, this.state.activeFile))
+    watchEffect(() => compileFile(this as unknown as Store, this.state.activeFile))
 
     for (const file in this.state.files) {
       if (file !== defaultMainFile) {
-        compileFile(this, this.state.files[file])
+        compileFile(this as unknown as Store, this.state.files[file])
       }
     }
   }
@@ -75,31 +83,31 @@ export class ReplStore implements Store {
 
   // don't start compiling until the options are set
   init = (): void => {
-    watchEffect(() => compileFile(this, this.state.activeFile))
+    watchEffect(() => compileFile(this as unknown as Store, this.state.activeFile))
     for (const file in this.state.files) {
       if (file !== defaultMainFile) {
-        compileFile(this, this.state.files[file])
+        compileFile(this as unknown as Store, this.state.files[file])
       }
     }
   }
 
   addFile = (fileOrFilename: string | File): void => {
-    const file = typeof fileOrFilename === 'string' ? new File(fileOrFilename) : fileOrFilename
+    const file = isString(fileOrFilename) ? new File(fileOrFilename) : fileOrFilename
     this.state.files[file.filename] = file
     if (!file.hidden) this.setActive(file.filename)
   }
   /**
    * 删除文件
-   * @param filename 文件名
-   * @returns 
+   *
+   * @param { string } filename 文件名
    */
   deleteFile = (filename: string): void => {
-    // 如果删除的 Fighting Design 的配置文件
+    /** 如果删除的 Fighting Design 的配置文件 */
     if (filename === fightingPlugin) {
       FMessage.danger('Fighting Design 依赖于这个文件，请勿删除！')
       return
     }
-    // 提示框
+    /** 提示框 */
     if (confirm(`你确定删除 ${filename} 吗？`)) {
       if (this.state.activeFile.filename === filename) {
         this.state.activeFile = this.state.files[this.state.mainFile]
@@ -129,7 +137,7 @@ export class ReplStore implements Store {
       files[filename] = new File(filename, file)
     }
     for (const file of Object.values(files)) {
-      await compileFile(this, file)
+      await compileFile(this as unknown as Store, file)
     }
     this.state.mainFile = mainFile
     this.state.files = files

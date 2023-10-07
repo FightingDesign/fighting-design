@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FListItem: ComponentPublicInstance = installWebComponent(ListItem, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FListItem

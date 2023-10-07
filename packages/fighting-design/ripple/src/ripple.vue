@@ -1,57 +1,51 @@
-<script lang="ts" setup name="Ripple">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { Ripples } from '../../_utils'
-  import { computed, ref } from 'vue'
-  import type {
-    ClassListInterface,
-    HandleMouseEventInterface
-  } from '../../_interface'
-  import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { RipplePropsType } from './props'
+  import { useRipples, useList, useGlobal } from '../../_hooks'
+  import { ref, toRefs, reactive } from 'vue'
+  import type { RipplesOptions } from '../../_hooks'
 
-  const prop: RipplePropsType = defineProps(Props)
+  defineOptions({ name: 'FRipple' })
 
-  const FRipple: Ref<HTMLElement> = ref(null as unknown as HTMLElement)
+  const prop = defineProps(Props)
 
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { startOpacity, endOpacity } = prop
+  const { getType, getProp } = useGlobal(prop)
+  const { styles } = useList(getProp(['type'], ['default']), 'ripple')
 
-    return {
-      '--f-ripple-start-opacity': startOpacity,
-      '--f-ripple-end-opacity': endOpacity
-    } as CSSProperties
-  })
+  /** 元素节点 */
+  const rippleRef = ref<HTMLElement>()
 
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { noSelect } = prop
+  /** 样式列表 */
+  const styleList = styles(['startOpacity', 'endOpacity'], false)
 
-      return ['f-ripple', { 'f-ripple__select': noSelect }] as const
+  /**
+   * 点击之后执行
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handleClick = (evt: MouseEvent): void => {
+    if (prop.disabled) return
+
+    const { ripplesColor, duration } = toRefs(prop)
+
+    /** 配置对象 */
+    const options: RipplesOptions = reactive({
+      duration: duration.value,
+      component: 'f-ripple',
+      className: 'f-ripple__animation',
+      type: getType(),
+      ripplesColor: ripplesColor.value
+    })
+
+    /** 必须在元素节点存在的情况下才触发涟漪 */
+    if (rippleRef.value) {
+      const { runRipples } = useRipples(evt, rippleRef.value, options)
+      runRipples()
     }
-  )
-
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    const { type, ripplesColor, duration, disabled } = prop
-
-    if (disabled) return
-
-    const ripples: Ripples = new Ripples(
-      evt as MouseEvent,
-      FRipple.value as HTMLElement,
-      {
-        duration,
-        component: 'f-ripple',
-        className: 'f-ripple__animation',
-        type,
-        ripplesColor
-      } as const
-    )
-    ripples.clickRipples()
   }
 </script>
 
 <template>
-  <div ref="FRipple" :class="classList" :style="styleList" @click="handleClick">
+  <div ref="rippleRef" class="f-ripple" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>

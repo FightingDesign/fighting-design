@@ -1,6 +1,10 @@
 import type * as components from './components'
 
-// https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/README.md
+/**
+ * Volar 插件实现代码提示
+ *
+ * https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/README.md
+ */
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
@@ -28,7 +32,6 @@ declare module '@vue/runtime-core' {
     FLink: typeof components.FLink
     FList: typeof components.FList
     FListItem: typeof components.FListItem
-    FLoading: typeof components.FLoading
     FMain: typeof components.FMain
     FPageHeader: typeof components.FPageHeader
     FProgress: typeof components.FProgress
@@ -46,13 +49,47 @@ declare module '@vue/runtime-core' {
     FTooltip: typeof components.FTooltip
     FTree: typeof components.FTree
     FWatermark: typeof components.FWatermark
+    FUpLoad: typeof components.FUpLoad
+    FTable: typeof components.FTable
+    FDropdown: typeof components.FDropdown
+    FDropdownItem: typeof components.FDropdownItem
+    FTextarea: typeof components.FTextarea
+    FSelect: typeof components.FSelect
+    FOption: typeof components.FOption
+    FInput: typeof components.FInput
+    FTabs: typeof components.FTabs
+    FTabsItem: typeof components.FTabsItem
+    FPagination: typeof components.FPagination
+    FCheckbox: typeof components.FCheckbox
+    FCheckboxGroup: typeof components.FCheckboxGroup
+    FSwap: typeof components.FSwap
+    FDatePicker: typeof components.FDatePicker
+    FTimePicker: typeof components.FTimePicker
+    FInputNumber: typeof components.FInputNumber
+    FCloseBtn: typeof components.FCloseBtn
+    FTrigger: typeof components.FTrigger
+    FMenu: typeof components.FMenu
+    FMenuItem: typeof components.FMenuItem
+    FMenuItemGroup: typeof components.FMenuItemGroup
+    FSubmenu: typeof components.FSubmenu
+    FCollapseAnimation: typeof components.FCollapseAnimation
+    FSlider: typeof components.FSlider
+    FFightingGlobal: typeof components.FFightingGlobal
+    FForm: typeof components.FForm
+    FFormItem: typeof components.FFormItem
+    FBox: typeof components.FBox
+    FSvgIcon: typeof components.FSvgIcon
+    FRate: typeof components.FRate
+    FInfiniteScrolling: typeof components.FInfiniteScrolling
+    FNumberAnimate: typeof components.FNumberAnimate
+    FCountDown: typeof components.FCountDown
+    FAvatarGroup: typeof components.FAvatarGroup
   }
 
   interface ComponentCustomProperties {
     FMessage: typeof components.FMessage
     FNotification: typeof components.FNotification
-    useLoadingBar: typeof components.useLoadingBar
   }
 }
 
-export { }
+export {}

@@ -1,27 +1,24 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import {
+  setStringProp,
+  setStringNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { HandleMouse, FightingIcon } from '../../_interface'
 
 export const Props = {
-  color: {
-    type: String,
-    default: (): string => ''
-  },
-  icon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  iconSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '16px'
-  },
-  dataKey: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  click: {
-    type: Function as PropType<HandleMouseEventInterface>,
-    default: (): null => null
-  }
+  /** 自定义文字颜色 */
+  color: setStringProp(),
+  /** 自定义 icon */
+  icon: setObjectProp<FightingIcon>(),
+  /** 自定义 icon 大小 */
+  iconSize: setStringNumberProp(16),
+  /** 唯一值 */
+  index: setStringNumberProp(),
+  /** 点击之后触发的回调 */
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
-export type ToolbarItemPropsType = ExtractPropTypes<typeof Props>
+/** toolbar-item 组件 props 类型 */
+export type ToolbarItemProps = ExtractPropTypes<typeof Props>

@@ -1,42 +1,51 @@
-<script lang="ts" setup name="FRate">
-  import { Props, Emits } from './props'
+<script lang="ts" setup>
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconStarBVue } from '../../_svg'
+  import { FIconStarB } from '../../_svg'
   import { FText } from '../../text'
+  import { useRun } from '../../_hooks'
   import { ref, watch, unref, computed } from 'vue'
-  import type { Ref, ComputedRef } from 'vue'
-  import type { OrdinaryFunctionInterface } from '../../_interface'
-  import type {
-    RateMouseoverInterface,
-    RateHandleClickInterface,
-    RatePropsType
-  } from './interface'
+  import { isNumber } from '../../_utils'
 
-  const prop: RatePropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  defineOptions({ name: 'FRate' })
 
-  const starValue: Ref<number> = ref<number>(prop.modelValue)
+  const prop = defineProps(Props)
+  const modelValue = defineModel<number>({ default: 0, type: Number })
 
-  // 反复移动时触发
-  const onMouseover: RateMouseoverInterface = (index: number): void => {
+  const { run } = useRun()
+
+  /** 当前绑定的值 */
+  const starValue = ref<number>(prop.modelValue)
+
+  /**
+   * 反复移动时触发
+   *
+   * @param { number } index 索引值
+   */
+  const onMouseover = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
   }
 
-  // 移出触发
-  const onMouseout: OrdinaryFunctionInterface = (): void => {
+  /** 移出触发 */
+  const onMouseout = (): void => {
     if (prop.readonly) return
     starValue.value = prop.modelValue
   }
 
-  // 点击触发
-  const handleClick: RateHandleClickInterface = (index: number): void => {
+  /**
+   * 点击触发
+   *
+   * @param { number } index 索引值
+   */
+  const handleClick = (index: number): void => {
     if (prop.readonly) return
     starValue.value = index
-    emit('update:modelValue', index)
-    prop.change && prop.change(index)
+    modelValue.value = index
+    run(prop.onChange, index)
   }
 
+  /** 监视如何绑定值发生变化的时候同步数据 */
   watch(
     (): number => prop.modelValue,
     (): void => {
@@ -44,17 +53,20 @@
     }
   )
 
-  // 辅助文字内容
-  const textContent: ComputedRef<string> = computed((): string => {
+  /** 辅助文字内容 */
+  const textContent = computed((): string => {
     return prop.textArr[unref(starValue) - 1]
   })
+
+  /** 返回星星的最大数量 */
+  const maxLength = computed((): number => (isNumber(prop.max) ? prop.max : 5))
 </script>
 
 <template>
   <div class="f-rate" role="slider">
     <div class="f-rate__list">
       <div
-        v-for="(star, index) in max"
+        v-for="(star, index) in maxLength"
         :key="index"
         :class="['f-rate__star', { 'f-rate__star-readonly': readonly }]"
         @mouseout="onMouseout"
@@ -63,7 +75,7 @@
       >
         <f-svg-icon
           :size="size"
-          :icon="icon || FIconStarBVue"
+          :icon="icon || FIconStarB"
           :color="starValue > index ? effectColor : invalidColor"
         />
       </div>

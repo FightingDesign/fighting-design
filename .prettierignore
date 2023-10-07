@@ -1,12 +1,18 @@
-/dist/*
-/node_modules/**
-**/*.svg
-**/*.ai
-**/*.sh
-script/new-component/template/*
-/packages/fighting-theme/dist/*
-/docs/docs/.vitepress/dist/*
+# 忽略文件
+#
+# 官方文档参考：https://prettier.io/docs/en/ignore.html#ignoring-files-prettierignore
+
 dist
 node_modules
+*.svg
+*.ai
+*.sh
+dist-icon
 pnpm-lock.yaml
-/script/move-file.js
+fighting-add-component
+stats.html
+fighting-eslint-config
+fighting-icon
+
+# prettier 格式化和下面类格式有冲突，会取消函数名和后面括号之间的空格
+packages/fighting-playground/src/store/index.ts

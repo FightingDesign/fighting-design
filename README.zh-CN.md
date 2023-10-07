@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="160px" src="https://tianyuhao.cn/images/fighting-design/FightingDesign.svg">
+  <img height="160px" src="https://raw.githubusercontent.com/Tyh2001/images/4ad62a8f00aa2473deca61598f307430d8d4a4cf/fighting-design/FightingDesign.svg">
   <h2 align="center" style="font-weight: 600">Fighting Design</h2>
 </p>
 
@@ -20,6 +20,7 @@
 
 ## ✨ 特性
 
+- 🪐 60+ 常用组件
 - 💪 使用 Vue.js 最新特性开发
 - 🐆 全面基于 Vite，速度够快
 - 🤟 极致的开发体验
@@ -74,10 +75,56 @@ import 'fighting-design/dist/index.css'
 createApp(App).use(FightingDesign).mount('#app')
 ```
 
+## 🪂 快速体验
+
+```html
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.css"
+  />
+</head>
+
+<body>
+  <div id="app">
+    <f-space>
+      <f-button round type="default">默认按钮</f-button>
+      <f-button round type="primary">主要按钮</f-button>
+      <f-button round type="success">成功按钮</f-button>
+      <f-button round type="danger">危险按钮</f-button>
+      <f-button round type="warning">警告按钮</f-button>
+    </f-space>
+
+    <f-divider>华丽的分隔线</f-divider>
+
+    <f-button type="primary" @click="visible = true">打开 Dialog</f-button>
+    <f-dialog title="Title" v-model:visible="visible">
+      欢迎使用 Fighting Design！
+    </f-dialog>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fighting-design/dist/index.umd.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    const app = createApp({
+      setup() {
+        const visible = ref(false)
+
+        return { visible }
+      }
+    })
+
+    app.use(FightingDesign.default)
+    app.mount('#app')
+  </script>
+</body>
+```
+
 ## 🐳 相关链接
 
 - [官方文档](https://fighting.tianyuhao.cn)
-- [演练场](https://sfc.tianyuhao.cn)
 - [NPM](https://www.npmjs.com/package/fighting-design)
 - [贡献指南](https://github.com/FightingDesign/fighting-design/blob/master/CONTRIBUTING.md)
 - [更新日志](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
@@ -86,7 +133,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 添加微信请备注 `Github` 用户名
 
-![](https://tianyuhao.cn/images/auto/weixin.png)
+<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg" >
 
 ## 💌 特别感谢
 

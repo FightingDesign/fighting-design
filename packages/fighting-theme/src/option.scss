@@ -1,0 +1,26 @@
+.f-option {
+  display: block;
+  padding: 8px 13px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 4px;
+  user-select: none;
+  transition: 0.3s;
+  color: #333;
+  background-color: #fff;
+
+  &__active {
+    color: #2d5af1;
+    font-weight: bold;
+  }
+
+  &:not([class~='f-option__disabled']):hover {
+    background-color: #eee;
+  }
+
+  // 禁用
+  &__disabled {
+    cursor: not-allowed;
+    color: #afafaf;
+  }
+}

@@ -1,10 +1,11 @@
 {
   "name": "start",
   "scripts": {
-    "dev": "vite",
-    "build": "rimraf dist && vue-tsc --noEmit && vite build"
+    "dev": "vite --host 0.0.0.0",
+    "build": "rimraf dist && vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
-  "devDependencies": {
-    "vconsole": "^3.14.6"
+  "dependencies": {
+    "vue-router": "^4.1.6"
   }
 }

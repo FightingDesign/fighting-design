@@ -1,53 +1,44 @@
-<script lang="ts" setup name="FRadioGroup">
-  import { provide, reactive, toRefs, computed } from 'vue'
-  import { Props, Emits, RadioGroupPropsKey } from './props'
-  import { sizeChange } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
-  import type {
-    RadioChangeInterface,
-    RadioLabelType,
-    RadioGroundPropsType
-  } from './interface'
+<script lang="ts" setup>
+  import { Props, RADIO_GROUP_PROPS_kEY } from './props'
+  import { provide, reactive, toRefs } from 'vue'
+  import { useRun, useList } from '../../_hooks'
+  import type { RadioModelValue, RadioGroundInject } from './interface'
 
-  const prop: RadioGroundPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  defineOptions({ name: 'FRadioGroup' })
 
-  const changeEvent: RadioChangeInterface = (value: RadioLabelType): void => {
-    emit('update:modelValue', value)
-    prop.change && prop.change(value)
+  const prop = defineProps(Props)
+  const modelValue = defineModel<RadioModelValue>({
+    default: '',
+    type: [String, Number, Boolean]
+  })
+
+  const { run } = useRun()
+  const { styles, classes } = useList(prop, 'radio-group')
+
+  /**
+   * 改变同步数据
+   *
+   * @param { string | number | boolean } value 最新值
+   */
+  const changeEvent = (value: RadioModelValue): void => {
+    modelValue.value = value
+    run(prop.onChange, value)
   }
 
-  const RadioGround: RadioGroundPropsType = reactive({
-    ...toRefs(prop),
-    changeEvent
-  } as const)
+  /** 类名列表 */
+  const classList = classes(['vertical', 'background', 'size'], 'f-radio-group')
 
-  provide<RadioGroundPropsType>(RadioGroupPropsKey, RadioGround)
+  /** 样式列表 */
+  const styleList = styles(['columnGap', 'rowGap'])
 
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { vertical, border, size } = prop
-
-      return [
-        'f-radio-group',
-        {
-          'f-radio-group__vertical': vertical,
-          'f-radio-group__border': border,
-          [`f-radio-group__${size}`]: size && border
-        }
-      ] as const
-    }
+  /** 注入依赖项 */
+  provide<RadioGroundInject>(
+    RADIO_GROUP_PROPS_kEY,
+    reactive({
+      ...toRefs(prop),
+      changeEvent
+    })
   )
-
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { columnGap, rowGap } = prop
-
-    return {
-      columnGap: sizeChange(columnGap),
-      rowGap: sizeChange(rowGap)
-    } as const
-  })
 </script>
 
 <template>

@@ -1,0 +1,77 @@
+.f-time-picker {
+  width: 240px;
+  display: inline-flex;
+
+  // 触发器
+  .f-trigger {
+    width: 100%;
+  }
+}
+
+.f-trigger__content-box {
+  // 时间选择列表
+  .f-time-picker__content {
+    padding: 9px 5px;
+    box-sizing: border-box;
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+
+    // 小时
+    .f-time-picker__hour,
+    .f-time-picker__minute,
+    .f-time-picker__second {
+      flex: 1;
+      height: 240px;
+      overflow: auto;
+      padding: 0 6px;
+      box-sizing: border-box;
+      padding-bottom: 200px;
+
+      // 每一项选项
+      .f-time-picker__hour-item,
+      .f-time-picker__minute-item,
+      .f-time-picker__second-item {
+        border-radius: 5px;
+        padding: 10px 0;
+        height: 40px;
+        box-sizing: border-box;
+        width: 100%;
+        cursor: pointer;
+        user-select: none;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s;
+        color: #333;
+
+        &:hover {
+          background-color: #eee;
+        }
+
+        // 选中的
+        &.f-time-picker__hour-active,
+        &.f-time-picker__minute-active,
+        &.f-time-picker__second-active {
+          color: #fff;
+          background: #2d5af1;
+        }
+      }
+
+      // 滚动条
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-thumb {
+        display: none;
+      }
+    }
+  }
+
+  // 操作栏
+  .f-time-picker__option {
+    padding: 9px 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+  }
+}

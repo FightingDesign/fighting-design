@@ -1,39 +1,22 @@
+import { setStringProp, setNumberProp, setStringNumberProp } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
-import type { PropType } from 'vue'
 
 export const Props = {
-  content: {
-    type: String,
-    default: (): string => ''
-  },
-  width: {
-    type: Number,
-    default: (): number => 280
-  },
-  height: {
-    type: Number,
-    default: (): number => 200
-  },
-  fontSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '30px'
-  },
-  fontColor: {
-    type: String,
-    default: (): string => '#333'
-  },
-  image: {
-    type: String,
-    default: (): string => ''
-  },
-  block: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  zIndex: {
-    type: Number,
-    default: (): number => 100
-  }
+  /** 水印内容 */
+  content: setStringProp(),
+  /** 文字大小 */
+  fontSize: setNumberProp(40),
+  /** 间距 */
+  gap: setNumberProp(40),
+  /** 文字颜色 */
+  fontColor: setStringProp<string>('#111'),
+  /**
+   * 原生 z-index 属性
+   *
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   */
+  zIndex: setStringNumberProp(9999)
 } as const
 
-export type WatermarkPropsType = ExtractPropTypes<typeof Props>
+/** watermark 组件 props 类型 */
+export type WatermarkProps = ExtractPropTypes<typeof Props>

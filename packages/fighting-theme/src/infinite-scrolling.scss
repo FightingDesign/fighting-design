@@ -1,0 +1,14 @@
+.f-infinite-scrolling {
+  width: 100%;
+  overflow-y: auto;
+
+  &__loading {
+    height: 40px;
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+}

@@ -1,14 +1,18 @@
 .f-space {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  column-gap: var(--space-column-gap, 10px);
+  row-gap: var(--space-row-gap, 10px);
 
-  // 排列方式
+  // 纵向排列
   &.f-space__vertical {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
-  // 是否换行
-  &.f-space__wrap {
-    flex-wrap: wrap;
+  // 是否禁止换行
+  &.f-space__nowrap {
+    flex-wrap: nowrap;
   }
 
   // 不同尺寸

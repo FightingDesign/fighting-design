@@ -1,0 +1,227 @@
+.f-tabs {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+
+  // 头部
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 13px;
+
+    // 前缀后缀
+    .f-tabs__prefix,
+    .f-tabs__suffix {
+      display: flex;
+      padding: 6px 12px;
+      box-sizing: border-box;
+    }
+
+    // 菜单栏
+    .f-tabs__navs {
+      width: 100%;
+
+      .f-tabs__nav-item {
+        font-size: 15px;
+      }
+    }
+  }
+
+  // 菜单栏
+  // 线性类型
+  &__line {
+    .f-tabs__head .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
+
+      // 每一项
+      .f-tabs__nav-item {
+        cursor: pointer;
+        padding: 10px 7px;
+        box-sizing: border-box;
+        font-size: 15px;
+        user-select: none;
+
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          border-color: #2d5af1;
+        }
+      }
+    }
+
+    &.f-tabs__bottom .f-tabs__navs {
+      column-gap: 12px;
+
+      .f-tabs__nav-item {
+        border-top: 2px solid transparent;
+      }
+    }
+
+    &.f-tabs__top .f-tabs__navs {
+      column-gap: 12px;
+
+      .f-tabs__nav-item {
+        border-bottom: 2px solid transparent;
+      }
+    }
+
+    &.f-tabs__right .f-tabs__nav-item {
+      border-left: 2px solid transparent;
+    }
+
+    &.f-tabs__left .f-tabs__nav-item {
+      border-right: 2px solid transparent;
+    }
+  }
+
+  // 卡片类型
+  &__card {
+    .f-tabs__head .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
+
+      .f-tabs__nav-item {
+        padding: 4px 12px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        user-select: none;
+        background-color: #f5f7fa;
+        color: #8e8ea0;
+        border-bottom: none;
+
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          background-color: #fff;
+        }
+      }
+    }
+
+    // 右侧的圆角
+    &.f-tabs__right .f-tabs__nav-item {
+      border-bottom-right-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    // 左侧的圆角
+    &.f-tabs__left .f-tabs__nav-item {
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+    }
+
+    // 上侧的圆角
+    &.f-tabs__top .f-tabs__nav-item {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    // 下侧的圆角
+    &.f-tabs__bottom .f-tabs__nav-item {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+
+  // 分段类型
+  &__segment {
+    .f-tabs__head .f-tabs__navs {
+      display: flex;
+      justify-content: var(--tabs-justify-content);
+      background: #f7f7f7;
+      padding: 4px;
+      box-sizing: border-box;
+
+      .f-tabs__nav-item {
+        flex: 1;
+        padding: 4px 12px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        background-color: transparent;
+        word-break: keep-all;
+        color: #8e8ea0;
+        box-sizing: border-box;
+
+        // 选中状态
+        &.f-tabs__nav-active {
+          color: #2d5af1;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  // 不同的 nav 列表方向
+  // 上部
+  &__top {
+    flex-direction: column;
+
+    .f-tabs__head {
+      border-bottom: 1px solid #ddd;
+      align-items: end;
+    }
+  }
+
+  // 底部
+  &__bottom {
+    flex-direction: column-reverse;
+
+    .f-tabs__head {
+      border-top: 1px solid #ddd;
+      align-items: start;
+    }
+  }
+
+  // 左侧
+  &__left {
+    flex-direction: row;
+
+    .f-tabs__head {
+      flex-direction: column;
+      border-right: 1px solid #ddd;
+
+      // 前缀后缀
+      .f-tabs__prefix,
+      .f-tabs__suffix {
+        width: 100%;
+      }
+
+      .f-tabs__navs {
+        flex-direction: column;
+      }
+    }
+  }
+
+  // 右侧
+  &__right {
+    flex-direction: row-reverse;
+
+    .f-tabs__head {
+      flex-direction: column;
+      border-left: 1px solid #ddd;
+
+      // 前缀后缀
+      .f-tabs__prefix,
+      .f-tabs__suffix {
+        width: 100%;
+      }
+
+      .f-tabs__navs {
+        flex-direction: column;
+      }
+    }
+  }
+
+  // 主要展示的内容
+  &__body {
+    flex: 1;
+    box-sizing: border-box;
+  }
+}

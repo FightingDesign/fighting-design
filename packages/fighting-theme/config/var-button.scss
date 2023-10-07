@@ -1,29 +1,161 @@
-@import '../config/const-size.scss';
+.f-button {
+  --button-border-radius: 2px;
 
-// 不同大小
-$buttonSize: (
-  (
-    name: 'large',
-    height: $large,
-    fontSize: 15px,
-    padding: 30px
-  ),
-  (
-    name: 'middle',
-    height: $middle,
-    fontSize: 14px,
-    padding: 25px
-  ),
-  (
-    name: 'small',
-    height: $small,
-    fontSize: 13px,
-    padding: 20px
-  ),
-  (
-    name: 'mini',
-    height: $mini,
-    fontSize: 12px,
-    padding: 15px
-  )
-);
+  // 不同类型
+  &__default {
+    --button-color: #333;
+    --button-background: #f0f0f0;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  &__primary {
+    --button-color: #fbfbfd;
+    --button-background: #2d5af1;
+    --button-hover: #5d80f4;
+    --button-active: #0f3edc;
+  }
+
+  &__success {
+    --button-color: #fbfbfd;
+    --button-background: #52b35e;
+    --button-hover: #75c37f;
+    --button-active: #40924a;
+  }
+
+  &__danger {
+    --button-color: #fbfbfd;
+    --button-background: #ff0200;
+    --button-hover: #ff5857;
+    --button-active: #cc0200;
+  }
+
+  &__warning {
+    --button-color: #fbfbfd;
+    --button-background: #fcc202;
+    --button-hover: #fed348;
+    --button-active: #c99b02;
+  }
+
+  &__info {
+    --button-color: #fbfbfd;
+    --button-background: #1d1d1f;
+    --button-hover: #4e4e56;
+    --button-active: #080808;
+  }
+
+  // 简约状态
+  &__default.f-button__simple {
+    --button-color: #333;
+    --button-background: #f8f8f8;
+    --button-hover: #f0f0f0;
+    --button-active: #e1e1e1;
+  }
+
+  &__primary.f-button__simple {
+    --button-color: #2d5af1;
+    --button-background: #dee5fd;
+    --button-hover: #ecf0fe;
+    --button-active: #d0dafc;
+  }
+
+  &__success.f-button__simple {
+    --button-color: #52b35e;
+    --button-background: #e7f4e8;
+    --button-hover: #f1f9f2;
+    --button-active: #dcf0df;
+  }
+
+  &__danger.f-button__simple {
+    --button-color: #ff0200;
+    --button-background: #ffd7d6;
+    --button-hover: #ffe6e6;
+    --button-active: #ffc7c7;
+  }
+
+  &__warning.f-button__simple {
+    --button-color: #fcc202;
+    --button-background: #fff5d6;
+    --button-hover: #fff9e5;
+    --button-active: #fff2c6;
+  }
+
+  &__info.f-button__simple {
+    --button-color: #1d1d1f;
+    --button-background: #bdbdbd;
+    --button-hover: #cbcaca;
+    --button-active: #a8a7a7;
+  }
+
+  // 文字按钮
+  &__default.f-button__text {
+    --button-color: #333;
+    --button-background: none;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  &__primary.f-button__text {
+    --button-color: #2d5af1;
+    --button-background: none;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  &__success.f-button__text {
+    --button-color: #52b35e;
+    --button-background: none;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  &__danger.f-button__text {
+    --button-color: #ff0200;
+    --button-background: none;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  &__warning.f-button__text {
+    --button-color: #fcc202;
+    --button-background: none;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  &__info.f-button__text {
+    --button-color: #1d1d1f;
+    --button-background: none;
+    --button-hover: #e8e8e8;
+    --button-active: #d7d7d7;
+  }
+
+  // 不同尺寸
+  &__large {
+    --button-height: 40px;
+    --button-padding: 30px;
+    --button-font-size: 16px;
+  }
+
+  &__middle {
+    --button-height: 35px;
+    --button-padding: 25px;
+    --button-font-size: 15px;
+  }
+
+  &__small {
+    --button-height: 30px;
+    --button-padding: 20px;
+    --button-font-size: 14px;
+  }
+
+  &__mini {
+    --button-height: 25px;
+    --button-padding: 15px;
+    --button-font-size: 13px;
+  }
+
+  &__round {
+    --button-border-radius: 25px;
+  }
+}

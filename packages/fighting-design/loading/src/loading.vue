@@ -1,40 +1,31 @@
-<script setup lang="ts" name="FLoading">
-  import { computed } from 'vue'
+<script setup lang="ts">
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { FIconLoadingAVue } from '../../_svg'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { HandleMouseEventInterface } from '../../_interface'
-  import type { LoadingPropsType } from './props'
+  import { FIconLoadingA } from '../../_svg'
+  import { useList } from '../../_hooks'
 
-  const prop: LoadingPropsType = defineProps(Props)
+  defineOptions({ name: 'FLoading' })
 
-  // 点击
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.closeEnd && prop.closeEnd(evt)
-  }
+  const prop = defineProps(Props)
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { background, opacity } = prop
+  const { styles, classes } = useList(prop, 'loading')
 
-    return {
-      background,
-      opacity
-    } as const
-  })
+  /** 样式列表 */
+  const styleList = styles(['background', 'color'])
+
+  const classList = classes(['fullscreen'], 'f-loading')
 </script>
 
 <template>
-  <div v-if="show" class="f-loading" :style="styleList" @click="handleClick">
+  <div v-if="visible" :class="classList" :style="styleList">
     <f-svg-icon :size="20" class="f-loading__animation" :icon="icon">
       <slot name="icon">
-        <f-icon-loading-a-vue />
+        <f-icon-loading-a />
       </slot>
     </f-svg-icon>
 
-    <span class="f-loading__title" :style="{ fontSize, color: fontColor }">
-      {{ text || ' 玩命加载中...' }}
+    <span v-if="text" class="f-loading__title">
+      {{ text }}
     </span>
   </div>
 </template>

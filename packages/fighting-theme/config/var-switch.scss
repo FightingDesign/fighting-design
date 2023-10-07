@@ -1,8 +1,28 @@
-@import '../config/const-color.scss';
+.f-switch {
+  --switch-height: 40px;
 
-// 不同大小
-$switchSize: (
-  'large': 24px,
-  'middle': 20px,
-  'small': 16px
-);
+  // 不同尺寸
+  &__large {
+    --switch-height: 40px;
+    --switch-padding: 30px;
+    --switch-font-size: 15px;
+  }
+
+  &__middle {
+    --switch-height: 35px;
+    --switch-padding: 25px;
+    --switch-font-size: 14px;
+  }
+
+  &__small {
+    --switch-height: 30px;
+    --switch-padding: 20px;
+    --switch-font-size: 13px;
+  }
+
+  &__mini {
+    --switch-height: 25px;
+    --switch-padding: 15px;
+    --switch-font-size: 12px;
+  }
+}

@@ -1,53 +1,46 @@
-import type { PropType, ExtractPropTypes } from 'vue'
-import type { BackTopBehaviorType } from './interface'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setNumberProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { BackTopBehavior } from './interface'
 
 export const Props = {
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  behavior: {
-    type: String as PropType<BackTopBehaviorType>,
-    default: (): BackTopBehaviorType => 'smooth',
-    validator: (val: BackTopBehaviorType): boolean => {
-      return (['smooth', 'auto'] as const).includes(val)
-    }
-  },
-  visibleHeight: {
-    type: Number,
-    default: (): number => 200,
-    validator: (val: number): boolean => val >= 0
-  },
-  right: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '40px'
-  },
-  bottom: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '40px'
-  },
-  zIndex: {
-    type: Number,
-    default: (): number => 900,
-    validator: (val: number): boolean => val >= 0
-  },
-  top: {
-    type: Number,
-    default: (): number => 0,
-    validator: (val: number): boolean => val >= 0
-  },
-  listenEl: {
-    type: String,
-    default: (): string => ''
-  },
-  background: {
-    type: String,
-    default: (): string => '#fff'
-  },
-  color: {
-    type: String,
-    default: (): string => '#333'
-  }
+  /** 是否为圆角 */
+  round: setBooleanProp(),
+  /**
+   * 滚动模式
+   *
+   * @values smooth auto
+   * @default smooth
+   * @see scrollTo https://developer.mozilla.org/zh-CN/docs/Web/API/Window/scrollTo
+   */
+  behavior: setStringProp<BackTopBehavior>('smooth', (val: BackTopBehavior): boolean => {
+    return (['smooth', 'auto'] as const).includes(val)
+  }),
+  /** 滚动超出多少距离展示 */
+  visibleHeight: setNumberProp(200),
+  /** 距离右侧的距离 */
+  right: setStringNumberProp(),
+  /** 距离底部的距离 */
+  bottom: setStringNumberProp(),
+  /**
+   * 原生 z-index 属性
+   *
+   * @see z-index https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index
+   */
+  zIndex: setNumberProp(),
+  /** 点击返回距离顶部的距离 */
+  top: setNumberProp(0),
+  /** 监视指定元素，需要传入指定的 class 或 id，如：.box #app */
+  listenEl: setStringProp(),
+  /** 自定义背景色 */
+  background: setStringProp(),
+  /** 自定义文字颜色 */
+  color: setStringProp()
 } as const
 
-export type BackTopPropsType = ExtractPropTypes<typeof Props>
+/** back-top 组件 props 类型 */
+export type BackTopProps = ExtractPropTypes<typeof Props>

@@ -1,58 +1,53 @@
-@import '../config/var-avatar.scss';
+@import '../config/var-avatar';
 
 .f-avatar {
+  position: relative;
+  align-items: center;
   display: inline-flex;
   justify-content: center;
-  align-items: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  background-color: var(--avatar-background);
   vertical-align: middle;
-  width: var(--f-avatar-size, 60px);
-  height: var(--f-avatar-size, 60px);
-  background: var(--f-avatar-background-color, none);
 
+  // 图片元素
   &__img {
-    width: var(--f-avatar-size, 60px);
-    height: var(--f-avatar-size, 60px);
-  }
-
-  // 不同大小
-  @each $key, $value in $avatarSize {
-    &.f-avatar__#{$key},
-    &__#{$key} {
-      width: $value;
-      height: $value;
-    }
+    width: var(--avatar-size);
+    height: var(--avatar-size);
   }
 
   // 不同的适应容器的方式
-  @each $key in $avatarFit {
-    &__#{$key} {
+  @each $key in fill, contain, cover, none, scale-down {
+    &.f-avatar__#{$key} .f-avatar__img {
       object-fit: $key;
     }
   }
 
   // 圆角
-  &__round,
-  &.f-avatar__round {
+  &.f-avatar__round,
+  &.f-avatar__round .f-avatar__img {
     border-radius: 50%;
   }
 
+  // 文字图片
   &__text {
-    color: var(--f-avatar-font-color, #333);
-    font-size: var(--f-avatar-font-size, 15px);
+    font-size: var(--avatar-font-size, 15px);
+    color: var(--avatar-font-color, #333);
   }
 }
 
+// 加载失败的
 .f-avatar__error {
-  width: 60px;
-  height: 60px;
-  display: inline-flex;
-  justify-content: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
   align-items: center;
-  background: #eee;
+  display: inline-flex;
   vertical-align: middle;
+  justify-content: center;
+  background-color: #eee;
 
   .f-avatar__error-text {
-    color: var(--f-avatar-font-color, #333);
-    font-size: var(--f-avatar-font-size, 13px);
+    font-size: var(--avatar-font-size, 13px);
+    color: var(--avatar-font-color, #333);
   }
 }

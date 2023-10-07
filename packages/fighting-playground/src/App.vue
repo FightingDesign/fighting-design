@@ -4,12 +4,13 @@
   import { watchEffect } from 'vue'
   import '@vue/repl/style.css'
   import HeaderVue from './components/Header.vue'
+  import type { ReplStore } from '@vue/repl'
 
   const store = new MyReplStore({
     serializedState: location.hash.slice(1),
     defaultVueRuntimeURL:
-      'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.js'
-  })
+      'https://unpkg.com/@vue/runtime-dom@3.2.29/dist/runtime-dom.esm-browser.js'
+  }) as unknown as ReplStore
 
   // 将状态持久化到 URL 哈希
   watchEffect(() => history.replaceState({}, '', store.serialize()))
@@ -36,7 +37,7 @@
     .file.active {
       color: #2d5af1;
       border-bottom: 3px solid #2d5af1;
-      
+
       .label {
         color: #2d5af1;
       }

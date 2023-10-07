@@ -1,0 +1,46 @@
+.f-menu-item {
+  display: flex;
+  padding: 7px 16px;
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+  height: 50px;
+  transition: background 0.3s, color 0.3s;
+
+  // icon
+  .f-svg-icon {
+    margin-right: 5px;
+  }
+
+  // 文字和 icon 样式
+  .f-svg-icon,
+  .f-menu-item__text {
+    transition: color 0.3s;
+    font-size: 15px;
+    color: #333;
+  }
+
+  // 选中的
+  &.f-menu-item__active {
+    // background-color: #dee5fd;
+
+    .f-svg-icon,
+    .f-menu-item__text {
+      color: #2d5af1;
+    }
+  }
+
+  // 鼠标移入
+  &:not([class~='f-menu-item__disabled']):hover {
+    .f-svg-icon,
+    .f-menu-item__text {
+      color: #2d5af1;
+    }
+  }
+
+  // 禁用状态
+  &.f-menu-item__disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

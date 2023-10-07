@@ -1,10 +1,13 @@
+# 指定要忽略的有意未跟踪的文件配置
+#
+# 官方文档参考：https://git-scm.com/docs/gitignore
+
+# 直接书写单词将同时匹配所有文件或目录，无论位置
 node_modules
-/node_modules
 dist
 dist-icon
 stats.html
-.idea
-
+.eslintcache
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

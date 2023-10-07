@@ -1,51 +1,47 @@
-import { isNumber, isString, isBoolean } from '../../_utils'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setFunctionProp
+} from '../../_utils'
+import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, PropType, InjectionKey } from 'vue'
-import type { RadioLabelType, RadioGroupSizeType, RadioChangeInterface } from './interface'
+import type { RadioModelValue, RadioChange, RadioGroundInject } from './interface'
+import type { FightingSize } from '../../_interface'
 
 export const Props = {
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
+  /** 绑定值 */
   modelValue: {
-    type: [String, Number, Boolean] as PropType<RadioLabelType>,
-    default: (): string => ''
-  },
-  vertical: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  columnGap: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  rowGap: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  border: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  size: {
-    type: String as PropType<RadioGroupSizeType>,
-    default: (): RadioGroupSizeType => 'middle',
-    validator: (val: RadioGroupSizeType): boolean => {
-      return (['large', 'middle', 'small', 'mini'] as const).includes(val)
-    }
-  },
-  change: {
-    type: Function as PropType<RadioChangeInterface>,
+    type: [String, Number, Boolean] as PropType<RadioModelValue>,
     default: (): null => null
-  }
+  },
+  /** 是否禁用 */
+  disabled: setBooleanProp(),
+  /** 是否纵向排列 */
+  vertical: setBooleanProp(),
+  /** 横向排列的间距 */
+  columnGap: setStringNumberProp(),
+  /** 纵向排列的间距 */
+  rowGap: setStringNumberProp(),
+  /** 背景状态 */
+  background: setBooleanProp(),
+  /**
+   * 尺寸
+   *
+   * @values large middle small mini
+   * @default middle
+   */
+  size: setStringProp<FightingSize>('middle', (val: FightingSize): boolean => {
+    return FIGHTING_SIZE.includes(val)
+  }),
+  /** 绑定值变化时触发 */
+  onChange: setFunctionProp<RadioChange>()
 } as const
 
-export const Emits = {
-  'update:modelValue': (val: RadioLabelType): boolean => {
-    return isString(val) || isNumber(val) || isBoolean(val)
-  }
-} as const
+/** radio-group 组件 props 类型 */
+export type RadioGroundProps = ExtractPropTypes<typeof Props>
 
-export type RadioGroundPropsType = ExtractPropTypes<typeof Props>
-
-export const RadioGroupPropsKey = Symbol('') as InjectionKey<RadioGroundPropsType>
+/** radio-group 组件注入的依赖项 */
+export const RADIO_GROUP_PROPS_kEY: InjectionKey<RadioGroundInject> = Symbol(
+  'radio-group-props-key'
+)

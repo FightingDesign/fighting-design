@@ -1,0 +1,74 @@
+.f-input-number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  user-select: none;
+
+  // button 状态下移除圆角
+  &__button {
+    .f-input .f-input__wrapper {
+      border-radius: 0;
+      z-index: 10;
+    }
+  }
+
+  // 减少的按钮
+  .f-input-number__minus {
+    width: 50px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    z-index: 9;
+  }
+
+  // 增加的按钮
+  .f-input-number__plus {
+    width: 50px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    z-index: 9;
+  }
+
+  // 容器
+  &__wrapper {
+    display: inline-flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+
+    // switch 按钮
+    .f-input-number__switch {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      // 不同尺寸
+      &.f-input-number__switch-large .f-svg-icon {
+        font-size: 15px;
+      }
+
+      &.f-input-number__switch-middle .f-svg-icon {
+        font-size: 14px;
+      }
+
+      &.f-input-number__switch-small .f-svg-icon {
+        font-size: 13px;
+      }
+
+      &.f-input-number__switch-mini .f-svg-icon {
+        font-size: 12px;
+      }
+
+      .f-button {
+        border-radius: 0;
+        width: 20px;
+        height: 45%;
+        padding: 0;
+        flex: 1;
+      }
+    }
+  }
+}

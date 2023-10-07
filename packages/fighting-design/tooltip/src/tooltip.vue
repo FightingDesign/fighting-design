@@ -1,45 +1,27 @@
-<script lang="ts" setup name="FTooltip">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { computed } from 'vue'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
-  import type { TooltipPropsType } from './props'
+  import { useList } from '../../_hooks'
 
-  const prop: TooltipPropsType = defineProps(Props)
+  defineOptions({ name: 'FTooltip' })
 
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { position, state, disabled, bold, noArrow, bright } = prop
+  const prop = defineProps(Props)
 
-      return [
-        'f-tooltip',
-        {
-          [`f-tooltip__${position}`]: position,
-          [`f-tooltip__${state}`]: state,
-          'f-tooltip__disabled ': disabled,
-          'f-tooltip__bold': bold,
-          'f-tooltip__no-arrow': noArrow,
-          'f-tooltip__bright': bright
-        }
-      ] as const
-    }
+  const { classes, styles } = useList(prop, 'tooltip')
+
+  /** 类名列表 */
+  const classList = classes(
+    ['position', 'state', 'disabled', 'bold', 'noArrow', 'bright'],
+    'f-tooltip'
   )
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { background, fontColor } = prop
-
-    return {
-      '--f-tooltip-background': background,
-      '--f-tooltip-font-color': fontColor
-    } as CSSProperties
-  })
+  /** 样式列表 */
+  const styleList = styles(['background', 'fontColor'])
 </script>
 
 <template>
   <div
     v-if="$slots.default"
+    role="tooltip"
     :f-content="content"
     :class="classList"
     :style="styleList"

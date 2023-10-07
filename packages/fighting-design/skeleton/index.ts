@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FSkeleton: ComponentPublicInstance = installWebComponent(Skeleton, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FSkeleton

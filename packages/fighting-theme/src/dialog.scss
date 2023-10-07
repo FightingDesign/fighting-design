@@ -1,54 +1,126 @@
 .f-dialog {
-  z-index: 999;
-  width: 521px;
-  background: #fff;
-  border-radius: 4px;
-  border: 1px solid #eee;
-  display: inline-flex;
-  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  z-index: var(--dialog-z-index, 2000);
 
-  // 头部
-  &__header {
-    padding: 12px 14px;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-    position: relative;
+  // 遮罩层
+  &__mask {
+    position: absolute;
+    inset: 0;
+    opacity: var(--dialog-mask-opacity, 0.4);
+    background-color: var(--dialog-mask-background, #000);
+  }
+
+  // 高斯模糊遮罩层
+  &__mask-blur .f-dialog__mask {
+    backdrop-filter: blur(2px);
+  }
+
+  // 主容器公共样式
+  &__wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1999;
+    transition: 0.3s;
+    overflow: auto;
     display: flex;
-    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
 
-    &-title {
-      font-size: 15px;
-      color: #333;
-    }
+    // 主要内容容器
+    .f-dialog__container {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+      margin: auto;
+      padding: var(--dialog-padding);
+      width: var(--dialog-width);
 
-    .f-close-btn {
-      position: absolute;
-      right: 15px;
+      // 头部
+      .f-dialog__header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        min-height: 56px;
+        justify-content: space-between;
+        border-bottom: 1px solid #eee;
+        padding: 5px 10px;
+        box-sizing: border-box;
+
+        // 中间的标题
+        &-center {
+          color: rgb(95, 99, 104);
+          font-size: 17px;
+        }
+
+        // 后缀
+        &-before,
+        &-after {
+          width: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      // 身体
+      .f-dialog__body {
+        box-sizing: border-box;
+        padding: 5px 15px;
+        text-align: left;
+        flex: 1;
+      }
+
+      // 页脚
+      .f-dialog__footer {
+        padding: 10px 14px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: 1px solid #eee;
+      }
+
+      // 主内容动画样式
+      &-trans-enter-active,
+      &-trans-leave-active {
+        transition: all 0.2s ease-out;
+      }
+
+      &-trans-enter-from,
+      &-trans-leave-to {
+        transform: scale(0.4);
+        opacity: 0;
+      }
     }
   }
 
-  // 身体
-  &__body {
-    padding: 15px;
-    box-sizing: border-box;
-    flex: 1;
+  // 遮罩层动画
+  &__trans-enter-active {
+    transition: all 0.2s ease-out;
   }
 
-  // 页脚
-  &__footer {
-    padding: 10px 14px;
-    border-top: 1px solid #eee;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: center;
+  &__trans-leave-active {
+    transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &__trans-enter-from,
+  &__trans-leave-to {
+    opacity: 0;
   }
 
   // 全屏展示
   &.f-dialog__fullscreen {
-    width: 100vw;
-    height: 100vh;
+    .f-dialog__wrapper {
+      overflow: hidden;
+
+      .f-dialog__container {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+        overflow: auto;
+      }
+    }
   }
 }

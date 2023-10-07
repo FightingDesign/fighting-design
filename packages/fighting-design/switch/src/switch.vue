@@ -1,86 +1,67 @@
-<script lang="ts" setup name="FSwitch">
-  import { computed } from 'vue'
-  import { Props, Emits } from './props'
+<script lang="ts" setup>
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { SwitchPropsType } from './props'
+  import { useList, useRun, useGlobal } from '../../_hooks'
+  import { FIconLoadingA } from '../../_svg'
 
-  const prop: SwitchPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  defineOptions({ name: 'FSwitch' })
 
-  // 点击切换
-  const handleClick: OrdinaryFunctionInterface = (): void => {
-    if (prop.disabled) return
-    emit('update:modelValue', !prop.modelValue)
-    prop.change && prop.change(!prop.modelValue)
+  const prop = defineProps(Props)
+  const modelValue = defineModel<boolean>({ default: false, type: Boolean })
+
+  const { run } = useRun()
+  const { getProp } = useGlobal(prop)
+  const { styles, classes } = useList(getProp(['size']), 'switch')
+
+  /** 点击切换 */
+  const handleClick = (): void => {
+    if (prop.disabled || prop.loading) return
+    modelValue.value = !modelValue.value
+    run(prop.onChange, !prop.modelValue)
   }
 
-  // 小球样式
-  const rollStyleList: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { modelValue, closeColor, openColor, size } = prop
+  /** 样式列表 */
+  const styleList = styles(['closeColor', 'activeColor'])
 
-      const _size = {
-        large: '24px',
-        middle: '20px',
-        small: '16px'
-      } as const
-
-      return {
-        right: modelValue ? '0px' : _size[size],
-        borderColor: modelValue ? openColor : closeColor
-      } as const
-    }
-  )
-
-  // 类名集合
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { size, modelValue, square } = prop
-
-      return [
-        'f-switch__input',
-        {
-          [`f-switch__${size}`]: size,
-          'f-switch__close': !modelValue,
-          'f-switch__square': square
-        }
-      ] as const
-    }
-  )
+  /** 类名列表 */
+  const classList = classes(['size', 'square'], 'f-switch__input')
 </script>
 
 <template>
-  <div role="switch" :class="['f-switch', { 'f-switch__disabled': disabled }]">
+  <div
+    role="switch"
+    :class="['f-switch', { 'f-switch__disabled': disabled || loading }]"
+    :style="styleList"
+  >
+    <!-- 左侧文字描述 -->
     <span
       v-if="closeText"
-      :class="[
-        'f-switch__right-text',
-        { 'f-switch__text-active': !modelValue }
-      ]"
+      :class="['f-switch__right-text', { 'f-switch__text-active': !modelValue }]"
     >
       {{ closeText }}
     </span>
 
-    <div
-      :class="classList"
-      :style="{ background: modelValue ? openColor : closeColor }"
-      @click="handleClick"
-    >
-      <span class="f-switch__roll" :style="rollStyleList">
-        <f-svg-icon v-if="icon" :icon="icon" :size="14" />
+    <!-- 主要内容 -->
+    <div :class="[classList, { 'f-switch__active': modelValue }]" @click="handleClick">
+      <span :class="['f-switch__roll', { 'f-switch__roll-active': modelValue }]">
+        <f-svg-icon v-if="icon && !loading" :icon="icon" :size="iconSize" />
+
+        <!-- loading icon -->
+        <f-svg-icon
+          v-if="loading"
+          class="f-switch__loading-animation"
+          :icon="FIconLoadingA"
+          :size="iconSize"
+        />
       </span>
     </div>
 
+    <!-- 右侧文字描述 -->
     <span
-      v-if="openText"
+      v-if="activeText"
       :class="['f-switch__left-text', { 'f-switch__text-active': modelValue }]"
     >
-      {{ openText }}
+      {{ activeText }}
     </span>
   </div>
 </template>

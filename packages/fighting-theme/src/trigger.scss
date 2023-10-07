@@ -1,0 +1,56 @@
+.f-trigger {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  // 主要内容盒子
+  &__content-box {
+    position: absolute;
+    width: max-content;
+    z-index: 2000;
+    padding-top: var(--trigger-spacing-size, 8px);
+    left: var(--trigger-content-x);
+    top: var(--trigger-content-y);
+    width: var(--trigger-width);
+    pointer-events: auto;
+
+    // 主要内容
+    .f-trigger__content {
+      border: 1px solid transparent;
+      background-color: #fff;
+      box-shadow: 0 1px 6px #00000033;
+    }
+  }
+
+  // 箭头
+  .f-trigger__arrow::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 3px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  // 出入动画
+  &-enter-active {
+    transition: all var(--trigger-enter-duration, 0.1s) ease-out;
+  }
+
+  &-leave-active {
+    transition: all var(--trigger-leave-duration, 0.1s) cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translateY(-5px);
+    opacity: 0;
+  }
+}

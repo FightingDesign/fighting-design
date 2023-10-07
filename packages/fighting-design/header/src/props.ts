@@ -1,14 +1,20 @@
-import type { PropType, ExtractPropTypes } from 'vue'
+import { setStringNumberProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
 
 export const Props = {
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '60px'
-  },
-  padding: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '0'
-  }
+  /**
+   * 自定义高度
+   *
+   * @see height https://developer.mozilla.org/zh-CN/docs/Web/CSS/height
+   */
+  height: setStringNumberProp(),
+  /**
+   * 自定义内边距
+   *
+   * @see padding https://developer.mozilla.org/zh-CN/docs/Web/CSS/padding
+   */
+  padding: setStringNumberProp()
 } as const
 
-export type HeaderPropsType = ExtractPropTypes<typeof Props>
+/** header 组件 props 类型 */
+export type HeaderProps = ExtractPropTypes<typeof Props>

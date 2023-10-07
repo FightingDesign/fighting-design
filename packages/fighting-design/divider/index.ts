@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FDivider: ComponentPublicInstance = installWebComponent(Divider, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FDivider

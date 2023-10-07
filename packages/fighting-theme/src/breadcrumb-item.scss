@@ -1,14 +1,19 @@
 .f-breadcrumb-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   cursor: pointer;
+  justify-content: center;
 
-  .f-svg-icon {
-    margin: 0 6px;
+  // 文字内容
+  .f-breadcrumb-item__text {
+    font-size: var(--breadcrumb-item-font-size, 15px);
+    color: var(--breadcrumb-item-font-color, #333);
   }
 
-  .f-breadcrumb-item__inner {
-    color: #333;
+  // icon
+  .f-svg-icon {
+    margin: 0 6px;
+    color: var(--breadcrumb-item-icon-color, #dee5fd);
   }
 
   // 最后一个分隔符隐藏

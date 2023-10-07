@@ -1,57 +1,61 @@
-<script lang="ts" setup name="FBadge">
-  import { computed } from 'vue'
+<script lang="ts" setup>
   import { Props } from './props'
+  import { computed } from 'vue'
   import { isNumber } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
-  import type { BadgePropsType } from './props'
+  import { useList } from '../../_hooks'
 
-  const prop: BadgePropsType = defineProps(Props)
+  defineOptions({ name: 'FBadge' })
 
-  // 类名集合
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { type, dot } = prop
+  const prop = defineProps(Props)
 
-      return [
-        'f-badge__content',
-        {
-          [`f-badge__${type}`]: type,
-          'f-badge__dot': dot
-        }
-      ] as const
-    }
-  )
+  const { classes, styles } = useList(prop, 'badge')
 
-  // 展示的内容
-  const content: ComputedRef<string> = computed((): string => {
+  /** 类名列表 */
+  const classList = classes(['type', 'dot'], 'f-badge')
+
+  /** 样式列表 */
+  const styleList = styles(['background', 'color'])
+
+  /** 展示的内容 */
+  const content = computed((): string | number => {
     const { dot, max, value } = prop
 
     if (dot) return ''
 
     if (isNumber(max) && isNumber(value)) {
-      return max > value ? `${value}` : `${max}+`
+      return value > max ? max + '+' : value
     }
 
-    return `${value}`
+    return value
   })
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { color, textColor } = prop
+  /** 展示状态 */
+  const isShow = computed((): boolean => {
+    const { value, show } = prop
 
-    return {
-      '--f-badge-background': color,
-      '--f-badge-text-color': textColor
-    } as CSSProperties
+    /** 非数字的情况下，show 便可以直接控制展示状态 */
+    if (!isNumber(value) && show) {
+      return true
+    }
+
+    /**
+     * 如果 value 是 number 类型
+     *
+     * 不仅要控制展示状态，而且值还不能小于 0
+     */
+    return show && isNumber(value) && value > 0
   })
 </script>
 
 <template>
-  <div class="f-badge" :style="styleList">
+  <div :class="classList" :style="styleList">
     <slot />
-    <sup v-show="!show && (content || dot)" :class="classList">
-      {{ content }}
-    </sup>
+
+    <transition name="f-badge">
+      <!-- https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/sup -->
+      <sup v-if="isShow" class="f-badge__content">
+        {{ content }}
+      </sup>
+    </transition>
   </div>
 </template>

@@ -1,23 +1,22 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import {
+  setStringProp,
+  setStringNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { FightingIcon, HandleMouse } from '../../_interface'
 
 export const Props = {
-  icon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  color: {
-    type: String,
-    default: (): string => ''
-  },
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  click: {
-    type: Function as PropType<HandleMouseEventInterface>,
-    default: (): null => null
-  }
+  /** icon 内容 */
+  icon: setObjectProp<FightingIcon>(),
+  /** icon 颜色 */
+  color: setStringProp(),
+  /** icon 大小 */
+  size: setStringNumberProp(),
+  /** 点击之后触发的回调 */
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
-export type SvgIconPropsType = ExtractPropTypes<typeof Props>
+/** svg-icon 组件 props 类型 */
+export type SvgIconProps = ExtractPropTypes<typeof Props>

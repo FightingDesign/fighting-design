@@ -1,0 +1,69 @@
+.f-alert {
+  --alert-border-radius: 4px;
+
+  // 不同类型
+  &__default {
+    --alert-color: #333;
+    --alert-background: #f0f0f0;
+  }
+
+  &__primary {
+    --alert-color: #fff;
+    --alert-background: #2d5af1;
+  }
+
+  &__success {
+    --alert-color: #fff;
+    --alert-background: #52b35e;
+  }
+
+  &__danger {
+    --alert-color: #fff;
+    --alert-background: #ff0200;
+  }
+
+  &__warning {
+    --alert-color: #fff;
+    --alert-background: #fcc202;
+  }
+
+  &__info {
+    --alert-color: #fbfbfd;
+    --alert-background: #1d1d1f;
+  }
+
+  // 简约状态
+  &__default.f-alert__simple {
+    --alert-color: #333;
+    --alert-background: #f8f8f8;
+  }
+
+  &__primary.f-alert__simple {
+    --alert-color: #2d5af1;
+    --alert-background: #dee5fd;
+  }
+
+  &__success.f-alert__simple {
+    --alert-color: #52b35e;
+    --alert-background: #e7f4e8;
+  }
+
+  &__danger.f-alert__simple {
+    --alert-color: #ff0200;
+    --alert-background: #ffd7d6;
+  }
+
+  &__warning.f-alert__simple {
+    --alert-color: #fcc202;
+    --alert-background: #fff5d6;
+  }
+
+  &__info.f-alert__simple {
+    --alert-color: #1d1d1f;
+    --alert-background: #bdbdbd;
+  }
+
+  &__round {
+    --alert-border-radius: 25px;
+  }
+}

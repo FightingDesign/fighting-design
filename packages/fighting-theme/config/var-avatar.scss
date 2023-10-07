@@ -1,10 +1,16 @@
-// 不同头像的大小
-$avatarSize: (
-  'large': 70px,
-  'middle': 60px,
-  'small': 50px,
-  'mini': 40px
-);
+.f-avatar {
+  --avatar-size: 60px;
 
-// 适应容器的方式
-$avatarFit: fill, contain, cover, none, scale-down;
+  &__large {
+    --avatar-size: 70px;
+  }
+  &__middle {
+    --avatar-size: 60px;
+  }
+  &__small {
+    --avatar-size: 50px;
+  }
+  &__mini {
+    --avatar-size: 40px;
+  }
+}

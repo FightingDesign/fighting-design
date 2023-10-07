@@ -1,7 +1,10 @@
-@import '../config/const-color.scss';
+.f-loading {
+  --loading-background: rgb(35, 39, 46, 0.5);
+  --loading-color: #2d5af1;
+}
 
 .f-loading {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1000;
@@ -11,9 +14,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #000;
-  opacity: 0.7;
-  color: $primary;
+  background: var(--loading-background);
+  transition: background 0.3s;
+  color: var(--loading-color);
+
+  &.f-loading__fullscreen {
+    position: fixed;
+  }
 
   &__animation {
     animation: f-loading-component 1s linear infinite;

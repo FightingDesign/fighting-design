@@ -22,7 +22,7 @@ jobs:
         with:
           version: 6
 
-      # 安装 node
+      # 安装 node pnpm
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -41,7 +41,7 @@ jobs:
       - name: Build components
         run: pnpm build
 
-      # 打打包文档
+      # 打包文档
       - name: Build docs
         run: pnpm build:docs
 
@@ -50,9 +50,3 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/docs/.vitepress/dist

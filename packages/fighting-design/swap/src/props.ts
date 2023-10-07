@@ -1,39 +1,37 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { SwapType, SwapOnChangeInterface } from './interface'
+import {
+  setObjectProp,
+  setStringNumberProp,
+  setBooleanProp,
+  setStringProp,
+  setFunctionProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { SwapType, SwapChange } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
+  /** 绑定值 */
   modelValue: {
-    type: Boolean,
-    default: (): boolean => false,
+    ...setBooleanProp(),
     require: true
   },
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): number => 40
-  },
-  type: {
-    type: String as PropType<SwapType>,
-    default: (): SwapType => 'default',
-    validator: (val: SwapType): boolean => {
-      return (['sound', 'swap', 'default'] as const).includes(val)
-    }
-  },
-  iconOn: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  iconOff: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  onChange: {
-    type: Function as PropType<SwapOnChangeInterface>,
-    default: (): null => null
-  }
+  /** 组件尺寸 */
+  size: setStringNumberProp(40),
+  /**
+   * 动画类型
+   *
+   * @values sound swap
+   */
+  type: setStringProp<SwapType>(undefined, (val: SwapType): boolean => {
+    return (['sound', 'swap'] as const).includes(val)
+  }),
+  /** 打开展示的图标 */
+  iconOn: setObjectProp<FightingIcon>(),
+  /** 关闭展示的图标 */
+  iconOff: setObjectProp<FightingIcon>(),
+  /** 当绑定值发生改变时触发的回调 */
+  onChange: setFunctionProp<SwapChange>()
 } as const
 
-export const Emits = {
-  'update:modelValue': (target: boolean): boolean => target
-} as const
-
-export type SwapPropsType = ExtractPropTypes<typeof Props>
+/** swap 组件 props 类型 */
+export type SwapProps = ExtractPropTypes<typeof Props>

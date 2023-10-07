@@ -1,0 +1,59 @@
+.f-textarea {
+  --textarea-resize: none;
+}
+
+.f-textarea {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  resize: var(--textarea-resize);
+  align-items: flex-end;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+  background: #fff;
+  outline: 4px solid transparent;
+  border-radius: 5px;
+
+  &__textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: none;
+    display: block;
+    cursor: pointer;
+    background: none;
+    padding: 6px 9px;
+    box-sizing: border-box;
+    font-size: var(--textarea-font-size, 14px);
+    color: #333;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+  }
+
+  &__auto-height .f-textarea__textarea {
+    overflow: hidden;
+  }
+
+  // 禁用状态
+  &.f-textarea__disabled {
+    cursor: not-allowed;
+    color: #757575;
+
+    .f-textarea__textarea {
+      cursor: not-allowed;
+    }
+  }
+
+  // 获取焦点
+  &:focus-within {
+    outline: 4px solid rgba(92, 128, 245, 0.5);
+  }
+
+  &__clear-btn {
+    right: 5px;
+    margin: auto;
+    cursor: pointer;
+    color: #c3c3c3;
+  }
+}

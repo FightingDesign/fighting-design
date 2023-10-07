@@ -1,40 +1,41 @@
 .f-image {
   position: relative;
-  display: inline-block;
   vertical-align: top;
-  width: var(--f-image-width);
-  height: var(--f-image-height);
-  border-radius: var(--f-image-border-radius);
+  display: inline-block;
+  width: var(--image-width);
+  height: var(--image-height);
+  border-radius: var(--image-round);
 
   &__img {
     width: 100%;
     height: 100%;
     vertical-align: middle;
-    border-radius: var(--f-image-border-radius);
+    border-radius: var(--image-round);
   }
 
-  &__select {
+  // 禁止选中
+  &.f-image__select {
     user-select: none;
   }
 
   // 适应容器方式
-  &__fill {
+  &__fill .f-image__img {
     object-fit: fill;
   }
 
-  &__contain {
+  &__contain .f-image__img {
     object-fit: contain;
   }
 
-  &__cover {
+  &__cover .f-image__img {
     object-fit: cover;
   }
 
-  &__none {
+  &__none .f-image__img {
     object-fit: none;
   }
 
-  &__scale-down {
+  &__scale-down .f-image__img {
     object-fit: scale-down;
   }
 
@@ -48,11 +49,10 @@
   display: inline-block;
 
   .f-image__error-text {
-    display: inline-block;
-    background: #eee;
     padding: 0 3px;
     border-radius: 3px;
-    font-size: 15px;
+    font-size: 12px;
+    background-color: #eee;
     color: #333;
   }
 }

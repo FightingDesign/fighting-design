@@ -33,10 +33,10 @@
   &::after {
     content: attr(f-content);
     position: absolute;
-    background: var(--f-tooltip-background, #333);
+    background-color: var(--tooltip-background, #333);
     font-size: 12px;
     font-weight: normal;
-    color: var(--f-tooltip-font-color, #fff);
+    color: var(--tooltip-font-color, #fff);
     line-height: 14px;
     padding: 6px 12px;
     white-space: nowrap;
@@ -44,19 +44,19 @@
   }
 
   &.f-tooltip__top::before {
-    border-top-color: var(--f-tooltip-background, #333);
+    border-top-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__right::before {
-    border-right-color: var(--f-tooltip-background, #333);
+    border-right-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__bottom::before {
-    border-bottom-color: var(--f-tooltip-background, #333);
+    border-bottom-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__left::before {
-    border-left-color: var(--f-tooltip-background, #333);
+    border-left-color: var(--tooltip-background, #333);
   }
 
   &.f-tooltip__top.f-tooltip__bright::before {
@@ -185,8 +185,18 @@
 
   // 是否禁用
   &.f-tooltip__disabled {
+    &::before,
+    &::after {
+      visibility: hidden;
+      opacity: 0;
+    }
     &:hover::before,
     &:hover::after {
+      visibility: hidden;
+      opacity: 0;
+    }
+    &:active::before,
+    &:active::after {
       visibility: hidden;
       opacity: 0;
     }
@@ -211,7 +221,7 @@
   // 浅色主题
   &.f-tooltip__bright {
     &::after {
-      background: #fff;
+      background-color: #fff;
       color: #333;
       border: 0.5px solid #333;
     }

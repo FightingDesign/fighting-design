@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FTree: ComponentPublicInstance = installWebComponent(Tree, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FTree

@@ -1,0 +1,21 @@
+{
+  "lang": "zh-CN",
+  "zh-CN": {
+    "empty": {
+      "content": "暂无数据"
+    },
+    "calendar": {
+      "weekList": ["日", "一", "二", "三", "四", "五", "六"]
+    },
+    "stickyCard": {
+      "openText": "关闭",
+      "closeText": "开启"
+    },
+    "pageHeader": {
+      "backText": "返回"
+    },
+    "input": {
+      "search": "搜索"
+    }
+  }
+}

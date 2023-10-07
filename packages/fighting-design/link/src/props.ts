@@ -1,67 +1,72 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { LinkType, LinkTargetType, LinkHoverType } from './interface'
-import type { HandleMouseEventInterface } from '../../_interface'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import { FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
+import type { ExtractPropTypes } from 'vue'
+import type { LinkState } from './interface'
+import type {
+  HandleEvent,
+  FightingType,
+  FightingIcon,
+  FightingTarget
+} from '../../_interface'
 
 export const Props = {
-  type: {
-    type: String as PropType<LinkType>,
-    default: (): LinkType => 'primary',
-    validator: (val: LinkType): boolean => {
-      return (
-        ['default', 'primary', 'success', 'danger', 'warning'] as const
-      ).includes(val)
-    }
-  },
-  href: {
-    type: String,
-    default: (): string => ''
-  },
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  state: {
-    type: String as PropType<LinkHoverType>,
-    default: (): LinkHoverType => '',
-    validator: (val: LinkHoverType): boolean => {
-      return (['line', 'bag', ''] as const).includes(val)
-    }
-  },
-  prohibit: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  target: {
-    type: String as PropType<LinkTargetType>,
-    default: (): LinkTargetType => '',
-    validator: (val: LinkTargetType): boolean => {
-      return (['_self', '_blank', '_parent', '_top', ''] as const).includes(val)
-    }
-  },
-  color: {
-    type: String,
-    default: (): string => ''
-  },
-  noCopy: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  noLink: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  beforeIcon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  afterIcon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  click: {
-    type: Function as PropType<HandleMouseEventInterface>,
-    default: (): null => null
-  }
+  /**
+   * link 的类型
+   *
+   * @values default primary success danger warning
+   */
+  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
+    return FIGHTING_TYPE.includes(val)
+  }),
+  /**
+   * 链接的地址
+   *
+   * @see href https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a?qs=%3Ca%3E#attr-href
+   */
+  href: setStringProp(),
+  /** 的文字大小 */
+  size: setStringNumberProp(),
+  /**
+   * 状态的样式状态
+   *
+   * @values line background
+   */
+  state: setStringProp<LinkState>(undefined, (val: LinkState): boolean => {
+    return (['line', 'background'] as const).includes(val)
+  }),
+  /** 是否禁用 */
+  disabled: setBooleanProp(),
+  /**
+   * 原生 target 属性
+   *
+   * @values _blank _self _parent _top
+   * @default _self
+   * @see target https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a#attr-target
+   */
+  target: setStringProp<FightingTarget>('_self', (val: FightingTarget): boolean => {
+    return FIGHTING_TARGET.includes(val)
+  }),
+  /** 自定义颜色 */
+  color: setStringProp(),
+  /** 自定义移入状态颜色 */
+  hoverColor: setStringProp(),
+  /** 是否禁止 copy */
+  noCopy: setBooleanProp(),
+  /** 是否禁止链接跳转及重新加载（取消默认事件） */
+  noLink: setBooleanProp(),
+  /** 之前的 icon */
+  beforeIcon: setObjectProp<FightingIcon>(),
+  /** 之后的 icon */
+  afterIcon: setObjectProp<FightingIcon>(),
+  /** 点击执行的回调 */
+  onClick: setFunctionProp<HandleEvent>()
 } as const
 
-export type LinkPropsType = ExtractPropTypes<typeof Props>
+/** link 组件 props 类型 */
+export type LinkProps = ExtractPropTypes<typeof Props>

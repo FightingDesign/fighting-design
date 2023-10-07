@@ -1,90 +1,61 @@
-<script lang="ts" setup name="FStickyCard">
+<script lang="ts" setup>
   import { Props } from './props'
   import { ref, computed, unref } from 'vue'
-  import { sizeChange } from '../../_utils'
-  import type { Ref, ComputedRef, CSSProperties } from 'vue'
-  import type {
-    ClassListInterface,
-    OrdinaryFunctionInterface
-  } from '../../_interface'
-  import type { StickyCardPropsType } from './props'
+  import { useRun, useGlobal, useList } from '../../_hooks'
+  import { FCollapseAnimation } from '../../collapse-animation'
 
-  const prop: StickyCardPropsType = defineProps(Props)
+  defineOptions({ name: 'FStickyCard' })
 
-  const isOpen: Ref<boolean> = ref<boolean>(prop.open)
+  const prop = defineProps(Props)
 
-  const handleClick: OrdinaryFunctionInterface = (): void => {
-    isOpen.value = !unref(isOpen)
+  const { getLang } = useGlobal()
+  const { run } = useRun()
+  const { styles } = useList(prop, 'sticky-card')
 
-    const { openEnd, closeEnd } = prop
+  /** 是否打开 */
+  const isOpened = ref<boolean>(prop.open)
 
-    if (unref(isOpen)) {
-      openEnd(true)
-    } else {
-      closeEnd(false)
-    }
+  /** 点击触发 */
+  const handleClick = (): void => {
+    isOpened.value = !isOpened.value
+    run(isOpened.value ? prop.onClose : prop.onOpen, isOpened.value)
   }
 
-  const optionText: ComputedRef<string> = computed((): string => {
+  /** 展示的文字内容 */
+  const optionText = computed((): string => {
     const { openText, closeText } = prop
 
-    return `${unref(isOpen) ? openText : closeText}`
+    /** 获取都当前语言 */
+    const lang = getLang('stickyCard').value
+
+    return unref(isOpened) ? openText || lang.openText : closeText || lang.closeText
   })
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { background, openHeight, borderColor } = prop
-
-    return {
-      '--sticky-card-content-background': background,
-      '--sticky-card-border-color': borderColor,
-      '--sticky-card-max-height': sizeChange(openHeight)
-    } as CSSProperties
-  })
-
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      return [
-        'f-sticky-card__box',
-        {
-          'f-sticky-card__box-open': unref(isOpen)
-        }
-      ] as const
-    }
-  )
+  /** 样式列表 */
+  const styleList = styles(['borderColor'])
 </script>
 
 <template>
   <div class="f-sticky-card" :style="styleList">
+    <!-- 展示的内容 -->
     <div v-if="$slots.source" class="f-sticky-card__source">
       <slot name="source" />
     </div>
 
-    <div :class="classList">
-      <div class="f-sticky-card__content">
+    <!-- 折叠的内容 -->
+    <div class="f-sticky-card__box">
+      <f-collapse-animation :opened="isOpened">
         <slot />
-      </div>
+      </f-collapse-animation>
     </div>
+
+    <!-- 点击展开 / 折叠的区域 -->
     <div
-      :class="[
-        'f-sticky-card__option',
-        { 'f-sticky-card__option-open': isOpen }
-      ]"
-      @click.self="handleClick"
+      :class="['f-sticky-card__option', { 'f-sticky-card__option-open': isOpened }]"
+      @click="handleClick"
     >
-      <!-- 左侧插槽 -->
-      <span class="f-sticky-card__option-left">
-        <slot name="optionLeft" />
-      </span>
-
-      <span class="f-sticky-card__option-text" @click.self="handleClick">
+      <span class="f-sticky-card__option-text">
         {{ optionText }}
-      </span>
-
-      <!-- 右侧插槽 -->
-      <span class="f-sticky-card__option-right">
-        <slot name="optionRight" />
       </span>
     </div>
   </div>

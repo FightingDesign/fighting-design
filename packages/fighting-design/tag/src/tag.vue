@@ -1,59 +1,46 @@
-<script lang="ts" setup name="FTag">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { computed, ref } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
-  import type { ComputedRef, Ref } from 'vue'
-  import type { TagPropsType } from './interface'
-  import type { ClassListInterface } from '../../_interface'
-  import type { HandleMouseEventInterface } from '../../_interface'
+  import { useList, useRun, useGlobal } from '../../_hooks'
 
-  const prop: TagPropsType = defineProps(Props)
+  defineOptions({ name: 'FTag' })
 
-  const isShow: Ref<boolean> = ref<boolean>(true)
+  const prop = defineProps(Props)
 
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { simple, type, size, block, round, line } = prop
+  const { getProp } = useGlobal(prop)
+  const { run } = useRun()
+  const { classes, styles } = useList(getProp(['size', 'type']), 'tag')
 
-      return [
-        'f-tag',
-        {
-          [`f-tag__${type}`]: type,
-          [`f-tag__${size}`]: size,
-          'f-tag__simple': simple,
-          'f-tag__block': block,
-          'f-tag__round': round,
-          'f-tag__line': line
-        }
-      ] as const
-    }
-  )
+  /** 类名列表 */
+  const classList = classes(['simple', 'type', 'size', 'block', 'round', 'line'], 'f-tag')
 
-  const handleClose: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    isShow.value = false
-    prop.closeEnd && prop.closeEnd(evt)
+  /** 样式列表 */
+  const styleList = styles(['color', 'background'])
+
+  /**
+   * 点击关闭按钮
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handleClose = (evt: MouseEvent): void => {
+    run(prop.onClose, evt)
   }
 </script>
 
 <template>
-  <div v-if="isShow" :class="classList" :style="{ background, color }">
-    <f-svg-icon v-if="beforeIcon">
-      <component :is="beforeIcon" />
-    </f-svg-icon>
+  <transition name="f-tag" appear>
+    <div :class="classList" :style="styleList" @click="onClick">
+      <!-- 之前的 icon -->
+      <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" />
 
-    <slot />
+      <slot />
 
-    <f-svg-icon v-if="afterIcon">
-      <component :is="afterIcon" />
-    </f-svg-icon>
+      <!-- 之后的 icon -->
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" />
 
-    <f-close-btn
-      v-if="close"
-      no-hover
-      :color="type === 'default' ? '#333' : '#fff'"
-      :size="14"
-      @click.stop="handleClose"
-    />
-  </div>
+      <!-- 关闭按钮 -->
+      <f-close-btn v-if="close" :size="14" :on-click="handleClose" />
+    </div>
+  </transition>
 </template>

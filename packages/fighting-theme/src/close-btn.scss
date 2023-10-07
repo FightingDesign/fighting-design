@@ -1,5 +1,3 @@
-@import '../config/const-color.scss';
-
 .f-close-btn {
   display: inline-flex;
   justify-content: center;
@@ -7,32 +5,28 @@
   cursor: pointer;
   padding: 2px;
   box-sizing: border-box;
+  user-select: none;
   transition: 0.3s;
-  color: $primary;
+  color: var(--close-btn-color, #2d5af1);
 
+  // 圆角的
   &.f-close-btn__round {
-    border-radius: 30px;
+    border-radius: 25px;
   }
 
-  &.f-close-btn__no-hover {
-    &:hover {
-      background: transparent;
-      color: lighten($primary, 10%);
-    }
+  &:not([class~='f-close-btn__disabled']):hover {
+    opacity: 0.8;
+    background-color: #f4f4f4;
+    color: var(--close-btn-hover-color, #ff0200);
   }
 
-  &:hover {
-    background: #eee;
-    color: lighten($primary, 10%);
+  &:not([class~='f-close-btn__disabled']):active {
+    opacity: 1;
   }
 
-  &:active {
-    color: darken($primary, 10%);
+  // 禁用状态
+  &__disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
   }
-}
-
-// 禁用状态
-.f-close-btn__disabled {
-  cursor: not-allowed;
-  color: lighten($primary, 20%);
 }

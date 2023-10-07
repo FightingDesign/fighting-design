@@ -1,0 +1,54 @@
+.f-menu {
+  display: flex;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+
+  // 水平的
+  &.f-menu__horizontal {
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 15px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #dee5fd;
+
+    // 前缀插槽 & 后缀插槽
+    .f-menu__before,
+    .f-menu__after {
+      padding: 7px 0;
+      box-sizing: border-box;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    // 主要内容
+    .f-menu__content {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  // 垂直的 & 内联的
+  &.f-menu__vertical,
+  &.f-menu__inline {
+    flex-direction: column;
+
+    // 前缀插槽 & 后缀插槽
+    .f-menu__before,
+    .f-menu__after {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      box-sizing: border-box;
+    }
+
+    // 主要内容
+    .f-menu__content {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}

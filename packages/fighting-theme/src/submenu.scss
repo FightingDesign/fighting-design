@@ -1,0 +1,187 @@
+.f-submenu {
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s, color 0.3s;
+
+  // 水平的
+  &.f-submenu__horizontal {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    height: 50px;
+    transition: background 0.3s;
+
+    .f-dropdown {
+      width: 100%;
+      height: 100%;
+
+      .f-trigger {
+        height: inherit;
+
+        .f-trigger__trigger {
+          height: inherit;
+
+          .f-submenu__title {
+            height: inherit;
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 16px;
+            box-sizing: border-box;
+
+            .f-svg-icon {
+              margin-left: 5px;
+            }
+
+            .f-svg-icon,
+            .f-submenu__title-text {
+              font-size: 15px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: #f4f4f4;
+
+      .f-dropdown {
+        .f-trigger__trigger {
+          .f-submenu__title {
+            > .f-svg-icon,
+            .f-submenu__title-text {
+              color: #2d5af1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 垂直的
+  &.f-submenu__vertical {
+    .f-dropdown {
+      width: 100%;
+      height: 100%;
+      transition: background 0.3s;
+
+      .f-trigger {
+        width: inherit;
+
+        .f-trigger__trigger {
+          .f-submenu__title {
+            width: 100%;
+            display: flex;
+            padding: 7px 16px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            height: 50px;
+            transition: background 0.3s;
+
+            .f-svg-icon {
+              margin-left: 5px;
+              transform: rotate(-90deg);
+            }
+
+            .f-svg-icon,
+            .f-submenu__title-text {
+              font-size: 15px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: #f4f4f4;
+
+      .f-dropdown {
+        .f-trigger__trigger {
+          .f-submenu__title {
+            > .f-svg-icon,
+            .f-submenu__title-text {
+              color: #2d5af1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 内联的
+  &.f-submenu__inline {
+    // 标题点击区域
+    .f-submenu__title {
+      display: flex;
+      padding: 7px 16px;
+      box-sizing: border-box;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      height: 50px;
+      transition: 0.3s;
+
+      .f-svg-icon {
+        margin-left: 5px;
+        transform: rotate(0);
+      }
+
+      .f-submenu__arrow-icon-animation {
+        transition: 0.3s;
+        transform: rotate(-180deg);
+      }
+
+      .f-svg-icon,
+      .f-submenu__title-text {
+        font-size: 15px;
+        color: #333;
+      }
+
+      &:hover {
+        .f-svg-icon,
+        .f-submenu__title-text {
+          color: #2d5af1;
+        }
+
+        .f-dropdown {
+          .f-trigger__trigger {
+            .f-submenu__title {
+              > .f-svg-icon,
+              .f-submenu__title-text {
+                color: #2d5af1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 主要内容
+    .f-submenu__content {
+      padding-left: 24px;
+      background-color: #f9f7f7;
+    }
+  }
+
+  // 禁用的
+  &.f-submenu__disabled {
+    .f-submenu__inline {
+      .f-submenu__title {
+        cursor: not-allowed;
+        opacity: 0.5;
+
+        &:hover {
+          .f-submenu__title-text {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}

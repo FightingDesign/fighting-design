@@ -1,22 +1,22 @@
-@import '../config/const-size.scss';
+.f-list {
+  // 不同尺寸
+  &__large {
+    --list-item-height: 40px;
+    --list-item-font-size: 16px;
+  }
 
-$listSize: (
-  (
-    name: 'large',
-    height: $large,
-    fontSize: 16px,
-    padding: 24px
-  ),
-  (
-    name: 'middle',
-    height: $middle,
-    fontSize: 14px,
-    padding: 12px
-  ),
-  (
-    name: 'small',
-    height: $small,
-    fontSize: 12px,
-    padding: 6px
-  )
-);
+  &__middle {
+    --list-item-height: 35px;
+    --list-item-font-size: 15px;
+  }
+
+  &__small {
+    --list-item-height: 30px;
+    --list-item-font-size: 14px;
+  }
+
+  &__mini {
+    --list-item-height: 25px;
+    --list-item-font-size: 13px;
+  }
+}

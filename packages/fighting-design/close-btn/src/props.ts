@@ -1,35 +1,29 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import {
+  setBooleanProp,
+  setStringNumberProp,
+  setStringProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { HandleMouse, FightingIcon } from '../../_interface'
 
 export const Props = {
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  disabled: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  color: {
-    type: String,
-    default: (): string => ''
-  },
-  icon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  click: {
-    type: Function as PropType<HandleMouseEventInterface>,
-    default: (): null => null
-  },
-  noHover: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  /** 自定义尺寸 */
+  size: setStringNumberProp(),
+  /** 是否为圆角的 */
+  round: setBooleanProp(),
+  /** 是否禁用 */
+  disabled: setBooleanProp(),
+  /** 自定义颜色 */
+  color: setStringProp(),
+  /** 鼠标移入的颜色 */
+  hoverColor: setStringProp(),
+  /** 自定义 icon */
+  icon: setObjectProp<FightingIcon>(),
+  /** 点击之后执行的回调 */
+  onClick: setFunctionProp<HandleMouse>()
 } as const
 
-export type CloseBtnPropsType = ExtractPropTypes<typeof Props>
+/** close-btn 组件 props 类型 */
+export type CloseBtnProps = ExtractPropTypes<typeof Props>

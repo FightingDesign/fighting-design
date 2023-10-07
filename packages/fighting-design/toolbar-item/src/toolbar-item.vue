@@ -1,27 +1,40 @@
-<script lang="ts" setup name="FToolbarItem">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import type { HandleMouseEventInterface } from '../../_interface'
-  import type { ToolbarItemPropsType } from './props'
+  import { useRun, useList } from '../../_hooks'
+  import { TOOLBAR_INDEX, TOOLBAR_ITEM_CLASS_NAME } from '../../_tokens'
 
-  const prop: ToolbarItemPropsType = defineProps(Props)
+  defineOptions({ name: 'FToolbarItem' })
 
-  // 点击
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    prop.click && prop.click(evt)
+  const prop = defineProps(Props)
+
+  const { run } = useRun()
+  const { styles } = useList(prop, 'toolbar-item')
+
+  /**
+   * 点击触发
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handleClick = (evt: MouseEvent): void => {
+    run(prop.onClick, evt)
   }
+
+  /** 样式列表 */
+  const styleList = styles(['color'])
+
+  /** 唯一值 */
+  const DATE_KEY: 'data-index' = TOOLBAR_INDEX
 </script>
 
 <template>
   <span
-    class="f-toolbar-item"
-    :data-key="dataKey"
-    :style="{ color }"
+    :class="TOOLBAR_ITEM_CLASS_NAME"
+    :[DATE_KEY]="index"
+    :style="styleList"
     @click="handleClick"
   >
-    <f-svg-icon v-if="icon" :size="iconSize">
-      <component :is="icon" />
-    </f-svg-icon>
+    <f-svg-icon v-if="icon" :size="iconSize" :icon="icon" />
     <slot />
   </span>
 </template>

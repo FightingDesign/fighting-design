@@ -1,29 +1,24 @@
-@import '../config/const-color.scss';
+@import '../config/var-notification';
 
 .f-notification {
   position: fixed;
-  transition: opacity 0.3s, top 0.4s;
-  padding: 13px 15px;
+  padding: 13px 20px;
   font-size: 14px;
+  min-width: 300px;
+  max-width: 500px;
+  box-sizing: border-box;
   overflow: hidden;
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  box-shadow: rgb(237 237 237) 1px 1px 7px, rgb(237 237 237) -1px -1px 7px;
-  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease-out;
-  background: #fff;
+  z-index: var(--notification-z-index, 4000);
+  background: var(--notification-background, #fff);
+  color: var(--notification-color);
 
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list);
-
-    &.f-notification__#{map-get($item, name)} .f-notification__icon {
-      color: map-get($item, simpleTextColor);
-    }
-  }
-
+  // 圆角的
   &.f-notification__round {
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   &.f-notification__top {
@@ -55,54 +50,59 @@
     bottom: 0;
   }
 
+  // 前缀 icon
+  &__icon {
+    margin-right: 10px;
+  }
+
+  // 主要内容
+  &__content {
+    padding-right: 21px;
+
+    // 标题
+    .f-notification__title {
+      margin: 0;
+      margin-bottom: 10px;
+      color: #19191a;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    // 内容
+    .f-notification__message {
+      font-size: 15px;
+      color: #4a4a4d;
+      font-weight: 500;
+    }
+  }
+
+  // 关闭按钮
   &__close {
     cursor: pointer;
-    text-align: center;
-    padding: 0 12px;
-    flex-shrink: 0;
+    position: absolute;
+    top: 12px;
+    right: 12px;
   }
 
-  &__icon {
-    margin-right: 8px;
+  // 左右动画
+  &-fade-right-enter-active,
+  &-fade-right-leave-active,
+  &-fade-left-enter-active,
+  &-fade-left-leave-active {
+    transition: all 0.3s ease-out;
   }
 
-  &__title-text {
-    margin: 0;
-    margin-bottom: 2px;
-    font-size: 16px;
+  // 右侧弹出
+  &-fade-right-enter-from,
+  &-fade-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
   }
-}
 
-.f-notification-fade-right-enter-active,
-.f-notification-fade-left-enter-active {
-  transition: all 0.15s ease-out;
-}
-
-.f-notification-fade-right-leave-active,
-.f-notification-fade-left-leave-active {
-  transition: all 0.15s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.f-notification-fade-right-enter-from,
-.f-notification-fade-right-leave-to {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-.f-notification__right.f-notification-fade-right-enter-from,
-.f-notification__right.f-notification-fade-right-leave-to {
-  opacity: 0;
-  transform: translate(-50%, -100%);
-}
-
-.f-notification-fade-left-enter-from,
-.f-notification-fade-left-leave-to {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-.f-notification__left.f-notification-fade-left-enter-from,
-.f-notification__left.f-notification-fade-left-leave-to {
-  opacity: 0;
-  transform: translate(-50%, 100%);
+  // 左侧弹出
+  &-fade-left-enter-from,
+  &-fade-left-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }

@@ -1,26 +1,30 @@
-@import '../config/const-color.scss';
-@import '../config/const-size.scss';
+@import '../config/var-input';
 
 .f-input {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  height: 35px;
-  width: 100%;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  height: var(--input-height);
+  width: var(--input-width);
 
   // 主容器
   &__wrapper {
-    display: inline-flex;
+    display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
     padding: 3px 7px;
     box-sizing: border-box;
-    transition: 0.3s;
-    background: #eee;
     height: 100%;
-    border: 1px solid transparent;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+    background: #fff;
+    outline: 4px solid transparent;
+    border-radius: 5px;
 
     .f-input__icon {
       color: #333;
@@ -33,28 +37,48 @@
       border: none;
       outline: none;
       background: none;
+      cursor: pointer;
       margin: 0 5px;
-      color: #333;
-      font-size: 14px;
+      font-size: var(--input-font-size, 14px);
+      color: var(--input-text-color);
+      user-select: none;
+      font-family: Arial, sans-serif;
+
+      // 禁用原生右侧上下选择箭头
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
+      // 占位符颜色
+      &::placeholder {
+        color: var(--input-placeholder-color, #b1b1b1);
+      }
     }
 
-    // 清楚按钮
+    // 清除按钮
     .f-input__show-password,
     .f-input__clear-btn {
       cursor: pointer;
-      color: rgb(195, 195, 195);
+      color: #c3c3c3;
     }
 
     &:focus-within {
-      background: #fff;
-      border-color: $primary;
+      outline: 4px solid rgba(92, 128, 245, 0.5);
     }
   }
 
-  // 搜索
+  // 搜索框
   &__search {
     cursor: pointer;
 
+    // 移除 input 圆角
+    .f-input__wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    // 移除 button 圆角
     .f-button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -65,43 +89,13 @@
   &__disabled {
     cursor: not-allowed;
 
-    .f-input__clear-btn,
     .f-input__input {
       cursor: not-allowed;
-      color: rgb(117, 117, 117);
+      color: #757575;
     }
-  }
 
-  // 不同尺寸
-  &.f-input__large {
-    height: $large;
-
-    .f-input__input {
-      font-size: 15px;
-    }
-  }
-
-  &.f-input__middle {
-    height: $middle;
-
-    .f-input__input {
-      font-size: 14px;
-    }
-  }
-
-  &.f-input__small {
-    height: $small;
-
-    .f-input__input {
-      font-size: 13px;
-    }
-  }
-
-  &.f-input__mini {
-    height: $mini;
-
-    .f-input__input {
-      font-size: 12px;
+    .f-input__clear-btn {
+      cursor: not-allowed;
     }
   }
 }

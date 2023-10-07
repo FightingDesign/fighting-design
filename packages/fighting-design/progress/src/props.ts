@@ -1,63 +1,51 @@
-import type { PropType, ExtractPropTypes } from 'vue'
-import type { ProgressType } from './interface'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setNumberProp
+} from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
+import type { ExtractPropTypes, InjectionKey } from 'vue'
+import type { FightingType } from '../../_interface'
+import type { ProgressProvide, ProgressState } from './interface'
 
 export const Props = {
-  percentage: {
-    type: Number,
-    default: (): number => 10,
-    validator: (val: number): boolean => {
-      return val >= 0 && val <= 100
-    }
-  },
-  type: {
-    type: String as PropType<ProgressType>,
-    default: (): ProgressType => 'primary',
-    validator: (val: ProgressType): boolean => {
-      return (['primary', 'success', 'danger', 'warning'] as const).includes(
-        val
-      )
-    }
-  },
-  square: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  linear: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  showText: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  textColor: {
-    type: String,
-    default: (): string => ''
-  },
-  color: {
-    type: String,
-    default: (): string => ''
-  },
-  background: {
-    type: String,
-    default: (): string => ''
-  },
-  width: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  height: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '6px'
-  },
-  stripe: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  textInside: {
-    type: Boolean,
-    default: (): boolean => false
-  }
+  /** 百分比 */
+  percentage: setNumberProp(0),
+  /** 状态 */
+  state: setStringProp<ProgressState>('line', (val: ProgressState): boolean => {
+    return ['line', 'circle'].includes(val)
+  }),
+  /**
+   * 进度条类型
+   *
+   * @values default primary success danger warning info
+   * @default primary
+   */
+  type: setStringProp<FightingType>('primary', (val: FightingType): boolean => {
+    return FIGHTING_TYPE.includes(val)
+  }),
+  /** 自定义高度 */
+  height: setStringNumberProp(),
+  /** 是否显示百分比文字内容 */
+  showText: setBooleanProp(true),
+  /** 直径 */
+  diameter: setNumberProp(400),
+  /** 是否在外部显示文本 */
+  outsideText: setBooleanProp(),
+  /** 百分比文字的颜色 */
+  textColor: setStringProp(),
+  /** 进度条颜色 */
+  color: setStringProp(),
+  /** 进度条背景色 */
+  background: setStringProp(),
+  /** 是否开启条纹效果 */
+  stripe: setBooleanProp()
 } as const
 
-export type ProgressPropsType = ExtractPropTypes<typeof Props>
+/** progress 组件 props 类型 */
+export type ProgressProps = ExtractPropTypes<typeof Props>
+
+/** progress 组件注入的依赖项 */
+export const PROGRESS_PROPS_KEY: InjectionKey<ProgressProvide> =
+  Symbol('progress-props-key')

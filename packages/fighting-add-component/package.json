@@ -1,0 +1,19 @@
+{
+  "name": "add-component",
+  "version": "1.0.0",
+  "description": "Add a new component catalog file",
+  "type": "module",
+  "main": "index.ts",
+  "module": "index.ts",
+  "scripts": {
+    "new": "node --trace-warnings --loader ts-node ./index.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@juln/change-case": "^0.0.4",
+    "@types/fs-extra": "^9.0.13",
+    "fs-extra": "^10.1.0",
+    "super-ejs": "^1.0.2",
+    "ts-node": "^10.9.1"
+  }
+}

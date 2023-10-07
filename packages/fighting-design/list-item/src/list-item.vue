@@ -1,31 +1,32 @@
-<script lang="ts" setup name="FListItem">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { computed, inject } from 'vue'
-  import { listPropsKey } from '../../list/src/props'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ListPropsType } from '../../list/src/props'
-  import type { ListItemPropsType } from './props'
+  import { inject, reactive } from 'vue'
+  import { LIST_PROPS_KEY } from '../../list/src/props'
+  import { useList } from '../../_hooks'
+  import type { ListProps } from '../../list/src/props'
 
-  const prop: ListItemPropsType = defineProps(Props)
-  const injectListProps: ListPropsType = inject(listPropsKey) as ListPropsType
+  defineOptions({ name: 'FListItem' })
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { textColor, borderColor } = injectListProps
-    const { background, color } = prop
+  const prop = defineProps(Props)
 
-    return {
-      background,
-      color: color || textColor,
-      borderColor
-    } as const
-  })
+  /** 获取父组件注入的依赖项 */
+  const parentInject: ListProps | null = inject(LIST_PROPS_KEY, null)
+
+  const { styles } = useList(
+    reactive({
+      borderColor: parentInject && parentInject.borderColor,
+      textColor: prop.color || (parentInject && parentInject.textColor),
+      background: prop.background
+    }),
+    'list-item'
+  )
+
+  /** 样式列表 */
+  const styleList = styles(['textColor', 'borderColor', 'background'])
 </script>
 
 <template>
-  <div role="listitem" class="f-list-item" :style="styleList">
-    <li class="f-list-item__li">
-      <slot />
-    </li>
-  </div>
+  <li role="listitem" class="f-list-item" :style="styleList">
+    <slot />
+  </li>
 </template>

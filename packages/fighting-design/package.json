@@ -1,6 +1,6 @@
 {
   "name": "fighting-design",
-  "version": "0.8.1-alpha.1",
+  "version": "0.64.0",
   "description": "Fighting design can quickly build interactive interfaces in vue3 applications, which looks good.",
   "keywords": [
     "fighting",
@@ -47,9 +47,12 @@
     "theme/*",
     "*.css"
   ],
+  "peerDependencies": {
+    "vue": "3.3.0"
+  },
   "author": {
-    "name": "tyh2001",
-    "url": "https://tianyuhao.cn"
+    "name": "Tyh2001",
+    "url": "https://github.com/Tyh2001"
   },
   "license": "MIT",
   "bugs": {

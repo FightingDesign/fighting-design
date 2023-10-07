@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FSwitch: ComponentPublicInstance = installWebComponent(Switch, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FSwitch

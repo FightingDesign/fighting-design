@@ -1,57 +1,61 @@
-<script lang="ts" setup name="FToolbar">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { computed } from 'vue'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type {
-    ClassListInterface,
-    HandleMouseEventInterface
-  } from '../../_interface'
-  import type { ToolbarPropsType, ToolbarClickEmitInterface } from './interface'
+  import { useSlots } from 'vue'
+  import { useList, useRun } from '../../_hooks'
+  import { TOOLBAR_INDEX, TOOLBAR_ITEM_CLASS_NAME } from '../../_tokens'
 
-  const prop: ToolbarPropsType = defineProps(Props)
+  defineOptions({ name: 'FToolbar' })
 
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { size, round, fixed } = prop
+  const prop = defineProps(Props)
+  const slot = useSlots()
 
-      return [
-        'f-toolbar',
-        {
-          [`f-toolbar__${size}`]: size,
-          'f-toolbar__round': round,
-          'f-toolbar__fixed': fixed
-        }
-      ] as const
+  const { run } = useRun()
+  const { classes, styles } = useList(prop, 'toolbar')
+
+  /**
+   * 点击触发
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handleClick = (evt: MouseEvent): void => {
+    if (!slot.default) return
+
+    /** 获取到元素节点 */
+    const target: HTMLElement = evt.target as HTMLElement
+
+    /**
+     * 判断当前点击元素的类名是否是子元素的类名
+     *
+     * 类名抽离，拒绝硬编码
+     */
+    if (target.className === TOOLBAR_ITEM_CLASS_NAME) {
+      /**
+       * 当前元素的唯一值
+       *
+       * 使用 target.dataset.index 属性也可以获取到，但是 dataset 兼容部分浏览器不兼容
+       *
+       * @see HTMLElement.dataset https://caniuse.com/?search=HTMLElement.dataset
+       * @see HTMLElement.dataset https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/dataset
+       *
+       * 所以改为使用 getAttribute
+       *
+       * @see Element.getAttribute() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getAttribute
+       */
+      const index: string | null = target.getAttribute(TOOLBAR_INDEX)
+
+      run(prop.onClick, index, evt)
     }
-  )
-
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { textColor, background, width, height } = prop
-
-    return {
-      color: textColor,
-      background,
-      width,
-      height
-    } as const
-  })
-
-  // 点击的时候
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    const path: HTMLElement[] = evt.composedPath() as HTMLElement[]
-
-    const node: HTMLElement | undefined = path.find(
-      (item: HTMLElement): boolean => item.className === 'f-toolbar-item'
-    )
-
-    const key: string | undefined = node ? node.dataset.key : ''
-
-    prop.click && prop.click({ evt, key } as ToolbarClickEmitInterface)
   }
+
+  /** 类名列表 */
+  const classList = classes(['size', 'round', 'fixed'], 'f-toolbar')
+
+  /** 样式列表 */
+  const styleList = styles(['textColor', 'background', 'width', 'height'])
 </script>
 
 <template>
-  <div :class="classList" :style="styleList" @click="handleClick">
+  <div role="toolbar" :class="classList" :style="styleList" @click="handleClick">
     <slot />
   </div>
 </template>

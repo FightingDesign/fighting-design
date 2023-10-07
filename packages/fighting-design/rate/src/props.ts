@@ -1,61 +1,42 @@
-import type { PropType, ExtractPropTypes, VNode, Component } from 'vue'
-import type { RateChangeInterface } from './interface'
+import {
+  setBooleanProp,
+  setStringProp,
+  setStringNumberProp,
+  setObjectProp,
+  setNumberProp,
+  setFunctionProp,
+  setArrayProp
+} from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { RateChange } from './interface'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
-  modelValue: {
-    type: Number,
-    default: (): number => 0,
-    validator: (val: number): boolean => val >= 0
-  },
-  max: {
-    type: Number,
-    default: (): number => 5,
-    validator: (val: number): boolean => val > 0
-  },
-  effectColor: {
-    type: String,
-    default: (): string => '#fcc202'
-  },
-  invalidColor: {
-    type: String,
-    default: (): string => '#eef'
-  },
-  readonly: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  icon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  size: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => '25px'
-  },
-  textShow: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  textColor: {
-    type: String,
-    default: (): string => ''
-  },
-  textArr: {
-    type: Array as PropType<string[]>,
-    default: (): string[] => ['极差', '失望', '一般', '不错', '很棒']
-  },
-  textSize: {
-    type: [String, Number] as PropType<string | number>,
-    default: (): string => ''
-  },
-  change: {
-    type: Function as PropType<RateChangeInterface>,
-    default: (): null => null
-  }
+  /** 绑定值 */
+  modelValue: setNumberProp(0),
+  /** 最大分值，展示的星星数量 */
+  max: setNumberProp(5),
+  /** 选中颜色 */
+  effectColor: setStringProp<string>('#fcc202'),
+  /** 未选中的颜色 */
+  invalidColor: setStringProp<string>('#eef'),
+  /** 是否只读 */
+  readonly: setBooleanProp(),
+  /** 自定义 icon */
+  icon: setObjectProp<FightingIcon>(),
+  /** 图标尺寸 */
+  size: setStringNumberProp(25),
+  /** 是否展示辅助文字 */
+  textShow: setBooleanProp(),
+  /** 辅助文字颜色 */
+  textColor: setStringProp(),
+  /** 辅助文字数组 */
+  textArr: setArrayProp<string[]>(['极差', '失望', '一般', '不错', '很棒']),
+  /** 辅助文字尺寸 */
+  textSize: setStringNumberProp(),
+  /** 当分数发生改变时触发 */
+  onChange: setFunctionProp<RateChange>()
 } as const
 
-export const Emits = {
-  'update:modelValue': (val: number): number => val
-} as const
-
-export type RatePropsType = ExtractPropTypes<typeof Props>
+/** rate 组件 props 类型 */
+export type RateProps = ExtractPropTypes<typeof Props>

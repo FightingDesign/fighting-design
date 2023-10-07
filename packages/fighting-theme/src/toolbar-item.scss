@@ -1,9 +1,14 @@
 .f-toolbar-item {
   margin: 0 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   user-select: none;
   padding: 10px 15px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  color: var(--toolbar-item-color);
+
+  * {
+    pointer-events: none;
+  }
 }

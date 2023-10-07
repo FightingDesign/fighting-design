@@ -1,0 +1,9 @@
+.f-count-down {
+  display: inline-block;
+  margin: 5px;
+
+  .f-count-down__text {
+    color: var(--count-down-font-color, 18px);
+    font-size: var(--count-down-font-size, 'inherit');
+  }
+}

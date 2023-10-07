@@ -1,0 +1,16 @@
+{
+  "zh-CN": {
+    "subtitle": "可在 vue3 应用程序中快速构建交互界面，看起来还不错。",
+    "introduce": "是一款灵活、优质的组件库，为开发者准备。希望开发者可以借用其中的设计，在不久的将来，孕育出更高阶的组件库。",
+    "start": "开始使用",
+    "contributors": "贡献者",
+    "join": "加入其中"
+  },
+  "en-US": {
+    "subtitle": "You can quickly build an interactive interface in the vue3 application, which looks good.",
+    "introduce": "is a flexible and high-quality component library for developers. It is hoped that developers can borrow the design from it and breed higher level component libraries in the near future.",
+    "start": "Start using",
+    "contributors": "Contributors",
+    "join": "Join"
+  }
+}

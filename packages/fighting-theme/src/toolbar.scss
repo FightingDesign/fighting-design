@@ -1,25 +1,17 @@
-@import '../config/var-toolbar.scss';
-@import '../config/const-color.scss';
+@import '../config/var-toolbar';
 
 .f-toolbar {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   box-sizing: border-box;
-  background: $default;
-  flex-wrap: wrap;
-  cursor: default;
-
-  // 不同尺寸
-  @for $list from 1 to (length($toolbarSize) + 1) {
-    $item: nth($toolbarSize, $list); // 获取数组中第i项的值
-
-    &.f-toolbar__#{map-get($item, name)} {
-      min-height: map-get($item, height);
-      padding: 0 map-get($item, padding);
-      font-size: map-get($item, fontSize);
-    }
-  }
+  justify-content: center;
+  min-height: var(--toolbar-height);
+  padding: 0 var(--toolbar-padding);
+  font-size: var(--toolbar-font-size);
+  width: var(--toolbar-width);
+  color: var(--toolbar-text-color);
+  background-color: var(--toolbar-background, #f0f0f0);
 
   // 圆角
   &.f-toolbar__round {
@@ -28,7 +20,7 @@
 
   // 固定定位
   &.f-toolbar__fixed {
-    position: fixed;
     z-index: 999;
+    position: fixed;
   }
 }

@@ -1,40 +1,32 @@
-<script lang="ts" setup name="FSwap">
-  import { Props, Emits } from './props'
+<script lang="ts" setup>
+  import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { computed } from 'vue'
-  import type { ComputedRef } from 'vue'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { SwapPropsType } from './props'
+  import { useRun, useList } from '../../_hooks'
 
-  const prop: SwapPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  defineOptions({ name: 'FSwap' })
 
-  // 切换时执行
-  const changeSwap: OrdinaryFunctionInterface = (): void => {
-    emit('update:modelValue', !prop.modelValue)
-    if (prop.onChange) {
-      prop.onChange(!prop.modelValue)
-    }
+  const prop = defineProps(Props)
+  const modelValue = defineModel<boolean>({ default: false, type: Boolean })
+
+  const { run } = useRun()
+  const { classes } = useList(prop, 'swap')
+
+  /**
+   * 点击切换时执行
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handelClick = (evt: MouseEvent): void => {
+    modelValue.value = !modelValue.value
+    run(prop.onChange, evt, !prop.modelValue)
   }
 
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { modelValue, type } = prop
-
-      return [
-        'f-swap',
-        modelValue ? `f-swap__${type}-on` : `f-swap__${type}-off`
-      ] as const
-    }
-  )
+  /** 类名列表 */
+  const classList = classes(['type', 'modelValue'], 'f-swap')
 </script>
 
 <template>
-  <div role="switch" :class="classList" @click="changeSwap">
+  <div role="switch" :class="classList" @click="handelClick">
     <f-svg-icon :icon="modelValue ? iconOn : iconOff" :size="size" />
   </div>
 </template>

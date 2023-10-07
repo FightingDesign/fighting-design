@@ -1,127 +1,80 @@
-<script lang="ts" setup name="FButton">
-  import { computed, ref, h } from 'vue'
-  import { FSvgIcon } from '../../svg-icon'
-  import { FIconLoadingAVue } from '../../_svg'
+<script lang="ts" setup>
   import { Props } from './props'
-  import { Ripples, ChangeColor, sizeChange } from '../../_utils'
-  import type { ComputedRef, Ref, CSSProperties } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { ButtonPropsType } from './props'
+  import { ref, toRefs, reactive, computed } from 'vue'
+  import { FSvgIcon } from '../../svg-icon'
+  import { FIconLoadingA } from '../../_svg'
+  import { useRipples, useRun, useGlobal, useButton } from '../../_hooks'
+  import type { RipplesOptions } from '../../_hooks'
+  import type { FightingIcon } from '../../_interface'
 
-  const prop: ButtonPropsType = defineProps(Props)
+  defineOptions({ name: 'FButton' })
 
-  // dom 元素
-  const FButton: Ref<HTMLButtonElement> = ref<HTMLButtonElement>(
-    null as unknown as HTMLButtonElement
-  )
+  const prop = defineProps(Props)
 
-  /**
-   * 类名列表
-   */
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const {
-        type,
-        round,
-        simple,
-        block,
-        disabled,
-        loading,
-        bold,
-        size,
-        text,
-        circle,
-        color
-      } = prop
+  const { getType } = useGlobal(prop)
+  const { run } = useRun()
+  const { classList, styleList } = useButton(prop)
 
-      return [
-        'f-button',
-        {
-          [`f-button__${size}`]: size,
-          [`f-button__${type}`]: !color,
-          'f-button__disabled': disabled || loading,
-          'f-button__simple': simple && !color,
-          'f-button__circle': circle,
-          'f-button__round': round,
-          'f-button__block': block,
-          'f-button__bold': bold,
-          'f-button__color': color,
-          'f-button__text': text && !color
-        }
-      ] as const
-    }
-  )
+  /** 元素节点 */
+  const FButtonRef = ref<HTMLButtonElement | undefined>()
 
   /**
    * 按钮点击
+   *
+   * @param { Object } evt 事件对象
    */
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
-    const { disabled, loading, ripples } = prop
+  const handleClick = (evt: MouseEvent): void => {
+    const { disabled, loading, ripples } = toRefs(prop)
 
-    if (disabled || loading) {
+    /** 禁用或 loading 则返回 */
+    if (disabled.value || loading.value) {
+      /**
+       * 阻止默认行为
+       *
+       * @see event.preventDefault https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault
+       */
       evt.preventDefault()
       return
     }
 
-    if (ripples) {
-      const { ripplesColor, simple, text, type } = prop
+    /** 如果有涟漪效果 */
+    if (ripples.value) {
+      const { ripplesColor, simple, text } = toRefs(prop)
 
-      const ripples: Ripples = new Ripples(
+      /** 涟漪类需要的选项列表 */
+      const options: RipplesOptions = reactive({
+        duration: 700,
+        component: 'f-button',
+        className: 'f-button__ripples',
+        ripplesColor: ripplesColor.value,
+        simple: simple.value,
+        text: text.value,
+        type: getType()
+      })
+
+      const { runRipples } = useRipples(
         evt,
-        FButton.value as HTMLButtonElement,
-        {
-          duration: 700,
-          component: 'f-button',
-          className: 'f-button__ripples',
-          ripplesColor,
-          simple,
-          text,
-          type
-        } as const
+        FButtonRef.value as HTMLButtonElement,
+        options
       )
-      ripples.clickRipples()
+
+      runRipples()
     }
 
-    prop.click && prop.click(evt)
+    run(prop.onClick, evt)
   }
 
-  /**
-   * 样式列表
-   */
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { fontSize, fontColor, shadow, color } = prop
-
-    if (color) {
-      const changeColor: ChangeColor = new ChangeColor(color)
-      const light: string = changeColor.getLightColor(0.4)
-      const dark: string = changeColor.getDarkColor(0.2)
-
-      return {
-        '--f-button-font-size': sizeChange(fontSize),
-        '--f-button-font-color': fontColor,
-        '--f-button-box-shadow': shadow,
-        '--f-button-default-color': color,
-        '--f-button-hover-color': light,
-        '--f-button-active-color': dark
-      } as CSSProperties
-    }
-
-    return {
-      '--f-button-font-size': sizeChange(fontSize),
-      '--f-button-font-color': fontColor,
-      '--f-button-box-shadow': shadow
-    } as CSSProperties
+  /** 前缀 icon */
+  const beforeIconNode = computed((): FightingIcon => {
+    return prop.loading ? prop.loadingIcon || FIconLoadingA : prop.beforeIcon
   })
 </script>
 
 <template>
   <template v-if="href">
     <a
-      ref="FButton"
-      role="button"
+      ref="FButtonRef"
+      role="link"
       tabindex="0"
       :class="classList"
       :href="href"
@@ -132,7 +85,7 @@
       <f-svg-icon
         v-if="loading || beforeIcon"
         :class="{ 'f-button__loading-animation': loading }"
-        :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
+        :icon="beforeIconNode"
         :size="16"
       />
 
@@ -144,7 +97,7 @@
 
   <template v-else>
     <button
-      ref="FButton"
+      ref="FButtonRef"
       role="button"
       tabindex="0"
       :class="classList"
@@ -157,14 +110,19 @@
     >
       <f-svg-icon
         v-if="loading || beforeIcon"
-        :class="{ 'f-button__loading-animation': loading }"
-        :icon="loading ? loadingIcon || h(FIconLoadingAVue) : beforeIcon"
+        :class="['f-button_before-icon', { 'f-button__loading-animation': loading }]"
+        :icon="loading ? loadingIcon || FIconLoadingA : beforeIcon"
         :size="16"
       />
 
       <slot />
 
-      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="16" />
+      <f-svg-icon
+        v-if="afterIcon"
+        class="f-button_after-icon"
+        :icon="afterIcon"
+        :size="16"
+      />
     </button>
   </template>
 </template>

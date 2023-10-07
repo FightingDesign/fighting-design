@@ -1,0 +1,36 @@
+.f-select {
+  width: var(--select-width);
+  display: inline-block;
+  cursor: pointer;
+
+  &__arrow {
+    transition: 0.3s;
+    transform: rotate(0);
+
+    &.f-select__arrow-active {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    max-height: 400px;
+    overflow: auto;
+    width: var(--select-width);
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* 滚动条轨道 */
+    &::-webkit-scrollbar-track {
+      background-color: #fff;
+    }
+
+    /* 滚动条滑块 */
+    &::-webkit-scrollbar-thumb {
+      background-color: #dcdcdc;
+      border-radius: 4px;
+    }
+  }
+}

@@ -1,28 +1,125 @@
-$large: 35px;
-$middle: 30px;
-$small: 25px;
-$mini: 20px;
+.f-tag {
+  --tag-border-radius: 2px;
 
-// 不同尺寸
-$tagSize: (
-  (
-    name: 'large',
-    size: $large,
-    fontSize: 15px
-  ),
-  (
-    name: 'middle',
-    size: $middle,
-    fontSize: 14px
-  ),
-  (
-    name: 'small',
-    size: $small,
-    fontSize: 13px
-  ),
-  (
-    name: 'mini',
-    size: $mini,
-    fontSize: 12px
-  )
-);
+  // 不同类型
+  &__default {
+    --tag-color: #1d1d1f;
+    --tag-background: #f0f0f0;
+  }
+
+  &__primary {
+    --tag-color: #fbfbfd;
+    --tag-background: #2d5af1;
+  }
+
+  &__success {
+    --tag-color: #fbfbfd;
+    --tag-background: #52b35e;
+  }
+
+  &__danger {
+    --tag-color: #fbfbfd;
+    --tag-background: #ff0200;
+  }
+
+  &__warning {
+    --tag-color: #fbfbfd;
+    --tag-background: #fcc202;
+  }
+
+  &__info {
+    --tag-color: #fbfbfd;
+    --tag-background: #1d1d1f;
+  }
+
+  // 简约状态
+  &__default.f-tag__simple {
+    --tag-color: #333;
+    --tag-background: #f8f8f8;
+  }
+
+  &__primary.f-tag__simple {
+    --tag-color: #2d5af1;
+    --tag-background: #dee5fd;
+  }
+
+  &__success.f-tag__simple {
+    --tag-color: #52b35e;
+    --tag-background: #e7f4e8;
+  }
+
+  &__danger.f-tag__simple {
+    --tag-color: #ff0200;
+    --tag-background: #ffd7d6;
+  }
+
+  &__warning.f-tag__simple {
+    --tag-color: #fcc202;
+    --tag-background: #fff5d6;
+  }
+
+  &__info.f-tag__simple {
+    --tag-color: #1d1d1f;
+    --tag-background: #bdbdbd;
+  }
+
+  // 线性的
+  &__default.f-tag__line {
+    --tag-color: #333;
+    --tag-background: none;
+  }
+
+  &__primary.f-tag__line {
+    --tag-color: #2d5af1;
+    --tag-background: none;
+  }
+
+  &__success.f-tag__line {
+    --tag-color: #52b35e;
+    --tag-background: none;
+  }
+
+  &__danger.f-tag__line {
+    --tag-color: #ff0200;
+    --tag-background: none;
+  }
+
+  &__warning.f-tag__line {
+    --tag-color: #fcc202;
+    --tag-background: none;
+  }
+
+  &__info.f-tag__line {
+    --tag-color: #1d1d1f;
+    --tag-background: none;
+  }
+
+  // 不同尺寸
+  &__large {
+    --tag-height: 40px;
+    --tag-padding: 30px;
+    --tag-font-size: 16px;
+  }
+
+  &__middle {
+    --tag-height: 35px;
+    --tag-padding: 25px;
+    --tag-font-size: 15px;
+  }
+
+  &__small {
+    --tag-height: 30px;
+    --tag-padding: 20px;
+    --tag-font-size: 14px;
+  }
+
+  &__mini {
+    --tag-height: 25px;
+    --tag-padding: 15px;
+    --tag-font-size: 13px;
+  }
+
+  &__round {
+    --tag-border-radius: 25px;
+  }
+}

@@ -2,15 +2,14 @@
   "name": "docs",
   "private": true,
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
   },
   "dependencies": {
-    "vitepress": "1.0.0-alpha.26"
+    "vitepress": "1.0.0-beta.3"
   },
   "devDependencies": {
-    "highlight.js": "^11.6.0",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0"
   }

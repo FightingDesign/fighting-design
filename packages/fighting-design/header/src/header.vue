@@ -1,25 +1,19 @@
-<script lang="ts" setup name="FHeader">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { computed } from 'vue'
-  import { sizeChange } from '../../_utils'
-  import type { CSSProperties, ComputedRef } from 'vue'
-  import type { HeaderPropsType } from './props'
+  import { useList } from '../../_hooks'
 
-  const prop: HeaderPropsType = defineProps(Props)
+  defineOptions({ name: 'FHeader' })
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { height, padding } = prop
+  const prop = defineProps(Props)
 
-    return {
-      '--f-header-height': sizeChange(height),
-      '--f-header-padding': sizeChange(padding)
-    } as CSSProperties
-  })
+  const { styles } = useList(prop, 'header')
+
+  /** 样式列表 */
+  const styleList = styles(['height', 'padding'])
 </script>
 
 <template>
-  <header class="f-header" :style="styleList">
+  <header role="banner" class="f-header" :style="styleList">
     <slot />
   </header>
 </template>

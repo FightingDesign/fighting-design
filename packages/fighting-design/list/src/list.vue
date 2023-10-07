@@ -1,42 +1,21 @@
-<script lang="ts" setup name="FList">
-  import { provide, computed } from 'vue'
-  import { Props, listPropsKey } from './props'
-  import { sizeChange } from '../../_utils'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
-  import type { ListPropsType } from './props'
+<script lang="ts" setup>
+  import { Props, LIST_PROPS_KEY } from './props'
+  import { provide } from 'vue'
+  import { useList } from '../../_hooks'
 
-  const prop: ListPropsType = defineProps(Props)
+  defineOptions({ name: 'FList' })
 
-  provide<ListPropsType>(listPropsKey, prop)
+  const prop = defineProps(Props)
 
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { maxHeight, zebra, center, size } = prop
+  provide(LIST_PROPS_KEY, prop)
 
-      return [
-        'f-list',
-        {
-          [`f-list__${size}`]: size,
-          'f-list__scroll': maxHeight,
-          'f-list__zebra': zebra,
-          'f-list__center': center
-        }
-      ] as const
-    }
-  )
+  const { classes, styles } = useList(prop, 'list')
 
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { maxHeight, borderColor, listStyle } = prop
+  /** 样式列表 */
+  const styleList = styles(['borderColor', 'maxHeight', 'zebraColor'])
 
-    return {
-      borderColor,
-      maxHeight: sizeChange(maxHeight),
-      listStyle
-    } as const
-  })
+  /** 类名列表 */
+  const classList = classes(['zebra', 'center', 'size'], 'f-list')
 </script>
 
 <template>
@@ -44,7 +23,9 @@
     <header v-if="$slots.header" class="f-list__header">
       <slot name="header" />
     </header>
+
     <slot />
+
     <footer v-if="$slots.footer" class="f-list__footer">
       <slot name="footer" />
     </footer>

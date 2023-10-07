@@ -1,0 +1,21 @@
+.f-date-picker {
+  display: inline-flex;
+
+  .f-dropdown {
+    .f-date-picker__content {
+      padding: 14px;
+      box-sizing: border-box;
+      width: 320px;
+    }
+  }
+}
+
+.f-trigger__content-box {
+  // 操作栏
+  .f-date-picker__option {
+    padding: 9px 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+  }
+}

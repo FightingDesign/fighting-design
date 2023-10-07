@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FCheckbox: ComponentPublicInstance = installWebComponent(Checkbox, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FCheckbox

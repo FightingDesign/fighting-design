@@ -1,58 +1,107 @@
-<script lang="ts" setup name="FWatermark">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { createWatermark } from '../../_utils'
-  import { ref, onMounted, computed } from 'vue'
-  import { useFilterProps } from '../../_hooks'
-  import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { WatermarkPropsType } from './props'
-  import type { CreateWatermarkPropsInterface } from '../../_utils/create-watermark/interface'
+  import { ref, onMounted, onUnmounted } from 'vue'
+  import { useWatermark } from '../../_hooks'
 
-  const prop: WatermarkPropsType = defineProps(Props)
+  defineOptions({ name: 'FWatermark' })
 
-  const watermarkStyleList: Ref<CSSProperties> = ref<CSSProperties>(
-    null as unknown as CSSProperties
-  )
+  const prop = defineProps(Props)
 
-  // 文字水印
-  const baseWatermark: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const needProps: CreateWatermarkPropsInterface = useFilterProps<
-        WatermarkPropsType,
-        CreateWatermarkPropsInterface
-      >(prop, ['content', 'width', 'height', 'fontSize', 'fontColor'])
+  const bg = useWatermark(prop)
+  /** 水印外层容器节点 */
+  const watermarkRef = ref<HTMLDivElement | undefined>()
+  /** 水印元素 */
+  let div: HTMLDivElement | undefined
 
-      const watermark: string = createWatermark(needProps)
-
-      return {
-        backgroundImage: `url(${watermark})`
-      } as CSSProperties
+  /** 渲染水印 */
+  const renderWatermark = (): void => {
+    if (!watermarkRef.value) {
+      return
     }
-  )
 
-  // 图片水印
-  const imageWatermark: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { image, width, height } = prop
-
-      return {
-        backgroundImage: `url(${image})`,
-        backgroundSize: `${width}px ${height}px`
-      } as CSSProperties
+    if (div) {
+      div.remove()
     }
-  )
 
-  onMounted((): void => {
-    watermarkStyleList.value = prop.image
-      ? imageWatermark.value
-      : baseWatermark.value
+    const { base64, size } = bg.value
+
+    div = document.createElement('div')
+
+    div.style.position = 'absolute'
+    div.style.backgroundImage = `url(${base64})`
+    div.style.backgroundSize = `${size}px ${size}px`
+    div.style.zIndex = prop.zIndex.toString()
+    div.style.inset = '0'
+
+    watermarkRef.value.appendChild(div)
+  }
+
+  /**
+   * 元素挂载之后生成水印元素
+   */
+  onMounted(renderWatermark)
+
+  /**
+   * @see MutationObserver https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver
+   */
+  const ob = new MutationObserver((entries: MutationRecord[]): void => {
+    for (const entrie of entries) {
+      if (entrie.removedNodes && entrie.removedNodes.length) {
+        /** 被删除的元素结合 */
+        const removedNodesArray: Node[] = Array.from(entrie.removedNodes)
+
+        // 删除了水印元素
+        for (const dom of removedNodesArray) {
+          if (dom === div) {
+            renderWatermark()
+            return
+          }
+        }
+      }
+
+      // 修改了水印元素
+      if (entrie.target === div) {
+        renderWatermark()
+        return
+      }
+    }
   })
+
+  /**
+   * 开始监视水印的变化
+   */
+  onMounted(() => {
+    if (watermarkRef.value) {
+      /**
+       * @see MutationObserver.observe() https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver/observe
+       */
+      ob.observe(watermarkRef.value, {
+        /**
+         * 监控子节点
+         */
+        childList: true,
+        /**
+         * 监控子树
+         */
+        subtree: true,
+        /**
+         * 监控属性
+         */
+        attributes: true
+      })
+    }
+  })
+
+  /**
+   * 如何卸载之后停止监听
+   *
+   * @see
+   */
+  onUnmounted(ob.disconnect)
 </script>
 
 <template>
-  <div
-    :class="['f-watermark', { 'f-watermark__block': block }]"
-    :style="[watermarkStyleList, { zIndex }]"
-  >
+  <div ref="watermarkRef" class="f-watermark">
     <slot />
   </div>
 </template>

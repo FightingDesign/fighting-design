@@ -1,6 +1,26 @@
 .f-expand-card {
+  --expand-card-height: 320px;
+  --expand-card-width: 100%;
+  --expand-card-color: #fff;
+}
+
+.f-expand-card {
   display: flex;
-  height: 300px;
+  position: relative;
+  height: var(--expand-card-height);
+  width: var(--expand-card-width);
+
+  // 纵向排列
+  &__vertical {
+    flex-direction: column;
+  }
+
+  // 圆角
+  &__round {
+    .f-expand-card__item {
+      border-radius: 27px;
+    }
+  }
 
   // 子元素
   &__item {
@@ -8,28 +28,26 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #fff;
     cursor: pointer;
     margin: 10px;
     position: relative;
-    transition: flex 0.5s ease-in;
+    transition: flex 0.4s ease-in;
     overflow: hidden;
+    color: #fff;
 
-    // 圆角
-    &.f-expand-card__round {
-      border-radius: 20px;
-    }
-
+    // 标题
     .f-expand-card__title {
       font-size: 16px;
-      color: #fff;
       position: absolute;
       bottom: 20px;
+      font-weight: 600;
       left: 20px;
       transition: opacity 0.2s;
       opacity: 0;
+      color: var(--expand-card-color);
     }
 
+    // 选中的
     &.f-expand-card__active {
       flex-grow: 3;
       background-size: cover;

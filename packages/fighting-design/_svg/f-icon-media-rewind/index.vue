@@ -1,0 +1,12 @@
+<template>
+  <svg width="1em" height="1em" viewBox="0 0 16 16">
+    <path
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M7.75 3.75v8.5L1.75 8zm6.5 0v8.5L8.25 8z"
+    />
+  </svg>
+</template>

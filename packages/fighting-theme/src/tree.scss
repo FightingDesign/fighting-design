@@ -1,18 +1,67 @@
 .f-tree {
-  &__data {
-    height: 30px;
+  &-item {
+    list-style: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 5px 15px;
-    box-sizing: border-box;
 
-    &:hover {
-      background: #eee;
+    // 标签
+    .f-tree-item__label {
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+      background-color: #fff;
+      box-sizing: border-box;
+      border-radius: 1px;
+      user-select: none;
+      color: #333;
+      padding: 4px 8px;
+      justify-content: space-between;
+      padding-left: var(--tree-item-level-padding, 4px);
+
+      // 禁用状态
+      &.f-tree-item__label-disabled {
+        background-color: #f7f7f7;
+        cursor: not-allowed;
+
+        .f-tree-item__label-prefix {
+          color: #d7d7d7;
+        }
+      }
+
+      // 在没有禁用的状态下展示阴影
+      &:not([class~='f-tree-item__label-disabled']):hover {
+        background-color: #eee;
+      }
+
+      // 前缀
+      .f-tree-item__label-prefix {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+
+        // icon
+        .f-svg-icon {
+          margin-left: 5px;
+          transition: 0.3s;
+          font-size: 15px;
+          color: #333;
+
+          &.f-tree-item__icon-animation {
+            transform: rotate(90deg);
+          }
+        }
+
+        // 文字内容
+        .f-tree-item__text {
+          font-size: 15px;
+          color: #333;
+        }
+      }
     }
 
-    .f-tree__label {
-      color: #333;
+    // 子节点
+    .f-tree-item__children {
+      margin: 0;
+      padding: 0;
     }
   }
 }

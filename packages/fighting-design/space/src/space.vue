@@ -1,38 +1,22 @@
-<script lang="ts" setup name="FSpace">
-  import { computed } from 'vue'
+<script lang="ts" setup>
   import { Props } from './props'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
-  import type { SpacePropsType } from './props'
+  import { useList } from '../../_hooks'
 
-  const prop: SpacePropsType = defineProps(Props)
+  defineOptions({ name: 'FSpace' })
 
-  // 样式列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { wrap, vertical, spacing } = prop
+  const prop = defineProps(Props)
 
-      return [
-        'f-space',
-        {
-          [`f-space__${spacing}`]: spacing,
-          'f-space__wrap': wrap,
-          'f-space__vertical': vertical
-        }
-      ] as const
-    }
-  )
+  const { classes, styles } = useList(prop, 'space')
 
-  // 类名列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { rowGap, columnGap } = prop
+  /** 样式列表 */
+  const classList = classes(['spacing', 'nowrap', 'vertical'], 'f-space')
 
-    return { rowGap, columnGap } as const
-  })
+  /** 类名列表 */
+  const styleList = styles(['rowGap', 'columnGap'])
 </script>
 
 <template>
-  <div v-if="$slots.default" :class="classList" :style="styleList">
+  <div v-if="$slots.default" role="none" :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

@@ -1,45 +1,43 @@
-@import '../config/const-color.scss';
-
 .f-checkbox {
-  display: inline-flex;
+  cursor: pointer;
+  display: flex;
   align-items: center;
-  justify-content: center;
   white-space: nowrap;
   outline: none;
   user-select: none;
-  color: #333;
-  transition: 0.4s;
-  cursor: pointer;
+  transition: all 0.3s;
 
   // 选择框
   &__box {
     width: 14px;
     height: 14px;
-    border-radius: 2px;
     border: 1px solid #dee5fd;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     margin-right: 7px;
+    border-radius: 2px;
+    transition: 0.3s;
   }
 
   // 文字
   &__text {
     color: #333;
-    transition: color 0.3s;
+    font-size: 15px;
+    transition: 0.3s;
   }
 
   // 正常状态选中状态
-  &.f-checkbox__selected {
+  &.f-checkbox__checked {
     .f-checkbox__text {
-      color: $primary;
+      color: #2d5af1;
     }
 
     // 前面盒子
     .f-checkbox__box {
-      border: 1px solid $primary;
-      background: $primary;
+      background-color: #2d5af1;
+      border: 1px solid #2d5af1;
 
       &::after {
         content: '';
@@ -67,7 +65,6 @@
 
     // 选中的禁用状态
     &.f-checkbox__disabled {
-      // background: $default;
       border-color: #d7d7d7;
 
       .f-checkbox__text {
@@ -76,7 +73,7 @@
     }
   }
 
-  // 禁用状态
+  // 正常状态禁用
   &.f-checkbox__disabled {
     cursor: not-allowed;
 
@@ -86,7 +83,7 @@
 
     .f-checkbox__box {
       border-color: #d7d7d7;
-      background: #f4f4f4;
+      background-color: #f4f4f4;
 
       &::after {
         border-color: #d7d7d7;

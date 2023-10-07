@@ -1,59 +1,151 @@
-@import '../config/const-color.scss';
-
 .f-drawer {
-  z-index: 999;
-  background: #fff;
-  display: inline-flex;
-  flex-direction: column;
-  width: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: var(--drawer-z-index, 2000);
 
-  // 头部
-  &__header {
-    padding: 12px 14px;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-
-    &-title {
-      font-size: 15px;
-      color: #333;
-    }
-
-    .f-close-btn {
-      position: absolute;
-      right: 15px;
-    }
-  }
-
-  // 身体
-  &__body {
-    padding: 15px;
-    box-sizing: border-box;
-    flex: 1;
-  }
-
-  // 页脚
-  &__footer {
-    padding: 10px 14px;
-    border-top: 1px solid #eee;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  // 全屏展示
-  &.f-drawer__fullscreen {
-    position: absolute;
+  // 不同方向
+  &__top .f-drawer__container {
     top: 0;
+    left: 0;
     right: 0;
+    max-height: calc(100vh - 40px);
+
+    &-trans-enter-from,
+    &-trans-leave-to {
+      transform: translateY(-100%);
+    }
+  }
+
+  &__bottom .f-drawer__container {
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    max-height: calc(100vh - 40px);
+
+    &-trans-enter-from,
+    &-trans-leave-to {
+      transform: translateY(100%);
+    }
+  }
+
+  &__right .f-drawer__container {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    max-width: calc(100vw - 40px);
+
+    &-trans-enter-from,
+    &-trans-leave-to {
+      transform: translateX(100%);
+    }
+  }
+
+  &__left .f-drawer__container {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    max-width: calc(100vw - 40px);
+
+    &-trans-enter-from,
+    &-trans-leave-to {
+      transform: translateX(-100%);
+    }
+  }
+
+  // 遮罩层
+  &__mask {
+    position: absolute;
+    inset: 0;
+    opacity: var(--drawer-mask-opacity, 0.4);
+    background-color: var(--drawer-mask-background, #000);
+  }
+
+  // 高斯模糊遮罩层
+  &__mask-blur .f-drawer__mask {
+    backdrop-filter: blur(2px);
+  }
+
+  // 主容器公共样式
+  &__wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1999;
+    transition: 0.3s;
+
+    // 主要内容容器
+    .f-drawer__container {
+      position: absolute;
+      background-color: #fff;
+      padding: var(--drawer-padding);
+      display: flex;
+      flex-direction: column;
+
+      // 头部
+      .f-drawer__header {
+        padding: 12px 14px;
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        flex: 0 0 auto;
+
+        &-title {
+          font-size: 15px;
+          color: #333;
+        }
+
+        .f-close-btn {
+          position: absolute;
+          right: 15px;
+        }
+      }
+
+      // 身体
+      .f-drawer__body {
+        box-sizing: border-box;
+        padding: 15px;
+        text-align: left;
+        overflow: auto;
+        flex: 1;
+      }
+
+      // 页脚
+      .f-drawer__footer {
+        padding: 10px 14px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: 1px solid #eee;
+      }
+
+      // 主内容动画样式
+      &-trans-enter-active,
+      &-trans-leave-active {
+        transition: all 0.2s ease-out;
+      }
+
+      &-trans-enter-from,
+      &-trans-leave-to {
+        opacity: 0;
+      }
+    }
+  }
+
+  // 遮罩层动画
+  &__trans-enter-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &__trans-leave-active {
+    transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  &__trans-enter-from,
+  &__trans-leave-to {
+    opacity: 0;
   }
 }

@@ -1,59 +1,64 @@
-@import '../config/const-color.scss';
+@import '../config/var-link';
 
 .f-link {
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: 0.3s;
+  outline: none;
   line-height: 1;
-  font-size: var(--f-link-font-size, 15px);
-  color: var(--f-link-color, $primary);
+  position: relative;
+  display: inline-block;
 
+  // 超链接标签
+  .f-link__a {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    transition: 0.3s;
+    font-size: var(--link-size);
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+  }
+
+  // icon
   .f-svg-icon {
-    font-size: var(--f-link-font-size, 15px);
+    font-size: var(--link-size);
   }
 
-  &:hover {
-    opacity: 0.8;
-  }
-
-  // 不同类型
-  @for $list from 1 to (length($allTypeColorList) + 1) {
-    $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
-
-    // 不同类型
-    &.f-link__#{map-get($item, name)} {
-      color: var(--f-link-color, map-get($item, simpleTextColor));
+  // 带有下划线状态移入
+  &:not([class~='f-link__disabled']).f-link__line:hover {
+    .f-link__a {
+      text-decoration: underline;
+      text-decoration-color: var(--link-color);
     }
   }
 
-  // 不同样式
-  &.f-link__line {
-    text-decoration: underline;
+  // 带有背景色状态移入
+  &:not([class~='f-link__disabled']).f-link__background:hover {
+    .f-link__a {
+      background-color: #ecf0fe;
+      border-radius: 2px;
+    }
   }
 
-  &.f-link__bag:hover {
-    background: #eee;
-    border-radius: 2px;
+  // 普通状态下移入
+  &:not([class~='f-link__disabled']):hover {
+    .f-link__a {
+      color: var(--link-color);
+      opacity: 0.6;
+    }
   }
 
-  // 禁止 copy
+  // 禁止复制
   &.f-link__no-copy {
     user-select: none;
   }
 
   // 禁用
-  &.f-link__prohibit {
-    opacity: 0.5;
-    cursor: not-allowed;
-
-    &.f-link__bag {
-      &:hover {
-        opacity: 0.5;
-        background: none;
-      }
+  &.f-link__disabled {
+    .f-link__a {
+      cursor: not-allowed;
+      opacity: 0.5;
     }
   }
 }

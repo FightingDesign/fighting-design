@@ -1,26 +1,63 @@
 .f-card {
-  border: #e5e5e5 solid 1px;
-  transition: 0.3s;
-  background: #fff;
+  --card-border-color: #e5e5e5;
+  --card-background: #fff;
+  --card-padding: 20px;
+  --card-title-color: #1d1d1f;
+}
 
+.f-card {
+  display: block;
+  transition: 0.3s;
+  border: 1px solid var(--card-border-color);
+  background-color: var(--card-background);
+
+  // 头部
   &__header {
     padding: 16px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--card-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // 标题
+    .f-card__title {
+      font-size: 15px;
+      transition: color 0.3s;
+      color: var(--card-title-color);
+
+      &-bold {
+        font-weight: bold;
+      }
+    }
   }
 
-  &.f-card__shadow-never {
-    box-shadow: none;
-  }
-
-  &.f-card__shadow-always {
+  &.f-card__always {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
-  &.f-card__shadow-hover:hover {
+  &.f-card__hover:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
   &.f-card__round {
     border-radius: 10px;
+  }
+
+  // 身体
+  .f-card__body {
+    font-size: 16px;
+    padding: var(--card-padding);
+  }
+
+  // 关闭动画
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.2s ease-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: scale(0.5);
+    opacity: 0;
   }
 }

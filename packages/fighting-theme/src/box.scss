@@ -1,0 +1,8 @@
+.f-box {
+  box-sizing: border-box;
+  width: var(--box-width);
+  height: var(--box-height);
+  background-color: var(--box-background);
+  display: var(--box-display, inline-block);
+  padding: var(--box-padding);
+}

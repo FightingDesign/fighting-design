@@ -1,0 +1,107 @@
+.f-pagination {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  user-select: none;
+  position: relative;
+
+  .f-select {
+    margin-right: 10px;
+  }
+
+  // 带有背景色的
+  &.f-pagination__background {
+    .f-pagination__pages {
+      .f-pagination__item {
+        margin: 0 5px;
+        background-color: #f8f8f8;
+
+        // 选中状态
+        &-active {
+          color: #fff;
+          background-color: #2d5af1;
+        }
+      }
+    }
+  }
+
+  // 带有背景色的
+  &.f-pagination__round {
+    // 切换按钮圆角
+    .f-pagination__button {
+      border-radius: 50%;
+    }
+
+    // 每一项圆角
+    .f-pagination__pages {
+      .f-pagination__item {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  // 禁用状态
+  &.f-pagination__disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // 按钮
+  &__button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: #e8e8e8;
+    }
+
+    &:active {
+      background-color: #d7d7d7;
+    }
+  }
+
+  &__prev > *,
+  &__next > * {
+    // https://developer.mozilla.org/zh-CN/docs/Web/CSS/pointer-events
+    pointer-events: none;
+  }
+
+  // 分页主体
+  &__pages {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+
+    // 默认的每一项
+    .f-pagination__item {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 35px;
+      padding: 0 6px;
+      box-sizing: border-box;
+      height: 35px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #333;
+
+      // 选中状态
+      &-active {
+        color: #2d5af1;
+      }
+    }
+  }
+
+  &__jump {
+    width: 145px;
+    margin-left: 10px;
+  }
+}

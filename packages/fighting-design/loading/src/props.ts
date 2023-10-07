@@ -1,47 +1,21 @@
-import type { ExtractPropTypes, PropType, VNode, Component } from 'vue'
-import type { HandleMouseEventInterface } from '../../_interface'
+import { setBooleanProp, setObjectProp, setStringProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { FightingIcon } from '../../_interface'
 
 export const Props = {
-  show: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  close: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  text: {
-    type: String,
-    default: (): string => ''
-  },
-  fontColor: {
-    type: String,
-    default: (): string => ''
-  },
-  iconColor: {
-    type: String,
-    default: (): string => ''
-  },
-  fontSize: {
-    type: String,
-    default: (): string => ''
-  },
-  background: {
-    type: String,
-    default: (): string => ''
-  },
-  opacity: {
-    type: Number,
-    default: (): number | null => null
-  },
-  icon: {
-    type: Object as PropType<VNode | Component>,
-    default: (): null => null
-  },
-  closeEnd: {
-    type: Function as PropType<HandleMouseEventInterface>,
-    default: (): null => null
-  }
+  /** 是否展示 */
+  visible: setBooleanProp(),
+  /** 加载中文案 */
+  text: setStringProp(),
+  /** 加载中文案颜色 */
+  color: setStringProp(),
+  /** 是否全屏显示 */
+  fullscreen: setBooleanProp(),
+  /** 自定义遮罩层背景色 */
+  background: setStringProp(),
+  /** 自定义 icon */
+  icon: setObjectProp<FightingIcon>()
 } as const
 
-export type LoadingPropsType = ExtractPropTypes<typeof Props>
+/** loading 组件 props 类型 */
+export type LoadingProps = ExtractPropTypes<typeof Props>

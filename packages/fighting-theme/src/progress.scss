@@ -1,47 +1,57 @@
-@import '../config/var-progress.scss';
+@import '../config/var-progress';
 
 .f-progress {
-  display: flex;
-  align-items: center;
-  line-height: 1;
+  position: relative;
 
+  // 线形状态
+  &.f-progress__line {
+    height: var(--progress-height, 20px);
+    display: flex;
+    align-items: center;
+  }
+
+  // 圆形状态
+  &.f-progress__circle {
+    display: inline-block;
+    vertical-align: top;
+
+    .f-progress__girth {
+      transition: 0.3s;
+      stroke-dasharray: var(--progress-stroke-dasharray);
+      stroke-dashoffset: var(--progress-stroke-dashoffset);
+    }
+  }
+
+  // 进度条容器
   &__bar {
-    flex-grow: 1;
-    box-sizing: border-box;
-    background: #f1f1f1;
-  }
-
-  &__fill {
+    border-radius: 20px;
+    display: flex;
+    width: 100%;
     height: 100%;
-    transition: 0.3s;
-    border-radius: 100px;
-    background: $primary;
-    text-align: right;
+    position: relative;
+    background-color: #eee;
 
-    // 百分百文字
-    .f-progress__percentage {
-      color: #fff;
-      font-size: 12px;
-      margin: 0 8px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    // 垂直居中百分比
-    &::after {
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
+    // 进度条
+    .f-progress__fill {
+      border-radius: 20px;
       height: 100%;
-    }
-  }
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      text-align: right;
+      transition: 0.3s;
+      width: var(--progress-width, 0);
+      background-color: var(--progress-background);
 
-  // 右侧显示百分比
-  &__text {
-    min-width: 40px;
-    line-height: 1;
-    margin-left: 5px;
-    font-size: 14px;
+      // 百分百文字
+      .f-progress__percentage {
+        font-size: 14px;
+        margin: 0 7px;
+        color: var(--progress-text-color, #fff);
+        line-height: var(--progress-height, 20px);
+      }
+    }
   }
 
   @keyframes f-progress-animation-panoramic {
@@ -50,27 +60,28 @@
     }
   }
 
-  @for $list from 1 to (length($progressStripeType) + 1) {
-    $item: nth($progressStripeType, $list);
-
-    // 基本的颜色
-    .f-progress__fill-#{map-get($item, name)} {
-      background: map-get($item, default);
+  &.f-progress__stripe {
+    .f-progress__bar {
+      .f-progress__fill {
+        background: repeating-linear-gradient(
+          -45deg,
+          var(--progress-background) 25%,
+          var(--progress-background) 0,
+          var(--progress-background) 50%,
+          var(--progress-simple-background) 0,
+          var(--progress-simple-background) 75%,
+          var(--progress-simple-background) 0
+        );
+        background-size: 35px 35px;
+        animation: f-progress-animation-panoramic 30s linear infinite;
+      }
     }
+  }
 
-    // 条纹背景
-    .f-progress__fill-#{map-get($item, name)}.f-progress__stripe {
-      background: repeating-linear-gradient(
-        -45deg,
-        map-get($item, default) 25%,
-        map-get($item, default) 0,
-        map-get($item, default) 50%,
-        map-get($item, light) 0,
-        map-get($item, light) 75%,
-        map-get($item, light) 0
-      );
-      background-size: 35px 35px;
-      animation: f-progress-animation-panoramic 30s linear infinite;
-    }
+  .f-progress__text {
+    width: 38px;
+    font-size: 14px;
+    margin-left: 10px;
+    color: var(--progress-text-color, #333);
   }
 }

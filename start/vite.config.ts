@@ -1,6 +1,5 @@
 import vue from '@vitejs/plugin-vue'
-import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite'
-import svgLoader from 'vite-svg-loader'
+import { resolve } from 'path'
 import type { UserConfigExport } from 'vite'
 
 export default (): UserConfigExport => {
@@ -8,6 +7,7 @@ export default (): UserConfigExport => {
     base: './',
     plugins: [
       vue({
+<<<<<<< HEAD
         template: {
           compilerOptions: {
             // 将所有带短横线的标签名都视为自定义元素
@@ -17,9 +17,20 @@ export default (): UserConfigExport => {
       }),
       vueSetupExtend(),
       svgLoader()
+=======
+        script: {
+          defineModel: true
+        }
+      })
+>>>>>>> master
     ],
     server: {
       port: 1216
+    },
+    resolve: {
+      alias: {
+        'fighting-design': resolve(__dirname, '../packages/fighting-design/index.ts')
+      }
     }
   }
 }

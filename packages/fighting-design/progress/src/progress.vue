@@ -1,82 +1,38 @@
-<script lang="ts" setup name="FProgress">
-  import { Props } from './props'
-  import { sizeChange } from '../../_utils'
-  import { computed, ref, onMounted } from 'vue'
-  import type { CSSProperties, ComputedRef, Ref } from 'vue'
-  import type {
-    ProgressTIsShowPercentageInterface,
-    ProgressPropsType
-  } from './interface'
+<script lang="ts" setup>
+  import { Props, PROGRESS_PROPS_KEY } from './props'
+  import { provide, computed, reactive, toRefs } from 'vue'
+  import { ProgressCircle, ProgressLine } from '../components'
+  import { isNumber, error } from '../../_utils'
+  import type { ProgressProvide } from './interface'
 
-  const prop: ProgressPropsType = defineProps(Props)
+  defineOptions({ name: 'FProgress' })
 
-  const isShow: Ref<boolean> = ref<boolean>(false)
-  const fillRef: Ref<HTMLDivElement> = ref<HTMLDivElement>(
-    null as unknown as HTMLDivElement
-  )
+  const prop = defineProps(Props)
 
-  const progressStyle: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { background, height, square } = prop
+  /** 当前进度条进度 */
+  const percent = computed((): number => {
+    const { percentage } = prop
 
-      return {
-        height: sizeChange(height),
-        background,
-        borderRadius: square ? '0px' : '100px'
-      } as const
+    if (!isNumber(percentage)) {
+      error('f-progress', '`percentage` is not a number')
+      return 0
     }
-  )
 
-  const progressFillStyle: ComputedRef<CSSProperties> = computed(
-    (): CSSProperties => {
-      const { percentage, color, square } = prop
-
-      return {
-        width: `${percentage}%`,
-        background: color,
-        borderRadius: square ? '0px' : '100px'
-      } as const
+    if (prop.percentage >= 100) {
+      return 100
     }
-  )
+    if (prop.percentage <= 0) {
+      return 0
+    }
 
-  const isShowPercentage: ProgressTIsShowPercentageInterface = (): boolean => {
-    return (isShow.value = fillRef.value.clientHeight >= 18 && prop.textInside)
-  }
-
-  onMounted((): void => {
-    isShowPercentage()
+    return prop.percentage
   })
+
+  provide<ProgressProvide>(PROGRESS_PROPS_KEY, reactive({ ...toRefs(prop), percent }))
 </script>
 
 <template>
-  <div
-    role="progressbar"
-    :class="['f-progress', { 'f-progress__liner': linear }]"
-    :style="{ width: sizeChange(width) }"
-    :aria-value="percentage"
-    :aria-valuemin="0"
-    :aria-valuemax="100"
-  >
-    <div class="f-progress__bar" :style="progressStyle">
-      <div
-        ref="fillRef"
-        :class="[
-          'f-progress__fill',
-          { [`f-progress__fill-${type}`]: type, 'f-progress__stripe': stripe }
-        ]"
-        :style="progressFillStyle"
-      >
-        <span
-          v-if="isShow && showText"
-          class="f-progress__percentage"
-          :style="{ color: textColor }"
-        >
-          {{ percentage }}%
-        </span>
-      </div>
-    </div>
-    <div v-if="!isShow && showText" class="f-progress__text">
-      {{ percentage }}%
-    </div>
-  </div>
+  <progress-circle v-if="state === 'circle'" />
+
+  <progress-line v-else />
 </template>

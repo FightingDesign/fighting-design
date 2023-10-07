@@ -8,6 +8,6 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FAside: ComponentPublicInstance = installWebComponent(Aside, style)
 
-export * from './src/interface.d'
+export * from './src/interface'
 
 export default FAside

@@ -1,40 +1,58 @@
-@import '../config/const-color.scss';
+@import '../config/var-badge';
 
 .f-badge {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  transition: 0.4s;
-  cursor: default;
+  transition: 0.3s;
+  margin: 0;
 
-  .f-badge__content {
+  // 不同类型
+  &__content {
+    background-color: var(--badge-background);
+    color: var(--badge-color);
+  }
+
+  // 主要内容
+  &__content {
     position: absolute;
     border-radius: 10px;
     font-size: 12px;
     padding: 0 6px;
     height: 18px;
+    overflow: hidden;
+    line-height: 18px;
+    white-space: nowrap;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     top: 0;
     right: 0;
+    transition: all 0.3s;
+    z-index: 1000;
     transform: translateY(-50%) translateX(50%);
+  }
 
-    @for $list from 1 to (length($allTypeColorList) + 1) {
-      $item: nth($allTypeColorList, $list); // 获取数组中第i项的值
-
-      // 不同类型
-      &.f-badge__#{map-get($item, name)} {
-        color: var(--f-badge-text-color, #fff);
-        background: var(--f-badge-background, map-get($item, default));
-      }
-    }
-
-    &.f-badge__dot {
+  // 小红点
+  &.f-badge__dot {
+    .f-badge__content {
       border-radius: 50%;
       width: 8px;
       height: 8px;
       padding: 0;
     }
+  }
+
+  // 关闭动画
+  .f-badge-enter-active,
+  .f-badge-leave-active {
+    transition: all 0.3s ease-out;
+  }
+
+  .f-badge-enter-from,
+  .f-badge-leave-to {
+    // https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-function/scale
+    transform: scale(0.3);
+    opacity: 0;
   }
 }

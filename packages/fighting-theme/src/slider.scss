@@ -1,0 +1,55 @@
+.f-slider {
+  --slider-background: #eee;
+  --slider-active-color: #2d5af1;
+  --slider-width: 100%;
+}
+
+.f-slider {
+  position: relative;
+  width: var(--slider-width);
+  border-radius: 30px;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+
+  // 滑道
+  &__road {
+    background-color: var(--slider-background);
+    height: 10px;
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+
+    // 进度条
+    .f-slider__selected {
+      background-color: var(--slider-active-color);
+      height: 100%;
+    }
+
+    // 拖动按钮
+    .f-slider__icon {
+      position: absolute;
+      cursor: pointer;
+      user-select: none;
+      box-sizing: border-box;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      border: 10px solid var(--slider-active-color);
+      border-radius: 50%;
+      background-color: #fff;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      z-index: 10;
+    }
+  }
+
+  // 禁用状态
+  &__disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

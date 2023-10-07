@@ -1,44 +1,38 @@
-<script lang="ts" setup name="FCloseBtn">
+<script lang="ts" setup>
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
-  import { computed } from 'vue'
-  import { FIconCrossVue } from '../../_svg'
-  import type { ComputedRef } from 'vue'
-  import type {
-    HandleMouseEventInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type { CloseBtnPropsType } from './props'
+  import { FIconCross } from '../../_svg'
+  import { useRun, useList } from '../../_hooks'
 
-  const prop: CloseBtnPropsType = defineProps(Props)
+  defineOptions({ name: 'FCloseBtn' })
 
-  // 点击触发
-  const handleClick: HandleMouseEventInterface = (evt: MouseEvent): void => {
+  const prop = defineProps(Props)
+
+  const { styles, classes } = useList(prop, 'close-btn')
+  const { run } = useRun()
+
+  /**
+   * 点击触发
+   *
+   * @param { Object } evt 事件对象
+   */
+  const handleClick = (evt: MouseEvent): void => {
     if (prop.disabled) return
-    prop.click && prop.click(evt)
+    run(prop.onClick, evt)
   }
 
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      return [
-        {
-          'f-close-btn': !prop.disabled,
-          'f-close-btn__round': prop.round,
-          'f-close-btn__disabled': prop.disabled,
-          'f-close-btn__no-hover': prop.noHover
-        } as const
-      ] as const
-    }
-  )
+  /** 类名列表 */
+  const classList = classes(['round', 'disabled'], 'f-close-btn')
+
+  /** 样式列表 */
+  const styleList = styles(['color', 'hoverColor'])
 </script>
 
 <template>
-  <div role="button" :class="classList" @click="handleClick">
-    <f-svg-icon :size="size" :color="color">
-      <component :is="icon" v-if="icon" />
-      <slot v-else>
-        <f-icon-cross-vue />
+  <div role="button" :class="classList" :style="styleList" @click="handleClick">
+    <f-svg-icon :size="size" :icon="icon">
+      <slot>
+        <f-icon-cross />
       </slot>
     </f-svg-icon>
   </div>

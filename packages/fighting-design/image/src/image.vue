@@ -1,89 +1,33 @@
-<script lang="ts" setup name="FImage">
+<script lang="ts" setup>
   import { Props } from './props'
-  import { onMounted, ref, computed } from 'vue'
-  import { loadImage, sizeChange } from '../../_utils'
-  import { useFilterProps } from '../../_hooks'
-  import type { Ref, CSSProperties, ComputedRef } from 'vue'
-  import type { ImagePropsType } from './props'
-  import type {
-    OrdinaryFunctionInterface,
-    ClassListInterface
-  } from '../../_interface'
-  import type {
-    LoadNeedImagePropsInterface,
-    LoadCallbackInterface
-  } from '../../_utils/load-image/interface'
+  import { ref } from 'vue'
+  import { useLoadImg, useList } from '../../_hooks'
 
-  const prop: ImagePropsType = defineProps(Props)
+  defineOptions({ name: 'FImage' })
 
-  // 是否加载成功
-  const isSuccess: Ref<boolean> = ref<boolean>(true)
-  const FImageImg: Ref<HTMLImageElement> = ref<HTMLImageElement>(
-    null as unknown as HTMLImageElement
-  )
-  const isShowNode: Ref<boolean> = ref<boolean>(prop.lazy)
+  const prop = defineProps(Props)
 
-  // 开始加载图片
-  const loadAction: OrdinaryFunctionInterface = (): void => {
-    const node: HTMLImageElement = FImageImg.value as HTMLImageElement
-    const callback: LoadCallbackInterface = (params: boolean): void => {
-      isSuccess.value = params
-      isShowNode.value = params
-    }
+  /** 元素节点 */
+  const imageEl = ref<HTMLImageElement | undefined>()
 
-    const needProps: LoadNeedImagePropsInterface = useFilterProps<
-      ImagePropsType,
-      LoadNeedImagePropsInterface
-    >(prop, ['src', 'errSrc', 'rootMargin', 'lazy', 'load', 'error'])
+  const { classes, styles } = useList(prop, 'image')
+  const { isSuccess, isShowNode } = useLoadImg(imageEl, prop)
 
-    loadImage(node, needProps, callback)
-  }
+  /** 类名列表 */
+  const classList = classes(['fit', 'select', 'block'], 'f-image')
 
-  onMounted((): void => {
-    loadAction()
-  })
-
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { fit, noSelect } = prop
-
-      return [
-        'f-image__img',
-        {
-          [`f-image__${fit}`]: fit,
-          'f-image__select': noSelect
-        }
-      ] as const
-    }
-  )
-
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { width, height, round } = prop
-
-    return {
-      '--f-image-width': sizeChange(width),
-      '--f-image-height': sizeChange(height),
-      '--f-image-border-radius': sizeChange(round)
-    } as CSSProperties
-  })
+  /** 样式列表 */
+  const styleList = styles(['width', 'height', 'round'])
 </script>
 
 <template>
-  <div
-    v-if="isSuccess"
-    role="img"
-    :class="['f-image', { 'f-image__block': block }]"
-    :style="styleList"
-  >
+  <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
     <!-- 真正展示的图片 -->
     <img
-      v-show="isShowNode"
-      ref="FImageImg"
+      ref="imageEl"
+      class="f-image__img"
       src=""
-      :class="classList"
-      :style="styleList"
+      :style="isShowNode ? '' : 'visibility: hidden'"
       :draggable="draggable"
       :referrer-policy="referrerPolicy"
       :alt="alt"
@@ -93,7 +37,7 @@
 
   <div v-else class="f-image__error">
     <slot name="error">
-      <span class="f-image__error-text">{{ alt || '加载失败' }}</span>
+      <div class="f-image__error-text">{{ alt || '加载失败' }}</div>
     </slot>
   </div>
 </template>

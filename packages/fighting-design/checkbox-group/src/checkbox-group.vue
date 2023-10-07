@@ -1,64 +1,49 @@
-<script lang="ts" setup name="FCheckboxGroup">
-  import { provide, reactive, toRefs, computed } from 'vue'
-  import { Props, Emits, checkboxGroupPropsKey } from './props'
-  import { sizeChange } from '../../_utils'
-  import type {
-    CheckboxGroupPropsType,
-    CheckboxGroupLabelType,
-    CheckboxGroupChangeEventInterface,
-    CheckboxGroupInjectPropsType
-  } from './interface'
-  import type { ComputedRef, CSSProperties } from 'vue'
-  import type { ClassListInterface } from '../../_interface'
+<script lang="ts" setup>
+  import { Props, CHECKBOX_GROUP_PROPS_KEY } from './props'
+  import { provide, reactive, toRefs } from 'vue'
+  import { useRun, useList } from '../../_hooks'
+  import type { CheckboxGroupProvide } from './interface'
+  import type { CheckboxLabel } from '../../checkbox'
 
-  const prop: CheckboxGroupPropsType = defineProps(Props)
-  const emit = defineEmits(Emits)
+  defineOptions({ name: 'FCheckboxGroup' })
 
-  // 绑定值发生改变时候触
-  const changeEvent: CheckboxGroupChangeEventInterface = (
-    val: CheckboxGroupLabelType
-  ): void => {
-    emit('update:modelValue', val)
-    prop.change && prop.change(val)
-  }
-
-  // 需要注入的依赖项
-  const checkboxGroupProps: CheckboxGroupInjectPropsType = reactive({
-    ...toRefs(prop),
-    changeEvent
-  } as const)
-
-  provide(checkboxGroupPropsKey, checkboxGroupProps)
-
-  // 样式列表
-  const styleList: ComputedRef<CSSProperties> = computed((): CSSProperties => {
-    const { columnGap, rowGap } = prop
-
-    return {
-      columnGap: sizeChange(columnGap),
-      rowGap: sizeChange(rowGap)
-    } as const
+  const prop = defineProps(Props)
+  const modelValue = defineModel<string[] | CheckboxLabel>({
+    default: [],
+    type: [Boolean, Array, String, Number]
   })
 
-  // 类名列表
-  const classList: ComputedRef<ClassListInterface> = computed(
-    (): ClassListInterface => {
-      const { border, vertical, size } = prop
+  const { run } = useRun()
+  const { classes, styles } = useList(prop, 'checkbox-group')
 
-      return [
-        'f-checkbox-group',
-        {
-          'f-checkbox-group__border': border,
-          'f-checkbox-group__vertical': vertical,
-          [`f-checkbox-group__${size}`]: size && border
-        }
-      ] as const
-    }
+  /**
+   * 绑定值发生改变时候触
+   *
+   * @param { string[] } val 最新值
+   */
+  const setChange = (val: string[] | CheckboxLabel): void => {
+    modelValue.value = val
+    run(prop.onChange, val)
+  }
+
+  /** 获取需要注入的依赖项 */
+  provide<CheckboxGroupProvide>(
+    CHECKBOX_GROUP_PROPS_KEY,
+    reactive({
+      ...toRefs(prop),
+      setChange
+    })
   )
+
+  /** 样式列表 */
+  const styleList = styles(['columnGap', 'rowGap'])
+
+  /** 类名列表 */
+  const classList = classes(['background', 'vertical', 'size'], 'f-checkbox-group')
 </script>
 
 <template>
-  <div role="group" :class="classList" :style="styleList">
+  <div role="group" aria-label="checkbox-group" :class="classList" :style="styleList">
     <slot />
   </div>
 </template>

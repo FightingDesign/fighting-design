@@ -11,12 +11,8 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "declaration": true,
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "skipLibCheck": true
   },
-  "include": [
-    "index.ts"
-  ]
+  "include": ["index.ts"]
 }

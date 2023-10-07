@@ -1,25 +1,38 @@
-@import '../config/const-color.scss';
+.f-progress {
+  // 不同类型
+  &__default {
+    --progress-text-color: #1d1d1f;
+    --progress-background: #d7d7d7;
+    --progress-simple-background: #e8e8e8;
+  }
 
-// 不同按进度条的条纹状态
-$progressStripeType: (
-  (
-    name: 'primary',
-    default: $primary,
-    light: #5277f3
-  ),
-  (
-    name: 'success',
-    default: $success,
-    light: #71c07a
-  ),
-  (
-    name: 'danger',
-    default: $danger,
-    light: #f9514f
-  ),
-  (
-    name: 'warning',
-    default: $warning,
-    light: #fccc2f
-  )
-);
+  &__primary {
+    --progress-text-color: #fff;
+    --progress-background: #2d5af1;
+    --progress-simple-background: #5d80f4;
+  }
+
+  &__success {
+    --progress-text-color: #fff;
+    --progress-background: #52b35e;
+    --progress-simple-background: #75c37f;
+  }
+
+  &__danger {
+    --progress-text-color: #fff;
+    --progress-background: #ff0200;
+    --progress-simple-background: #ff5857;
+  }
+
+  &__warning {
+    --progress-text-color: #fff;
+    --progress-background: #fcc202;
+    --progress-simple-background: #fed348;
+  }
+
+  &__info {
+    --progress-text-color: #fbfbfd;
+    --progress-background: #1d1d1f;
+    --progress-simple-background: #4e4e56;
+  }
+}

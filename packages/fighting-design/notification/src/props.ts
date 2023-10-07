@@ -1,80 +1,75 @@
+import {
+  setBooleanProp,
+  setStringProp,
+  setNumberProp,
+  setObjectProp,
+  setFunctionProp
+} from '../../_utils'
+import { FIGHTING_TYPE } from '../../_tokens'
+import type { MessageClose } from '../../message'
 import type { VNode, PropType, ExtractPropTypes } from 'vue'
-import type { NotificationType, NotificationPlacementType } from './interface'
+import type { NotificationPlacement } from './interface'
+import type { FightingType, FightingIcon } from '../../_interface'
 
 export const Props = {
-  id: {
-    type: String,
-    default: (): string => ''
-  },
+  /** 通知标题 */
   title: {
     type: [String, Object] as PropType<VNode | string>,
-    default: (): string => ''
-  },
-  message: {
-    type: [String, Object] as PropType<VNode | string>,
-    default: (): string => '',
-    required: true
-  },
-  type: {
-    type: String as PropType<NotificationType>,
-    default: (): NotificationType => 'default',
-    validator: (val: NotificationType): boolean => {
-      return (['default', 'primary', 'success', 'danger', 'warning'] as const).includes(val)
-    }
-  },
-  close: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  duration: {
-    type: Number,
-    default: (): number => 3000
-  },
-  round: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  showIcon: {
-    type: Boolean,
-    default: (): boolean => true
-  },
-  icon: {
-    type: Object as PropType<VNode>,
     default: (): null => null
   },
-  color: {
-    type: String,
-    default: (): string => ''
+  /** 通知文本 */
+  message: {
+    type: [String, Object] as PropType<VNode | string>,
+    default: (): null => null
   },
-  background: {
-    type: String,
-    default: (): string => ''
-  },
-  offset: {
-    type: Number,
-    default: (): number => 20
-  },
-  placement: {
-    type: String as PropType<NotificationPlacementType>,
-    default: (): NotificationPlacementType => 'top-right',
-    validator: (val: NotificationPlacementType): boolean => {
-      return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(val)
+  /**
+   * 消息类型
+   *
+   * @values default primary success danger warning
+   */
+  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
+    return FIGHTING_TYPE.includes(val)
+  }),
+  /** 是否可关闭 */
+  close: setBooleanProp(),
+  /** 显示时间，单位为毫秒。 设为 0 则不会自动关闭 */
+  duration: setNumberProp(2500),
+  /** 是否为圆角类型 */
+  round: setBooleanProp(),
+  /** 是否显示按钮 */
+  showIcon: setBooleanProp(true),
+  /** 自定义前缀 icon */
+  icon: setObjectProp<FightingIcon>(),
+  /** 自定义字体颜色 */
+  color: setStringProp(),
+  /** 自定义背景色 */
+  background: setStringProp(),
+  /** 偏移距离 */
+  offset: setNumberProp(20),
+  /**
+   * 弹出位置
+   *
+   * @values top-left top-right bottom-left bottom-right
+   * @default top-right
+   */
+  placement: setStringProp<NotificationPlacement>(
+    'top-right',
+    (val: NotificationPlacement): boolean => {
+      return (['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const).includes(
+        val
+      )
     }
-  },
-  zIndex: {
-    type: Number,
-    default: (): number => 1000
-  },
+  ),
+  /** 层级 */
+  zIndex: setNumberProp(),
+  /** 自定义关闭按钮 */
   closeBtn: {
     type: [String, Object] as PropType<VNode | string>,
     default: (): null => null
   },
-  closeEnd: {
-    type: Function,
-    default: (): null => null
-  }
+  /** 关闭之后回调 */
+  onClose: setFunctionProp<MessageClose>()
 } as const
 
-export const Emits = ['destroy']
-
-export type NotificationPropsType = ExtractPropTypes<typeof Props>
+/** notification 组件 props 类型 */
+export type NotificationProps = ExtractPropTypes<typeof Props>

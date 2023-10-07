@@ -1,22 +1,30 @@
 .f-back-top {
-  z-index: var(--f-back-top-z-index, 900);
-  right: var(--f-back-top-right, 40px);
-  bottom: var(--f-back-top-bottom, 40px);
-  color: var(--f-back-top-color, #333);
-  background: var(--f-back-top-background, #fff);
+  --back-top-right: 40px;
+  --back-top-bottom: 40px;
+  --back-top-z-index: 900;
+  --back-top-color: #333;
+  --back-top-background: #fff;
+}
+
+.f-back-top {
   position: fixed;
   min-width: 40px;
-  height: 40px;
-  padding: 0 30px;
+  min-height: 40px;
+  padding: 11px 23px;
   box-sizing: border-box;
-  border-radius: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   user-select: none;
   cursor: pointer;
   transition: 0.6s;
-  box-shadow: rgb(237, 237, 237) 1px 1px 7px, rgb(237, 237, 237) -1px -1px 7px;
+  border-radius: 25px;
+  box-shadow: #ededed 1px 1px 7px, #ededed -1px -1px 7px;
+  right: var(--back-top-right);
+  bottom: var(--back-top-bottom);
+  z-index: var(--back-top-z-index);
+  color: var(--back-top-color);
+  background-color: var(--back-top-background);
 
   &.f-back-top__round {
     padding: 0;
@@ -24,7 +32,17 @@
   }
 
   &:hover {
-    box-shadow: rgb(221, 221, 221) 1px 1px 10px,
-      rgb(221, 221, 221) -1px -1px 10px;
+    box-shadow: #dddddd 1px 1px 10px, #dddddd -1px -1px 10px;
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.1s ease-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: scale(0.5);
+    opacity: 0;
   }
 }

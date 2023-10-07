@@ -1,41 +1,41 @@
-import type { PropType, ExtractPropTypes } from 'vue'
-import type { DividerPositionType, DividerType } from './interface'
+import { setBooleanProp, setStringNumberProp, setStringProp } from '../../_utils'
+import type { ExtractPropTypes } from 'vue'
+import type { DividerPosition, DividerType } from './interface'
 
 export const Props = {
-  position: {
-    type: String as PropType<DividerPositionType>,
-    default: (): DividerPositionType => 'center',
-    validator: (value: DividerPositionType): boolean => {
+  /**
+   * 文字显示位置
+   * @values left center right
+   * @default center
+   */
+  position: setStringProp<DividerPosition>(
+    'center',
+    (value: DividerPosition): boolean => {
       return (['left', 'center', 'right'] as const).includes(value)
     }
-  },
-  vertical: {
-    type: Boolean,
-    default: (): boolean => false
-  },
-  color: {
-    type: String,
-    default: (): string => ''
-  },
-  fontColor: {
-    type: String,
-    default: (): string => ''
-  },
-  margin: {
-    type: String,
-    default: (): string => ''
-  },
-  background: {
-    type: String,
-    default: (): string => ''
-  },
-  type: {
-    type: String as PropType<DividerType>,
-    validator: (value: DividerType): boolean => {
-      return (['dashed', 'dotted', 'double', 'solid'] as const).includes(value)
-    },
-    default: (): DividerType => 'solid'
-  }
+  ),
+  /** 是否为竖线 */
+  vertical: setBooleanProp(),
+  /** 线条颜色 */
+  color: setStringProp(),
+  /** 文字颜色 */
+  fontColor: setStringProp(),
+  /** 上下边距 */
+  margin: setStringNumberProp(),
+  /** 自定义高度 */
+  height: setStringNumberProp(),
+  /** 自定义背景颜色 */
+  background: setStringProp(),
+  /**
+   * 分隔符类型
+   *
+   * @values dashed dotted double solid
+   * @default solid
+   */
+  type: setStringProp<DividerType>('solid', (value: DividerType): boolean => {
+    return (['dashed', 'dotted', 'double', 'solid'] as const).includes(value)
+  })
 } as const
 
-export type DividerPropsType = ExtractPropTypes<typeof Props>
+/** divider 组件 props 类型 */
+export type DividerProps = ExtractPropTypes<typeof Props>

@@ -1,0 +1,63 @@
+name: Fighting Design Build Docs
+
+# 当 master 分支 push 代码，并且 package.json 修改的时候执行
+on:
+  push:
+    branches:
+      - master
+    # paths:
+    #   - 'packages/fighting-design/package.json'
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 下载仓库代码 / 校验
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # 安装 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6
+
+      # 安装 node pnpm
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'pnpm'
+
+      # 安装依赖项
+      - name: Install
+        run: pnpm i
+
+      # 打包文档
+      - name: Build docs
+        run: pnpm build:docs
+
+      # 创建并提交 CNAME 文件
+      - name: Create CNAME file
+        run: echo 'fighting.tianyuhao.cn' > docs/.vitepress/dist/CNAME
+      - name: Commit CNAME file
+        run: |
+          git config --local user.email '1469442737@qq.com'
+          git config --local user.name 'Tyh2001'
+          git add -f docs/.vitepress/dist/CNAME
+          git commit -m 'Add CNAME file for custom domain'
+
+      # 向 Codecov 报告覆盖率
+      - name: Report coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      # https://github.com/peaceiris/actions-gh-pages#readme
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vitepress/dist
+          publish_branch: gh-pages # 将部署到 gh-pages 分支
