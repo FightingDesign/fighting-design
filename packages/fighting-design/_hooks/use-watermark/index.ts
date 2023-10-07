@@ -4,7 +4,7 @@ import type { ComputedRef } from 'vue'
 
 /**
  * useWatermark 返回值类型接口
- * 
+ *
  * @param { string } base64 base64 格式图片
  * @param { number } size 图片尺寸
  */
@@ -15,9 +15,9 @@ export interface UseWatermarkReturn {
 
 /**
  * 生成水印图片
- * 
+ *
  * @param { Object } prop prop 参数
- * @returns 
+ * @returns
  */
 export const useWatermark = (prop: WatermarkProps): ComputedRef<UseWatermarkReturn> => {
   return computed((): UseWatermarkReturn => {
