@@ -1,6 +1,7 @@
 import { useList, removeInstance, useRun } from '..'
 import { ref, computed, getCurrentInstance } from 'vue'
-import type { MessageProps, NotificationProps } from '../../components'
+import type { MessageProps } from '../../message'
+import type { NotificationProps } from '../../notification'
 import type { CSSProperties, ComputedRef, Ref, ComponentInternalInstance } from 'vue'
 import type { ClassList } from '../../_interface'
 

@@ -5,7 +5,7 @@ import * as components from './components'
 
 export * from './components'
 
-export const core = (): void => {
+const install = (): void => {
   objectEntries(components).forEach(([key, value]): void => {
     customElements.define(setWebComponentName(key), defineCustomElement(value))
   })
@@ -13,5 +13,5 @@ export const core = (): void => {
 
 export default {
   version,
-  core
+  install
 }

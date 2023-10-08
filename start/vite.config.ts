@@ -7,22 +7,13 @@ export default (): UserConfigExport => {
     base: './',
     plugins: [
       vue({
-<<<<<<< HEAD
         template: {
           compilerOptions: {
             // 将所有带短横线的标签名都视为自定义元素
             isCustomElement: (tag) => tag.includes('-')
           }
         }
-      }),
-      vueSetupExtend(),
-      svgLoader()
-=======
-        script: {
-          defineModel: true
-        }
       })
->>>>>>> master
     ],
     server: {
       port: 1216

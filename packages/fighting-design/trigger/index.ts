@@ -10,4 +10,7 @@ export const FTrigger: ComponentPublicInstance = installWebComponent(Trigger, st
 
 export * from './src/interface'
 
+/** trigger 组件实例类型 */
+export type TriggerInstance = InstanceType<typeof Trigger>
+
 export default FTrigger
