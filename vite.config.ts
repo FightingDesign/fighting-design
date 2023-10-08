@@ -1,8 +1,8 @@
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
+// import dts from 'vite-plugin-dts' // https://github.com/qmhc/vite-plugin-dts
 import { resolve } from 'path'
-import { copyFileSync } from 'fs'
-import { version } from './packages/fighting-design/package.json'
+// import { copyFileSync } from 'fs'
+// import { version } from './packages/fighting-design/package.json'
 // import { visualizer } from 'rollup-plugin-visualizer' // https://github.com/btd/rollup-plugin-visualizer
 import type { UserConfigExport } from 'vite'
 
@@ -62,7 +62,7 @@ export default (): UserConfigExport => {
              *
              * @see output.dir https://cn.rollupjs.org/configuration-options/#output-dir
              */
-            dir: 'dist',
+            dir: 'dist/src',
             /**
              * @see output.sourcemap https://cn.rollupjs.org/configuration-options/#output-sourcemap
              */
@@ -73,10 +73,17 @@ export default (): UserConfigExport => {
              * @see output.entryFileNames https://cn.rollupjs.org/configuration-options/#output-entryfilenames
              */
             entryFileNames: (chunkInfo): string => {
-              return `${chunkInfo.name.slice(
-                0,
-                chunkInfo.name.lastIndexOf('/') + 1
-              )}index.js`
+              const _name = chunkInfo.name
+              const firstSlashIndex = _name.indexOf('/')
+              const secondSlashIndex = _name.indexOf('/', firstSlashIndex + 1)
+              const result = _name.slice(secondSlashIndex + 1, _name.lastIndexOf('/') + 1)
+              const regex = /node_modules/
+
+              if (regex.test(result)) {
+                return '_vue/index.js'
+              }
+
+              return result + 'index.js'
             },
             /**
              * 输出的 chunk文件名
@@ -115,68 +122,23 @@ export default (): UserConfigExport => {
           }
         ]
       }
-      // rollup 配置项 https://rollupjs.org/guide/en/#big-list-of-options
-      // rollupOptions: {
-      //   // external: ['vue'], // 确保外部化处理那些你不想打包进库的依赖 https://rollupjs.org/guide/en/#external
-      //   output: [
-      //     {
-      //       format: 'umd',
-      //       exports: 'named',
-      //       sourcemap: false,
-      //       dir: 'dist/dist',
-      //       entryFileNames: 'index.umd.js',
-      //       chunkFileNames: '[name].js',
-      //       assetFileNames: '[name].[ext]',
-      //       namespaceToStringTag: true,
-      //       manualChunks: undefined,
-      //       inlineDynamicImports: false,
-      //       globals: { vue: 'Vue' }  // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-      //     },
-      //     {
-      //       format: 'es', // 打包模式 https://rollupjs.org/guide/en/#outputformat
-      //       exports: 'named', // 导出模式 https://rollupjs.org/guide/en/#outputexports
-      //       dir: 'dist/es', // 输出路径 https://rollupjs.org/guide/en/#outputdir
-      //       sourcemap: false, // https://rollupjs.org/guide/en/#outputsourcemap
-      //       entryFileNames: 'index.js', // 输出后的文件名 https://rollupjs.org/guide/en/#outputentryfilenames
-      //       chunkFileNames: '[name].js', // 输出的 chunk文件名 https://rollupjs.org/guide/en/#outputchunkfilenames
-      //       assetFileNames: '[name].[ext]', // 输出资产文件名 https://rollupjs.org/guide/en/#outputassetfilenames
-      //       namespaceToStringTag: true, // https://rollupjs.org/guide/en/#outputnamespacetostringtag
-      //       inlineDynamicImports: false, // https://rollupjs.org/guide/en/#outputinlinedynamicimports
-      //       manualChunks: undefined,
-      //       preserveModules: true // https://rollupjs.org/guide/en/#outputpreservemodules
-      //     }
-      //     // {
-      //     //   format: 'cjs',
-      //     //   exports: 'named',
-      //     //   dir: 'dist/lib',
-      //     //   sourcemap: false,
-      //     //   entryFileNames: 'index.js',
-      //     //   chunkFileNames: '[name].js',
-      //     //   assetFileNames: '[name].[ext]',
-      //     //   namespaceToStringTag: true,
-      //     //   inlineDynamicImports: false,
-      //     //   manualChunks: undefined,
-      //     //   preserveModules: true
-      //     // }
-      //   ]
-      // }
     }
   } as UserConfigExport
 }
 
-const move = (): void => {
-  const files = [
-    { input: './README.md', outDir: 'dist/README.md' },
-    {
-      input: './packages/fighting-design/package.json',
-      outDir: 'dist/package.json'
-    },
-    { input: './LICENSE', outDir: 'dist/LICENSE' }
-  ] as const
+// const move = (): void => {
+//   const files = [
+//     { input: './README.md', outDir: 'dist/README.md' },
+//     {
+//       input: './packages/fighting-design/package.json',
+//       outDir: 'dist/package.json'
+//     },
+//     { input: './LICENSE', outDir: 'dist/LICENSE' }
+//   ] as const
 
-  files.forEach((item): void => {
-    copyFileSync(item.input, item.outDir)
-  })
+//   files.forEach((item): void => {
+//     copyFileSync(item.input, item.outDir)
+//   })
 
-  console.warn('\n' + `Fighting Design ${version} 版本打包成功 🎉🎉🎉` + '\n')
-}
+//   console.warn('\n' + `Fighting Design ${version} 版本打包成功 🎉🎉🎉` + '\n')
+// }
