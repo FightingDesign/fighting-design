@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FLayout: ComponentPublicInstance = installWebComponent(Layout, style)
 
+/** layout 组件实例类型 */
+export type LayoutInstance = InstanceType<typeof Layout>
+
 export * from './src/interface'
 
 export default FLayout

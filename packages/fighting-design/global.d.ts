@@ -6,11 +6,6 @@ import type * as components from './components'
  * https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/README.md
  */
 
-declare module '*.module.scss' {
-  const classes: Readonly<Record<string, string>>
-  export default classes
-}
-
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     FAlert: typeof components.FAlert

@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FTabsItem: ComponentPublicInstance = installWebComponent(TabsItem, style)
 
+/** tabs-item 组件实例类型 */
+export type TabsItemInstance = InstanceType<typeof TabsItem>
+
 export * from './src/interface'
 
 export default FTabsItem

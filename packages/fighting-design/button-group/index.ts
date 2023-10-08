@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FButtonGroup: ComponentPublicInstance = installWebComponent(ButtonGroup, style)
 
+/** button-group 组件实例类型 */
+export type ButtonGroupInstance = InstanceType<typeof ButtonGroup>
+
 export * from './src/interface'
 
 export default FButtonGroup

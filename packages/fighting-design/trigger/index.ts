@@ -8,9 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FTrigger: ComponentPublicInstance = installWebComponent(Trigger, style)
 
-export * from './src/interface'
-
 /** trigger 组件实例类型 */
 export type TriggerInstance = InstanceType<typeof Trigger>
+
+export * from './src/interface'
 
 export default FTrigger

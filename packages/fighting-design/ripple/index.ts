@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FRipple: ComponentPublicInstance = installWebComponent(Ripple, style)
 
+/** ripple 组件实例类型 */
+export type RippleInstance = InstanceType<typeof Ripple>
+
 export * from './src/interface'
 
 export default FRipple

@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FSpace: ComponentPublicInstance = installWebComponent(Space, style)
 
+/** space 组件实例类型 */
+export type SpaceInstance = InstanceType<typeof Space>
+
 export * from './src/interface'
 
 export default FSpace

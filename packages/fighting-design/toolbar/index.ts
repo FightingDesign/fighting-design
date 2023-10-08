@@ -10,4 +10,7 @@ export const FToolbar: ComponentPublicInstance = installWebComponent(Toolbar, st
 
 export * from './src/interface'
 
+/** toolbar 组件实例类型 */
+export type ToolbarInstance = InstanceType<typeof Toolbar>
+
 export default FToolbar

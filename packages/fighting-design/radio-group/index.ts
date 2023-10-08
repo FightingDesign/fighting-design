@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FRadioGroup: ComponentPublicInstance = installWebComponent(RadioGroup, style)
 
+/** radio-group 组件实例类型 */
+export type RadioGroupInstance = InstanceType<typeof RadioGroup>
+
 export * from './src/interface'
 
 export default FRadioGroup

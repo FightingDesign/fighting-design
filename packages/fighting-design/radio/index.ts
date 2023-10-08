@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FRadio: ComponentPublicInstance = installWebComponent(Radio, style)
 
+/** radio 组件实例类型 */
+export type RadioInstance = InstanceType<typeof Radio>
+
 export * from './src/interface'
 
 export default FRadio

@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FSvgIcon: ComponentPublicInstance = installWebComponent(SvgIcon, style)
 
+/** svg-icon 组件实例类型 */
+export type SvgIconInstance = InstanceType<typeof SvgIcon>
+
 export * from './src/interface'
 
 export default FSvgIcon

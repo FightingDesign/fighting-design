@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FFooter: ComponentPublicInstance = installWebComponent(Footer, style)
 
+/** footer 组件实例类型 */
+export type FooterInstance = InstanceType<typeof Footer>
+
 export * from './src/interface'
 
 export default FFooter

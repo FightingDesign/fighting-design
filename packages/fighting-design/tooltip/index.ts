@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FTooltip: ComponentPublicInstance = installWebComponent(Tooltip, style)
 
+/** tooltip 组件实例类型 */
+export type TooltipInstance = InstanceType<typeof Tooltip>
+
 export * from './src/interface'
 
 export default FTooltip

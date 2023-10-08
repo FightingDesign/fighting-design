@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FAvatarGroup: ComponentPublicInstance = installWebComponent(AvatarGroup, style)
 
+/** avatar-group 组件实例类型 */
+export type AvatarGroupInstance = InstanceType<typeof AvatarGroup>
+
 export * from './src/interface'
 
 export default FAvatarGroup

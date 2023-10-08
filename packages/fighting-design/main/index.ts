@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FMain: ComponentPublicInstance = installWebComponent(Main, style)
 
+/** main 组件实例类型 */
+export type MainInstance = InstanceType<typeof Main>
+
 export * from './src/interface'
 
 export default FMain

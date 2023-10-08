@@ -8,4 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FBreadcrumbItem: ComponentPublicInstance = installWebComponent(BreadcrumbItem, style)
 
+/** breadcrumb-item 组件实例类型 */
+export type BreadcrumbItemInstance = InstanceType<typeof BreadcrumbItem>
+
+export * from './src/interface'
+
 export default FBreadcrumbItem

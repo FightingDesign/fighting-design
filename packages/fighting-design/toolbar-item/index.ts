@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FToolbarItem: ComponentPublicInstance = installWebComponent(ToolbarItem, style)
 
+/** toolbar-item 组件实例类型 */
+export type ToolbarItemInstance = InstanceType<typeof ToolbarItem>
+
 export * from './src/interface'
 
 export default FToolbarItem

@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FDropdown: ComponentPublicInstance = installWebComponent(Dropdown, style)
 
+/** dropdown 组件实例类型 */
+export type DropdownInstance = InstanceType<typeof Dropdown>
+
 export * from './src/interface'
 
 export default FDropdown

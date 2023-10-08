@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FAside: ComponentPublicInstance = installWebComponent(Aside, style)
 
+/** aside 组件实例类型 */
+export type AsideInstance = InstanceType<typeof Aside>
+
 export * from './src/interface'
 
 export default FAside

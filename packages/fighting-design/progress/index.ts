@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FProgress: ComponentPublicInstance = installWebComponent(Progress, style)
 
+/** progress 组件实例类型 */
+export type ProgressInstance = InstanceType<typeof Progress>
+
 export * from './src/interface'
 
 export default FProgress

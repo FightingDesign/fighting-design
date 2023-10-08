@@ -8,6 +8,9 @@ import type { ComponentPublicInstance } from 'vue'
 
 export const FOption: ComponentPublicInstance = installWebComponent(Option, style)
 
+/** option 组件实例类型 */
+export type OptionInstance = InstanceType<typeof Option>
+
 export * from './src/interface'
 
 export default FOption
