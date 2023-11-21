@@ -26,10 +26,7 @@
     content: '';
     display: inline-block;
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    inset: 0;
     opacity: 0;
     border-radius: inherit;
     transition: 0.3s;
@@ -96,10 +93,7 @@
   // 涟漪容器
   &__ripples-box {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
     overflow: hidden;
 
     // 涟漪效果

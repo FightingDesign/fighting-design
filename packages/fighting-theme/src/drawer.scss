@@ -1,9 +1,6 @@
 .f-drawer {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  inset: 0;
   z-index: var(--drawer-z-index, 2000);
 
   // 不同方向
@@ -58,10 +55,7 @@
   // 遮罩层
   &__mask {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     opacity: var(--drawer-mask-opacity, 0.4);
     background-color: var(--drawer-mask-background, #000);
   }
@@ -74,10 +68,7 @@
   // 主容器公共样式
   &__wrapper {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 1999;
     transition: 0.3s;
 
@@ -157,18 +148,4 @@
   &__trans-leave-to {
     opacity: 0;
   }
-
-  // // 全屏展示
-  // &.f-drawer__fullscreen {
-  //   .f-drawer__wrapper {
-  //     overflow: hidden;
-
-  //     .f-drawer__container {
-  //       height: 100vh;
-  //       width: 100vw;
-  //       border-radius: 0;
-  //       overflow: auto;
-  //     }
-  //   }
-  // }
 }

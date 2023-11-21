@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.64.0 (2023-10-07)
+
+- Fixed `f-dialog` style details
+- Fix `f-watermark` removable issue
+
 ## 0.63.1 (2023-08-28)
 
 - 修复 `f-select` 组件多个不会触发滚动到选中元素问题
