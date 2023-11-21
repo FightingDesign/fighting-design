@@ -50,7 +50,7 @@ export const Props = {
   /** 自定义之前的 icon */
   beforeIcon: setObjectProp<FightingIcon>(),
   /** 滚动列表 */
-  alertList: setArrayProp<string[]>(),
+  alertList: setArrayProp<string[]>([]),
   /** 滚动列表动画间隔 */
   duration: setNumberProp(),
   /** 点击关闭之后执行的回调 */
