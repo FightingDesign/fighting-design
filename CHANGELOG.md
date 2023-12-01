@@ -2,10 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.64.1 (2023-12-01)
+
+- 修复 `f-submenu` 组件折叠动画太慢的问题
+
 ## 0.64.0 (2023-10-07)
 
-- Fixed `f-dialog` style details
-- Fix `f-watermark` removable issue
+- 修复 `f-dialog` 样式的详细问题
+- 修复 `f-watermark` 可删除问题
 
 ## 0.63.1 (2023-08-28)
 

@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.64.1 (2023-12-01)
+
+- Fix the issue of slow folding animation of `f-submenu` components
+
 ## 0.63.1 (2023-08-28)
 
 - Fix the issue of multiple ·f-select· components not triggering scrolling to selected elements

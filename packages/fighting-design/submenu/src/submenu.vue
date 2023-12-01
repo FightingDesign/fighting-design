@@ -90,10 +90,8 @@
 
       <!-- 主要的折叠菜单内容 -->
       <div role="none" class="f-submenu__content">
-        <f-collapse-animation :opened="isOpened">
-          <!-- <div v-show="isOpened"> -->
+        <f-collapse-animation :opened="isOpened" :animation-time="0.27">
           <slot />
-          <!-- </div> -->
         </f-collapse-animation>
       </div>
     </div>
