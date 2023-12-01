@@ -155,8 +155,6 @@ importers:
         specifier: ^0.7.3
         version: 0.7.3
 
-  packages/fighting-resolver: {}
-
   packages/fighting-theme: {}
 
   start:

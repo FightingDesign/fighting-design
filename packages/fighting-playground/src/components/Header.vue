@@ -1,7 +1,6 @@
 <script lang="ts" setup>
   import { FLink } from '@/link'
   import { FAvatar } from '@/avatar'
-  import '~/_root.scss'
   import '~/link.scss'
   import '~/avatar.scss'
 </script>
