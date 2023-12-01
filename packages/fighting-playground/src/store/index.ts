@@ -12,7 +12,7 @@ import {
   fightingImports,
   publicPath
 } from '../utils/code'
-import type { Store, SFCOptions, StoreState, OutputModes } from '@vue/repl'
+import type { Store, SFCOptions, StoreState, OutputModes, StoreOptions } from '@vue/repl'
 
 export class ReplStore {
   state: StoreState
@@ -24,15 +24,10 @@ export class ReplStore {
 
   constructor ({
     serializedState = '',
-    defaultVueRuntimeURL = `https://unpkg.com/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
+    defaultVueRuntimeURL = `https://cdn.jsdelivr.net/npm/@vue/runtime-dom@${version}/dist/runtime-dom.esm-browser.js`,
     showOutput = false,
     outputMode = 'preview'
-  }: {
-    serializedState?: string
-    showOutput?: boolean
-    outputMode?: OutputModes | string
-    defaultVueRuntimeURL?: string
-  }) {
+  }: StoreOptions = {}) {
     let files: StoreState['files'] = {}
 
     if (serializedState) {
@@ -51,6 +46,7 @@ export class ReplStore {
     this.initialOutputMode = outputMode as OutputModes
 
     let mainFile: string = defaultMainFile
+
     if (!files[mainFile]) {
       mainFile = Object.keys(files)[0]
     }
@@ -65,8 +61,10 @@ export class ReplStore {
 
     this.initImportMap()
 
-    /** 注入 Fighting Design */
+    // 注入 Fighting Design
     this.state.files[fightingPlugin] = new File(fightingPlugin, fightingPluginCode)
+
+    console.log(this.state)
 
     watchEffect(() => compileFile(this as unknown as Store, this.state.activeFile))
 

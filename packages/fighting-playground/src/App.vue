@@ -19,8 +19,7 @@
 
 <template>
   <header-vue />
-  <!-- <repl :store="store" show-compile-output :editor="CodeMirror" /> -->
-  <repl :editor="CodeMirror" />
+  <repl :store="store" show-compile-output :editor="CodeMirror" />
 </template>
 
 <style lang="scss">
