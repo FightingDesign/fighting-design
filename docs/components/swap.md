@@ -153,7 +153,7 @@ type SwapChange = (evt: MouseEvent, value: boolean) => void
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<a href="https://github.com/ChetSerenade" target="_blank">
+<a href="https://github.com/JedediahXu" target="_blank">
   <f-avatar round src="https://avatars.githubusercontent.com/u/44160015?v=4" />
 </a>
 
