@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { computed, watch, reactive, onBeforeMount } from 'vue'
+  import { computed, watch, reactive, onUnmounted } from 'vue'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronLeft, FIconChevronRight } from '../../_svg'
   import { isDate } from '../../_utils'
@@ -106,6 +106,7 @@
     /** 点击当前月份的日期，高亮显示 */
     if (target === 'current') {
       dates.date = day
+      console.log(dates)
       run(prop.onChangeDate, dates.year, dates.month, dates.date)
     }
   }
@@ -146,7 +147,8 @@
     return ''
   }
 
-  onBeforeMount(() => {
+  /** 停止监听器 */
+  onUnmounted(() => {
     watchChange()
     watchMonth()
   })

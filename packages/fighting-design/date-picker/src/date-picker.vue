@@ -34,6 +34,7 @@
    * @param { number } date 日期
    */
   const changeDate = (year: number, month: number, date: number): void => {
+    console.log(year, month, date)
     /**
      * 格式化规则
      *
@@ -85,6 +86,8 @@
       /** 将绑定值设置为格式化后的日期 */
       dateModelValue.value = formatDate
     }
+
+    console.log(setDateFun)
   }
 
   /**
@@ -96,6 +99,8 @@
   const onConfirm = (evt: MouseEvent, target: boolean): void => {
     const instance = triggerInstance.value as TriggerInstance
     instance.close(evt)
+
+    console.log(setDateFun)
 
     if (target && isFunction(setDateFun)) {
       setDateFun()

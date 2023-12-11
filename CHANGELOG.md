@@ -4,6 +4,7 @@
 
 - 更新 `f-menu` 组件 `on-menu-item-click` 和 `on-submenu-click` 方法参数接收顺序
 - 更新 `f-swap` 组件 `on-change` 方法参数接收顺序
+- 修复 `f-calendar` 组件部分回调失效问题
 
 ## 0.64.1 (2023-12-01)
 
