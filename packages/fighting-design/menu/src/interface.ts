@@ -8,18 +8,18 @@ export type MenuMode = 'horizontal' | 'vertical' | 'inline'
 /**
  * menu-item 点击执行的回调类型
  *
- * @param { Object } evt 事件对象
  * @param { string } name 唯一标识
+ * @param { Object } evt 事件对象
  */
-export type MenuItemClick = (evt: MouseEvent, name: string) => void
+export type MenuItemClick = (name: string, evt: MouseEvent) => void
 
 /**
  * submenu 点击执行的回调类型
  *
- * @param { Object } evt 事件对象
  * @param { boolean } target 打开状态
+ * @param { Object } evt 事件对象
  */
-export type SubmenuClick = (evt: MouseEvent, target: boolean) => void
+export type SubmenuClick = (target: boolean, evt: MouseEvent) => void
 
 /**
  * 注入的依赖项类型接口

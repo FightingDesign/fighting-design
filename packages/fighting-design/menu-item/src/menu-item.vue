@@ -38,7 +38,7 @@
        *
        * 传入事件对象和当前 name两个参数
        */
-      run(parentInject.onMenuItemClick, evt, prop.name)
+      run(parentInject.onMenuItemClick, prop.name, evt)
 
       /**
        * 设置当前选中的 name，传入当前组件的 name

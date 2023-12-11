@@ -343,13 +343,13 @@ type MenuMode = 'horizontal' | 'vertical' | 'inline'
 ### MenuItemClick
 
 ```ts
-type MenuItemClick = (evt: MouseEvent, name: string) => void
+type MenuItemClick = (name: string, evt: MouseEvent) => void
 ```
 
 ### SubmenuClick
 
 ```ts
-type SubmenuClick = (evt: MouseEvent, target: boolean) => void
+type SubmenuClick = (target: boolean, evt: MouseEvent) => void
 ```
 
 ## Contributors

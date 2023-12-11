@@ -34,7 +34,7 @@
      *
      * 传入 evt 和展示状态两个参数
      */
-    parentInject && run(parentInject.onSubmenuClick, evt, isOpened.value)
+    parentInject && run(parentInject.onSubmenuClick, isOpened.value, evt)
   }
 </script>
 
