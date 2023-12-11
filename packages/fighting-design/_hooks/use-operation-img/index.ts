@@ -21,7 +21,7 @@ export interface UseOperationImgReturn {
   rotate: Ref<number>
   smaller: () => void
   bigger: () => void
-  scrollZoom(evt: WheelEvent): void
+  scrollZoom: (evt: WheelEvent) => void
   recovery: () => void
   rotateClockwise: () => void
   rotateCounterClock: () => void
