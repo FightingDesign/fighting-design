@@ -106,7 +106,6 @@
     /** 点击当前月份的日期，高亮显示 */
     if (target === 'current') {
       dates.date = day
-      console.log(dates)
       run(prop.onChangeDate, dates.year, dates.month, dates.date)
     }
   }
