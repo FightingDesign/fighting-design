@@ -144,7 +144,7 @@ type SwapType = 'sound' | 'swap'
 ### SwapChange
 
 ```ts
-type SwapChange = (evt: MouseEvent, value: boolean) => void
+type SwapChange = (value: boolean, evt: MouseEvent) => void
 ```
 
 ## Contributors

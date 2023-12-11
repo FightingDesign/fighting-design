@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 更新 `f-menu` 组件 `on-menu-item-click` 和 `on-submenu-click` 方法参数接收顺序
+- 更新 `f-swap` 组件 `on-change` 方法参数接收顺序
 
 ## 0.64.1 (2023-12-01)
 

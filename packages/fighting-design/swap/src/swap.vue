@@ -18,7 +18,7 @@
    */
   const handelClick = (evt: MouseEvent): void => {
     modelValue.value = !modelValue.value
-    run(prop.onChange, evt, !prop.modelValue)
+    run(prop.onChange, !prop.modelValue, evt)
   }
 
   /** 类名列表 */
