@@ -4,7 +4,7 @@
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
   import { FCalendar } from '../../calendar'
-  import { addZero, warning, isFunction } from '../../_utils'
+  import { addZero, warning } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
   import type { TriggerInstance } from '../../trigger'
 
@@ -22,7 +22,55 @@
   /** trigger 组件实例 */
   const triggerInstance = ref<TriggerInstance>()
 
-  let setDateFun: Function | undefined
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  /** 日期映射对象 */
+  const formatDateMap = {
+    YYYY: year + '',
+    MM: prop.addZero ? addZero(month) : month + '',
+    DD: prop.addZero ? addZero(day) : day + ''
+  }
+
+  /**
+   * 设置时间
+   */
+  const setDate = (): void => {
+    /**
+     * 格式化规则
+     *
+     * 字符串中必须包含 YYYY 或者 MM 或者 DD
+     */
+    const formatRule = RegExp(/([Y]{4})|([M]{2})|([D]{2})/)
+    /** 格式化规范 */
+    let format = prop.format
+
+    // 如果格式化的参数格式不正确
+    if (!formatRule.test(format)) {
+      // 在非标准格式下提示警告错误
+      // format 不是一个标准格式，将使用默认格式
+      warning(
+        'f-date-picker',
+        '`format` is not a standard format, default format will be used'
+      )
+
+      format = 'YYYY/MM/DD'
+    }
+
+    for (const key in formatDateMap) {
+      /**
+       * @see String.prototype.replace() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+       * @see String.prototype.replace https://caniuse.com/?search=String.prototype.replace
+       */
+      format = format.replace(
+        key,
+        formatDateMap[key as keyof typeof formatDateMap].toString()
+      )
+    }
+
+    dateModelValue.value = format
+  }
 
   /**
    * 选取时间
@@ -34,60 +82,9 @@
    * @param { number } date 日期
    */
   const changeDate = (year: number, month: number, date: number): void => {
-    console.log(year, month, date)
-    /**
-     * 格式化规则
-     *
-     * 字符串中必须包含 YYYY 或者 MM 或者 DD
-     */
-    const formatRule = RegExp(/([Y]{4})|([M]{2})|([D]{2})/)
-
-    /** 如果存在格式化配置项 */
-    if (!formatRule.test(prop.format)) {
-      /** 在非标准格式下提示警告错误 */
-      /** format 不是一个标准格式，将使用默认格式 */
-      warning(
-        'f-date-picker',
-        '`format` is not a standard format, default format will be used'
-      )
-
-      setDateFun = (): void => {
-        /** 将绑定值设置为格式化后的日期 */
-        // keyword.value = formatDate
-        dateModelValue.value = `${year}/${prop.addZero ? addZero(month) : month}/${
-          prop.addZero ? addZero(date) : date
-        }`
-      }
-      return
-    }
-
-    /** 格式化映射对象 */
-    const checkDate = {
-      YYYY: year,
-      MM: prop.addZero ? addZero(month) : month,
-      DD: prop.addZero ? addZero(date) : date
-    }
-
-    /** 需要格式化的时间格式 */
-    let formatDate: string = prop.format
-
-    for (const key in checkDate) {
-      /**
-       * @see String.prototype.replace() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace
-       * @see String.prototype.replace https://caniuse.com/?search=String.prototype.replace
-       */
-      formatDate = formatDate.replace(
-        key,
-        checkDate[key as keyof typeof checkDate].toString()
-      )
-    }
-
-    setDateFun = (): void => {
-      /** 将绑定值设置为格式化后的日期 */
-      dateModelValue.value = formatDate
-    }
-
-    console.log(setDateFun)
+    formatDateMap.YYYY = year + ''
+    formatDateMap.MM = prop.addZero ? addZero(month) : month + ''
+    formatDateMap.DD = prop.addZero ? addZero(date) : date + ''
   }
 
   /**
@@ -97,14 +94,12 @@
    * @param { boolean } target 是否为确认
    */
   const onConfirm = (evt: MouseEvent, target: boolean): void => {
+    /** 触发器实例 */
     const instance = triggerInstance.value as TriggerInstance
+    // 关闭触发器
     instance.close(evt)
-
-    console.log(setDateFun)
-
-    if (target && isFunction(setDateFun)) {
-      setDateFun()
-    }
+    // 为确认框的时候触发更新
+    target && setDate()
   }
 </script>
 
