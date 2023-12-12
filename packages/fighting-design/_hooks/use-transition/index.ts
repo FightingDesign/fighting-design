@@ -46,7 +46,7 @@ export const useTransition = (prop: IseTransitionProp): IseTransitionReturn => {
    * @param { Object } node 元素节点
    */
   const handleOpen = (node: Element): void => {
-    /** 开启状态隐藏滚动条 */
+    // 开启状态隐藏滚动条
     document.body.style.overflow = 'hidden'
     run(prop.onOpen, node)
   }
