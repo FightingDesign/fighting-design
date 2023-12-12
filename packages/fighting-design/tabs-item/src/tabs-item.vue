@@ -45,10 +45,6 @@
   onMounted((): void => {
     parentInject && parentInject.registerChild(options)
   })
-
-  // onBeforeUnmount((): void => {
-  //   parentInject && parentInject.unRegisterChild(pane)
-  // })
 </script>
 
 <template>

@@ -101,7 +101,7 @@ export const useLoadImg = (
     /** 创建一个新的 img 元素 */
     const el: HTMLImageElement = new Image()
 
-    /** 待优化，Promise 可能会有不兼容 */
+    // 待优化，Promise 可能会有不兼容
     new Promise((resolve, reject): void => {
       el.src = errSrc || prop.src
 
@@ -113,19 +113,19 @@ export const useLoadImg = (
         reject(evt)
       })
     })
-      /** 加载成功 */
+      // 加载成功
       .then(evt => {
         evt && success(node, evt as Event, el.src)
       })
-      /** 加载失败 */
+      // 加载失败
       .catch(evt => {
-        /** 如果没有加载过 errSrc，并且 errSrc 存在，则继续加载 */
+        // 如果没有加载过 errSrc，并且 errSrc 存在，则继续加载
         if (!isLoadErrSrc && prop.errSrc) {
           load(node, prop.errSrc)
           isLoadErrSrc = true
           return
         }
-        /** 否则调用失败方法 */
+        // 否则调用失败方法
         failure(evt)
       })
   }
@@ -220,7 +220,7 @@ export const useLoadImg = (
       }
     }
 
-    /** 开始监听滚动事件 */
+    // 开始监听滚动事件
     window && window.addEventListener('scroll', listerScroll)
   }
 
@@ -266,7 +266,7 @@ export const useLoadImg = (
     startLoad()
   })
 
-  /** 监视 src 的变化重新加载图片 */
+  // 监视 src 的变化重新加载图片 
   watch(
     (): string => prop.src,
     (): void => {

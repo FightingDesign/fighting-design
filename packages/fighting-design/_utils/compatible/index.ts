@@ -24,11 +24,11 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
   if (typeof obj !== 'object' || obj === null) {
     warning('objectEntries', 'Parameter is not an object type.')
 
-    /** 如果不是对象类型 返回空数组 */
+    // 如果不是对象类型 返回空数组
     return []
   }
 
-  /** 如果 Object.entries 存在则直接使用 */
+  // 如果 Object.entries 存在则直接使用
   if (Object.entries && Object.entries !== undefined) {
     return Object.entries(obj) as [keyof T, T[keyof T]][]
   }

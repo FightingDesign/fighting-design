@@ -68,10 +68,9 @@
   const handleClick = (): void => {
     const { top, behavior, listenEl } = toRefs(prop)
 
-    /** 如果存在监听的目录 */
+    // 如果存在监听的目录
     if (isString(prop.listenEl)) {
       /** 获取到监听的元素节点 */
-
       const listerNode: HTMLElement | null = document.querySelector(listenEl.value)
 
       if (!listerNode) {
@@ -93,7 +92,7 @@
 
   onMounted((): void => {
     if (prop.listenEl) {
-      /** 如果传入的不是字符串，则监听 document */
+      // 如果传入的不是字符串，则监听 document
       if (!isString(prop.listenEl)) {
         error('f-back-top', '`listen-el` attributes is not a string')
 
@@ -122,7 +121,7 @@
     }
   })
 
-  /** 卸载组件移除监听 */
+  // 卸载组件移除监听
   onUnmounted((): void => {
     document.removeEventListener('scroll', cachedHandleScroll)
   })

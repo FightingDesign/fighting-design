@@ -46,7 +46,7 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
       month = 12
     }
 
-    /** 如果是闰年，二月份有29天 */
+    // 如果是闰年，二月份有29天 
     if (month === 2 && isLeapYear(year)) {
       return 29
     }
@@ -102,7 +102,7 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
     /** 获取上个月天数 */
     const lastMonthDays = getDaysInMonth(year, month - 1)
 
-    /** 填充上个月的剩余天数 */
+    // 填充上个月的剩余天数
     for (let i = startDay - 1; i >= 0; i--) {
       const _month = month - 1 === 0 ? 12 : month - 1
       const _day = lastMonthDays - i
@@ -119,7 +119,7 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
 
     let currentDay = 1
 
-    /** 填充当前月份的天数 */
+    // 填充当前月份的天数
     while (currentDay <= getDaysInMonth(year, month)) {
       const _lunar = prop.lunar ? lunar(year, month, currentDay) : {}
 

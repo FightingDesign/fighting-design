@@ -20,7 +20,7 @@ export const useColor = (color: string): UseColorReturn => {
   /** 十六进制色号正则检测条件 */
   const r = /^\#?[0-9A-Fa-f]{6}$/
 
-  /** 检测是否为一个有效的十六进制色号 */
+  // 检测是否为一个有效的十六进制色号
   if (!r.test(color)) {
     throw new Error(
       `Fighting Design - useColor: ${color} is not a valid hex color number`
@@ -93,7 +93,7 @@ export const useColor = (color: string): UseColorReturn => {
       rgb[i] = Math.floor(Number(rgb[i]) * (1 - level)).toString(16)
     }
 
-    /** 转换成 hex 返回 */
+    // 转换成 hex 返回
     return toHex(...rgb)
   }
 
@@ -111,7 +111,7 @@ export const useColor = (color: string): UseColorReturn => {
       rgb[i] = Math.floor((255 - Number(rgb[i])) * level + Number(rgb[i])).toString(16)
     }
 
-    /** 转换成 hex 返回 */
+    // 转换成 hex 返回
     return toHex(...rgb)
   }
 

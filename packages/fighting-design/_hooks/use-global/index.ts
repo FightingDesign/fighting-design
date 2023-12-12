@@ -60,7 +60,7 @@ export const useGlobal = (prop?: Partial<UseGlobalProp>): UseGlobalReturn => {
         return def as FightingType
       }
 
-      /** 如果校验不通过则返回默认值 */
+      // 如果校验不通过则返回默认值
       if (prop.type && !FIGHTING_TYPE.includes(prop.type)) {
         return def as FightingType
       }
@@ -115,7 +115,7 @@ export const useGlobal = (prop?: Partial<UseGlobalProp>): UseGlobalReturn => {
       const lang: FightingLang = (global && global.lang) || 'zh-CN'
       /** 获取当前的语音对象 */
       const langList = LANG[lang]
-      /** 返回指定组件的语言内容 */
+      // 返回指定组件的语言内容
       return langList[componentName]
     })
   }

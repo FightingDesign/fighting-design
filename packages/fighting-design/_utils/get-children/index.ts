@@ -11,7 +11,7 @@ import type { Component, VNode } from 'vue'
 export const getChildren = (children: VNode[], componentName: string): VNode[] => {
   let components: VNode[] = []
 
-  /** 传入的子节点必须是一个有效数组 */
+  // 传入的子节点必须是一个有效数组
   if (isArray(children) && children.length) {
     children.forEach((child: VNode): void => {
       /** 获取到每个组件的 name */

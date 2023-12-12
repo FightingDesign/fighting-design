@@ -10,7 +10,7 @@ import type { UpLoadCallback } from './interface'
 
 export const Props = {
   /** 文件列表 */
-  files: setArrayProp<File[]>([]),
+  files: setArrayProp<File[]>(),
   /** 接受的文件类型 */
   accept: setStringProp(),
   /**

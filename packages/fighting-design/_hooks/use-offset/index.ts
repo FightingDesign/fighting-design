@@ -47,9 +47,9 @@ export const useOffset = (
     let parent: Element | null = el.offsetParent
 
     while (parent !== null) {
-      /** 累加左边距 */
+      // 累加左边距
       left += (parent as HTMLElement).offsetLeft
-      /** 依次获取父元素 */
+      // 依次获取父元素
       parent = (parent as HTMLElement).offsetParent
     }
 

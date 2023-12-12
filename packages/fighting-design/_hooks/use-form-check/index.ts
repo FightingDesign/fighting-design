@@ -29,17 +29,17 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
 
   /** 获取到所有子节点 vNode */
   const getChildrenList = computed((): VNode[] => {
-    /** 如果没有插槽内容，返回空数组 */
+    // 如果没有插槽内容，返回空数组
     if (!slot.default) return []
 
     /** 获取到所有子节点元素 */
     const children = getChildren(slot.default(), 'FFormItem')
 
-    /** 遍历添每个节点判断是否验证通过 */
+    // 遍历添每个节点判断是否验证通过
     children.forEach((item: VNode): void => {
-      /** 必须有 name 和 rules 才能触发表单校验 */
+      // 必须有 name 和 rules 才能触发表单校验
       if (item.props && item.props.name && item.props.rules) {
-        /** 初始状态下默认设置全部没有通过校验 */
+        // 初始状态下默认设置全部没有通过校验
         childrenCheckResult[item.props.name] = false
       }
     })
@@ -109,7 +109,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
       /** 子组件名字 */
       const _name: FormItemProps['name'] = item.props && item.props.name
 
-      /** 判断的每个自组件必须有 rules 和 name 参数 */
+      // 判断的每个自组件必须有 rules 和 name 参数
       if (item.props && _rules && _name && prop.model) {
         /** 检测父组件绑定的对象上是否存在子组件绑定的 name 属性 */
         if (_name in prop.model) {
@@ -121,7 +121,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
 
           childrenCheckResult[_name] = msg
         } else {
-          /** xxx 不是有效的 `name` 参数 */
+          // xxx 不是有效的 `name` 参数
           warning('f-form-item', `${_name} is not a valid \`name\` parameter`)
         }
       }

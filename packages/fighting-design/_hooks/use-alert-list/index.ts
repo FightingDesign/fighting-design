@@ -79,7 +79,7 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
       if (from >= to) {
         clearInterval(timer)
 
-        /** 代表到达最后一项了 */
+        // 代表到达最后一项了
         if (scrollIndex === nodeChildrenLength - 1) {
           node.scrollTop = 0
           scrollIndex = 0

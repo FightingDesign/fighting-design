@@ -46,6 +46,7 @@
     if (target === 'now') {
       /** 获取当前时间 */
       const now: Date = new Date()
+
       timeList.hour = addZero(now.getHours())
       timeList.minute = addZero(now.getMinutes())
       timeList.second = addZero(now.getSeconds())
@@ -121,7 +122,7 @@
     timeList[params] = addZero(date)
   }
 
-  /** 当时间对象一旦发生变化，就触发滚动 */
+  // 当时间对象一旦发生变化，就触发滚动
   watch(
     (): TimePickerTimeList => timeList,
     scrollNow,

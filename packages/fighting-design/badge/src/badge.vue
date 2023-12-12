@@ -33,7 +33,7 @@
   const isShow = computed((): boolean => {
     const { value, show } = prop
 
-    /** 非数字的情况下，show 便可以直接控制展示状态 */
+    // 非数字的情况下，show 便可以直接控制展示状态
     if (!isNumber(value) && show) {
       return true
     }

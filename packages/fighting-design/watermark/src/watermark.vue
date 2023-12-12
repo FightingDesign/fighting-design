@@ -95,7 +95,7 @@
   /**
    * 如何卸载之后停止监听
    *
-   * @see
+   * @see onUnmounted() https://cn.vuejs.org/api/composition-api-lifecycle.html#onunmounted
    */
   onUnmounted(ob.disconnect)
 </script>

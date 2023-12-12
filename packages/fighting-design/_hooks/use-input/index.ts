@@ -38,7 +38,7 @@ export interface UseInputReturn {
  * @author Tyh2001 <https://github.com/Tyh2001>
  * @param { Object } prop 组件的 props 参数
  * @param { Function } emit 回调参数
- * @returns { Object }
+ * @returns
  */
 export const useInput = (
   prop: Partial<UseInputProps>,

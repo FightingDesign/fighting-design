@@ -52,7 +52,7 @@ export const useTurnPage = (
   const selectChange = (newValue: SelectModelValue): void => {
     const maxValue: number = Math.ceil(prop.total / Number(newValue))
 
-    /** 如果当前用户选择的值是大于总页数的,那么直接将总页数的最大值赋值给 current */
+    // 如果当前用户选择的值是大于总页数的,那么直接将总页数的最大值赋值给 current
     if (prop.current > maxValue) {
       modelValue.currentModelValue.value = maxValue
     }
@@ -78,7 +78,7 @@ export const useTurnPage = (
   const handleInput = (): void => {
     if (prop.disabled) return
 
-    /** 如果输入的值大于最大值 */
+    // 如果输入的值大于最大值
     if (Number(jumpCurrent.value) > pages.value.length) {
       jumpCurrent.value = String(pages.value.length)
     }
@@ -94,13 +94,13 @@ export const useTurnPage = (
    * @param { Object } evt 事件对象
    */
   const handelClick = (evt: MouseEvent): void => {
-    /** 禁用状态直接返回 */
+    // 禁用状态直接返回
     if (prop.disabled) return
 
     /** 当前点击的元素节点 */
     const target: HTMLElement = evt.target as HTMLElement
 
-    /** 判断点击的是否为子节点 */
+    // 判断点击的是否为子节点
     if (target.className.includes(PAGINATION_ITEM)) {
       /** 最新的页数 */
       let newPage = Number(target.textContent)

@@ -56,7 +56,7 @@
     modelValue.value = val
   }
 
-  /** 注入依赖项 */
+  // 注入依赖项
   provide<TreeProvide>(
     TREE_PROPS_KEY,
     reactive({

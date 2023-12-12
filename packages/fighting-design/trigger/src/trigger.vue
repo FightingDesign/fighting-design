@@ -31,7 +31,7 @@
    */
   provide<TriggerProvide>(TRIGGER_CLOSE_KEY, { close })
 
-  /** 向外导出关闭方法 */
+  // 向外导出关闭方法
   defineExpose({ close })
 </script>
 

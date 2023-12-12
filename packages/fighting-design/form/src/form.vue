@@ -31,7 +31,7 @@
     run(prop.onSubmit, ok, prop.model, childrenCheckResult, evt)
   }
 
-  /** 注入依赖项 */
+  // 注入依赖项
   provide<FormInject>(
     FORM_PROVIDE_KEY,
     reactive({
@@ -40,7 +40,7 @@
     })
   )
 
-  /** 向外界导出一些方法 */
+   // 向外界导出一些方法
   defineExpose({ submit, validate })
 </script>
 

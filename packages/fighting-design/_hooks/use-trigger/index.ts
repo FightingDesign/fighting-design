@@ -169,10 +169,10 @@ export const useTrigger = (
     }
   }
 
-  /** 挂载之后给元素添加事件监听器 */
+  // 挂载之后给元素添加事件监听器
   onMounted(addEventListener)
 
-  /** 状态改变时重新添加事件监听器 */
+  // 状态改变时重新添加事件监听器
   watch((): TriggerTrigger => prop.trigger, addEventListener)
 
   /**
@@ -196,10 +196,10 @@ export const useTrigger = (
       return
     }
 
-    /** 否则关闭触发器 */
+    // 否则关闭触发器
     close(evt)
 
-    /** 关闭之后移除事件监听 */
+    // 关闭之后移除事件监听
     window.removeEventListener('click', documentListen, true)
     window.removeEventListener('resize', setPosition)
   }

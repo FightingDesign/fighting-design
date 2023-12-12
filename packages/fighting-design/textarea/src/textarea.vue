@@ -45,7 +45,7 @@
   const _handleInput = (evt: Event): void => {
     handleInput(evt)
 
-    /** 如果需要自适应高度，则每次输入的时候重新设置高度 */
+    // 如果需要自适应高度，则每次输入的时候重新设置高度
     if (prop.autoHeight) {
       changeHeight()
     }
@@ -63,10 +63,10 @@
       (): void => {
         changeHeight()
 
-        /** 如果中途自动高度为假了，则取消监视器 */
+        // 如果中途自动高度为假了，则取消监视器
         if (!prop.autoHeight) {
           unwatch()
-          /** 并且设置自动高度 */
+          // 并且设置自动高度
           if (textareaRef.value) {
             textareaRef.value.style.height = 'auto'
           }
@@ -81,7 +81,7 @@
   /** 设置宽度方法 */
   const _changeHeight = debounce(changeHeight, 500)
 
-  /** 初始化调用 */
+  // 初始化调用
   onMounted((): void => {
     if (prop.autoHeight) {
       isAutoHeight()
@@ -89,7 +89,7 @@
     }
   })
 
-  /** 销毁前移除事件 */
+  // 销毁前移除事件
   onBeforeUnmount((): void => {
     window.removeEventListener('resize', _changeHeight)
   })
@@ -104,20 +104,20 @@
    * @param { Object } evt 事件对象
    */
   const handleEnterKey = (evt: KeyboardEvent): void => {
-    /** 如果按下 Enter 和 Ctrl 触发换行 */
+    // 如果按下 Enter 和 Ctrl 触发换行
     if (evt.key === 'Enter' && evt.ctrlKey) {
       modelValue.value += '\n'
 
-      /** 如果是自适应高度，则重新设置高度 */
+      // 如果是自适应高度，则重新设置高度
       if (prop.autoHeight) {
         changeHeight()
       }
 
-      /** 返回阻止继续执行 */
+      // 返回阻止继续执行
       return
     }
 
-    /** 只有在按下 Enter 才触发回调方法 */
+    // 只有在按下 Enter 才触发回调方法
     if (evt.key === 'Enter') {
       /**
        * 阻止默认换行的事件

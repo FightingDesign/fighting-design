@@ -31,7 +31,7 @@
   /** 样式列表 */
   const styleList = styles(['columnGap', 'rowGap'])
 
-  /** 注入依赖项 */
+  // 注入依赖项
   provide<RadioGroundInject>(
     RADIO_GROUP_PROPS_kEY,
     reactive({

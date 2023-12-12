@@ -45,7 +45,7 @@
     ) as FightingLang
   })
 
-  /** 注入依赖项 */
+  // 注入依赖项
   provide<FightingGlobalProps>(
     FIGHTING_GLOBAL_PROPS_KEY,
     reactive({

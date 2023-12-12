@@ -62,7 +62,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
       /** 过滤得到 prop 集合 */
       const propList: Record<string, unknown> = filter(list)
 
-      /** 是否存在其它需要直接加入的类名 */
+      // 是否存在其它需要直接加入的类名
       className && classList.value.push(className)
 
       for (const key in propList) {
@@ -93,20 +93,20 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
     key: string,
     pixel: boolean | string | string[] = true
   ): string | number => {
-    /** 如果需要添加单位，则所有的数字都添加单位 */
+    // 如果需要添加单位，则所有的数字都添加单位
     if (isBoolean(pixel)) {
       return (isNumber(val) ? (pixel ? sizeChange(val) : val) : val) as string | number
     } else if (isString(pixel)) {
-      /** 如果为字符串类型，则代表仅仅有一个不需要添加单位 */
+      // 如果为字符串类型，则代表仅仅有一个不需要添加单位
       if (pixel === key) return val
     } else if (isArray(pixel)) {
-      /** 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理 */
+      // 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理
       for (const item of pixel) {
         if (item === key) return val
       }
     }
 
-    /** 没有进入判断则默认添加 */
+    // 没有进入判断则默认添加
     return sizeChange(val)
   }
 

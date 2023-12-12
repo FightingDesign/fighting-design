@@ -23,7 +23,7 @@
     return prop.size || (fightingGlobalInject && fightingGlobalInject.size) || 'middle'
   })
 
-  /** 注入依赖 */
+  // 注入依赖
   provide<FightingSize>(BUTTON_GROUP_PROPS_KEY, buttonGroupSize.value)
 
   /** 类名列表 */

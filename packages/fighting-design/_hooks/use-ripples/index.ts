@@ -123,7 +123,7 @@ export const useRipples = (
     ripples.style.background = ripplesColor.value
     ripples.style.left = `${x}px`
 
-    /** 如果是按钮，则需要添加容器 */
+    // 如果是按钮，则需要添加容器
     if (options.component === 'f-button') {
       /** 创建一个容器元素 */
       const box: HTMLDivElement = document.createElement('div')

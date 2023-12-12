@@ -13,6 +13,7 @@
   /** 样式列表 */
   const styleList = styles(['background', 'color'])
 
+  /** 类名列表 */
   const classList = classes(['fullscreen'], 'f-loading')
 </script>
 

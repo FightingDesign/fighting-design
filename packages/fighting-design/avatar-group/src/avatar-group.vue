@@ -31,7 +31,7 @@
     }
   }
 
-  /** dom 挂载之后设置样式 */
+  // dom 挂载之后设置样式
   onMounted(setZIndexStyle)
 
   /** 样式列表 */
