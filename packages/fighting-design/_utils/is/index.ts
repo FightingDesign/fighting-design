@@ -7,7 +7,7 @@ const { toString } = Object.prototype
  * @returns { boolean } 这个值是否为传入的类型
  */
 const is = (type: string) => {
-  return <T>(value: T): value is T => {
+  return (value: unknown): boolean => {
     return toString.call(value) === `[object ${type}]`
   }
 }
