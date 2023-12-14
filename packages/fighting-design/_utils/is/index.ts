@@ -3,25 +3,20 @@ const { toString } = Object.prototype
 /**
  * 检测一个值是否为指定的类型
  *
- * @param { * } value 要检测的值
  * @param { string } type 预期类型
  * @returns { boolean } 这个值是否为传入的类型
  */
-export const is = (value: unknown, type: string): boolean => {
-  return toString.call(value) === `[object ${type}]`
+const is = (type: string): ((value: unknown) => void) => {
+  return (value: unknown): boolean => toString.call(value) === `[object ${type}]`
 }
 
 /**
  * 检测一个数据是否为 date 类型
- *
- * @param { * } value 要检测的值
- * @returns { boolean }
  */
-export const isDate = (value: unknown): value is Date => is(value, 'Date')
+export const isDate = is('Date')
 
 /**
  * 检测一个数据是否为 string 类型
- *
  * @param { * } value 要检测的值
  * @returns { boolean }
  */
@@ -43,15 +38,12 @@ export const isNumber = (value: unknown): value is number =>
  * @param { * } value 要检测的数据
  * @returns { boolean }
  */
-export const isBoolean = (value: unknown): value is boolean => is(value, 'Boolean')
+export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean'
 
 /**
  * 判断一个值是否为 object 类型
- *
- * @param { * } value 要检测的值
- * @returns { boolean }
  */
-export const isObject = (value: unknown): value is object => is(value, 'Object')
+export const isObject = is('Object')
 
 /**
  * 判断一个值是否为 function 类型
@@ -64,9 +56,6 @@ export const isFunction = (value: unknown): value is Function =>
 
 /**
  * 判断一个值是否为 array 类型
- *
- * @param { * } value 要检测的值
- * @returns { boolean }
  */
 export const isArray = Array.isArray
 
