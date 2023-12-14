@@ -6,8 +6,10 @@ const { toString } = Object.prototype
  * @param { string } type 预期类型
  * @returns { boolean } 这个值是否为传入的类型
  */
-const is = (type: string): ((value: unknown) => void) => {
-  return (value: unknown): boolean => toString.call(value) === `[object ${type}]`
+const is = (type: string) => {
+  return <T>(value: T): value is T => {
+    return toString.call(value) === `[object ${type}]`
+  }
 }
 
 /**
