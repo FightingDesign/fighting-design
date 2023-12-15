@@ -2,14 +2,15 @@
   import { Props } from './props'
   import { h } from 'vue'
   import { useList } from '../../_hooks'
+  // import { FEmpty } from '../../empty'
   import { TableColgroupVue } from '../components'
   import { isFunction } from '../../_utils'
   import type { VNode } from 'vue'
   import type {
     TableColumns,
-    TableRender,
-    TableHeaderRender,
-    TableRenderH
+    TableRenderData,
+    TableRenderHeader,
+    TableRender
   } from './interface'
 
   defineOptions({ name: 'FTable' })
@@ -24,20 +25,25 @@
    * @param { Function } render 渲染函数
    */
   const columnsSlotData = (
-    slotRender: TableRender,
-    dataItem: Record<string, unknown>,
-    index: number,
-    headerItem: TableColumns
-  ): VNode => {
-    return slotRender(h as TableRenderH, dataItem, index, headerItem)
-  }
-
-  const columnsSlotHeader = (
-    headerRender: TableHeaderRender,
-    headerItem: TableColumns,
+    render: TableRenderData,
+    row: Record<string, any>,
+    column: TableColumns,
     index: number
   ): VNode => {
-    return headerRender(h as TableRenderH, headerItem, index)
+    return render(h as TableRender, row, column, index)
+  }
+
+  /**
+   * 处理自定义渲染内容
+   *
+   * @param { Function } render 渲染函数
+   */
+  const columnsSlotHeader = (
+    render: TableRenderHeader,
+    item: TableColumns,
+    index: number
+  ): VNode => {
+    return render(h as TableRender, item, index)
   }
 
   /** 样式列表 */
@@ -78,6 +84,7 @@
 
         <!-- 身体 -->
         <main class="f-table__body">
+          <!-- 有数据 -->
           <table class="f-table__table">
             <table-colgroup-vue :columns="columns" />
 
@@ -100,7 +107,7 @@
             </thead>
 
             <!-- 主要渲染内容的表体 -->
-            <tbody v-if="data.length" :align="align">
+            <tbody v-if="data && data.length" :align="align">
               <tr v-for="(item, m) in data" :key="m">
                 <!-- 序号列表 -->
                 <td v-if="num">{{ m + 1 }}</td>
@@ -109,7 +116,7 @@
                 <td v-for="(column, i) in columns" :key="i">
                   <!-- 如果有自定义插槽渲染 -->
                   <template v-if="column.render">
-                    <component :is="columnsSlotData(column.render, item, m, column)" />
+                    <component :is="columnsSlotData(column.render, item, column, m)" />
                   </template>
 
                   <!-- 普通渲染数据 -->
@@ -121,6 +128,13 @@
                 </td>
               </tr>
             </tbody>
+
+            <!-- 没有数据 -->
+            <!-- <tfoot v-else>
+              <slot>
+                <f-empty content="暂无数据" />
+              </slot>
+            </tfoot> -->
 
             <!-- 自定义也叫 -->
             <tfoot v-if="$slots.tfoot">

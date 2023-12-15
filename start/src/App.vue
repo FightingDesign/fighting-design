@@ -1,23 +1,34 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { ref, h } from 'vue'
   import { FButton } from 'fighting-design'
+  import type { TableColumns, RenderReturn } from 'fighting-design'
+  import type { VNode } from 'vue'
 
-  const columns = ref([
+  const a = () => h('divF')
+
+  const columns = ref<TableColumns[]>([
     {
       title: '姓名',
       key: 'name'
     },
     {
-      title: '年龄',
+      // title: '年龄',
+      title: h => {
+        return h('div', { class: 'table-wrapper' }, [
+          h(FButton, { type: 'info' }, { default: () => '按钮1' })
+        ])
+      },
       key: 'age'
     },
     {
       title: '介绍',
       key: 'introduce'
     },
+    // RenderReturn
     {
-      name: '操作',
-      render: h => {
+      title: '操作',
+      render: (h, a, v, cc) => {
+        console.log(h, a, v, cc)
         return h('div', { class: 'table-wrapper' }, [
           h(FButton, { type: 'info' }, { default: () => '按钮1' }),
           h(FButton, { type: 'info' }, { default: () => '按钮2' })
