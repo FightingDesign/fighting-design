@@ -1,1 +1,0 @@
-import{_ as e,o,c as t,v as s}from"./framework.6f7ff4f1.js";const n={},r={width:"1em",height:"1em",viewBox:"0 0 16 16"},c=s("path",{fill:"none",stroke:"currentColor","stroke-linecap":"round","stroke-linejoin":"round","stroke-width":"1.5",d:"m11.25 4.75l-6.5 6.5m0-6.5l6.5 6.5"},null,-1),_=[c];function i(a,l){return o(),t("svg",r,_)}const h=e(n,[["render",i]]);export{h as F};
