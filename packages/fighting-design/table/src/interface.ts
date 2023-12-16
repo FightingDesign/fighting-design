@@ -6,7 +6,6 @@ export type { TableProps } from './props'
 export type TableAlign = 'left' | 'center' | 'right'
 
 /** 表格数据类型 */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TableData = Record<string, any>[]
 
 /**
@@ -15,7 +14,6 @@ export type TableData = Record<string, any>[]
 type Children = string | number | boolean | VNode | null | Children[]
 
 /** 自定义模板函数渲染返回值类型 */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type RenderReturn = VNode<RendererNode, RendererElement, Record<string, any>>
 
 /**

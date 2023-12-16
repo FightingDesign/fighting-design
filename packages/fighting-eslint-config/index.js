@@ -267,7 +267,7 @@ module.exports = {
     // 禁止未使用的变量 https://typescript-eslint.io/rules/no-unused-vars
     '@typescript-eslint/no-unused-vars': 'error',
     // 不可以有 any https://typescript-eslint.io/rules/no-explicit-any/
-    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
     // 不可以有 require https://typescript-eslint.io/rules/no-var-requires/
     '@typescript-eslint/no-var-requires': 'error',
     // 带有默认值的函数参数在最后 https://typescript-eslint.io/rules/default-param-last

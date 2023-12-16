@@ -1,9 +1,10 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { h, computed } from 'vue'
+  import { h } from 'vue'
   import { useList } from '../../_hooks'
   // import { FEmpty } from '../../empty'
-  import { isFunction, sizeChange } from '../../_utils'
+  import { TableColgroupVue } from '../components'
+  import { isFunction } from '../../_utils'
   import type { VNode } from 'vue'
   import type {
     TableColumns,
@@ -50,33 +51,17 @@
 
   /** 类名列表 */
   const classList = classes(['border', 'zebra'], 'f-table')
-
-  /** 是否显示表头 */
-  const isHead = computed((): boolean => {
-    return !!(prop.height && prop.showHead)
-  })
 </script>
 
 <template>
   <div role="table" :class="classList" :style="styleList">
-    <!-- 主要容器 -->
     <div class="f-table__container">
       <!-- 内置数据驱动表格 -->
       <template v-if="columns || data">
         <!-- 在限制高度时展示的头部 -->
-        <div v-if="isHead" class="f-table__header">
+        <header v-if="height && showHead" class="f-table__header">
           <table class="f-table__table">
-            <!--
-              为表格的列定义属性，从而方便对表格列的样式和其他属性进行统一设置
-              https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup
-             -->
-            <colgroup>
-              <col
-                v-for="(column, index) in columns"
-                :key="index"
-                :width="sizeChange(column.width)"
-              />
-            </colgroup>
+            <table-colgroup-vue :columns="columns" />
 
             <thead :align="align">
               <tr>
@@ -95,22 +80,16 @@
               </tr>
             </thead>
           </table>
-        </div>
+        </header>
 
         <!-- 身体 -->
         <div class="f-table__body">
           <!-- 有数据 -->
           <table class="f-table__table">
-            <colgroup>
-              <col
-                v-for="(column, index) in columns"
-                :key="index"
-                :width="sizeChange(column.width)"
-              />
-            </colgroup>
+            <table-colgroup-vue :columns="columns" />
 
             <!-- 在没有限制高度时候展示的表头 -->
-            <thead v-if="!isHead" :align="align">
+            <thead v-if="!height && showHead" :align="align">
               <tr>
                 <th v-if="num">序号</th>
                 <th v-for="(column, index) in columns" :key="index">

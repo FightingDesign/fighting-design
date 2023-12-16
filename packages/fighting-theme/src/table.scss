@@ -1,26 +1,20 @@
 .f-table {
+  display: block;
+  position: relative;
+  width: 100%;
+
   // 主容器
   &__container {
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
     background-color: var(--table-bg-color, #fff);
+    width: 100%;
 
     // 身体
     .f-table__body {
       height: var(--table-height);
       overflow: auto;
-
-      // 滚动条
-      &::-webkit-scrollbar {
-        width: 7px;
-      }
-
-      // 滚动滑块
-      &::-webkit-scrollbar-thumb {
-        background-color: #ddd;
-        border-radius: 6px;
-      }
     }
 
     // table 公共样式
@@ -32,6 +26,7 @@
       text-align: left;
       display: inline-table;
 
+      // 头部
       thead {
         background-color: var(--table-head-bg-color, #f7f7f7);
         font-size: 16px;
@@ -55,6 +50,7 @@
         }
       }
 
+      // 身体
       tbody {
         font-size: 16px;
         color: #4e4e4e;
