@@ -1,7 +1,6 @@
 .f-table {
   display: block;
   position: relative;
-  width: 100%;
 
   // 主容器
   &__container {
@@ -9,7 +8,6 @@
     box-sizing: border-box;
     overflow: hidden;
     background-color: var(--table-bg-color, #fff);
-    width: 100%;
 
     // 身体
     .f-table__body {
@@ -19,7 +17,6 @@
 
     // table 公共样式
     table {
-      width: 100%;
       border-spacing: 0;
       border-collapse: collapse;
       table-layout: fixed;
@@ -29,7 +26,7 @@
       // 头部
       thead {
         background-color: var(--table-head-bg-color, #f7f7f7);
-        font-size: 16px;
+        font-size: 15px;
         color: #4e4e4e;
         height: 45px;
         position: relative;
@@ -46,6 +43,7 @@
             font-size: 15px;
             color: #4f4f4f;
             word-wrap: break-word;
+            font-weight: 600;
           }
         }
       }

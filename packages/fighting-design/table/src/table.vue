@@ -71,16 +71,18 @@
               https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup
              -->
             <colgroup>
+              <col v-if="num" />
               <col
                 v-for="(column, index) in columns"
                 :key="index"
-                :width="sizeChange(column.width)"
+                :span="index + 1"
+                :width="column.width"
               />
             </colgroup>
 
             <thead :align="align">
               <tr>
-                <th v-if="num">序号</th>
+                <th v-if="num">#</th>
                 <th v-for="(column, index) in columns" :key="index">
                   <!-- 如果是一个函数，则调用方法 -->
                   <template v-if="isFunction(column.title)">
@@ -100,19 +102,21 @@
         <!-- 身体 -->
         <div class="f-table__body">
           <!-- 有数据 -->
-          <table class="f-table__table">
+          <table class="f-table__table" :style="{ width: sizeChange(width) }">
             <colgroup>
+              <col v-if="num" />
               <col
                 v-for="(column, index) in columns"
                 :key="index"
-                :width="sizeChange(column.width)"
+                :span="1"
+                :width="column.width"
               />
             </colgroup>
 
             <!-- 在没有限制高度时候展示的表头 -->
             <thead v-if="!isHead" :align="align">
               <tr>
-                <th v-if="num">序号</th>
+                <th v-if="num">#</th>
                 <th v-for="(column, index) in columns" :key="index">
                   <!-- 如果是一个函数，则调用方法 -->
                   <template v-if="isFunction(column.title)">
@@ -128,7 +132,7 @@
             </thead>
 
             <!-- 主要渲染内容的表体 -->
-            <tbody v-if="data && data.length" :align="align">
+            <tbody v-if="data && data.length" ref="tableRef" :align="align">
               <tr v-for="(item, m) in data" :key="m">
                 <!-- 序号列表 -->
                 <td v-if="num">{{ m + 1 }}</td>

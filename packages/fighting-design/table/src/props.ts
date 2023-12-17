@@ -31,6 +31,8 @@ export const Props = {
   zebraColor: setStringProp(),
   /** 自定义表格高度 */
   height: setStringNumberProp(),
+  /** 自定义表格宽度 */
+  width: setStringNumberProp(),
   /** 自定义背景颜色 */
   bgColor: setStringProp(),
   /** 自定义头部背景颜色 */
