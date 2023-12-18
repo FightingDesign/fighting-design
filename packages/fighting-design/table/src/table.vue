@@ -8,7 +8,7 @@
   import type {
     TableColumns,
     TableRenderData,
-    TableRenderHeader,
+    TableRenderTitle,
     TableRender
   } from './interface'
 
@@ -38,7 +38,7 @@
    * @param { Function } render 渲染函数
    */
   const columnsSlotHeader = (
-    render: TableRenderHeader,
+    render: TableRenderTitle,
     item: TableColumns,
     index: number
   ): VNode => {

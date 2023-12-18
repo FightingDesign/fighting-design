@@ -14,7 +14,7 @@ export type TableData = Record<string, any>[]
 type Children = string | number | boolean | VNode | null | Children[]
 
 /** 自定义模板函数渲染返回值类型 */
-export type RenderReturn = VNode<RendererNode, RendererElement, Record<string, any>>
+export type TableRenderReturn = VNode<RendererNode, RendererElement, Record<string, any>>
 
 /**
  * 自定义模板函数渲染类型
@@ -31,7 +31,7 @@ export type TableRender = (
   type: string | Component,
   props?: object | null,
   children?: Children | Slot | Slots | Record<string, () => unknown>
-) => RenderReturn | VNode
+) => TableRenderReturn | VNode
 
 /**
  * 渲染内容自定义模板方法类型
@@ -46,7 +46,7 @@ export type TableRenderData = (
   row: Record<string, any>,
   column: TableColumns,
   index: number
-) => RenderReturn
+) => TableRenderReturn
 
 /**
  * 渲染标题自定义模板方法类型
@@ -55,14 +55,14 @@ export type TableRenderData = (
  * @param { Object } item 每一项
  * @param { number } index 当前行的索引
  */
-export type TableRenderHeader = (
+export type TableRenderTitle = (
   h: TableRender,
   item: TableColumns,
   index: number
-) => RenderReturn
+) => TableRenderReturn
 
 /** 
- * 表格表头每一项配置类型
+ * 表格表头配置类型
  * 
  * @param { string | Function } 标题
  * @param { string } [key] 唯一值
@@ -70,7 +70,7 @@ export type TableRenderHeader = (
  * @param { Function } [render] 自定义渲染方法
  */
 export interface TableColumns {
-  title: string | TableRenderHeader
+  title: string | TableRenderTitle
   key?: string
   width?: number | string | undefined
   render?: TableRenderData

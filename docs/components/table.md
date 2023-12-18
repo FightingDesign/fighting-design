@@ -694,6 +694,7 @@ import type {
   TableProps,
   TableAlign,
   TableDate,
+  TableRenderReturn,
   TableColumns
 } from 'fighting-design'
 ```
@@ -702,6 +703,62 @@ import type {
 
 ```ts
 type TableAlign = 'left' | 'center' | 'right'
+```
+
+### TableRenderReturn
+
+自定义模板函数渲染返回值类型
+
+```ts
+import type { VNode, RendererNode, RendererElement } from 'vue'
+
+type TableRenderReturn = VNode<RendererNode, RendererElement, Record<string, any>>
+```
+
+### TableRender
+
+```ts
+import type { Component, Slot, Slots, VNode } from 'vue'
+
+type Children = string | number | boolean | VNode | null | Children[]
+
+type TableRender = (
+  type: string | Component,
+  props?: object | null,
+  children?: Children | Slot | Slots | Record<string, () => unknown>
+) => TableRenderReturn | VNode
+```
+
+### TableRenderTitle
+
+```ts
+type TableRenderTitle = (
+  h: TableRender,
+  item: TableColumns,
+  index: number
+) => TableRenderReturn
+```
+
+### TableColumns
+
+```ts
+interface TableColumns {
+  title: string | TableRenderTitle
+  key?: string
+  width?: number | string | undefined
+  render?: TableRenderData
+}
+```
+
+### TableRenderData
+
+```ts
+type TableRenderData = (
+  h: TableRender,
+  row: Record<string, any>,
+  column: TableColumns,
+  index: number
+) => TableRenderReturn
 ```
 
 ## Contributors
