@@ -2,6 +2,15 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.66.0 (2023-12-18)
+
+- 修复 `f-table` 组件对于英文字母的文字不换行样式的问题
+- 修复 `f-table` 组件返回类型
+- 修复 `f-aside` 组件样式被挤压的问题
+- 修复 `f-header` 组件高度无法自动撑开的问题
+- 修复 `f-select` 组件选中值的类型判断条件
+- 新增 `f-table` 组件 `noData` 插槽
+
 ## 0.65.0 (2023-12-12)
 
 - 更新 `f-menu` 组件 `on-menu-item-click` 和 `on-submenu-click` 方法参数接收顺序

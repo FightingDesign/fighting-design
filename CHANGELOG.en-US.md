@@ -4,6 +4,15 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.66.0 (2023-12-18)
+
+- Fix the issue of the `f-table` component not breaking line styles for English letter text
+- Fix the return type of the `f-table` component
+- Fix the issue of `f-aside` component styles being squeezed
+- Fix the issue where the height of the `f header` component cannot be automatically expanded
+- Fix the type judgment criteria for the selected value of the `f-select` component
+- New `f-table` component `noData` slot added
+
 ## 0.64.1 (2023-12-01)
 
 - Fix the issue of slow folding animation of `f-submenu` components

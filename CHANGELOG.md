@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.66.0 (2023-12-18)
+
 - 修复 `f-table` 组件对于英文字母的文字不换行样式的问题
 - 修复 `f-table` 组件返回类型
 - 修复 `f-aside` 组件样式被挤压的问题
