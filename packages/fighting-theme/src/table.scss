@@ -1,6 +1,7 @@
 .f-table {
   display: block;
   position: relative;
+  width: var(--table-width, auto);
 
   // 主容器
   &__container {
@@ -13,6 +14,12 @@
     .f-table__body {
       height: var(--table-height);
       overflow: auto;
+
+      // 没有数据的盒子
+      .table__no-data {
+        padding: 40px;
+        box-sizing: border-box;
+      }
     }
 
     // table 公共样式
@@ -22,6 +29,7 @@
       table-layout: fixed;
       text-align: left;
       display: inline-table;
+      width: var(--table-width, 100%);
 
       // 头部
       thead {

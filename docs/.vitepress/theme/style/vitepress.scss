@@ -56,6 +56,10 @@
     }
   }
 
+  tr:nth-child(2n) {
+    background: none;
+  }
+
   // 表格
   .vp-table__container {
     width: 100%;

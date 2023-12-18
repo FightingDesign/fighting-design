@@ -2,8 +2,8 @@
   import { Props } from './props'
   import { h, computed } from 'vue'
   import { useList } from '../../_hooks'
-  // import { FEmpty } from '../../empty'
-  import { isFunction, sizeChange } from '../../_utils'
+  import { FEmpty } from '../../empty'
+  import { isFunction } from '../../_utils'
   import type { VNode } from 'vue'
   import type {
     TableColumns,
@@ -46,7 +46,7 @@
   }
 
   /** 样式列表 */
-  const styleList = styles(['zebraColor', 'bgColor', 'headBgColor', 'height'])
+  const styleList = styles(['zebraColor', 'bgColor', 'headBgColor', 'height', 'width'])
 
   /** 类名列表 */
   const classList = classes(['border', 'zebra'], 'f-table')
@@ -102,7 +102,7 @@
         <!-- 身体 -->
         <div class="f-table__body">
           <!-- 有数据 -->
-          <table class="f-table__table" :style="{ width: sizeChange(width) }">
+          <table v-if="data && data.length" class="f-table__table">
             <colgroup>
               <col v-if="num" />
               <col
@@ -132,7 +132,7 @@
             </thead>
 
             <!-- 主要渲染内容的表体 -->
-            <tbody v-if="data && data.length" ref="tableRef" :align="align">
+            <tbody ref="tableRef" :align="align">
               <tr v-for="(item, m) in data" :key="m">
                 <!-- 序号列表 -->
                 <td v-if="num">{{ m + 1 }}</td>
@@ -154,18 +154,52 @@
               </tr>
             </tbody>
 
-            <!-- 没有数据 -->
-            <!-- <tfoot v-else>
-              <slot>
-                <f-empty content="暂无数据" />
-              </slot>
-            </tfoot> -->
-
             <!-- 自定义也叫 -->
             <tfoot v-if="$slots.tfoot">
               <slot name="tfoot" />
             </tfoot>
           </table>
+
+          <!-- 没有数据 -->
+          <template v-else>
+            <!-- 有数据 -->
+            <table class="f-table__table">
+              <colgroup>
+                <col v-if="num" />
+                <col
+                  v-for="(column, index) in columns"
+                  :key="index"
+                  :span="1"
+                  :width="column.width"
+                />
+              </colgroup>
+
+              <!-- 在没有限制高度时候展示的表头 -->
+              <thead v-if="!isHead" :align="align">
+                <tr>
+                  <th v-if="num">#</th>
+                  <th v-for="(column, index) in columns" :key="index">
+                    <!-- 如果是一个函数，则调用方法 -->
+                    <template v-if="isFunction(column.title)">
+                      <component :is="columnsSlotHeader(column.title, column, index)" />
+                    </template>
+
+                    <!-- 否则全部当字符串处理 -->
+                    <template v-else>
+                      {{ column.title }}
+                    </template>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+
+            <!-- 没有数据 -->
+            <div class="table__no-data">
+              <slot name="noData">
+                <f-empty content="暂无数据" />
+              </slot>
+            </div>
+          </template>
         </div>
       </template>
 
