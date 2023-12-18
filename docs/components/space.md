@@ -7,7 +7,7 @@
 
 ## 基本使用
 
-`Space` 的基本使用
+基本使用
 
 ::: demo
 
@@ -129,7 +129,7 @@
 | ------------ | -------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
 | `spacing`    | 间距尺寸       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 | `vertical`   | 是否竖直排列   | boolean                                                            | ——                              | false  |
-| `wrap`       | 是否换行       | boolean                                                            | ——                              | true   |
+| `nowrap`     | 是否禁止换行   | boolean                                                            | ——                              | false  |
 | `row-gap`    | 自定义纵向间距 | string                                                             | ——                              | ——     |
 | `column-gap` | 自定义横向间距 | string                                                             | ——                              | ——     |
 
