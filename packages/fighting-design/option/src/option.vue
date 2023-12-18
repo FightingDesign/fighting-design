@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { useRun } from '../../_hooks'
-  import { isString } from '../../_utils'
+  import { isString, isArray, isObject } from '../../_utils'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
   import { inject, toRefs, useSlots, computed } from 'vue'
   import { SELECT_PROPS_TOKEN } from '../../select/src/props'
@@ -45,6 +45,49 @@
   })
 
   /**
+   * 获取有效的值
+   *
+   * 如果三个值都为假，返回最后一个
+   *
+   * 空数组或者空对象判断为假
+   *
+   * 0 判断为真
+   *
+   * null、undefined、NaN 判断为假
+   *
+   * @param {*} values 参数集合
+   */
+  const getEffectiveValue = (...values: any[]): any => {
+    // 没有数据返回空字符串
+    if (!values || !values.length) {
+      return ''
+    }
+
+    /** 尝试查找到有效的值 */
+    const effectiveValue = values.find((value: any): boolean => {
+      //  null、undefined、NaN 判断为假
+      if (value === null || value === undefined || Number.isNaN(value)) {
+        return false
+      }
+
+      // 空数组或者空对象判断为假
+      if (isArray(value) || isObject(value)) {
+        return Object.keys(value).length > 0
+      }
+
+      // 0 判断为真
+      if (value === 0) {
+        return true
+      }
+
+      return !!value
+    })
+
+    // 如果三个值都为假，返回最后一个
+    return effectiveValue !== undefined ? effectiveValue : values[values.length - 1]
+  }
+
+  /**
    * 点击传入指定的 value
    *
    * 让父组件同步 input
@@ -62,16 +105,25 @@
      *
      * 返回优先级：插槽 > label > value
      */
-    const newLabel: SelectModelValue = slotLabel.value || label.value || value.value
+    const currentLabel: SelectModelValue = getEffectiveValue(
+      slotLabel.value,
+      label.value,
+      value.value
+    )
+
     /**
      * 最新的 value
      *
      * 返回优先级：value > label > 插槽
      */
-    const newValue: SelectModelValue = value.value || label.value || slotLabel.value
+    const currentValue: SelectModelValue = getEffectiveValue(
+      value.value,
+      label.value,
+      slotLabel.value
+    )
 
     /** 执行父组件的设置方法 */
-    parentInject && run(parentInject.setValue, newValue, newLabel, evt)
+    parentInject && run(parentInject.setValue, currentValue, currentLabel, evt)
     /** 点击之后关闭 */
     triggerInject && run(triggerInject.close)
   }

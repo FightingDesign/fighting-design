@@ -92,24 +92,24 @@
   /**
    * 设置新的值
    *
-   * @param { string | number } newValue 新的 value 值
-   * @param { string | number } newLabel 新增 label 值
+   * @param { string | number } currentValue 新的 value 值
+   * @param { string | number } currentLabel 新增 label 值
    * @param { Object } evt 事件对象
    */
   const setValue = (
-    newValue: SelectModelValue,
-    newLabel: SelectModelValue,
+    currentValue: SelectModelValue,
+    currentLabel: SelectModelValue,
     evt: MouseEvent
   ): void => {
     /** 设置文本框展示的内容 */
-    keyword.value = newValue.toString()
+    keyword.value = currentValue.toString()
 
     /** 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件 */
-    if (newLabel !== prop.modelValue) {
-      run(prop.onChange, newValue, newLabel, evt)
+    if (currentLabel !== prop.modelValue) {
+      run(prop.onChange, currentValue, currentLabel, evt)
     }
 
-    modelValue.value = newValue
+    modelValue.value = currentValue
   }
 
   /** 向自组件注入依赖项 */
