@@ -112,7 +112,7 @@
 
       <!-- 最后一页 -->
       <div
-        v-if="total > 1"
+        v-if="total > 1 && total > Number(pageSize)"
         :class="[
           PAGINATION_ITEM,
           {

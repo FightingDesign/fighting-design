@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.66.1 (2023-12-19)
+
+- Fix the issue of displaying page numbers incorrectly in the `f-pagination` component when the `total` is less than the `page-size`
+- Fix the issue with the `f-pagination` component not executing `on-change` when executing `on-prev` and `on-text` callbacks
+
 ## 0.66.0 (2023-12-18)
 
 - Fix the issue of the `f-table` component not breaking line styles for English letter text

@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.66.1 (2023-12-19)
+
+- 修复 `f-pagination` 组件在 `total` 小于 `page-size` 时候显示页码错误的问题
+- 修复 `f-pagination` 组件在执行 `on-prev` 和 `on-next` 回调的时候为执行 `on-change` 的问题
+
 ## 0.66.0 (2023-12-18)
 
 - 修复 `f-table` 组件对于英文字母的文字不换行样式的问题

@@ -67,7 +67,6 @@ export const usePage = (
     let showPrevMore = false
     /** 显示下一页更多 */
     let showNextMore = false
-
     /** 结果数组 */
     const pageList: number[] = []
 
@@ -80,7 +79,7 @@ export const usePage = (
         showNextMore = true
       }
     } else {
-      // 如果最大页码数小于 当前输入的pagerCount
+      // 如果最大页码数小于 当前输入的 pagerCount
       for (let i = 2; i < maxCount.value; i++) {
         pageList.push(i)
       }
@@ -130,12 +129,14 @@ export const usePage = (
 
         modelValue.currentModelValue.value = newCurrent
         run(prop.onNext, newCurrent, prop.pageSize)
+        run(prop.onChange, newCurrent, prop.pageSize)
       },
       /**上一页切换 */
       prev: (): void => {
         newCurrent = prop.current === 1 ? 1 : prop.current - 1
         modelValue.currentModelValue.value = newCurrent
         run(prop.onPrev, newCurrent, prop.pageSize)
+        run(prop.onChange, newCurrent, prop.pageSize)
       }
     } as const
 
