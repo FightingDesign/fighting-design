@@ -1,21 +1,24 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { h, computed } from 'vue'
-  import { useList } from '../../_hooks'
+  import { h, computed, ref } from 'vue'
+  import { useList, useRun } from '../../_hooks'
   import { FEmpty } from '../../empty'
-  import { isFunction } from '../../_utils'
+  import { FCheckbox } from '../../checkbox'
+  import { isFunction, isArray } from '../../_utils'
   import type { VNode } from 'vue'
   import type {
     TableColumns,
     TableRenderData,
     TableRenderTitle,
-    TableRender
+    TableRender,
+    TableData
   } from './interface'
 
   defineOptions({ name: 'FTable' })
 
   const prop = defineProps(Props)
 
+  const { run } = useRun()
   const { styles, classes } = useList(prop, 'table')
 
   /**
@@ -55,6 +58,59 @@
   const isHead = computed((): boolean => {
     return !!(prop.height && prop.showHead)
   })
+
+  /** 格式化后的数据 */
+  const formatData = ref<TableData>([])
+
+  /** 是否选中所有 */
+  const isSelectAll = computed({
+    get: (): boolean => {
+      return (formatData.value || []).every(item => item._select)
+    },
+    set: (value: boolean): boolean => {
+      /** 改变全部的状态 */
+      const selectList: TableData = (formatData.value || []).map(item => {
+        item._select = value
+        return item
+      })
+
+      formatData.value = selectList
+
+      checkboxChange() // 执行回调方法
+      return value
+    }
+  })
+
+  /** 设置格式化后的数据方法 */
+  const setFormData = (): void => {
+    if (!isArray(prop.data)) {
+      formatData.value = []
+    }
+
+    if (prop.select) {
+      const selectData = prop.data.map(item => {
+        return {
+          ...item,
+          _select: false
+        }
+      })
+
+      formatData.value = selectData
+      return
+    }
+
+    formatData.value = prop.data
+  }
+
+  setFormData() // 设置格式化后的数据方法
+
+  /** 选择器切换触发 */
+  const checkboxChange = (): void => {
+    /** 获取到所有选中的 */
+    const activeList: TableData = (formatData.value || []).filter(item => item._select)
+
+    run(prop.onSelect, activeList)
+  }
 </script>
 
 <template>
@@ -62,7 +118,7 @@
     <!-- 主要容器 -->
     <div class="f-table__container">
       <!-- 内置数据驱动表格 -->
-      <template v-if="columns || data">
+      <template v-if="columns || formatData">
         <!-- 在限制高度时展示的头部 -->
         <div v-if="isHead" class="f-table__header">
           <table class="f-table__table">
@@ -72,6 +128,7 @@
              -->
             <colgroup>
               <col v-if="num" />
+              <col v-if="select" />
               <col
                 v-for="(column, index) in columns"
                 :key="index"
@@ -83,6 +140,9 @@
             <thead :align="align">
               <tr>
                 <th v-if="num">#</th>
+                <th v-if="select">
+                  <f-checkbox v-model="isSelectAll" />
+                </th>
                 <th v-for="(column, index) in columns" :key="index">
                   <!-- 如果是一个函数，则调用方法 -->
                   <template v-if="isFunction(column.title)">
@@ -102,9 +162,10 @@
         <!-- 身体 -->
         <div class="f-table__body">
           <!-- 有数据 -->
-          <table v-if="data && data.length" class="f-table__table">
+          <table v-if="formatData && formatData.length" class="f-table__table">
             <colgroup>
               <col v-if="num" />
+              <col v-if="select" />
               <col
                 v-for="(column, index) in columns"
                 :key="index"
@@ -117,6 +178,9 @@
             <thead v-if="!isHead" :align="align">
               <tr>
                 <th v-if="num">#</th>
+                <th v-if="select">
+                  <f-checkbox v-model="isSelectAll" />
+                </th>
                 <th v-for="(column, index) in columns" :key="index">
                   <!-- 如果是一个函数，则调用方法 -->
                   <template v-if="isFunction(column.title)">
@@ -133,9 +197,12 @@
 
             <!-- 主要渲染内容的表体 -->
             <tbody ref="tableRef" :align="align">
-              <tr v-for="(item, m) in data" :key="m">
+              <tr v-for="(item, m) in formatData" :key="m">
                 <!-- 序号列表 -->
                 <td v-if="num">{{ m + 1 }}</td>
+                <td v-if="select">
+                  <f-checkbox v-model="item._select" :on-change="checkboxChange" />
+                </td>
 
                 <!-- 主内容 -->
                 <td v-for="(column, i) in columns" :key="i">

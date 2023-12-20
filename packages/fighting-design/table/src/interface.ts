@@ -75,3 +75,10 @@ export interface TableColumns {
   width?: number | string | undefined
   render?: TableRenderData
 }
+
+/**
+ * 选择器改变触发的回调类型
+ * 
+ * @param { Array } values 选中的数据集合
+ */
+export type TableSelect = (value: TableData) => void

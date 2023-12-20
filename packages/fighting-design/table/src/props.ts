@@ -2,7 +2,8 @@ import {
   setBooleanProp,
   setStringProp,
   setStringNumberProp,
-  setArrayProp
+  setArrayProp,
+  setFunctionProp
 } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { TableAlign, TableData, TableColumns } from './interface'
@@ -23,6 +24,8 @@ export const Props = {
   }),
   /** 是否显示边框 */
   border: setBooleanProp(),
+  /** 是否可选择 */
+  select: setBooleanProp(),
   /** 是否显示序号 */
   num: setBooleanProp(),
   /** 是否显示斑马纹 */
@@ -38,7 +41,9 @@ export const Props = {
   /** 自定义头部背景颜色 */
   headBgColor: setStringProp(),
   /** 是否展示头部 */
-  showHead: setBooleanProp(true)
+  showHead: setBooleanProp(true),
+  /** 切换选项触发的回调 */
+  onSelect: setFunctionProp()
 } as const
 
 /** table 组件 props 类型 */

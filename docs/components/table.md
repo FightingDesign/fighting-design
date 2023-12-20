@@ -663,19 +663,21 @@
 
 ## Attributes
 
-| 参数            | 说明               | 类型                                 | 可选值                  | 默认值 |
-| --------------- | ------------------ | ------------------------------------ | ----------------------- | ------ |
-| `data`          | 数据列表           | array                                | ——                      | ——     |
-| `columns`       | 标题数据           | array                                | ——                      | ——     |
-| `align`         | 内容对齐方式       | <a href="#tablealign">TableAlign</a> | `left` `center` `right` | left   |
-| `border`        | 是否显示边框       | boolean                              | ——                      | false  |
-| `num`           | 是否显示序号       | boolean                              | ——                      | false  |
-| `zebra`         | 是否显示斑马纹     | boolean                              | ——                      | false  |
-| `zebra-color`   | 自定义斑马纹颜色   | string                               | ——                      | ——     |
-| `height`        | 自定义表格内容高度 | string / number                      | ——                      | ——     |
-| `bg-color`      | 自定义背景颜色     | string                               | ——                      | ——     |
-| `head-bg-color` | 自定义头部背景颜色 | string                               | ——                      | ——     |
-| `show-head`     | 是否展示头部       | boolean                              | ——                      | true   |
+| 参数            | 说明                 | 类型                                   | 可选值                  | 默认值 |
+| --------------- | -------------------- | -------------------------------------- | ----------------------- | ------ |
+| `data`          | 数据列表             | array                                  | ——                      | ——     |
+| `columns`       | 标题数据             | array                                  | ——                      | ——     |
+| `align`         | 内容对齐方式         | <a href="#tablealign">TableAlign</a>   | `left` `center` `right` | left   |
+| `border`        | 是否显示边框         | boolean                                | ——                      | false  |
+| `num`           | 是否显示序号         | boolean                                | ——                      | false  |
+| `zebra`         | 是否显示斑马纹       | boolean                                | ——                      | false  |
+| `zebra-color`   | 自定义斑马纹颜色     | string                                 | ——                      | ——     |
+| `height`        | 自定义表格内容高度   | string / number                        | ——                      | ——     |
+| `bg-color`      | 自定义背景颜色       | string                                 | ——                      | ——     |
+| `head-bg-color` | 自定义头部背景颜色   | string                                 | ——                      | ——     |
+| `show-head`     | 是否展示头部         | boolean                                | ——                      | true   |
+| `select`        | 是否可多选           | boolean                                | ——                      | false  |
+| `on-select`     | 选中值改变触发的回调 | <a href="#tableselect">TableSelect</a> | ——                      | ——     |
 
 ## Slots
 
@@ -696,7 +698,8 @@ import type {
   TableAlign,
   TableDate,
   TableRenderReturn,
-  TableColumns
+  TableColumns,
+  TableSelect
 } from 'fighting-design'
 ```
 
@@ -760,6 +763,12 @@ type TableRenderData = (
   column: TableColumns,
   index: number
 ) => TableRenderReturn
+```
+
+### TableSelect
+
+```ts
+type TableSelect = (value: TableData) => void
 ```
 
 ## Contributors
