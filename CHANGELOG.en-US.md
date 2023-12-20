@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.66.2 (2023-12-20)
+
+- Add `f-table` components, `select` and `on-select` configuration items
+
 ## 0.66.1 (2023-12-19)
 
 - Fix the issue of displaying page numbers incorrectly in the `f-pagination` component when the `total` is less than the `page-size`

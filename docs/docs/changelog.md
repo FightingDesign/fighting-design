@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.66.2 (2023-12-20)
+
+- 新增 `f-tabale` 组件 `select` 和 `on-select` 配置项
+
 ## 0.66.1 (2023-12-19)
 
 - 修复 `f-pagination` 组件在 `total` 小于 `page-size` 时候显示页码错误的问题
