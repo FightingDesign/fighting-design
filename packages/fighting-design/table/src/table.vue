@@ -65,6 +65,9 @@
   /** 是否选中所有 */
   const isSelectAll = computed({
     get: (): boolean => {
+      if (!formatData.value.length) {
+        return false
+      }
       return (formatData.value || []).every(item => item._select)
     },
     set: (value: boolean): boolean => {
@@ -127,22 +130,21 @@
               https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/colgroup
              -->
             <colgroup>
-              <col v-if="num" />
-              <col v-if="select" />
+              <col v-if="select" :width="50" :span="1" />
+              <col v-if="num" :width="50" :span="1" />
               <col
                 v-for="(column, index) in columns"
                 :key="index"
-                :span="index + 1"
                 :width="column.width"
               />
             </colgroup>
 
             <thead :align="align">
               <tr>
-                <th v-if="num">#</th>
                 <th v-if="select">
-                  <f-checkbox v-model="isSelectAll" />
+                  <f-checkbox v-model="isSelectAll" :disabled="!formatData.length" />
                 </th>
+                <th v-if="num">#</th>
                 <th v-for="(column, index) in columns" :key="index">
                   <!-- 如果是一个函数，则调用方法 -->
                   <template v-if="isFunction(column.title)">
@@ -164,8 +166,8 @@
           <!-- 有数据 -->
           <table v-if="formatData && formatData.length" class="f-table__table">
             <colgroup>
-              <col v-if="num" />
-              <col v-if="select" />
+              <col v-if="select" :width="50" :span="1" />
+              <col v-if="num" :width="50" :span="1" />
               <col
                 v-for="(column, index) in columns"
                 :key="index"
@@ -177,10 +179,10 @@
             <!-- 在没有限制高度时候展示的表头 -->
             <thead v-if="!isHead" :align="align">
               <tr>
-                <th v-if="num">#</th>
                 <th v-if="select">
-                  <f-checkbox v-model="isSelectAll" />
+                  <f-checkbox v-model="isSelectAll" :disabled="!formatData.length" />
                 </th>
+                <th v-if="num">#</th>
                 <th v-for="(column, index) in columns" :key="index">
                   <!-- 如果是一个函数，则调用方法 -->
                   <template v-if="isFunction(column.title)">
@@ -196,13 +198,12 @@
             </thead>
 
             <!-- 主要渲染内容的表体 -->
-            <tbody ref="tableRef" :align="align">
+            <tbody :align="align">
               <tr v-for="(item, m) in formatData" :key="m">
-                <!-- 序号列表 -->
-                <td v-if="num">{{ m + 1 }}</td>
                 <td v-if="select">
                   <f-checkbox v-model="item._select" :on-change="checkboxChange" />
                 </td>
+                <td v-if="num">{{ m + 1 }}</td>
 
                 <!-- 主内容 -->
                 <td v-for="(column, i) in columns" :key="i">
@@ -232,6 +233,7 @@
             <!-- 有数据 -->
             <table class="f-table__table">
               <colgroup>
+                <col v-if="select" :width="50" :span="1" />
                 <col v-if="num" />
                 <col
                   v-for="(column, index) in columns"
@@ -244,6 +246,9 @@
               <!-- 在没有限制高度时候展示的表头 -->
               <thead v-if="!isHead" :align="align">
                 <tr>
+                  <th v-if="select">
+                    <f-checkbox v-model="isSelectAll" :disabled="!formatData.length" />
+                  </th>
                   <th v-if="num">#</th>
                   <th v-for="(column, index) in columns" :key="index">
                     <!-- 如果是一个函数，则调用方法 -->

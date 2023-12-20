@@ -396,7 +396,7 @@
       key: 'introduce'
     }
   ])
-  const data = ref([
+  const data2 = ref([
     {
       name: '卡莉斯塔',
       age: '22',
@@ -661,6 +661,71 @@
 
 :::
 
+## 多选的
+
+`select` 配置项，配合 `on-select` 回调可实现表格选择
+
+::: demo
+
+<template #source>
+<f-table :data="data" :columns="columns" select :on-select="onSelect" />
+</template>
+
+```html
+<template>
+  <f-table :data="data" :columns="columns" select :on-select="onSelect" />
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import type { TableSelect } from 'fighting-design'
+
+  const onSelect: TableSelect = values => {
+    console.log(values)
+  }
+
+  const columns = ref([
+    {
+      title: '姓名',
+      key: 'name'
+    },
+    {
+      title: '年龄',
+      key: 'age'
+    },
+    {
+      title: '介绍',
+      key: 'introduce'
+    }
+  ])
+
+  const data = ref([
+    {
+      name: '卡莉斯塔',
+      age: '22',
+      introduce: '她的被动可以在发动攻击后进行小距离的跳跃'
+    },
+    {
+      name: '艾希',
+      age: '16',
+      introduce: '拥有强大减速和控制能力的远程射手'
+    },
+    {
+      name: '李青',
+      age: '34',
+      introduce: '非常优秀的打野英雄'
+    },
+    {
+      name: '贾克斯',
+      age: '109',
+      introduce: '取得优势的武器可以输出成吨的伤害'
+    }
+  ])
+</script>
+```
+
+:::
+
 ## Attributes
 
 | 参数            | 说明                 | 类型                                   | 可选值                  | 默认值 |
@@ -781,6 +846,10 @@ type TableSelect = (value: TableData) => void
   import { ref } from 'vue'
   import demo1Vue from './demos/table/demo1.vue'
   import { FButton, FMessage } from 'fighting-design'
+
+  const onSelect = values => {
+    console.log(values)
+  }
 
   const columns = ref([
     {
