@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { Props } from './props'
-  import { h, computed, ref } from 'vue'
+  import { h, computed, ref, watch } from 'vue'
   import { useList, useRun } from '../../_hooks'
   import { FEmpty } from '../../empty'
   import { FCheckbox } from '../../checkbox'
@@ -105,7 +105,8 @@
     formatData.value = prop.data
   }
 
-  setFormData() // 设置格式化后的数据方法
+  // 设置格式化后的数据方法
+  watch(() => prop.data, setFormData, { immediate: true })
 
   /** 选择器切换触发 */
   const checkboxChange = (): void => {
