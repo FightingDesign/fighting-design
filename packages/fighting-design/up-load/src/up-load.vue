@@ -55,12 +55,12 @@
     /** 文件列表 */
     let list: File[] = [...files]
 
-    /** 拦截过大的文件 */
+    // 拦截过大的文件
     if (maxSize.value) {
       list = list.filter((file: File): boolean => file.size < maxSize.value)
     }
 
-    /** 截取最大上传的数量 */
+    //  截取最大上传的数量
     if (maxLength.value) {
       list = list.splice(0, maxLength.value)
     }
@@ -114,6 +114,7 @@
 
     /** 获取文件列表 */
     const files: FileList = (evt.dataTransfer as DataTransfer).files
+
     if (files) {
       updateFiles(filterFiles(files as unknown as File[]))
     }
