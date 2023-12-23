@@ -268,7 +268,7 @@ type CheckboxGroupChange = (val: string[]) => void
   import demo1Vue from './demos/checkbox/demo1.vue'
 
   const option1 = ref(false)
-  const option2 = ref([])
+  const option2 = ref(['汉堡'])
   const option3 = ref([])
   const option4 = ref(['选项三'])
 </script>
