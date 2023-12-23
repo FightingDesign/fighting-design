@@ -39,6 +39,8 @@ export const Props = {
   placeholder: setStringProp(),
   /** 是否可清除 */
   clear: setBooleanProp(),
+  /** 是否可模糊搜索过滤 */
+  filter: setBooleanProp(),
   /**
    * 是否禁用
    *

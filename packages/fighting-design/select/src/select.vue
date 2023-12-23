@@ -9,6 +9,7 @@
   import { FIconChevronDown } from '../../_svg'
   import type { VNode, Slots } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
+  import type { InputUpdate } from '../../input'
 
   defineOptions({ name: 'FSelect' })
 
@@ -22,10 +23,40 @@
   const { run } = useRun()
   const { styles } = useList(prop, 'select')
 
+  /**
+   * 获取子元素 option
+   *
+   * 通过插槽插入的内容，过滤出有效的子元素返回
+   */
+  const options = computed((): VNode[] => {
+    // 如果没有插槽内容，返回空数组
+    if (!slot.default) return []
+
+    const childrens = getChildren(slot.default(), 'FOption')
+
+    if (prop.filter && modelValue.value.toString()) {
+      childrens.map((item: VNode) => {
+        /** 获取到当前子元素的插槽内容 */
+        const slot: string | undefined =
+          item.children && (item.children as { default: Function }).default()[0].children
+
+        console.log(slot)
+      })
+    }
+
+    console.log(childrens)
+
+    return childrens
+  })
+
   /** 当前绑定的值 */
   const keyword = computed({
     get: (): string => {
-      /** 如果插槽没内容，则返回空字符串 */
+      if (prop.filter) {
+        return modelValue.value.toString()
+      }
+
+      // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
       /**
@@ -71,22 +102,14 @@
       /** 获取到当前子元素的 value 参数 */
       const value: string | undefined = firstChildren.props?.value
 
-      /** 返回优先级：插槽 > label > value */
+      // 返回优先级：插槽 > label > value
       return slot || label || (value && value.toString()) || ''
     },
-    set: (val: string): string => val
-  })
-
-  /**
-   * 获取子元素 option
-   *
-   * 通过插槽插入的内容，过滤出有效的子元素返回
-   */
-  const options = computed((): VNode[] => {
-    /** 如果没有插槽内容，返回空数组 */
-    if (!slot.default) return []
-
-    return getChildren(slot.default(), 'FOption')
+    set: (val: string): string => {
+      console.log('set')
+      modelValue.value = val
+      return val
+    }
   })
 
   /**
@@ -145,6 +168,10 @@
       active.scrollIntoView({ block: 'end' })
     }
   }
+
+  const inputInput: InputUpdate = (value: string): void => {
+    console.log(value)
+  }
 </script>
 
 <template>
@@ -152,7 +179,7 @@
     <f-dropdown trigger="click" :disabled="disabled" :width="width" :on-open="onOpen">
       <f-input
         v-model="keyword"
-        readonly
+        :readonly="!filter"
         :name="name"
         :size="size"
         :disabled="disabled"
@@ -160,6 +187,7 @@
         :clear="clear"
         :on-focus="() => (isFocus = true)"
         :on-blur="() => (isFocus = false)"
+        :on-input="filter ? inputInput : undefined"
       >
         <template #after>
           <f-svg-icon
