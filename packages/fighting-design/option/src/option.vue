@@ -21,35 +21,6 @@
   /** 获取到 trigger 注入的依赖项 */
   const triggerInject: TriggerProvide | null = inject(TRIGGER_CLOSE_KEY, null)
 
-  /** 控制是否显示 */
-  const isVisible = computed(() => {
-    // 父组件没有依赖则不显示
-    if (!parentInject) {
-      return false
-    }
-
-    if (!parentInject.filter) {
-      return true
-    }
-
-    const slotText: VNodeNormalizedChildren | string | undefined =
-      slot.default && slot.default()[0].children
-
-    const label = isString(slotText)
-      ? slotText
-      : '' || prop.label.toString() || prop.value.toString()
-
-    const currentItem = parentInject.childrenLabels.find(item => {
-      return item.slot === label
-    })
-
-    if (currentItem) {
-      return currentItem.show
-    }
-
-    return true
-  })
-
   /** 获取插槽内容 */
   const slotLabel = computed((): string => {
     if (!slot.default) {
@@ -59,6 +30,32 @@
     const _slot: VNodeNormalizedChildren | string = slot.default()[0].children
 
     return isString(_slot) ? _slot : ''
+  })
+
+  /** 控制是否显示 */
+  const isVisible = computed((): boolean => {
+    // 父组件没有依赖则不显示
+    if (!parentInject) {
+      return false
+    }
+
+    // 没有 filter 属性，则展示
+    if (!parentInject.filter) {
+      return true
+    }
+
+    /** 获取到 label */
+    const label = slotLabel.value || prop.label.toString() || prop.value.toString()
+    /** 获取到选中的项目 */
+    const currentItem = parentInject.childrenLabels.find(item => {
+      return item.slot === label
+    })
+
+    if (currentItem) {
+      return currentItem.show
+    }
+
+    return true
   })
 
   /** 标签选中状态 */
@@ -161,11 +158,11 @@
 <template>
   <div
     v-if="$slots.default || label || value"
+    v-show="isVisible"
     :class="[
       'f-option',
       { 'f-option__disabled': disabled, 'f-option__active': labelActive }
     ]"
-    v-show="isVisible"
     @click="handleClick"
   >
     <slot v-if="$slots.default" />

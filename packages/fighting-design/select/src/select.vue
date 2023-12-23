@@ -2,12 +2,22 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import { provide, computed, useSlots, ref, reactive, toRef, nextTick, watch } from 'vue'
+  import {
+    provide,
+    computed,
+    useSlots,
+    ref,
+    reactive,
+    toRef,
+    nextTick,
+    watch,
+    onBeforeUnmount
+  } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren, isFunction } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronDown } from '../../_svg'
-  import type { VNode, Slots } from 'vue'
+  import type { VNode, Slots, WatchStopHandle } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
 
   defineOptions({ name: 'FSelect' })
@@ -21,6 +31,15 @@
 
   const { run } = useRun()
   const { styles } = useList(prop, 'select')
+
+  /** 子节点的 lable 配置项参数 */
+  const childrenLabels = ref<{ slot: string; show: boolean }[]>([])
+  /** 样式列表 */
+  const styleList = styles(['width'])
+  /** 当前是否聚焦 */
+  const isFocus = ref(false)
+  /** 展开的内容元素 */
+  const secletContentRef = ref<HTMLDivElement | undefined>()
 
   /**
    * 获取子元素 option
@@ -37,8 +56,6 @@
   /** 当前绑定的值 */
   const keyword = computed({
     get: (): string => {
-      // console.log(options.value)
-
       if (prop.filter) {
         return modelValue.value.toString()
       }
@@ -121,9 +138,10 @@
     modelValue.value = currentValue
   }
 
-  const childrenLabels = ref<{ slot: string; show: boolean }[]>([])
-
-  const setChildrenLabels = () => {
+  /**
+   * 设置子节点的展示状态和 label
+   */
+  const setChildrenLabels = (): void => {
     if (!options.value || !options.value.length) {
       childrenLabels.value = []
     }
@@ -133,18 +151,9 @@
       const slot: string =
         item.children && (item.children as { default: Function }).default()[0].children
 
-      return { slot, show: slot?.includes(modelValue.value.toString()) }
+      return { slot, show: !!(slot && slot.includes(modelValue.value.toString())) }
     })
   }
-
-  /** 样式列表 */
-  const styleList = styles(['width'])
-
-  /** 当前是否聚焦 */
-  const isFocus = ref(false)
-
-  /** 展开的内容元素 */
-  const secletContentRef = ref<HTMLDivElement | undefined>()
 
   /** 下拉菜单开启之后的回调 */
   const onOpen = async (): Promise<void> => {
@@ -173,7 +182,22 @@
     }
   }
 
-  watch(() => modelValue.value, setChildrenLabels, { immediate: true })
+  /** 监听器实例 */
+  const watchStopHandle = ((): WatchStopHandle | undefined => {
+    if (!prop.filter) {
+      return
+    }
+    return watch((): SelectModelValue => modelValue.value, setChildrenLabels, {
+      immediate: true
+    })
+  })()
+
+  // 页面卸载的时候，如何有监听器 则停止
+  onBeforeUnmount(() => {
+    if (watchStopHandle) {
+      watchStopHandle()
+    }
+  })
 
   // 向子组件注入依赖项
   provide<SelectProvide>(
