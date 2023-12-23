@@ -2,14 +2,13 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import { provide, computed, useSlots, ref, reactive, toRef, nextTick } from 'vue'
+  import { provide, computed, useSlots, ref, reactive, toRef, nextTick, watch } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren, isFunction } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
   import { FIconChevronDown } from '../../_svg'
   import type { VNode, Slots } from 'vue'
   import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
-  import type { InputUpdate } from '../../input'
 
   defineOptions({ name: 'FSelect' })
 
@@ -32,26 +31,14 @@
     // 如果没有插槽内容，返回空数组
     if (!slot.default) return []
 
-    const childrens = getChildren(slot.default(), 'FOption')
-
-    if (prop.filter && modelValue.value.toString()) {
-      childrens.map((item: VNode) => {
-        /** 获取到当前子元素的插槽内容 */
-        const slot: string | undefined =
-          item.children && (item.children as { default: Function }).default()[0].children
-
-        console.log(slot)
-      })
-    }
-
-    console.log(childrens)
-
-    return childrens
+    return getChildren(slot.default(), 'FOption')
   })
 
   /** 当前绑定的值 */
   const keyword = computed({
     get: (): string => {
+      // console.log(options.value)
+
       if (prop.filter) {
         return modelValue.value.toString()
       }
@@ -106,7 +93,6 @@
       return slot || label || (value && value.toString()) || ''
     },
     set: (val: string): string => {
-      console.log('set')
       modelValue.value = val
       return val
     }
@@ -124,10 +110,10 @@
     currentLabel: SelectModelValue,
     evt: MouseEvent
   ): void => {
-    /** 设置文本框展示的内容 */
+    // 设置文本框展示的内容
     keyword.value = currentValue.toString()
 
-    /** 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件 */
+    //  如果最新的 value 和绑定的 value 不一致时，才触发 change 事件
     if (currentLabel !== prop.modelValue) {
       run(prop.onChange, currentValue, currentLabel, evt)
     }
@@ -135,11 +121,21 @@
     modelValue.value = currentValue
   }
 
-  /** 向自组件注入依赖项 */
-  provide<SelectProvide>(
-    SELECT_PROPS_TOKEN,
-    reactive({ setValue, modelValue: toRef(prop, 'modelValue') })
-  )
+  const childrenLabels = ref<{ slot: string; show: boolean }[]>([])
+
+  const setChildrenLabels = () => {
+    if (!options.value || !options.value.length) {
+      childrenLabels.value = []
+    }
+
+    childrenLabels.value = options.value.map((item: VNode) => {
+      /** 获取到当前子元素的插槽内容 */
+      const slot: string =
+        item.children && (item.children as { default: Function }).default()[0].children
+
+      return { slot, show: slot?.includes(modelValue.value.toString()) }
+    })
+  }
 
   /** 样式列表 */
   const styleList = styles(['width'])
@@ -153,6 +149,14 @@
   /** 下拉菜单开启之后的回调 */
   const onOpen = async (): Promise<void> => {
     await nextTick()
+
+    childrenLabels.value = options.value.map((item: VNode) => {
+      /** 获取到当前子元素的插槽内容 */
+      const slot: string =
+        item.children && (item.children as { default: Function }).default()[0].children
+
+      return { slot, show: true }
+    })
 
     /** 获取到当前选中的元素 */
     const active =
@@ -169,9 +173,18 @@
     }
   }
 
-  const inputInput: InputUpdate = (value: string): void => {
-    console.log(value)
-  }
+  watch(() => modelValue.value, setChildrenLabels, { immediate: true })
+
+  // 向子组件注入依赖项
+  provide<SelectProvide>(
+    SELECT_PROPS_TOKEN,
+    reactive({
+      setValue,
+      childrenLabels,
+      modelValue: toRef(prop, 'modelValue'),
+      filter: toRef(prop, 'filter')
+    })
+  )
 </script>
 
 <template>
@@ -187,7 +200,6 @@
         :clear="clear"
         :on-focus="() => (isFocus = true)"
         :on-blur="() => (isFocus = false)"
-        :on-input="filter ? inputInput : undefined"
       >
         <template #after>
           <f-svg-icon

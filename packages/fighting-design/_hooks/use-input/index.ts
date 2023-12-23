@@ -52,7 +52,6 @@ export const useInput = (
    * @param { Object } evt 事件对象
    */
   const handleInput = (evt: Event): void => {
-    console.log(modelValue.value)
     run(prop.onInput, modelValue.value, evt)
   }
 

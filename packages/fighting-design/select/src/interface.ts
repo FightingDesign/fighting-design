@@ -19,14 +19,18 @@ export type SelectChange = (
 ) => void
 
 /**
- * 提供给自组件注入的依赖项类型接口
+ * 提供给子组件注入的依赖项类型接口
  *
  * @param { Function } setValue 设置新的选中值
  * @param { Object } modelValue 绑定的值
+ * @param { Object } childrenLabels 绑定的值
+ * @param { Object } filter 绑定的值
  */
 export interface SelectProvide {
   setValue: SelectChange
   modelValue: SelectModelValue
+  childrenLabels: { slot: string; show: boolean }[]
+  filter: boolean
 }
 
 /** 获取子元素插槽类型接口 */

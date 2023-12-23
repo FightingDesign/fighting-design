@@ -100,7 +100,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
   /**
    * 校验方法
    *
-   * 获取到每个自组件，检测输入的内容是否符合规则
+   * 获取到每个子组件，检测输入的内容是否符合规则
    */
   const validate = (): boolean => {
     getChildrenList.value.forEach((item: VNode): void => {
@@ -109,7 +109,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
       /** 子组件名字 */
       const _name: FormItemProps['name'] = item.props && item.props.name
 
-      // 判断的每个自组件必须有 rules 和 name 参数
+      // 判断的每个子组件必须有 rules 和 name 参数
       if (item.props && _rules && _name && prop.model) {
         /** 检测父组件绑定的对象上是否存在子组件绑定的 name 属性 */
         if (_name in prop.model) {

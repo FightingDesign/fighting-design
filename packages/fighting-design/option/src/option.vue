@@ -21,6 +21,35 @@
   /** 获取到 trigger 注入的依赖项 */
   const triggerInject: TriggerProvide | null = inject(TRIGGER_CLOSE_KEY, null)
 
+  /** 控制是否显示 */
+  const isVisible = computed(() => {
+    // 父组件没有依赖则不显示
+    if (!parentInject) {
+      return false
+    }
+
+    if (!parentInject.filter) {
+      return true
+    }
+
+    const slotText: VNodeNormalizedChildren | string | undefined =
+      slot.default && slot.default()[0].children
+
+    const label = isString(slotText)
+      ? slotText
+      : '' || prop.label.toString() || prop.value.toString()
+
+    const currentItem = parentInject.childrenLabels.find(item => {
+      return item.slot === label
+    })
+
+    if (currentItem) {
+      return currentItem.show
+    }
+
+    return true
+  })
+
   /** 获取插槽内容 */
   const slotLabel = computed((): string => {
     if (!slot.default) {
@@ -95,7 +124,7 @@
    * @param { Object } evt 事件对象
    */
   const handleClick = (evt: MouseEvent): void => {
-    /**如果没有获取到注入的依赖项或者禁用状态 则返回 */
+    // 如果没有获取到注入的依赖项或者禁用状态 则返回
     if (!parentInject || prop.disabled) return
 
     const { value, label } = toRefs(prop)
@@ -122,9 +151,9 @@
       slotLabel.value
     )
 
-    /** 执行父组件的设置方法 */
+    // 执行父组件的设置方法
     parentInject && run(parentInject.setValue, currentValue, currentLabel, evt)
-    /** 点击之后关闭 */
+    // 点击之后关闭
     triggerInject && run(triggerInject.close)
   }
 </script>
@@ -136,6 +165,7 @@
       'f-option',
       { 'f-option__disabled': disabled, 'f-option__active': labelActive }
     ]"
+    v-show="isVisible"
     @click="handleClick"
   >
     <slot v-if="$slots.default" />
