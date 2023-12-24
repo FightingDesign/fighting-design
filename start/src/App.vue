@@ -1,13 +1,5 @@
-<template>
-  <f-checkbox-group v-model="option2">
-    <f-checkbox label="鸡肉卷" />
-    <f-checkbox label="鸡排" />
-    <f-checkbox label="汉堡" />
-  </f-checkbox-group>
-</template>
+<script lang="ts" setup></script>
 
-<script lang="ts" setup>
-  import { ref } from 'vue'
+<template></template>
 
-  const option2 = ref(['汉堡'])
-</script>
+<style lang="scss" scoped></style>

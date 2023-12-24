@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.66.4 (2023-12-24)
+
+- Add `f-select` component `filter` configuration item
+
 ## 0.66.3 (2023-12-21)
 
 - Fix the issue of responsive loss of parameter `data` in the `f-table` component

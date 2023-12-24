@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.66.4 (2023-12-24)
+
+- 新增 `f-select` 组件 `filter` 配置项
+
 ## 0.66.3 (2023-12-21)
 
 - 修复 `f-table` 组件 `data` 参数响应式丢失问题

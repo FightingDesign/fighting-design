@@ -111,6 +111,7 @@
 | `placeholder`        | 占位符                     | string                                                             | ——                              | ——     |
 | `clear`              | 是否可清除                 | boolean                                                            | ——                              | false  |
 | `disabled`           | 是否禁用                   | boolean                                                            | ——                              | false  |
+| `filter`             | 是否可过滤                 | boolean                                                            | ——                              | false  |
 | `size`               | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
 | `on-change`          | 绑定值发生改变时触发的回调 | <a href="#selectchange">SelectChange</a>                           | ——                              | ——     |
 
