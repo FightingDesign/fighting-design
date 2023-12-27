@@ -18,7 +18,7 @@ export const getChildren = (children: VNode[], componentName: string): VNode[] =
       const name: string | undefined | boolean =
         isObject(child.type) && (child.type as Component).name
 
-      /** 判断是否为亲孩子节点 */
+      // 判断是否为亲孩子节点
       if (name === componentName) {
         components.push(child)
       }

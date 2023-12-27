@@ -19,6 +19,7 @@ export const isDate = is('Date')
 
 /**
  * 检测一个数据是否为 string 类型
+ *
  * @param { * } value 要检测的值
  * @returns { boolean }
  */

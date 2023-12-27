@@ -25,7 +25,7 @@ fs.readdirSync(inputSrc).forEach(name => {
       const content =
         '<template>' + '\n' + '  ' + data.toString() + '\n' + '</template>' + '\n'
 
-      //  重新写入
+      // 重新写入
       fs.writeFile(newPath, content, err => {
         !err && console.log(`${name} 成功 🎉`)
       })

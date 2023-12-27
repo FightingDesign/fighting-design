@@ -45,7 +45,7 @@
     run(prop.onChange, index)
   }
 
-  /** 监视如何绑定值发生变化的时候同步数据 */
+  // 监视如何绑定值发生变化的时候同步数据
   watch(
     (): number => prop.modelValue,
     (): void => {

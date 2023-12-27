@@ -26,7 +26,7 @@
     run(prop.onChange, val)
   }
 
-  /** 获取需要注入的依赖项 */
+  // 获取需要注入的依赖项
   provide<CheckboxGroupProvide>(
     CHECKBOX_GROUP_PROPS_KEY,
     reactive({

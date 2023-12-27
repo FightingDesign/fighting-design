@@ -36,7 +36,7 @@
       ripplesColor: ripplesColor.value
     })
 
-    /** 必须在元素节点存在的情况下才触发涟漪 */
+    // 必须在元素节点存在的情况下才触发涟漪
     if (rippleRef.value) {
       const { runRipples } = useRipples(evt, rippleRef.value, options)
       runRipples()

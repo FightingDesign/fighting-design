@@ -25,7 +25,7 @@
     active.value = name
   }
 
-  /** 提供出去依赖项 */
+  // 提供出去依赖项
   provide<MenuProvide>(MENU_PROVIDE_KEY, {
     mode: toRef(prop, 'mode'),
     defaultActive,

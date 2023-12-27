@@ -93,17 +93,17 @@
   const handleClick = (days: GenerateCalendarItem): void => {
     const { target, day } = days
 
-    /** 切换上个月 */
+    // 切换上个月
     if (target === 'prev') {
       option[target]()
     }
 
-    /** 切换下个月 */
+    // 切换下个月
     if (target === 'next') {
       option[target]()
     }
 
-    /** 点击当前月份的日期，高亮显示 */
+    // 点击当前月份的日期，高亮显示
     if (target === 'current') {
       dates.date = day
       run(prop.onChangeDate, dates.year, dates.month, dates.date)

@@ -94,7 +94,7 @@
         item.activeName = item.activeName || index
 
         return {
-          /** name 如果没有传递 则用索引代替 */
+          // name 如果没有传递 则用索引代替
           name: item.activeName,
           label: item.label
         } as const
@@ -102,7 +102,7 @@
     )
   })
 
-  /** 将信息传递给子组件 */
+  // 将信息传递给子组件
   provide<TabsProvide>(TABS_PROPS_KEY, {
     activeName,
     registerChild

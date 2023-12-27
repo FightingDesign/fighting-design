@@ -40,12 +40,12 @@
     /** 偏移量 */
     const offset: number = girth.value - girth.value * (params.percentage / 100)
 
-    /** 如果小于等于 0 了，说明到 100% 进度了 */
+    // 如果小于等于 0 了，说明到 100% 进度了
     if (offset <= 0) {
       return 0
     }
 
-    /** 如果大于等于周长了，说明到 0% 进度了 */
+    // 如果大于等于周长了，说明到 0% 进度了
     if (offset > girth.value) {
       return girth.value
     }

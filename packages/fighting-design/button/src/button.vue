@@ -26,7 +26,7 @@
   const handleClick = (evt: MouseEvent): void => {
     const { disabled, loading, ripples } = toRefs(prop)
 
-    /** 禁用或 loading 则返回 */
+    // 禁用或 loading 则返回
     if (disabled.value || loading.value) {
       /**
        * 阻止默认行为
@@ -37,7 +37,7 @@
       return
     }
 
-    /** 如果有涟漪效果 */
+    // 如果有涟漪效果
     if (ripples.value) {
       const { ripplesColor, simple, text } = toRefs(prop)
 

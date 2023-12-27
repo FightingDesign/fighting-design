@@ -19,9 +19,9 @@
   const { offset, offsetLeft, setPosition } = useOffset(sliderEl, prop, modelValue)
 
   onMounted((): void => {
-    /** 如果元素节点存在 */
+    // 如果元素节点存在
     if (circleEl.value) {
-      /** 开始监听 dom 按下时的事件 */
+      // 开始监听 dom 按下时的事件
       useSlider(circleEl.value, offsetLeft, (num: number): void => {
         if (prop.disabled) return
 
@@ -29,7 +29,7 @@
         const percentage: number =
           (num * 100) / (sliderEl.value as HTMLDivElement).clientWidth
 
-        /** 重新设置样式位置 */
+        // 重新设置样式位置
         setPosition(percentage)
       })
 

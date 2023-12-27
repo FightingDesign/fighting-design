@@ -41,11 +41,11 @@
   const imageListArr = computed((): ExpandCardImageListItem[] => {
     const { imageList } = prop
 
-    /** 提前检测数据结构是否正确 */
+    // 提前检测数据结构是否正确
     if (!isArray(imageList)) {
       warning('f-expand-card', '`image-list` is not a array.')
 
-      /** 不正确返回空数组 */
+      // 不正确返回空数组
       return []
     }
 
@@ -56,17 +56,17 @@
      */
     return imageList.map(
       (item: string | ExpandCardImageListItem): ExpandCardImageListItem => {
-        /** 如果每一项是字符串，则代表图片地址 */
+        // 如果每一项是字符串，则代表图片地址
         if (isString(item)) {
           return { url: item }
         }
 
-        /** 如果是对象，必须内部带有图片地址 */
+        // 如果是对象，必须内部带有图片地址
         if (isObject(item) && item.url) {
           return item
         }
 
-        /** 否则返回空地址的对象 */
+        // 否则返回空地址的对象
         return { url: '' }
       }
     )

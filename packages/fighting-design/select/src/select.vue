@@ -72,7 +72,7 @@
         /** 获取到子组件的 props */
         const optionProp = node.props
 
-        /** 判断是否有传递 props */
+        // 判断是否有传递 props
         if (optionProp) {
           return optionProp.value
             ? `${optionProp.value}` === `${prop.modelValue}`

@@ -142,13 +142,13 @@ export const setFunctionProp = <T extends Function>(
  * @returns { Object } 配置对象
  */
 export const setArrayProp = <T>(
-  defaultVal = null
+  defaultVal = []
 ): {
   readonly type: PropType<T>
   readonly default: () => T | null
 } => {
   return {
     type: Array as unknown as PropType<T>,
-    default: (): T | null => defaultVal
+    default: (): T | null => defaultVal as T
   } as const
 }
