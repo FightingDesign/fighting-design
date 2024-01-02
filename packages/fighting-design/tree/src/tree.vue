@@ -23,7 +23,7 @@
     tree: TreeDataItem | TreeData,
     __level = 0
   ): TreeItemModel[] => {
-    /** 先判断数据类型 */
+    // 先判断数据类型
     if (isObject(tree)) {
       tree = [tree] as TreeData
     }
