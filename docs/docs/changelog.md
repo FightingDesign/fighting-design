@@ -2,6 +2,15 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.67.1 (2024-01-02)
+
+- 修复 package.json 配置问题
+
+## 0.67.0 (2024-01-02)
+
+- 更新依赖项版本 vue@3.3.0 => vue@3.4.3
+- 修复 package.json 配置问题
+
 ## 0.66.4 (2023-12-24)
 
 - 新增 `f-select` 组件 `filter` 配置项

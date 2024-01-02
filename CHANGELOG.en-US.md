@@ -4,6 +4,15 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.67.1 (2024-01-02)
+
+- Fix package.json configuration issue
+
+## 0.67.0 (2024-01-02)
+
+- Update dependency versions vue@3.3.0 => vue@3.4.3
+- Fix package.json configuration issue
+
 ## 0.66.4 (2023-12-24)
 
 - Add `f-select` component `filter` configuration item
