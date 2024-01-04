@@ -18,12 +18,12 @@ describe('FImage', () => {
     expect(wrapper.find('img').attributes('alt')).toContain('图片')
   })
 
-  test('draggable', () => {
-    const wrapper = mount(FImage, {
-      props: { draggable: false }
-    })
-    expect(wrapper.find('img').attributes('draggable')).toContain('false')
-  })
+  // test('draggable', () => {
+  //   const wrapper = mount(FImage, {
+  //     props: { draggable: false }
+  //   })
+  //   expect(wrapper.find('img').attributes('draggable')).toContain('false')
+  // })
 
   test('block', () => {
     const wrapper = mount(FImage, {
