@@ -27,7 +27,7 @@
   )
 
   /** 样式列表 */
-  const styleList = styles(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
+  const style = styles(['fontSize', 'color', 'background', 'titleSize', 'titleColor'])
 
   /**
    * 点击关闭按钮
@@ -52,7 +52,7 @@
 
 <template>
   <transition name="f-alert">
-    <div v-if="isShow" role="alert" :class="classList" :style="styleList">
+    <div v-if="isShow" role="alert" :class="classList" :style>
       <!-- 前缀 icon -->
       <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
         <slot name="beforeIcon" />

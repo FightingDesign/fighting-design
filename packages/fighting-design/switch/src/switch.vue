@@ -21,7 +21,7 @@
   }
 
   /** 样式列表 */
-  const styleList = styles(['closeColor', 'activeColor'])
+  const style = styles(['closeColor', 'activeColor'])
 
   /** 类名列表 */
   const classList = classes(['size', 'square'], 'f-switch__input')
@@ -31,7 +31,7 @@
   <div
     role="switch"
     :class="['f-switch', { 'f-switch__disabled': disabled || loading }]"
-    :style="styleList"
+    :style
   >
     <!-- 左侧文字描述 -->
     <span

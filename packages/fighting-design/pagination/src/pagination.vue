@@ -47,12 +47,7 @@
   <div :class="classList">
     <!-- 下拉菜单选择每页大小 -->
     <template v-if="pageSelect && pageSelect.length">
-      <f-select
-        v-model="pagesLen"
-        :width="120"
-        :disabled="disabled"
-        :on-change="selectChange"
-      >
+      <f-select v-model="pagesLen" :width="120" :disabled :on-change="selectChange">
         <f-option
           v-for="item in pageSelect"
           :key="item"
@@ -63,11 +58,7 @@
     </template>
 
     <!-- 上一页按钮 -->
-    <button
-      class="f-pagination__button"
-      :disabled="disabled"
-      @click="handelTurnPages('prev')"
-    >
+    <button class="f-pagination__button" :disabled @click="handelTurnPages('prev')">
       <f-svg-icon :size="14" :icon="prevIcon || FIconChevronLeft" />
     </button>
 
@@ -125,11 +116,7 @@
     </div>
 
     <!-- 下一页按钮 -->
-    <button
-      class="f-pagination__button"
-      :disabled="disabled"
-      @click="handelTurnPages('next')"
-    >
+    <button class="f-pagination__button" :disabled @click="handelTurnPages('next')">
       <f-svg-icon :size="14" :icon="nextIcon || FIconChevronRight" />
     </button>
 
@@ -140,7 +127,7 @@
         placeholder="输入跳转的页数"
         class="f-pagination__jump"
         style="width: 80px"
-        :disabled="disabled"
+        :disabled
         :on-blur="handleInput"
         :on-enter="handleInput"
       />

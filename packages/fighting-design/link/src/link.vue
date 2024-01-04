@@ -33,17 +33,17 @@
   const classList = classes(['type', 'state', 'disabled', 'noCopy'], 'f-link')
 
   /** 样式列表 */
-  const styleList = styles(['size', 'color', 'hoverColor'])
+  const style = styles(['size', 'color', 'hoverColor'])
 </script>
 
 <template>
-  <div role="link" :class="classList" :style="styleList">
+  <div role="link" :class="classList" :style>
     <a class="f-link__a" :href="href" :target="target" @click="handleClick">
-      <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" :size="size" />
+      <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" :size />
 
       <slot />
 
-      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size="size" />
+      <f-svg-icon v-if="afterIcon" :icon="afterIcon" :size />
     </a>
   </div>
 </template>

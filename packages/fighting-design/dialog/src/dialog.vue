@@ -17,7 +17,7 @@
   const { handleOpen, handleOpenEnd, handleClose, handleCloseEnd } = useTransition(prop)
 
   /** 样式列表 */
-  const styleList = styles(
+  const style = styles(
     ['width', 'zIndex', 'maskBackground', 'maskOpacity'],
     ['maskOpacity', 'zIndex']
   )
@@ -41,7 +41,7 @@
         aria-modal="true"
         tabindex="-1"
         :class="classList"
-        :style="styleList"
+        :style
       >
         <!-- 遮罩层 -->
         <div v-if="showMask" class="f-dialog__mask" />

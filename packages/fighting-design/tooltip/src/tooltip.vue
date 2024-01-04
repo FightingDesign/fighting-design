@@ -15,7 +15,7 @@
   )
 
   /** 样式列表 */
-  const styleList = styles(['background', 'fontColor'])
+  const style = styles(['background', 'fontColor'])
 </script>
 
 <template>
@@ -24,7 +24,7 @@
     role="tooltip"
     :f-content="content"
     :class="classList"
-    :style="styleList"
+    :style
   >
     <slot />
   </div>

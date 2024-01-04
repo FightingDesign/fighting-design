@@ -13,10 +13,10 @@
   const { classes, styles } = useList(getProp(['size', 'type']), 'tag')
 
   /** 类名列表 */
-  const classList = classes(['simple', 'type', 'size', 'block', 'round', 'line'], 'f-tag')
+  const classs = classes(['simple', 'type', 'size', 'block', 'round', 'line'], 'f-tag')
 
   /** 样式列表 */
-  const styleList = styles(['color', 'background'])
+  const style = styles(['color', 'background'])
 
   /**
    * 点击关闭按钮
@@ -30,7 +30,7 @@
 
 <template>
   <transition name="f-tag" appear>
-    <div :class="classList" :style="styleList" @click="onClick">
+    <div :class="classs" :style @click="onClick">
       <!-- 之前的 icon -->
       <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" />
 

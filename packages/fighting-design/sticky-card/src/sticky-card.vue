@@ -32,11 +32,11 @@
   })
 
   /** 样式列表 */
-  const styleList = styles(['borderColor'])
+  const style = styles(['borderColor'])
 </script>
 
 <template>
-  <div class="f-sticky-card" :style="styleList">
+  <div class="f-sticky-card" :style>
     <!-- 展示的内容 -->
     <div v-if="$slots.source" class="f-sticky-card__source">
       <slot name="source" />

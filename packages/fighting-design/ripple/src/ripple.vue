@@ -15,7 +15,7 @@
   const rippleRef = ref<HTMLElement>()
 
   /** 样式列表 */
-  const styleList = styles(['startOpacity', 'endOpacity'], false)
+  const style = styles(['startOpacity', 'endOpacity'], false)
 
   /**
    * 点击之后执行
@@ -45,7 +45,7 @@
 </script>
 
 <template>
-  <div ref="rippleRef" class="f-ripple" :style="styleList" @click="handleClick">
+  <div ref="rippleRef" class="f-ripple" :style @click="handleClick">
     <slot />
   </div>
 </template>

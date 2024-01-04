@@ -105,16 +105,16 @@
 
 <template>
   <div class="f-date-picker">
-    <f-trigger ref="triggerInstance" trigger="click" :disabled="disabled">
+    <f-trigger ref="triggerInstance" trigger="click" :disabled>
       <!-- 输入框 -->
       <f-input
         v-model="dateModelValue"
         autocomplete="off"
         readonly
-        :disabled="disabled"
+        :disabled
         :placeholder="placeholder || '请选择日期'"
-        :clear="clear"
-        :size="size"
+        :clear
+        :size
         :after-icon="FIconCalendar"
       />
 

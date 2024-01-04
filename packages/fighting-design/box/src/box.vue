@@ -9,11 +9,11 @@
   const { styles } = useList(prop, 'box')
 
   /** 样式列表 */
-  const styleList = styles(['padding', 'width', 'height', 'background', 'display'])
+  const style = styles(['padding', 'width', 'height', 'background', 'display'])
 </script>
 
 <template>
-  <div class="f-box" :role="role || 'none'" :style="styleList">
+  <div class="f-box" :role="role || 'none'" :style>
     <slot />
   </div>
 </template>

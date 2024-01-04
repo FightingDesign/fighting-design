@@ -133,20 +133,15 @@
 
 <template>
   <div class="f-time-picker">
-    <f-trigger
-      ref="triggerInstance"
-      trigger="click"
-      :disabled="disabled"
-      :on-open="scrollNow"
-    >
+    <f-trigger ref="triggerInstance" trigger="click" :disabled :on-open="scrollNow">
       <f-input
         v-model="dateModelValue"
         autocomplete="off"
         type="text"
         :placeholder="placeholder || '请选择时间'"
-        :disabled="disabled"
-        :size="size"
-        :clear="clear"
+        :disabled
+        :size
+        :clear
         :after-icon="FIconClockTime"
       />
 

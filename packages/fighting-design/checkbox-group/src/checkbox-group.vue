@@ -36,14 +36,14 @@
   )
 
   /** 样式列表 */
-  const styleList = styles(['columnGap', 'rowGap'])
+  const style = styles(['columnGap', 'rowGap'])
 
   /** 类名列表 */
   const classList = classes(['background', 'vertical', 'size'], 'f-checkbox-group')
 </script>
 
 <template>
-  <div role="group" aria-label="checkbox-group" :class="classList" :style="styleList">
+  <div role="group" aria-label="checkbox-group" :class="classList" :style>
     <slot />
   </div>
 </template>

@@ -11,15 +11,15 @@
   const { styles, classes } = useList(prop, 'loading')
 
   /** 样式列表 */
-  const styleList = styles(['background', 'color'])
+  const style = styles(['background', 'color'])
 
   /** 类名列表 */
   const classList = classes(['fullscreen'], 'f-loading')
 </script>
 
 <template>
-  <div v-if="visible" :class="classList" :style="styleList">
-    <f-svg-icon :size="20" class="f-loading__animation" :icon="icon">
+  <div v-if="visible" :class="classList" :style>
+    <f-svg-icon :size="20" class="f-loading__animation" :icon>
       <slot name="icon">
         <f-icon-loading-a />
       </slot>

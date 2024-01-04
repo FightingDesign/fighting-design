@@ -6,7 +6,7 @@ import type { ClassList } from '../../_interface'
 
 export interface UseMessageWorkReturn {
   classList: ComputedRef<ClassList>
-  styleList: ComputedRef<CSSProperties>
+  style: ComputedRef<CSSProperties>
   visible: Ref<boolean>
   isPosition: ComputedRef<boolean>
   offsetStyle: ComputedRef<CSSProperties>
@@ -44,7 +44,7 @@ export const useMessageWork = (
   const classList = classes(['type', 'placement', 'round'], `f-${name}`)
 
   /** 样式列表 */
-  const styleList = styles(['color', 'background', 'zIndex'], 'zIndex')
+  const style = styles(['color', 'background', 'zIndex'], 'zIndex')
 
   /**
    * 判断方位
@@ -120,7 +120,7 @@ export const useMessageWork = (
 
   return {
     classList,
-    styleList,
+    style,
     visible,
     isPosition,
     offsetStyle,

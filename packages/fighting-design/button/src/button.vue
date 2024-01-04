@@ -13,7 +13,7 @@
 
   const { getType } = useGlobal(prop)
   const { run } = useRun()
-  const { classList, styleList } = useButton(prop)
+  const { classList, style } = useButton(prop)
 
   /** 元素节点 */
   const FButtonRef = ref<HTMLButtonElement | undefined>()
@@ -77,9 +77,9 @@
       role="link"
       tabindex="0"
       :class="classList"
-      :href="href"
-      :target="target"
-      :style="styleList"
+      :href
+      :target
+      :style
       @click="handleClick"
     >
       <f-svg-icon
@@ -102,10 +102,10 @@
       tabindex="0"
       :class="classList"
       :disabled="disabled || loading"
-      :autofocus="autofocus"
-      :name="name"
+      :autofocus
+      :name
       :type="nativeType"
-      :style="styleList"
+      :style
       @click="handleClick"
     >
       <f-svg-icon

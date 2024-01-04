@@ -35,7 +35,7 @@
   /** 子节点的 lable 配置项参数 */
   const childrenLabels = ref<{ slot: string; show: boolean }[]>([])
   /** 样式列表 */
-  const styleList = styles(['width'])
+  const style = styles(['width'])
   /** 当前是否聚焦 */
   const isFocus = ref(false)
   /** 展开的内容元素 */
@@ -212,16 +212,16 @@
 </script>
 
 <template>
-  <div class="f-select" :style="styleList">
-    <f-dropdown trigger="click" :disabled="disabled" :width="width" :on-open="onOpen">
+  <div class="f-select" :style>
+    <f-dropdown trigger="click" :disabled :width :on-open="onOpen">
       <f-input
         v-model="keyword"
         :readonly="!filter"
-        :name="name"
-        :size="size"
-        :disabled="disabled"
-        :placeholder="placeholder"
-        :clear="clear"
+        :name
+        :size
+        :disabled
+        :placeholder
+        :clear
         :on-focus="() => (isFocus = true)"
         :on-blur="() => (isFocus = false)"
       >

@@ -17,21 +17,21 @@
   const classList = classes(['fit', 'select', 'block'], 'f-image')
 
   /** 样式列表 */
-  const styleList = styles(['width', 'height', 'round'])
+  const style = styles(['width', 'height', 'round'])
 </script>
 
 <template>
-  <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
+  <div v-if="isSuccess" role="img" :class="classList" :style>
     <!-- 真正展示的图片 -->
     <img
       ref="imageEl"
       class="f-image__img"
       src=""
       :style="isShowNode ? '' : 'visibility: hidden'"
-      :draggable="draggable"
       :referrer-policy="referrerPolicy"
-      :alt="alt"
-      :title="title"
+      :draggabl
+      :alt
+      :title
     />
   </div>
 

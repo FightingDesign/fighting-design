@@ -9,11 +9,11 @@
   const { styles } = useList(prop, 'aside')
 
   /** 样式列表 */
-  const styleList = styles(['width', 'padding', 'background'])
+  const style = styles(['width', 'padding', 'background'])
 </script>
 
 <template>
-  <aside class="f-aside" :style="styleList">
+  <aside class="f-aside" :style>
     <slot />
   </aside>
 </template>

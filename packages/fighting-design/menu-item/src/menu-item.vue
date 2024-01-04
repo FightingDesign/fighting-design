@@ -69,7 +69,7 @@
   })
 
   /** 样式列表 */
-  const styleList = styles(['fontSize', 'color'])
+  const style = styles(['fontSize', 'color'])
 </script>
 
 <template>
@@ -79,7 +79,7 @@
       'f-menu-item',
       { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }
     ]"
-    :style="styleList"
+    :style
     @click="handelClick"
   >
     <f-svg-icon v-if="icon" :icon="icon" />

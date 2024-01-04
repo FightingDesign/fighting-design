@@ -30,7 +30,7 @@
   })
 
   /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
+  const style = computed((): CSSProperties => {
     return {
       '--form-item-label-width': parentInject && sizeChange(parentInject.labelWidth)
     } as CSSProperties
@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+  <div :class="classList" :style>
     <label v-if="label" class="f-form-item__label">{{ label }}</label>
 
     <!-- 主要内容 -->

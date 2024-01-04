@@ -16,10 +16,10 @@
   const classList = classes(['type', 'stripe', 'state'], 'f-progress')
 
   /** 样式列表 */
-  const styleList = styles(['height', 'color', 'textColor', 'background'])
+  const style = styles(['height', 'color', 'textColor', 'background'])
 
   /* 进度条进度 */
-  const barStyleList = computed((): CSSProperties => {
+  const barstyle = computed((): CSSProperties => {
     return { '--progress-width': `${params.percent}%` } as const
   })
 </script>
@@ -28,7 +28,7 @@
   <div
     role="progressbar"
     :class="classList"
-    :style="[styleList, barStyleList]"
+    :style="[style, barstyle]"
     :aria-value="params.percent"
     :aria-valuemin="0"
     :aria-valuemax="100"

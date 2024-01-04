@@ -153,14 +153,14 @@
   })
 
   /** 样式列表 */
-  const styleList = styles(['borderColor', 'dayCellHeight', 'weekCellHeight'])
+  const style = styles(['borderColor', 'dayCellHeight', 'weekCellHeight'])
 
   /** 类名列表 */
   const classList = classes(['border'], 'f-calendar')
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+  <div :class="classList" :style>
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
       <!-- 上个月切换按钮 -->

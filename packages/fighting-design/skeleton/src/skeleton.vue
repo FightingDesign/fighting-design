@@ -28,7 +28,7 @@
   )
 
   /** 样式列表 */
-  const styleList = styles(['rowGap'])
+  const style = styles(['rowGap'])
 
   /**
    * 如果 loading 为 true 展示骨架屏
@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <div v-if="isRender" role="section" :class="classList" :style="styleList">
+  <div v-if="isRender" role="section" :class="classList" :style>
     <div v-for="n in rows" :key="n" class="f-skeleton__item" />
   </div>
 

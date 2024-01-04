@@ -74,7 +74,7 @@
         @click="handleClick(index + 1)"
       >
         <f-svg-icon
-          :size="size"
+          :size
           :icon="icon || FIconStarB"
           :color="starValue > index ? effectColor : invalidColor"
         />

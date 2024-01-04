@@ -60,14 +60,7 @@
 
 <template>
   <label role="radio" aria-checked="false" tabindex="0" :class="classList">
-    <input
-      v-model="keyword"
-      hidden
-      type="radio"
-      :value="label"
-      :disabled="disabled"
-      :name="name"
-    />
+    <input v-model="keyword" hidden type="radio" :value="label" :disabled :name />
     <!-- 小圆圈 -->
     <span v-if="!parentInject?.background" class="f-radio__circle" />
 

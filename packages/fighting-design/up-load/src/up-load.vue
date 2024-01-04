@@ -159,10 +159,10 @@
       ref="inputRef"
       type="file"
       hidden
-      :name="name"
-      :disabled="disabled"
-      :accept="accept"
-      :multiple="multiple"
+      :name
+      :disabled
+      :accept
+      :multiple
       @change="handleChange"
     />
   </div>

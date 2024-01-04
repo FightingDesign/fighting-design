@@ -35,11 +35,11 @@
   onMounted(setZIndexStyle)
 
   /** 样式列表 */
-  const styleList = styles(['positionSize'])
+  const style = styles(['positionSize'])
 </script>
 
 <template>
-  <div ref="avatarGroupRef" role="group" class="f-avatar-group" :style="styleList">
+  <div ref="avatarGroupRef" role="group" class="f-avatar-group" :style>
     <slot />
   </div>
 </template>

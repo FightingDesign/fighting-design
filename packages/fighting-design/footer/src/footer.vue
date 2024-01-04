@@ -9,11 +9,11 @@
   const { styles } = useList(prop, 'footer')
 
   /** 样式列表 */
-  const styleList = styles(['height', 'padding'])
+  const style = styles(['height', 'padding'])
 </script>
 
 <template>
-  <footer class="f-footer" :style="styleList">
+  <footer class="f-footer" :style>
     <slot />
   </footer>
 </template>

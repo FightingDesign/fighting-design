@@ -27,6 +27,6 @@
 
 <template>
   <div role="switch" :class="classList" @click="handelClick">
-    <f-svg-icon :icon="modelValue ? iconOn : iconOff" :size="size" />
+    <f-svg-icon :icon="modelValue ? iconOn : iconOff" :size />
   </div>
 </template>

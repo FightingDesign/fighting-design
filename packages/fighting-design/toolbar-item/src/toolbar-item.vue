@@ -21,19 +21,14 @@
   }
 
   /** 样式列表 */
-  const styleList = styles(['color'])
+  const style = styles(['color'])
 
   /** 唯一值 */
   const DATE_KEY: 'data-index' = TOOLBAR_INDEX
 </script>
 
 <template>
-  <span
-    :class="TOOLBAR_ITEM_CLASS_NAME"
-    :[DATE_KEY]="index"
-    :style="styleList"
-    @click="handleClick"
-  >
+  <span :class="TOOLBAR_ITEM_CLASS_NAME" :[DATE_KEY]="index" :style @click="handleClick">
     <f-svg-icon v-if="icon" :size="iconSize" :icon="icon" />
     <slot />
   </span>

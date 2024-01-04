@@ -22,11 +22,11 @@
   )
 
   /** 样式列表 */
-  const styleList = styles(['textColor', 'borderColor', 'background'])
+  const style = styles(['textColor', 'borderColor', 'background'])
 </script>
 
 <template>
-  <li role="listitem" class="f-list-item" :style="styleList">
+  <li role="listitem" class="f-list-item" :style>
     <slot />
   </li>
 </template>

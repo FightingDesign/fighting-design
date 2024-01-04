@@ -12,11 +12,11 @@
   const classList = classes(['spacing', 'nowrap', 'vertical'], 'f-space')
 
   /** 类名列表 */
-  const styleList = styles(['rowGap', 'columnGap'])
+  const style = styles(['rowGap', 'columnGap'])
 </script>
 
 <template>
-  <div v-if="$slots.default" role="none" :class="classList" :style="styleList">
+  <div v-if="$slots.default" role="none" :class="classList" :style>
     <slot />
   </div>
 </template>

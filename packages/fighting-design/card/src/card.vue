@@ -18,7 +18,7 @@
   const classList = classes(['round', 'shadow'], 'f-card')
 
   /** 样式列表 */
-  const styleList = styles(['padding', 'borderColor', 'background', 'titleColor'])
+  const style = styles(['padding', 'borderColor', 'background', 'titleColor'])
 
   /** 点击关闭按钮关闭卡片 */
   const handelClose = (): void => {
@@ -29,7 +29,7 @@
 
 <template>
   <transition name="f-card">
-    <div v-if="isShow" :class="classList" :style="styleList">
+    <div v-if="isShow" :class="classList" :style>
       <!-- 头部 -->
       <header v-if="$slots.header || title" role="heading" class="f-card__header">
         <!-- 标题 -->

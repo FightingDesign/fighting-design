@@ -72,20 +72,14 @@
   }
 
   /** 样式列表 */
-  const styleList = styles([
-    'placeholderColor',
-    'textColor',
-    'width',
-    'height',
-    'fontSize'
-  ])
+  const style = styles(['placeholderColor', 'textColor', 'width', 'height', 'fontSize'])
 
   /** 类名列表 */
   const classList = classes(['size', 'disabled', 'search'], 'f-input')
 </script>
 
 <template>
-  <div role="input" :class="classList" :style="styleList">
+  <div role="input" :class="classList" :style>
     <!-- 容器盒子 -->
     <div class="f-input__wrapper">
       <!-- 前缀插槽 -->
@@ -99,15 +93,15 @@
         v-model="modelValue"
         class="f-input__input"
         :type="inputType"
-        :max="max"
-        :min="min"
+        :max
+        :min
+        :disabled
+        :readonly
+        :autofocus
+        :name
+        :autocomplete
+        :placeholder
         :maxlength="maxLength"
-        :disabled="disabled"
-        :readonly="readonly"
-        :autofocus="autofocus"
-        :autocomplete="autocomplete"
-        :name="name"
-        :placeholder="placeholder"
         @input="handleInput"
         @change="handleChange"
         @keyup.enter="handleEnter"
@@ -146,7 +140,7 @@
     <!-- 搜索框 -->
     <div v-if="search" class="f-input__search" @click="handleSearch">
       <slot name="searchBtn">
-        <f-button type="primary" :size="size">{{ searchText }}</f-button>
+        <f-button type="primary" :size>{{ searchText }}</f-button>
       </slot>
     </div>
   </div>

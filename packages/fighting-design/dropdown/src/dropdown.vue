@@ -11,10 +11,10 @@
   <div class="f-dropdown">
     <f-trigger
       :trigger="trigger"
-      :disabled="disabled"
-      :spacing="spacing"
-      :arrow="arrow"
-      :width="width"
+      :disabled
+      :spacing
+      :arrow
+      :width
       :enter-duration="enterDuration"
       :leave-duration="leaveDuration"
       :on-change="onChange"

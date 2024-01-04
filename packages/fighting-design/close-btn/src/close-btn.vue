@@ -25,12 +25,12 @@
   const classList = classes(['round', 'disabled'], 'f-close-btn')
 
   /** 样式列表 */
-  const styleList = styles(['color', 'hoverColor'])
+  const style = styles(['color', 'hoverColor'])
 </script>
 
 <template>
-  <div role="button" :class="classList" :style="styleList" @click="handleClick">
-    <f-svg-icon :size="size" :icon="icon">
+  <div role="button" :class="classList" :style @click="handleClick">
+    <f-svg-icon :size :icon="icon">
       <slot>
         <f-icon-cross />
       </slot>

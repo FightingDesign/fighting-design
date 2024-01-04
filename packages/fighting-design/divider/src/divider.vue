@@ -12,18 +12,11 @@
   const classList = classes(['vertical', 'position'], 'f-divider')
 
   /** 类名列表 */
-  const styleList = styles([
-    'color',
-    'margin',
-    'background',
-    'fontColor',
-    'height',
-    'type'
-  ])
+  const style = styles(['color', 'margin', 'background', 'fontColor', 'height', 'type'])
 </script>
 
 <template>
-  <div role="separator" :class="classList" :style="styleList">
+  <div role="separator" :class="classList" :style>
     <span v-if="!vertical || !$slots.default" class="f-divider__text">
       <slot />
     </span>

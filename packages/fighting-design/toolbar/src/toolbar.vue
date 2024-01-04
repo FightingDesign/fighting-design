@@ -51,11 +51,11 @@
   const classList = classes(['size', 'round', 'fixed'], 'f-toolbar')
 
   /** 样式列表 */
-  const styleList = styles(['textColor', 'background', 'width', 'height'])
+  const style = styles(['textColor', 'background', 'width', 'height'])
 </script>
 
 <template>
-  <div role="toolbar" :class="classList" :style="styleList" @click="handleClick">
+  <div role="toolbar" :class="classList" :style @click="handleClick">
     <slot />
   </div>
 </template>

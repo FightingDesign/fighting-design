@@ -11,11 +11,11 @@ import type { ClassList } from '../../_interface'
  * useButton 返回值类型接口
  *
  * @param { Object } classList 类名列表
- * @param { Object } styleList 样式列表
+ * @param { Object } style 样式列表
  */
 export interface UseButtonReturn {
   classList: ComputedRef<ClassList>
-  styleList: ComputedRef<CSSProperties>
+  style: ComputedRef<CSSProperties>
 }
 
 /**
@@ -65,7 +65,7 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
   })
 
   /** 样式列表 */
-  const styleList = computed((): CSSProperties => {
+  const style = computed((): CSSProperties => {
     const { color, fontColor, shadow, fontSize } = prop
 
     if (prop.color) {
@@ -90,6 +90,6 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
 
   return {
     classList,
-    styleList
+    style
   }
 }

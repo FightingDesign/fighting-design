@@ -13,7 +13,7 @@
   const classList = classes(['type', 'block', 'bold', 'ellipsis', 'center'], 'f-text')
 
   /** 样式列表 */
-  const styleList = styles([
+  const style = styles([
     'color',
     'background',
     'decoration',
@@ -27,7 +27,7 @@
 </script>
 
 <template>
-  <p :class="classList" :style="styleList">
+  <p :class="classList" :style>
     <slot />
   </p>
 </template>

@@ -26,7 +26,7 @@
   const classList = classes(['disabled', 'autoHeight'], 'f-textarea')
 
   /** 样式列表 */
-  const styleList = styles(['resize', 'fontSize'])
+  const style = styles(['resize', 'fontSize'])
 
   /** 改变高度 */
   const changeHeight = async (): Promise<void> => {
@@ -132,17 +132,17 @@
 </script>
 
 <template>
-  <div :class="classList" :style="styleList">
+  <div :class="classList" :style>
     <textarea
       ref="textareaRef"
       v-model="modelValue"
       class="f-textarea__textarea"
-      :rows="rows"
-      :disabled="disabled"
-      :readonly="readonly"
-      :autofocus="autofocus"
-      :placeholder="placeholder"
-      :name="name"
+      :rows
+      :disabled
+      :readonly
+      :autofocus
+      :placeholder
+      :name
       @input="_handleInput"
       @change="handleChange"
       @blur="onBlur"

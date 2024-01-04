@@ -50,7 +50,7 @@
   )
 
   /** 样式列表 */
-  const styleList = styles(
+  const style = styles(
     [
       'background',
       'fontColor',
@@ -73,13 +73,13 @@
 </script>
 
 <template>
-  <div v-if="isSuccess" role="img" :class="classList" :style="styleList">
+  <div v-if="isSuccess" role="img" :class="classList" :style>
     <!-- 图标头像 -->
     <f-svg-icon
       v-if="$slots.icon || icon"
       :size="fontSize || 15"
       :color="fontColor"
-      :icon="icon"
+      :icon
     >
       <slot name="icon" />
     </f-svg-icon>
@@ -96,12 +96,12 @@
       class="f-avatar__img"
       src=""
       :style="isShowNode ? '' : 'visibility: hidden'"
-      :alt="alt"
+      :alt
     />
   </div>
 
   <!-- 加载失败的 -->
-  <div v-else class="f-avatar__error" :style="styleList">
+  <div v-else class="f-avatar__error" :style>
     <slot name="error">
       <span class="f-avatar__error-text">{{ alt || '加载失败' }}</span>
     </slot>

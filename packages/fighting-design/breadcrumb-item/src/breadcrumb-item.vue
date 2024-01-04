@@ -42,7 +42,7 @@
   })
 
   /** 样式列表 */
-  const styleList = styles(['fontColor', 'iconColor', 'fontSize'])
+  const style = styles(['fontColor', 'iconColor', 'fontSize'])
 
   /** 点击触发 */
   const handelClick = (): void => {
@@ -60,7 +60,7 @@
 </script>
 
 <template>
-  <div class="f-breadcrumb-item" :style="styleList" @click="handelClick">
+  <div class="f-breadcrumb-item" :style @click="handelClick">
     <span class="f-breadcrumb-item__text">
       <slot />
     </span>

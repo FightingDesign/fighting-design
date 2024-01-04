@@ -76,11 +76,11 @@
   const classList = classes(['round', 'vertical'], 'f-expand-card')
 
   /** 样式列表 */
-  const styleList = styles(['width', 'height', 'color'])
+  const style = styles(['width', 'height', 'color'])
 </script>
 
 <template>
-  <div v-if="imageListArr.length" :class="classList" :style="styleList">
+  <div v-if="imageListArr.length" :class="classList" :style>
     <div
       v-for="(item, index) in imageListArr"
       :key="index"

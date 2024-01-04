@@ -41,11 +41,11 @@
   const classList = classes(['disabled'], 'f-slider')
 
   /** 样式列表 */
-  const styleList = styles(['background', 'activeColor', 'width'])
+  const style = styles(['background', 'activeColor', 'width'])
 </script>
 
 <template>
-  <div ref="sliderEl" role="slider" :class="classList" :style="styleList">
+  <div ref="sliderEl" role="slider" :class="classList" :style>
     <div class="f-slider__road">
       <!-- 进度条 -->
       <div class="f-slider__selected" :style="`width: ${offset}%`" />

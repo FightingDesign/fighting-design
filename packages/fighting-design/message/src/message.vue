@@ -12,7 +12,7 @@
 
   const {
     classList,
-    styleList,
+    style,
     visible,
     isPosition,
     offsetStyle,
@@ -38,7 +38,7 @@
     <div
       v-show="visible"
       :class="classList"
-      :style="[offsetStyle, styleList]"
+      :style="[offsetStyle, style]"
       @mouseleave="startTime"
       @mouseenter="clearTimer"
     >

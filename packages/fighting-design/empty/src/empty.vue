@@ -20,11 +20,11 @@
   })
 
   /** 样式列表 */
-  const styleList = styles(['contentColor', 'contentSize', 'background'])
+  const style = styles(['contentColor', 'contentSize', 'background'])
 </script>
 
 <template>
-  <div class="f-empty" :style="styleList">
+  <div class="f-empty" :style>
     <!-- 图片 -->
     <div class="f-empty__wrapper">
       <slot v-if="$slots.default" />

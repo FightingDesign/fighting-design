@@ -9,11 +9,11 @@
   const { styles } = useList(prop, 'header')
 
   /** 样式列表 */
-  const styleList = styles(['height', 'padding'])
+  const style = styles(['height', 'padding'])
 </script>
 
 <template>
-  <header role="banner" class="f-header" :style="styleList">
+  <header role="banner" class="f-header" :style>
     <slot />
   </header>
 </template>

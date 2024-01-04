@@ -80,7 +80,7 @@
       v-if="model === 'button'"
       class="f-input-number__minus"
       :type="buttonType || 'primary'"
-      :size="size"
+      :size
       :disabled="disabled || minDisabled"
       :before-icon="FIconChevronLeft"
       :on-click="() => handleChangeVal('minus')"
@@ -90,15 +90,15 @@
       <f-input
         v-model="modelValue"
         type="number"
-        :max="max"
-        :min="min"
-        :disabled="disabled"
-        :readonly="readonly"
-        :autofocus="autofocus"
-        :name="name"
-        :size="size"
-        :clear="clear"
-        :placeholder="placeholder"
+        :max
+        :min
+        :disabled
+        :readonly
+        :autofocus
+        :name
+        :size
+        :clear
+        :placeholder
         :on-blur="onBlur"
         :on-focus="onFocus"
         :on-input="onInput"
@@ -111,14 +111,14 @@
           >
             <f-button
               :disabled="disabled || maxDisabled"
-              :size="size"
+              :size
               :type="buttonType || 'default'"
               :before-icon="FIconChevronUp"
               :onclick="() => handleChangeVal('plus')"
             />
             <f-button
               :disabled="disabled || minDisabled"
-              :size="size"
+              :size
               :type="buttonType || 'default'"
               :before-icon="FIconChevronDown"
               :on-click="() => handleChangeVal('minus')"
@@ -132,7 +132,7 @@
       v-if="model === 'button'"
       class="f-input-number__plus"
       :type="buttonType || 'primary'"
-      :size="size"
+      :size
       :disabled="disabled || maxDisabled"
       :before-icon="FIconChevronRight"
       :on-click="() => handleChangeVal('plus')"

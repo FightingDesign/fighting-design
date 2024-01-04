@@ -130,7 +130,7 @@
   const classList = classes(['position', 'type'], 'f-tabs')
 
   /** 样式列表 */
-  const styleList = styles(['justifyContent'])
+  const style = styles(['justifyContent'])
 
   /** 事件处理 */
   const trigger = computed((): 'click' | 'mouseenter' => {
@@ -139,7 +139,7 @@
 </script>
 
 <template>
-  <div role="tab" :class="classList" :style="styleList">
+  <div role="tab" :class="classList" :style>
     <!-- 头部内容 -->
     <div class="f-tabs__head">
       <!-- 前缀插槽 -->

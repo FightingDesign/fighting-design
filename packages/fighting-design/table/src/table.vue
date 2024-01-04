@@ -49,7 +49,7 @@
   }
 
   /** 样式列表 */
-  const styleList = styles(['zebraColor', 'bgColor', 'headBgColor', 'height', 'width'])
+  const style = styles(['zebraColor', 'bgColor', 'headBgColor', 'height', 'width'])
 
   /** 类名列表 */
   const classList = classes(['border', 'zebra'], 'f-table')
@@ -118,7 +118,7 @@
 </script>
 
 <template>
-  <div role="table" :class="classList" :style="styleList">
+  <div role="table" :class="classList" :style>
     <!-- 主要容器 -->
     <div class="f-table__container">
       <!-- 内置数据驱动表格 -->

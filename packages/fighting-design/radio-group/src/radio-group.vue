@@ -29,7 +29,7 @@
   const classList = classes(['vertical', 'background', 'size'], 'f-radio-group')
 
   /** 样式列表 */
-  const styleList = styles(['columnGap', 'rowGap'])
+  const style = styles(['columnGap', 'rowGap'])
 
   // 注入依赖项
   provide<RadioGroundInject>(
@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <div role="radiogroup" :class="classList" :style="styleList">
+  <div role="radiogroup" :class="classList" :style>
     <slot />
   </div>
 </template>
