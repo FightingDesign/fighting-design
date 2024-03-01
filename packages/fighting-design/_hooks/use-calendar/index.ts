@@ -26,7 +26,6 @@ export interface UseCalendarReturn {
  * 日历组件方法封装
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @returns
  */
 export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
   /** 获取农历和节日算法 */
@@ -37,7 +36,6 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
    *
    * @param { number } year 年份
    * @param { number } month 月份
-   * @returns
    */
   const getDaysInMonth = (year: number, month: number): number => {
     const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -59,7 +57,6 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
    *
    * @param { number } year 年份
    * @param { number } month 月份
-   * @returns
    */
   const getFirstDayOfWeek = (year: number, month: number): number => {
     /**
@@ -79,7 +76,6 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
    * 判断是否为闰年
    *
    * @param { number } year 年份
-   * @returns
    */
   const isLeapYear = (year: number): boolean => {
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
@@ -90,7 +86,6 @@ export const useCalendar = (prop: CalendarProps): UseCalendarReturn => {
    *
    * @param { number } year 年份
    * @param { number } month 月份
-   * @returns
    */
   const generateCalendar = (year: number, month: number): GenerateCalendarItem[] => {
     /** 日历详情 */
