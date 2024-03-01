@@ -5,10 +5,6 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/form)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/form.md)
 
-:::danger
-组件仍在开发阶段，谨慎使用！
-:::
-
 ## 基本使用
 
 在 `f-form` 组件中添加 `native-type` 为 `submit` 的按钮，将会触发表单的 `on-submit` 回调触发提交表单
@@ -150,6 +146,10 @@
 :::
 
 ## 深度校验
+
+:::info
+^0.67.2 版本开始兼容
+:::
 
 表单对象有深层嵌套的情况下，可以指定 `f-form-item` 层级关系的 `name` 配置项，以 `.` 为分隔符
 

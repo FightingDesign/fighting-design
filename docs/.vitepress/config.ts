@@ -1,4 +1,3 @@
-import { defineConfig, useRoute } from 'vitepress'
 import { description } from './config/description'
 import { nav } from './config/nav'
 import { sidebar } from './config/sidebar'
@@ -11,7 +10,7 @@ import { fileURLToPath, URL } from 'node:url'
  *
  * @see Introduction https://vitepress.vuejs.org/config/introduction
  */
-export default defineConfig({
+export default {
   title: 'Fighting Design',
   head,
   description,
@@ -118,4 +117,4 @@ export default defineConfig({
       md.use(PluginDemo)
     }
   }
-})
+}
