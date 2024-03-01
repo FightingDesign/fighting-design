@@ -1,4 +1,4 @@
-const { toString } = Object.prototype
+import { toString } from '..'
 
 /**
  * 检测一个值是否为指定的类型
@@ -7,8 +7,8 @@ const { toString } = Object.prototype
  * @returns { boolean } 这个值是否为传入的类型
  */
 const is = (type: string) => {
-  return (value: unknown): boolean => {
-    return toString.call(value) === `[object ${type}]`
+  return (value: any): boolean => {
+    return toString(value) === `[object ${type}]`
   }
 }
 
@@ -23,7 +23,7 @@ export const isDate = is('Date')
  * @param { * } value 要检测的值
  * @returns { boolean }
  */
-export const isString = (value: unknown): value is string => typeof value === 'string'
+export const isString = (value: any): value is string => typeof value === 'string'
 
 /**
  * 检测一个数据是否为 number 类型
@@ -32,7 +32,7 @@ export const isString = (value: unknown): value is string => typeof value === 's
  * @returns { boolean }
  * @see isNaN() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN
  */
-export const isNumber = (value: unknown): value is number =>
+export const isNumber = (value: any): value is number =>
   typeof value === 'number' && !isNaN(value)
 
 /**
@@ -41,7 +41,7 @@ export const isNumber = (value: unknown): value is number =>
  * @param { * } value 要检测的数据
  * @returns { boolean }
  */
-export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean'
+export const isBoolean = (value: any): value is boolean => typeof value === 'boolean'
 
 /**
  * 判断一个值是否为 object 类型
@@ -54,7 +54,7 @@ export const isObject = is('Object')
  * @param { * } value 要检测的值
  * @returns { boolean }
  */
-export const isFunction = (value: unknown): value is Function =>
+export const isFunction = (value: any): value is Function =>
   typeof value === 'function'
 
 /**
@@ -64,3 +64,17 @@ export const isArray = Array.isArray
 
 /** 是否为浏览器环境 */
 export const isBrowser: boolean = typeof window !== 'undefined'
+
+/**
+ * 是否为真值
+ * 
+ * @param { * } value 检测的值 
+ * @returns { boolean }
+ */
+export const isTrue = (value: any): boolean => {
+  if (isNaN(value) || value === void 0 || value === null) {
+    return false
+  }
+
+  return true
+}

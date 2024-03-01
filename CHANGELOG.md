@@ -2,6 +2,9 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 新增 `f-form-item` 对象深层校验
+- 修复 `f-form-item` 对于数据类型参数无法识别报错的问题
+
 ## 0.67.1 (2024-01-02)
 
 - 修复 package.json 配置问题

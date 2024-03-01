@@ -1,5 +1,5 @@
 import { reactive, computed, useSlots } from 'vue'
-import { getChildren, isArray, isString, isObject, warning } from '../../_utils'
+import { getChildren, isArray, isString, isObject, warning, splitString, isTrue, isNumber, toString } from '../../_utils'
 import type { FormProps } from '../../form'
 import type { VNode, Slots } from 'vue'
 import type { FormItemRules, FormItemRulesItem, FormItemProps } from '../../form-item'
@@ -65,14 +65,29 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
      * @param { Object } ruleItem 每一项规则
      */
     const test = (ruleItem: FormItemRulesItem): boolean => {
+      // 如果需要检测长度
+      if (ruleItem.max || ruleItem.min) {
+        // 不是一个有效的值
+        if (!isNumber(value) && !isString(value)) {
+          // 警告信息：需要检测的参数类型错误
+          warning('f-form-item', 'Wrong parameter type to be detected')
+          return false
+        }
+      }
+
       /** 获取到当前输入字符串的长度 */
-      const length: number = value.length + 1
+      const length: number = (value + '').length
 
       return !(
+        // 必填项
         (ruleItem.required && !value) ||
+        // 设置最大输入长度
         (ruleItem.max && length > ruleItem.max) ||
+        // 设置最小输入长度
         (ruleItem.min && length < ruleItem.min) ||
+        // 设置正则校验
         (ruleItem.regExp && !ruleItem.regExp.test(value)) ||
+        // 自定义校验方法
         (ruleItem.validator && !ruleItem.validator())
       )
     }
@@ -111,8 +126,31 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
 
       // 判断的每个子组件必须有 rules 和 name 参数
       if (item.props && _rules && _name && prop.model) {
-        /** 检测父组件绑定的对象上是否存在子组件绑定的 name 属性 */
-        if (_name in prop.model) {
+        // 如果字符串中带有 . 说明的层级嵌套关系
+        if (_name.includes('.')) {
+          const nameLevel = splitString(_name, '.')
+          let modelKeyVal: any = prop.model
+
+          // 如果 name 的层级存在，那么循环便利，找到榜单的值
+          if (nameLevel && nameLevel.length) {
+            for (const iterator of nameLevel) {
+              modelKeyVal = modelKeyVal[iterator]
+
+              // 如果没有找到 name 则保持停止遍历
+              if (!modelKeyVal) {
+                warning('f-form-item', `${_name} is not a valid \`name\` parameter`)
+                break
+              }
+            }
+
+            /** 获取到规则校验的信息 */
+            const msg: string | boolean = checkRuleMassage(modelKeyVal as unknown as string, _rules)
+
+            childrenCheckResult[_name] = msg
+          }
+        }
+        // 检测父组件绑定的对象上是否存在子组件绑定的 name 属性
+        else if (_name in prop.model) {
           /** 获取需要检测的值 */
           const modelKeyVal: string = (prop.model as object)[_name as keyof object]
 
@@ -120,10 +158,12 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
           const msg: string | boolean = checkRuleMassage(modelKeyVal, _rules)
 
           childrenCheckResult[_name] = msg
-        } else {
-          // xxx 不是有效的 `name` 参数
+        }
+        // xxx 不是有效的 `name` 参数
+        else {
           warning('f-form-item', `${_name} is not a valid \`name\` parameter`)
         }
+
       }
     })
 

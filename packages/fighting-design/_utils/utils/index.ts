@@ -101,3 +101,14 @@ export const convertFormat = (str: string): string => {
     return '-' + p1.toLowerCase()
   })
 }
+
+/**
+ * 将字符串通过指定规则分隔
+ * 
+ * @param { string } str 字符串
+ * @param { string } rule 规则字符串
+ * @returns { Array }
+ */
+export const splitString = (str: string, rule: string): string[] => {
+  return str.split(rule)
+}
