@@ -52,7 +52,7 @@
     if (router && prop.to) {
       try {
         router.push(prop.to)
-      } catch (err: unknown) {
+      } catch (err: any) {
         console.warn(err)
       }
     }

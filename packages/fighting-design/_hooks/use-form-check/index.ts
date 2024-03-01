@@ -163,7 +163,6 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
         else {
           warning('f-form-item', `${_name} is not a valid \`name\` parameter`)
         }
-
       }
     })
 

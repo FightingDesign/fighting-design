@@ -39,7 +39,7 @@ const detectPublic = async (): Promise<void> => {
       `${updatedFiles.join('\n')}` +
       '\n'
     )
-  } catch (error: unknown) {
+  } catch (error: any) {
     logError(`不好意思，组件[${compName}]创建失败了` + '\n' + `error: ${error}`)
     process.exit(0)
   }
@@ -91,7 +91,7 @@ async function generate (): Promise<[void, void, void, void, void]> {
   ): Promise<void> => {
     try {
       await callback()
-    } catch (error: unknown) {
+    } catch (error: any) {
       logError(info + '\n' + `error: ${error}`)
     }
   }

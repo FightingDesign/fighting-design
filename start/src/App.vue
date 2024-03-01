@@ -4,8 +4,9 @@
   import type { FormSubmit } from 'fighting-design'
 
   const ruleForm2 = reactive({
+    name: '',
     info: {
-      password: '12121'
+      password: ''
     }
   })
 
@@ -21,10 +22,16 @@
   <f-form :model="ruleForm2" label-width="60px" :on-submit="handelSubmit2">
     <f-form-item
       label="密码"
+      name="name"
+      :rules="[{ min: 6, message: '至少输入六位数密码' }]"
+    >
+      <f-input v-model="ruleForm2.name" type="password" placeholder="请输入密码" />
+    </f-form-item>
+
+    <f-form-item
+      label="密码"
       name="info.password"
-      :rules="[
-        { min: 6, message: '至少输入六位数密码' }
-      ]"
+      :rules="[{ min: 6, message: '至少输入六位数密码' }]"
     >
       <f-input
         v-model="ruleForm2.info.password"

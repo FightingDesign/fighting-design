@@ -6,7 +6,7 @@ import { isFunction } from '../../_utils'
  * @param { Function } run 执行方法
  */
 export interface UseRunReturn {
-  run: <T extends Function>(callback: T | null | undefined, ...params: unknown[]) => void
+  run: <T extends Function>(callback: T | null | undefined, ...params: any[]) => void
 }
 
 /**
@@ -23,7 +23,7 @@ export const useRun = (): UseRunReturn => {
    */
   const run = <T extends Function>(
     callback: T | null | undefined,
-    ...params: unknown[]
+    ...params: any[]
   ): void => {
     isFunction(callback) && callback(...params)
   }
