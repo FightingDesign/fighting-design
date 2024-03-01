@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.67.2 (2024-03-01)
+
+- Add `f-form-item` object deep validation
+- Fix the issue of `f-form-item` not recognizing data type parameters and reporting errors
+
 ## 0.67.1 (2024-01-02)
 
 - Fix package.json configuration issue
