@@ -2,7 +2,7 @@ const { toString: _toString } = Object.prototype
 
 /**
  * 转换为字符串
- * 
+ *
  * @param { * } value 数据
  * @returns { string }
  */

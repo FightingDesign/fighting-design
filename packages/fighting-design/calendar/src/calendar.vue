@@ -135,7 +135,6 @@
    *
    * @param { number } month 月份
    * @param { number } date 日期
-   * @returns
    */
   const currentDataClass = (month: number, date: number): string => {
     /** 如果当前的月份和日期和绑定的日期相同，则高亮显示 */

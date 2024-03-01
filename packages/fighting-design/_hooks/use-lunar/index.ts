@@ -42,7 +42,6 @@ export type UseLunarReturn = (
  * 农历方法
  *
  * @author Tyh2001 <https://github.com/Tyh2001>
- * @returns
  */
 export const useLunar = (): UseLunarReturn => {
   /**

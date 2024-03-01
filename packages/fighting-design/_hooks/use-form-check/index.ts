@@ -1,5 +1,13 @@
 import { reactive, computed, useSlots } from 'vue'
-import { getChildren, isArray, isString, isObject, warning, splitString, isTrue, isNumber, toString } from '../../_utils'
+import {
+  getChildren,
+  isArray,
+  isString,
+  isObject,
+  warning,
+  splitString,
+  isNumber
+} from '../../_utils'
 import type { FormProps } from '../../form'
 import type { VNode, Slots } from 'vue'
 import type { FormItemRules, FormItemRulesItem, FormItemProps } from '../../form-item'
@@ -19,7 +27,6 @@ export interface UseFormCheckReturn {
  * form 表单校验方法
  *
  * @param { Object } prop prop 参数
- * @returns
  */
 export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
   /** 子节点校验结果 */
@@ -80,15 +87,17 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
 
       return !(
         // 必填项
-        (ruleItem.required && !value) ||
-        // 设置最大输入长度
-        (ruleItem.max && length > ruleItem.max) ||
-        // 设置最小输入长度
-        (ruleItem.min && length < ruleItem.min) ||
-        // 设置正则校验
-        (ruleItem.regExp && !ruleItem.regExp.test(value)) ||
-        // 自定义校验方法
-        (ruleItem.validator && !ruleItem.validator())
+        (
+          (ruleItem.required && !value) ||
+          // 设置最大输入长度
+          (ruleItem.max && length > ruleItem.max) ||
+          // 设置最小输入长度
+          (ruleItem.min && length < ruleItem.min) ||
+          // 设置正则校验
+          (ruleItem.regExp && !ruleItem.regExp.test(value)) ||
+          // 自定义校验方法
+          (ruleItem.validator && !ruleItem.validator())
+        )
       )
     }
 
@@ -144,7 +153,10 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
             }
 
             /** 获取到规则校验的信息 */
-            const msg: string | boolean = checkRuleMassage(modelKeyVal as unknown as string, _rules)
+            const msg: string | boolean = checkRuleMassage(
+              modelKeyVal as unknown as string,
+              _rules
+            )
 
             childrenCheckResult[_name] = msg
           }

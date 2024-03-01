@@ -25,8 +25,8 @@ export interface UseCollapseAnimationReturn {
 /**
  * 对于 Collapse Animation 折叠动画样式处理
  *
- * @param prop prop 参数
- * @returns
+ * @param { Object } prop prop 参数
+
  */
 export const useCollapseAnimation = (
   prop: CollapseAnimationProps

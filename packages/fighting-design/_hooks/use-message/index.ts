@@ -100,7 +100,7 @@ const getNextElementInterval = (instance: ComponentInternalInstance): number => 
  * 更新组件偏移量
  *
  * @param { Object } closeInstance 组件实例
- * @returns
+
  */
 const updatePosition = (closeInstance: ComponentInternalInstance): void => {
   /** 获取当前组件实例索引值 */

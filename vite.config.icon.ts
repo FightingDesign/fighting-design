@@ -15,7 +15,7 @@ export default (): UserConfigExport => {
         cleanVueFileName: true, // 是否将 '.vue.d.ts' 文件名转换为 '.d.ts'
         copyDtsFiles: false, // 是否将源码里的 .d.ts 文件复制到 outputDir
         include: ['./packages/fighting-icon'], // 手动设置包含路径的 glob
-        /** 
+        /**
          * 构建后回调钩子
          */
         afterBuild: (): void => {

@@ -96,7 +96,7 @@ const parseTime = (time: number): CurrentTime => {
  * @param { number } time1 时间（单位毫秒）
  * @param { number } time2 时间（单位毫秒）
  * @param { number } [interval = 1000] 间隔
- * @returns
+
  */
 const isSameTime = (time1: number, time2: number, interval: number = SECOND): boolean => {
   return Math.floor(time1 / interval) === Math.floor(time2 / interval)
@@ -203,10 +203,10 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     })
   }
 
-  // 组件即将被卸载时，暂停倒计时 
+  // 组件即将被卸载时，暂停倒计时
   onBeforeUnmount(pause)
 
-  // keep-alive时，从 deactive 到active状态下： 继续倒计时 
+  // keep-alive时，从 deactive 到active状态下： 继续倒计时
   onActivated(() => {
     if (deactivated) {
       isCounting = true
@@ -215,7 +215,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
     }
   })
 
-  // keep-alive时，deactive 状态下： 暂停倒计时 
+  // keep-alive时，deactive 状态下： 暂停倒计时
   onDeactivated(() => {
     if (isCounting) {
       pause()

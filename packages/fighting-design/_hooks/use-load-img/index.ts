@@ -101,7 +101,6 @@ export const useLoadImg = (
     /** 创建一个新的 img 元素 */
     const el: HTMLImageElement = new Image()
 
-    // 待优化，Promise 可能会有不兼容
     new Promise((resolve, reject): void => {
       el.src = errSrc || prop.src
 
@@ -266,7 +265,7 @@ export const useLoadImg = (
     startLoad()
   })
 
-  // 监视 src 的变化重新加载图片 
+  // 监视 src 的变化重新加载图片
   watch(
     (): string => prop.src,
     (): void => {

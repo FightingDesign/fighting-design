@@ -17,7 +17,6 @@ export interface UseWatermarkReturn {
  * 生成水印图片
  *
  * @param { Object } prop prop 参数
- * @returns
  */
 export const useWatermark = (prop: WatermarkProps): ComputedRef<UseWatermarkReturn> => {
   return computed((): UseWatermarkReturn => {

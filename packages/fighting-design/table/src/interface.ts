@@ -18,11 +18,11 @@ export type TableRenderReturn = VNode<RendererNode, RendererElement, Record<stri
 
 /**
  * 自定义模板函数渲染类型
- * 
+ *
  * 详情参考
- * 
+ *
  * @see h() https://cn.vuejs.org/api/render-function.html
- * 
+ *
  * @param { string | Object } type 类型
  * @param { Object } props props 传参数
  * @param { Object } children 子节点
@@ -35,7 +35,7 @@ export type TableRender = (
 
 /**
  * 渲染内容自定义模板方法类型
- * 
+ *
  * @param { Function } h 渲染函数
  * @param { Object } row 行的每一项
  * @param { Object } column 列的每一项
@@ -50,7 +50,7 @@ export type TableRenderData = (
 
 /**
  * 渲染标题自定义模板方法类型
- * 
+ *
  * @param { Function } h 渲染函数
  * @param { Object } item 每一项
  * @param { number } index 当前行的索引
@@ -61,9 +61,9 @@ export type TableRenderTitle = (
   index: number
 ) => TableRenderReturn
 
-/** 
+/**
  * 表格表头配置类型
- * 
+ *
  * @param { string | Function } 标题
  * @param { string } [key] 唯一值
  * @param { number | string } [width] 宽度
@@ -78,7 +78,7 @@ export interface TableColumns {
 
 /**
  * 选择器改变触发的回调类型
- * 
+ *
  * @param { Array } values 选中的数据集合
  */
 export type TableSelect = (value: TableData) => void

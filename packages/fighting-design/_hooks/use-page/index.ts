@@ -70,7 +70,7 @@ export const usePage = (
     /** 结果数组 */
     const pageList: number[] = []
 
-    // 如果最大页码数 > 当前页码超过多少需要展示省略号 
+    // 如果最大页码数 > 当前页码超过多少需要展示省略号
     if (maxCount.value > pagerCount) {
       if (prop.current > pagerCount - halfPagerCount) {
         showPrevMore = true

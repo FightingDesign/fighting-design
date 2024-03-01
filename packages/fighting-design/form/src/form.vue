@@ -40,7 +40,7 @@
     })
   )
 
-   // 向外界导出一些方法
+  // 向外界导出一些方法
   defineExpose({ submit, validate })
 </script>
 

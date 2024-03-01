@@ -8,7 +8,7 @@ import type { UserConfigExport } from 'vite'
  */
 export default (): UserConfigExport => {
   return {
-    /** 
+    /**
      * 配置插件 vue，如果不配置则识别不了 vue 文件
      */
     plugins: [

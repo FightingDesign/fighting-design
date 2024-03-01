@@ -54,8 +54,7 @@ export const isObject = is('Object')
  * @param { * } value 要检测的值
  * @returns { boolean }
  */
-export const isFunction = (value: any): value is Function =>
-  typeof value === 'function'
+export const isFunction = (value: any): value is Function => typeof value === 'function'
 
 /**
  * 判断一个值是否为 array 类型
@@ -67,8 +66,8 @@ export const isBrowser: boolean = typeof window !== 'undefined'
 
 /**
  * 是否为真值
- * 
- * @param { * } value 检测的值 
+ *
+ * @param { * } value 检测的值
  * @returns { boolean }
  */
 export const isTrue = (value: any): boolean => {
