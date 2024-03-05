@@ -10,15 +10,12 @@
   defineOptions({ name: 'FUpLoad' })
 
   const prop = defineProps(Props)
-  const filesModelValue = defineModel<File[]>('files', { default: [], type: Array })
+  const modelValue = defineModel<File[]>('files', { default: [], type: Array })
 
   const { run } = useRun()
 
+  /** 是否正在拖动中 */
   const dragIng = ref(false)
-
-  /** 文件列表 */
-  const fileList = ref<File[]>()
-
   /** 文件上传输入框 */
   const inputRef = ref<HTMLInputElement | undefined>()
 
@@ -33,13 +30,7 @@
    * @param { Array } files 文件列表
    */
   const updateFiles = (files: File[]): void => {
-    if (fileList.value && fileList.value.length) {
-      fileList.value.push(...files)
-    } else {
-      fileList.value = files
-    }
-
-    filesModelValue.value = fileList.value
+    modelValue.value = [...modelValue.value, ...files]
     run(prop.onLoad, files)
   }
 
@@ -60,7 +51,7 @@
       list = list.filter((file: File): boolean => file.size < maxSize.value)
     }
 
-    //  截取最大上传的数量
+    // 截取最大上传的数量
     if (maxLength.value) {
       list = list.splice(0, maxLength.value)
     }
@@ -75,7 +66,7 @@
    */
   const handleChange = (evt: Event): void => {
     /** 获取文件列表 */
-    const files: FileList | null = (evt.target as HTMLInputElement).files
+    const files = (evt.target as HTMLInputElement).files
 
     if (files) {
       updateFiles(filterFiles(files as unknown as File[]))
@@ -89,7 +80,7 @@
    * @param { number } index 需要删除的文件索引
    */
   const removeFile = (index: number): void => {
-    fileList.value && fileList.value.splice(index, 1)
+    modelValue.value.splice(index, 1)
   }
 
   /**
@@ -120,22 +111,25 @@
     }
   }
 
-  /** 如果文件发生改变时触发 */
+  /**
+   * 如果文件发生改变时触发
+   */
   const loadChange = (): void => {
-    if (!prop.onChange) return
     watch(
-      (): File[] => prop.files,
-      (): void => {
-        run(prop.onChange, fileList.value)
+      () => prop.files,
+      () => {
+        run(prop.onChange, modelValue.value)
       },
       { deep: true }
     )
   }
-  loadChange()
+
+  !!prop.onChange && loadChange()
 </script>
 
 <template>
   <div class="f-up-load">
+    <!-- 拖动显示的 -->
     <div
       v-if="drag"
       class="f-up-load__drag"
@@ -168,14 +162,20 @@
   </div>
 
   <!-- 文件列表 -->
-  <ul v-if="showList && fileList && fileList.length" class="f-up-load__file-list">
-    <li v-for="(file, index) in fileList" :key="index" class="f-up-load__file-list-item">
-      <span class="f-up-load__file-name">
-        <f-svg-icon :icon="FIconNotes" />
-        {{ file.name }}
-      </span>
+  <template v-if="showList">
+    <div v-if="modelValue && modelValue.length" class="f-up-load__file-list">
+      <div
+        v-for="(file, index) in modelValue"
+        :key="index"
+        class="f-up-load__file-list-item"
+      >
+        <div class="f-up-load__file-name">
+          <f-svg-icon :icon="FIconNotes" />
+          {{ file.name }}
+        </div>
 
-      <f-close-btn v-if="isRemove" :size="14" @click="removeFile(index)" />
-    </li>
-  </ul>
+        <f-close-btn v-if="isRemove" :size="14" @click="removeFile(index)" />
+      </div>
+    </div>
+  </template>
 </template>

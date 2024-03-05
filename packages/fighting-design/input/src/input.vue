@@ -24,7 +24,6 @@
 
   /** 是否展示密码 */
   const showPass = ref<boolean>(false)
-
   /** type 类型 */
   const inputType = ref<InputType>(prop.type)
 

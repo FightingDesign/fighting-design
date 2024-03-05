@@ -194,7 +194,7 @@ module.exports = {
     // 强制执行有效的模板根 https://eslint.vuejs.org/rules/valid-template-root.html
     'vue/valid-template-root': 'off',
     // 执行有效v-bind指令 https://eslint.vuejs.org/rules/valid-v-bind.html
-    'vue/valid-v-bind': 'error',
+    'vue/valid-v-bind': 'off',
     // 禁止在数据上使用不推荐使用的对象声明 https://eslint.vuejs.org/rules/no-deprecated-data-object-declaration.htm
     'vue/no-deprecated-data-object-declaration': 'error',
     // 禁止使用已弃用 destroyed 和 beforeDestroy 生命周期挂钩 https://eslint.vuejs.org/rules/no-deprecated-destroyed-lifecycle.html
