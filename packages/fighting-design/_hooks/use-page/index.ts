@@ -148,7 +148,7 @@ export const usePage = (
   /** 下一页更多图标的 visible */
   const showNextMore = ref<boolean>(false)
 
-  watchEffect((): void => {
+  watchEffect(() => {
     /** 当页码超过多少时开始展开省略符号 */
     const pagerCount = Number(prop.pagerCount)
     const halfPagerCount: number = (pagerCount - 1) / 2

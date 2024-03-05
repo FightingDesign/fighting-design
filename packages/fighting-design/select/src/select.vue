@@ -56,10 +56,6 @@
   /** 当前绑定的值 */
   const keyword = computed({
     get: (): string => {
-      if (prop.filter) {
-        return modelValue.value.toString()
-      }
-
       // 如果插槽没内容，则返回空字符串
       if (!options.value.length) return ''
 
@@ -87,6 +83,7 @@
         return (node as SelectChildren).children.default()[0].children === prop.modelValue
       })
 
+      console.log(123)
       /**
        * 如果没有通过插槽找出和绑定值相同的
        *

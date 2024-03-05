@@ -27,7 +27,7 @@
   /** type 类型 */
   const inputType = ref<InputType>(prop.type)
 
-  watchEffect((): void => {
+  watchEffect(() => {
     inputType.value = prop.type
   })
 
