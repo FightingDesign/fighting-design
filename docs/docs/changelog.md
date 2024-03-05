@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 0.67.3 (2024-03-05)
+
+- 修复 `f-up-load` 组件配置 `show-list` 之后在特定情况下列表无法清空的问题
+- 修复 `f-select` 组件配置 `filter` 绑定值错误的问题
+
 ## 0.67.2 (2024-03-01)
 
 - 新增 `f-form-item` 对象深层校验

@@ -83,7 +83,6 @@
         return (node as SelectChildren).children.default()[0].children === prop.modelValue
       })
 
-      console.log(123)
       /**
        * 如果没有通过插槽找出和绑定值相同的
        *

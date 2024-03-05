@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.67.3 (2024-03-05)
+
+- Fix the issue where the list cannot be cleared under specific circumstances after configuring the `f-up-load` component with `show-list`
+- Fix the issue of incorrect binding values for the `f-select` component configuration `filter`
+
 ## 0.67.2 (2024-03-01)
 
 - Add `f-form-item` object deep validation
