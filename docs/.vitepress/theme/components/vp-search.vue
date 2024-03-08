@@ -16,6 +16,9 @@
 
   /** 按下回车触发搜索 */
   const onSearch = (): void => {
+    if (!value.value) {
+      return
+    }
     /**
      * 过滤搜索结果
      *
@@ -53,9 +56,14 @@
     value.value = ''
   }
 
-  const fontColor = computed(() =>
-    isDark.value ? 'var(--vp-c-text-dark-1)' : 'var(--vp-c-text-light-1)'
-  )
+  /**
+   * 失去焦点关闭弹窗
+   */
+  const onBlur = () => {
+    setTimeout(() => {
+      isShow.value = false
+    }, 800)
+  }
 </script>
 
 <template>
@@ -66,6 +74,7 @@
       autocomplete="off"
       placeholder="搜索组件"
       :on-enter="onSearch"
+      :on-blur="onBlur"
       :class="{ dark: isDark }"
     />
 
