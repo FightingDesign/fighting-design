@@ -29,7 +29,7 @@
       src=""
       :style="isShowNode ? '' : 'visibility: hidden'"
       :referrer-policy="referrerPolicy"
-      :draggabl
+      :draggable
       :alt
       :title
     />
