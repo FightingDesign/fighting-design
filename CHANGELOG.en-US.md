@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 0.67.4 (2024-03-21)
+
+- Fix `image` component parameter errors
+
 ## 0.67.3 (2024-03-05)
 
 - Fix the issue where the list cannot be cleared under specific circumstances after configuring the `f-up-load` component with `show-list`
