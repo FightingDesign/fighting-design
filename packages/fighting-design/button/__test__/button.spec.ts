@@ -1,8 +1,11 @@
+import { markRaw } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
+import { FIconLoadingA, FIconApps, FIconBlock } from '@fighting-design/fighting-icon'
 import { FButton } from '../index'
 import { useColor } from '../../_hooks'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
+import { FSvgIcon } from '../../svg-icon'
 import type { ButtonNative, ButtonTarget } from '../index'
 import type { FightingType, FightingSize } from '../../_interface'
 
@@ -35,6 +38,13 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button__round')
   })
 
+  test('spread', () => {
+    const wrapper = mount(FButton, {
+      props: { spread: true }
+    })
+    expect(wrapper.classes()).toContain('f-button__spread')
+  })
+
   test('fontSize', () => {
     const wrapper = mount(FButton, {
       props: { fontSize: '20px' }
@@ -49,7 +59,7 @@ describe('FButton', () => {
     expect(wrapper.attributes('style')).toContain('17px')
   })
 
-  test('font-color', () => {
+  test('fontColor', () => {
     const wrapper = mount(FButton, {
       props: { fontColor: 'red' }
     })
@@ -92,7 +102,7 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { loading: true }
     })
-    expect(wrapper.attributes('disabled')).toBe('')
+    expect(wrapper.findComponent(FSvgIcon).classes()).toContain('f-button__loading-animation')
   })
 
   test('disabled', () => {
@@ -100,6 +110,13 @@ describe('FButton', () => {
       props: { disabled: true }
     })
     expect(wrapper.attributes('disabled')).toContain('')
+  })
+
+  test('loadingIcon', () => {
+    const wrapper = mount(FButton, {
+      props: { loading: true, loadingIcon: markRaw(FIconLoadingA) }
+    })
+    expect(wrapper.findComponent(FIconLoadingA).exists()).toBeTruthy()
   })
 
   test('type', () => {
@@ -148,7 +165,37 @@ describe('FButton', () => {
     expect(wrapper.classes()).toContain('f-button__simple')
   })
 
-  test('native-type', () => {
+  test('beforeIcon', () => {
+    const wrapper = mount(FButton, {
+      props: { beforeIcon: markRaw(FIconApps) }
+    })
+    expect(wrapper.findComponent(FIconApps).exists()).toBeTruthy()
+  })
+
+  test('afterIcon', () => {
+    const wrapper = mount(FButton, {
+      props: { afterIcon: markRaw(FIconBlock) }
+    })
+    expect(wrapper.findComponent(FIconBlock).exists()).toBeTruthy()
+  })
+
+  test('ripples', () => {
+    const wrapper = mount(FButton, {
+      props: { ripples: true }
+    })
+    wrapper.trigger('click')
+    expect(wrapper.find('.f-button__ripples').exists()).toBeTruthy()
+  })
+
+  test('ripplesColor', () => {
+    const wrapper = mount(FButton, {
+      props: { ripples: true, ripplesColor: 'green' }
+    })
+    wrapper.trigger('click')
+    expect(wrapper.find('.f-button__ripples').attributes('style')).toContain('background: green')
+  })
+
+  test('nativeType', () => {
     const nativeTypes: ButtonNative[] = ['button', 'submit', 'reset']
     nativeTypes.forEach((item: ButtonNative): void => {
       const wrapper = mount(FButton, {
