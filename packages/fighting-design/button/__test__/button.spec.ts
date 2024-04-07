@@ -184,7 +184,7 @@ describe('FButton', () => {
       slots: { default: '点击测试' }
     })
     await wrapper.trigger('click')
-    expect(wrapper.emitted()).toBeDefined()
+    expect(wrapper.emitted('click')).toBeDefined()
   })
 
   test('disabled click', async () => {
