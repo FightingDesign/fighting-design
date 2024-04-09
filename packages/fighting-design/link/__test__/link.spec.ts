@@ -1,10 +1,21 @@
+import { markRaw } from 'vue'
 import { mount } from '@vue/test-utils'
-import { describe, expect, test } from 'vitest'
+import { vi, describe, expect, test } from 'vitest'
+import { FIconFaceSmile } from '@fighting-design/fighting-icon'
 import { FLink } from '../index'
 import { FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 import type { LinkState, LinkTarget } from '../index'
 
 describe('FLink', () => {
+  test('should render slot', () => {
+    const wrapper = mount(FLink, {
+      slots: {
+        default: '这是一个链接'
+      }
+    })
+    expect(wrapper.text()).toContain('这是一个链接')
+  })
+
   test('class', () => {
     const wrapper = mount(FLink)
     expect(wrapper.classes()).toContain('f-link')
@@ -56,7 +67,9 @@ describe('FLink', () => {
     const wrapper = mount(FLink, {
       props: { disabled: true }
     })
+    wrapper.find('.f-link__a').trigger('click')
     expect(wrapper.classes()).toContain('f-link__disabled')
+    expect(wrapper.emitted()).not.toHaveProperty('click')
   })
 
   test('target', () => {
@@ -80,5 +93,36 @@ describe('FLink', () => {
       props: { noCopy: true }
     })
     expect(wrapper.classes()).toContain('f-link__no-copy')
+  })
+
+  test('noLink', () => {
+    const wrapper = mount(FLink, {
+      props: { noLink: true }
+    })
+    wrapper.find('.f-link__a').trigger('click')
+    expect(wrapper.emitted()).not.toHaveProperty('click')
+  })
+
+  test('beforeIcon', () => {
+    const wrapper = mount(FLink, {
+      props: { beforeIcon: markRaw(FIconFaceSmile) }
+    })
+    expect(wrapper.findComponent(FIconFaceSmile).exists()).toBeTruthy()
+  })
+
+  test('afterIcon', () => {
+    const wrapper = mount(FLink, {
+      props: { afterIcon: markRaw(FIconFaceSmile) }
+    })
+    expect(wrapper.findComponent(FIconFaceSmile).exists()).toBeTruthy()
+  })
+
+  test('onClick', () => {
+    const onClick = vi.fn()
+    const wrapper = mount(FLink, {
+      props: { onClick }
+    })
+    wrapper.find('.f-link__a').trigger('click')
+    expect(onClick).toHaveBeenCalled()
   })
 })
