@@ -142,7 +142,7 @@ export const setFunctionProp = <T extends Function>(
  * @returns { Object } 配置对象
  */
 export const setArrayProp = <T>(
-  defaultVal = []
+  defaultVal: string[] = []
 ): {
   readonly type: PropType<T>
   readonly default: () => T | null
