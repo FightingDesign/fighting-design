@@ -79,7 +79,7 @@
       :class="classList"
       :href
       :target
-      :style
+      :style="style"
       @click="handleClick"
     >
       <f-svg-icon
@@ -105,7 +105,7 @@
       :autofocus
       :name
       :type="nativeType"
-      :style
+      :style="style"
       @click="handleClick"
     >
       <f-svg-icon

@@ -18,7 +18,7 @@
 
   const { offset, offsetLeft, setPosition } = useOffset(sliderEl, prop, modelValue)
 
-  onMounted((): void => {
+  onMounted(() => {
     // 如果元素节点存在
     if (circleEl.value) {
       // 开始监听 dom 按下时的事件
@@ -45,7 +45,7 @@
 </script>
 
 <template>
-  <div ref="sliderEl" role="slider" :class="classList" :style>
+  <div ref="sliderEl" role="slider" :class="classList" :style="style">
     <div class="f-slider__road">
       <!-- 进度条 -->
       <div class="f-slider__selected" :style="`width: ${offset}%`" />

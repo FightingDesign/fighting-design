@@ -31,7 +31,7 @@
   <div
     role="switch"
     :class="['f-switch', { 'f-switch__disabled': disabled || loading }]"
-    :style
+    :style="style"
   >
     <!-- 左侧文字描述 -->
     <span

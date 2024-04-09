@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <aside class="f-aside" :style>
+  <aside class="f-aside" :style="style">
     <slot />
   </aside>
 </template>

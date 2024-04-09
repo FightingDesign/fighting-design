@@ -24,7 +24,7 @@
 </script>
 
 <template>
-  <div class="f-empty" :style>
+  <div class="f-empty" :style="style">
     <!-- 图片 -->
     <div class="f-empty__wrapper">
       <slot v-if="$slots.default" />

@@ -73,8 +73,8 @@
     window && window.requestAnimationFrame(animate)
   }
 
-  /** 初始化执行 */
-  onMounted((): void => {
+  // 初始化执行
+  onMounted(() => {
     // 第一次执行不需要重新执行，所以传入 false
     prop.automatic && start(false)
   })

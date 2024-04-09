@@ -42,7 +42,7 @@
   })
 
   /** 在组件插入及卸载时都要更新父级的 nav 列表 */
-  onMounted((): void => {
+  onMounted(() => {
     parentInject && parentInject.registerChild(options)
   })
 </script>

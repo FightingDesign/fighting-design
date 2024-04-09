@@ -208,7 +208,7 @@
 </script>
 
 <template>
-  <div class="f-select" :style>
+  <div class="f-select" :style="style">
     <f-dropdown trigger="click" :disabled :width :on-open="onOpen">
       <f-input
         v-model="keyword"

@@ -60,7 +60,7 @@
 </script>
 
 <template>
-  <div class="f-breadcrumb-item" :style @click="handelClick">
+  <div class="f-breadcrumb-item" :style="style" @click="handelClick">
     <span class="f-breadcrumb-item__text">
       <slot />
     </span>

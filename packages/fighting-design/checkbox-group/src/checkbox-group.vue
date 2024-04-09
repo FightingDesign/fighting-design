@@ -43,7 +43,7 @@
 </script>
 
 <template>
-  <div role="group" aria-label="checkbox-group" :class="classList" :style>
+  <div role="group" aria-label="checkbox-group" :class="classList" :style="style">
     <slot />
   </div>
 </template>

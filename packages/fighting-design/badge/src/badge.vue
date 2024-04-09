@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <div :class="classList" :style>
+  <div :class="classList" :style="style">
     <slot />
 
     <transition name="f-badge">

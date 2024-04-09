@@ -55,7 +55,7 @@
 </script>
 
 <template>
-  <div role="toolbar" :class="classList" :style @click="handleClick">
+  <div role="toolbar" :class="classList" :style="style" @click="handleClick">
     <slot />
   </div>
 </template>

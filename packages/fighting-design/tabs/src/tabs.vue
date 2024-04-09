@@ -139,7 +139,7 @@
 </script>
 
 <template>
-  <div role="tab" :class="classList" :style>
+  <div role="tab" :class="classList" :style="style">
     <!-- 头部内容 -->
     <div class="f-tabs__head">
       <!-- 前缀插槽 -->

@@ -24,7 +24,7 @@
     role="tooltip"
     :f-content="content"
     :class="classList"
-    :style
+    :style="style"
   >
     <slot />
   </div>

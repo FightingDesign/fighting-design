@@ -82,7 +82,7 @@
   const _changeHeight = debounce(changeHeight, 500)
 
   // 初始化调用
-  onMounted((): void => {
+  onMounted(() => {
     if (prop.autoHeight) {
       isAutoHeight()
       window.addEventListener('resize', _changeHeight)
@@ -90,7 +90,7 @@
   })
 
   // 销毁前移除事件
-  onBeforeUnmount((): void => {
+  onBeforeUnmount(() => {
     window.removeEventListener('resize', _changeHeight)
   })
 
@@ -132,7 +132,7 @@
 </script>
 
 <template>
-  <div :class="classList" :style>
+  <div :class="classList" :style="style">
     <textarea
       ref="textareaRef"
       v-model="modelValue"

@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <main role="main" class="f-main" :style>
+  <main role="main" class="f-main" :style="style">
     <slot />
   </main>
 </template>

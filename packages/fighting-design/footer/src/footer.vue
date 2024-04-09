@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <footer class="f-footer" :style>
+  <footer class="f-footer" :style="style">
     <slot />
   </footer>
 </template>

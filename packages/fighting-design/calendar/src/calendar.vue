@@ -159,7 +159,7 @@
 </script>
 
 <template>
-  <div :class="classList" :style>
+  <div :class="classList" :style="style">
     <!-- 头部操作栏 -->
     <header v-if="showHeader" class="f-calendar__header">
       <!-- 上个月切换按钮 -->

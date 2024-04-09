@@ -74,7 +74,7 @@ export const useOffset = (
    *
    * @see resize https://developer.mozilla.org/zh-CN/docs/Web/API/Window/resize_event
    */
-  onMounted((): void => {
+  onMounted(() => {
     windowResize()
     window && window.addEventListener('resize', windowResize)
   })
@@ -84,7 +84,7 @@ export const useOffset = (
    *
    * window 移除 resize 事件
    */
-  onUnmounted((): void => {
+  onUnmounted(() => {
     window && window.removeEventListener('resize', windowResize)
   })
 

@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <div v-if="isRender" role="section" :class="classList" :style>
+  <div v-if="isRender" role="section" :class="classList" :style="style">
     <div v-for="n in rows" :key="n" class="f-skeleton__item" />
   </div>
 

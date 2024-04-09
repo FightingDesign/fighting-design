@@ -29,7 +29,7 @@
   }
 
   /** 初始化监视元素 */
-  onMounted((): void => {
+  onMounted(() => {
     if (loadingRef.value) {
       obs().observe(loadingRef.value)
     }

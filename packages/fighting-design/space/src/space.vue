@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <div v-if="$slots.default" role="none" :class="classList" :style>
+  <div v-if="$slots.default" role="none" :class="classList" :style="style">
     <slot />
   </div>
 </template>

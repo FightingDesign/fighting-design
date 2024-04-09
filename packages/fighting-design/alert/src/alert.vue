@@ -40,7 +40,7 @@
   }
 
   // 初始化完成判断是否符合调用滚动效果
-  onMounted((): void => {
+  onMounted(() => {
     if (prop.alertList && prop.alertList.length && alertListEl.value) {
       const startMove = useAlertList(alertListEl.value)
 
@@ -52,7 +52,7 @@
 
 <template>
   <transition name="f-alert">
-    <div v-if="isShow" role="alert" :class="classList" :style>
+    <div v-if="isShow" role="alert" :class="classList" :style="style">
       <!-- 前缀 icon -->
       <f-svg-icon v-if="$slots.beforeIcon || beforeIcon" :icon="beforeIcon">
         <slot name="beforeIcon" />

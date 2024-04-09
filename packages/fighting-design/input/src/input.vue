@@ -78,7 +78,7 @@
 </script>
 
 <template>
-  <div role="input" :class="classList" :style>
+  <div role="input" :class="classList" :style="style">
     <!-- 容器盒子 -->
     <div class="f-input__wrapper">
       <!-- 前缀插槽 -->

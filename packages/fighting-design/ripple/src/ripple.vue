@@ -45,7 +45,7 @@
 </script>
 
 <template>
-  <div ref="rippleRef" class="f-ripple" :style @click="handleClick">
+  <div ref="rippleRef" class="f-ripple" :style="style" @click="handleClick">
     <slot />
   </div>
 </template>

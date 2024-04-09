@@ -26,7 +26,7 @@
 </script>
 
 <template>
-  <li role="listitem" class="f-list-item" :style>
+  <li role="listitem" class="f-list-item" :style="style">
     <slot />
   </li>
 </template>

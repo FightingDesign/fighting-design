@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <div :class="classList" :style>
+  <div :class="classList" :style="style">
     <label v-if="label" class="f-form-item__label">{{ label }}</label>
 
     <!-- 主要内容 -->

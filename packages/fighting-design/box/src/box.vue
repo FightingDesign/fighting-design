@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <div class="f-box" :role="role || 'none'" :style>
+  <div class="f-box" :role="role || 'none'" :style="style">
     <slot />
   </div>
 </template>

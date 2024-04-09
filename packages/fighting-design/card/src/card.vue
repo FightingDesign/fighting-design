@@ -29,7 +29,7 @@
 
 <template>
   <transition name="f-card">
-    <div v-if="isShow" :class="classList" :style>
+    <div v-if="isShow" :class="classList" :style="style">
       <!-- 头部 -->
       <header v-if="$slots.header || title" role="heading" class="f-card__header">
         <!-- 标题 -->

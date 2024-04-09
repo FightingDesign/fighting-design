@@ -27,7 +27,7 @@
 </script>
 
 <template>
-  <p :class="classList" :style>
+  <p :class="classList" :style="style">
     <slot />
   </p>
 </template>

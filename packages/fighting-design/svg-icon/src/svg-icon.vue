@@ -23,7 +23,7 @@
 </script>
 
 <template>
-  <i role="img" class="f-svg-icon" text-indent="middle" :style @click="handleClick">
+  <i role="img" class="f-svg-icon" text-indent="middle" :style="style" @click="handleClick">
     <component :is="icon" v-if="icon" />
     <slot v-else />
   </i>

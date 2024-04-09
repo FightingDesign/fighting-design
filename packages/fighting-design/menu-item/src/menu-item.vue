@@ -79,7 +79,7 @@
       'f-menu-item',
       { 'f-menu-item__active': isActive, 'f-menu-item__disabled': disabled }
     ]"
-    :style
+    :style="style"
     @click="handelClick"
   >
     <f-svg-icon v-if="icon" :icon="icon" />

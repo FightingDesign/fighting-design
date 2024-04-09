@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <div v-if="visible" :class="classList" :style>
+  <div v-if="visible" :class="classList" :style="style">
     <f-svg-icon :size="20" class="f-loading__animation" :icon>
       <slot name="icon">
         <f-icon-loading-a />

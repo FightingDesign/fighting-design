@@ -36,7 +36,7 @@
 </script>
 
 <template>
-  <div class="f-sticky-card" :style>
+  <div class="f-sticky-card" :style="style">
     <!-- 展示的内容 -->
     <div v-if="$slots.source" class="f-sticky-card__source">
       <slot name="source" />

@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <header role="banner" class="f-header" :style>
+  <header role="banner" class="f-header" :style="style">
     <slot />
   </header>
 </template>

@@ -41,7 +41,7 @@
         aria-modal="true"
         tabindex="-1"
         :class="classList"
-        :style
+        :style="style"
       >
         <!-- 遮罩层 -->
         <div v-if="showMask" class="f-drawer__mask" />

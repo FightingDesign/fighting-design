@@ -30,7 +30,7 @@
 
 <template>
   <transition name="f-tag" appear>
-    <div :class="classs" :style @click="onClick">
+    <div :class="classs" :style="style" @click="onClick">
       <!-- 之前的 icon -->
       <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" />
 

@@ -73,7 +73,7 @@
 </script>
 
 <template>
-  <div v-if="isSuccess" role="img" :class="classList" :style>
+  <div v-if="isSuccess" role="img" :class="classList" :style="style">
     <!-- 图标头像 -->
     <f-svg-icon
       v-if="$slots.icon || icon"
@@ -101,7 +101,7 @@
   </div>
 
   <!-- 加载失败的 -->
-  <div v-else class="f-avatar__error" :style>
+  <div v-else class="f-avatar__error" :style="style">
     <slot name="error">
       <span class="f-avatar__error-text">{{ alt || '加载失败' }}</span>
     </slot>

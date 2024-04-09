@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <div role="radiogroup" :class="classList" :style>
+  <div role="radiogroup" :class="classList" :style="style">
     <slot />
   </div>
 </template>

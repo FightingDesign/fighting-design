@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <ul role="list" :class="classList" :style>
+  <ul role="list" :class="classList" :style="style">
     <header v-if="$slots.header" class="f-list__header">
       <slot name="header" />
     </header>

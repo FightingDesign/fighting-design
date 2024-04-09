@@ -80,7 +80,7 @@
 </script>
 
 <template>
-  <div v-if="imageListArr.length" :class="classList" :style>
+  <div v-if="imageListArr.length" :class="classList" :style="style">
     <div
       v-for="(item, index) in imageListArr"
       :key="index"

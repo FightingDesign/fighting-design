@@ -261,9 +261,7 @@ export const useLoadImg = (
     loadImg()
   }
 
-  onMounted((): void => {
-    startLoad()
-  })
+  onMounted(startLoad)
 
   // 监视 src 的变化重新加载图片
   watch(

@@ -37,7 +37,7 @@
 </script>
 
 <template>
-  <div role="link" :class="classList" :style>
+  <div role="link" :class="classList" :style="style">
     <a class="f-link__a" :href="href" :target="target" @click="handleClick">
       <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" :size />
 

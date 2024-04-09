@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <div role="separator" :class="classList" :style>
+  <div role="separator" :class="classList" :style="style">
     <span v-if="!vertical || !$slots.default" class="f-divider__text">
       <slot />
     </span>

@@ -118,7 +118,7 @@
 </script>
 
 <template>
-  <div role="table" :class="classList" :style>
+  <div role="table" :class="classList" :style="style">
     <!-- 主要容器 -->
     <div class="f-table__container">
       <!-- 内置数据驱动表格 -->

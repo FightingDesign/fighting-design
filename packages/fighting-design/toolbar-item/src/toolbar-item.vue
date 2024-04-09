@@ -28,7 +28,7 @@
 </script>
 
 <template>
-  <span :class="TOOLBAR_ITEM_CLASS_NAME" :[DATE_KEY]="index" :style @click="handleClick">
+  <span :class="TOOLBAR_ITEM_CLASS_NAME" :[DATE_KEY]="index" :style="style" @click="handleClick">
     <f-svg-icon v-if="icon" :size="iconSize" :icon="icon" />
     <slot />
   </span>

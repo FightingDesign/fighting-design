@@ -21,7 +21,7 @@
 </script>
 
 <template>
-  <div v-if="isSuccess" role="img" :class="classList" :style>
+  <div v-if="isSuccess" role="img" :class="classList" :style="style">
     <!-- 真正展示的图片 -->
     <img
       ref="imageEl"

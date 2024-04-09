@@ -90,7 +90,7 @@
     window && window.scrollTo({ top: top.value, behavior: behavior.value })
   }
 
-  onMounted((): void => {
+  onMounted(() => {
     if (prop.listenEl) {
       // 如果传入的不是字符串，则监听 document
       if (!isString(prop.listenEl)) {
@@ -135,7 +135,7 @@
 
 <template>
   <transition name="f-back-top">
-    <div v-show="visible" :class="classList" :style @click.stop="handleClick">
+    <div v-show="visible" :class="classList" :style="style" @click.stop="handleClick">
       <slot />
     </div>
   </transition>
