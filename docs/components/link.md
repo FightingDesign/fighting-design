@@ -174,6 +174,10 @@ type LinkState = 'line' | 'background'
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
+<a href="https://github.com/w2xi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57785259?v=4" />
+</a>
+
 <style scoped>
   .f-link {
     margin: 5px;
