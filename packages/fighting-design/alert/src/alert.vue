@@ -61,7 +61,7 @@
       <!-- 主要内容 -->
       <div class="f-alert__content">
         <!-- 标题 -->
-        <div v-if="title" class="f-alert__title">
+        <div v-if="$slots.title || title" class="f-alert__title">
           <slot name="title">{{ title }}</slot>
         </div>
 
