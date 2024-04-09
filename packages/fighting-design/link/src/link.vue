@@ -38,7 +38,7 @@
 
 <template>
   <div role="link" :class="classList" :style="style">
-    <a class="f-link__a" :href="href" :target="target" @click="handleClick">
+    <a class="f-link__a" :href="href" :target="target" @click.stop="handleClick">
       <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" :size />
 
       <slot />
