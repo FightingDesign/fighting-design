@@ -325,6 +325,10 @@ import type { AlertInstance, AlertProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
 
+<a href="https://github.com/w2xi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57785259?v=4" />
+</a>
+
 <script lang="ts" setup>
   import { FIconFaceSmile } from '@fighting-design/fighting-icon'
   const alertList = ['把大象放进冰箱需要几步？', '第一步：打开冰箱门', '第二步：把大象装进去', '第三步：关好冰箱门']
