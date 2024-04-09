@@ -1,5 +1,7 @@
+import { markRaw } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
+import { FIconFaceSmile } from '@fighting-design/fighting-icon'
 import { FAlert } from '../index'
 import { FIGHTING_TYPE } from '../../_tokens'
 import type { FightingType } from '../../_interface'
@@ -97,6 +99,20 @@ describe('FAlert', () => {
     )
   })
 
+  test('title slot', () => {
+    const wrapper = mount(FAlert, {
+      slots: { title: '这是一个标题' }
+    })
+    expect(wrapper.find('.f-alert__title').text()).toContain('这是一个标题')
+  })
+
+  test('default slot', () => {
+    const wrapper = mount(FAlert, {
+      slots: { default: '这是一段内容' }
+    })
+    expect(wrapper.find('.f-alert__sub-title').text()).toContain('这是一段内容')
+  })
+
   test('round', () => {
     const wrapper = mount(FAlert, {
       props: { round: true }
@@ -136,6 +152,38 @@ describe('FAlert', () => {
       props: { fixed: true }
     })
     expect(wrapper.find('.f-alert').classes()).toContain('f-alert__fixed')
+  })
+
+  test('closeIcon', () => {
+    const wrapper = mount(FAlert, {
+      props: { 
+        close: true,
+        closeIcon: markRaw(FIconFaceSmile)
+      }
+    })
+    expect(wrapper.findComponent(FIconFaceSmile).exists()).toBeTruthy()
+  })
+
+  test('closeIcon slot', () => {
+    const wrapper = mount(FAlert, {
+      props: { close: true },
+      slots: { closeIcon: FIconFaceSmile }
+    })
+    expect(wrapper.findComponent(FIconFaceSmile).exists()).toBeTruthy()
+  })
+
+  test('beforeIcon', () => {
+    const wrapper = mount(FAlert, {
+      props: { beforeIcon: markRaw(FIconFaceSmile) }
+    })
+    expect(wrapper.findComponent(FIconFaceSmile).exists()).toBeTruthy()
+  })
+
+  test('beforeIcon slot', () => {
+    const wrapper = mount(FAlert, {
+      slots: { beforeIcon: FIconFaceSmile }
+    })
+    expect(wrapper.findComponent(FIconFaceSmile).exists()).toBeTruthy()
   })
 
   test('alertList', () => {
