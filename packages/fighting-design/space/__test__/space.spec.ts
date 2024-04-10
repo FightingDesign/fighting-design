@@ -4,6 +4,13 @@ import { FSpace } from '../index'
 import { FIGHTING_SIZE } from '../../_tokens'
 
 describe('FSpace', () => {
+  test('should render slot', () => {
+    const wrapper = mount(FSpace, {
+      slots: { default: '123' }
+    })
+    expect(wrapper.text()).toContain('123')
+  })
+
   test('class', () => {
     const wrapper = mount(FSpace, {
       slots: { default: '123' }
