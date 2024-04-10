@@ -22,6 +22,20 @@ describe('f-aside', () => {
     expect(wrapper.attributes('style')).toContain('--aside-width: 200px')
   })
 
+  test('padding', () => {
+    const wrapper = mount(FAside, {
+      props: { padding: '10px' }
+    })
+    expect(wrapper.attributes('style')).toContain('--aside-padding: 10px')
+  })
+
+  test('padding', () => {
+    const wrapper = mount(FAside, {
+      props: { padding: 10 }
+    })
+    expect(wrapper.attributes('style')).toContain('--aside-padding: 10px')
+  })
+
   test('background', () => {
     const wrapper = mount(FAside, {
       props: { background: 'red' }
