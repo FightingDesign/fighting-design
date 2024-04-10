@@ -25,7 +25,7 @@ export type FilterParams = (string | FilterParamsList)[]
  * @param { Function } interceptors 拦截 prop
  */
 export interface UsePropsReturn {
-  filter: (list: FilterParams) => Record<string, unknown>
+  filter: (list: FilterParams) => Record<string, any>
   interceptors: (
     param: string,
     role: () => boolean,
@@ -49,9 +49,9 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
    * @param { string | Array } list 需要的参数列表
    * @returns { Object } 过滤后的 prop 响应式对象
    */
-  const filter = (list: FilterParams): Record<string, unknown> => {
+  const filter = (list: FilterParams): Record<string, any> => {
     /** 过滤的 prop 结果 */
-    const result: Record<string, unknown> = reactive({})
+    const result: Record<string, any> = reactive({})
 
     list.forEach((item: string | FilterParamsList): void => {
       /**
@@ -60,9 +60,8 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
        * @see toRef https://cn.vuejs.org/api/reactivity-utilities.html#toref
        */
       if (isString(item)) {
-        result[item] = toRef(prop, item as never)
+        result[item] = toRef(prop, item as keyof object)
       } else if (isObject(item)) {
-        /** 如果是对象类型 */
         /**
          * 如果是 object 类型
          *
@@ -73,7 +72,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
          * 如果为真才过滤该属性
          */
         if (item.callback && item.callback()) {
-          result[item.actualKey || item.key] = toRef(prop, item.key as never)
+          result[item.actualKey || item.key] = toRef(prop, item.key as keyof object)
         }
       }
     })

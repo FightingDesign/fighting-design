@@ -1,4 +1,4 @@
-import { computed, ref, reactive } from 'vue'
+import { computed } from 'vue'
 import {
   convertFormat,
   isNumber,
@@ -58,12 +58,12 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
   const classes = (list: FilterParams, className?: string): ComputedRef<ClassList> => {
     return computed((): ClassList => {
       /** 类名列表 */
-      const classList = ref<ClassList>([])
+      const classList: ClassList = []
       /** 过滤得到 prop 集合 */
-      const propList: Record<string, unknown> = filter(list)
+      const propList = filter(list)
 
       // 是否存在其它需要直接加入的类名
-      className && classList.value.push(className)
+      className && classList.push(className)
 
       for (const key in propList) {
         if (propList[key]) {
@@ -72,12 +72,12 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
            *
            * 否则使用值拼接
            */
-          classList.value.push(
+          classList.push(
             `f-${name}__${isBoolean(propList[key]) ? convertFormat(key) : propList[key]}`
           )
         }
       }
-      return classList.value
+      return classList
     })
   }
 
@@ -96,11 +96,15 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
     // 如果需要添加单位，则所有的数字都添加单位
     if (isBoolean(pixel)) {
       return (isNumber(val) ? (pixel ? sizeChange(val) : val) : val) as string | number
-    } else if (isString(pixel)) {
-      // 如果为字符串类型，则代表仅仅有一个不需要添加单位
+    }
+
+    // 如果为字符串类型，则代表仅仅有一个不需要添加单位
+    else if (isString(pixel)) {
       if (pixel === key) return val
-    } else if (isArray(pixel)) {
-      // 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理
+    }
+
+    // 如果为数组类型，则代表有些值不需要添加单位，循环遍历处理
+    else if (isArray(pixel)) {
       for (const item of pixel) {
         if (item === key) return val
       }
@@ -123,7 +127,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
   ): ComputedRef<CSSProperties> => {
     return computed((): CSSProperties => {
       /** 样式列表 */
-      const styleList: CSSProperties = reactive({})
+      const styleList: CSSProperties = {}
       /** 过滤得到 prop 集合 */
       const propList: Record<string, unknown> = filter(list)
 

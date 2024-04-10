@@ -101,14 +101,14 @@ export const useLoadImg = (
     /** 创建一个新的 img 元素 */
     const el: HTMLImageElement = new Image()
 
-    new Promise((resolve, reject): void => {
+    new Promise((resolve, reject) => {
       el.src = errSrc || prop.src
 
-      el.addEventListener('load', (evt: Event): void => {
+      el.addEventListener('load', (evt: Event) => {
         resolve(evt)
       })
 
-      el.addEventListener('error', (evt: Event): void => {
+      el.addEventListener('error', (evt: Event) => {
         reject(evt)
       })
     })
@@ -133,7 +133,6 @@ export const useLoadImg = (
    * 懒加载
    *
    * @param { Object } node 元素节点
-   * @returns { Object }
    */
   const lazy = (node: HTMLImageElement): IntersectionObserver => {
     /**
@@ -146,8 +145,8 @@ export const useLoadImg = (
       /**
        * @param { Array } arr 观察的元素数组
        */
-      (arr: IntersectionObserverEntry[]): void => {
-        /** 如果到达区域范围开始加载 */
+      (arr: IntersectionObserverEntry[]) => {
+        // 如果到达区域范围开始加载
         if (arr[0].isIntersecting) {
           load(node)
           observer.unobserve(node)
@@ -248,6 +247,9 @@ export const useLoadImg = (
     load(el.value)
   }
 
+  /**
+   * 开始加载图片
+   */
   const startLoad = (): void => {
     if (isLoad) {
       if (isLoad()) {
@@ -266,7 +268,7 @@ export const useLoadImg = (
   // 监视 src 的变化重新加载图片
   watch(
     (): string => prop.src,
-    (): void => {
+    () => {
       startLoad()
     }
   )
