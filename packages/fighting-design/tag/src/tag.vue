@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { ref } from 'vue'
   import { Props } from './props'
   import { FSvgIcon } from '../../svg-icon'
   import { FCloseBtn } from '../../close-btn'
@@ -7,6 +8,9 @@
   defineOptions({ name: 'FTag' })
 
   const prop = defineProps(Props)
+
+  /** 控制标签的展示状态 */
+  const isShow = ref<boolean>(true)
 
   const { getProp } = useGlobal(prop)
   const { run } = useRun()
@@ -24,13 +28,14 @@
    * @param { Object } evt 事件对象
    */
   const handleClose = (evt: MouseEvent): void => {
+    isShow.value = false
     run(prop.onClose, evt)
   }
 </script>
 
 <template>
   <transition name="f-tag" appear>
-    <div :class="classs" :style="style" @click="onClick">
+    <div v-if="isShow" :class="classs" :style="style" @click="onClick">
       <!-- 之前的 icon -->
       <f-svg-icon v-if="beforeIcon" :icon="beforeIcon" />
 
