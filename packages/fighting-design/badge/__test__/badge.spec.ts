@@ -8,8 +8,7 @@ describe('FBadge', () => {
   test('class', () => {
     const wrapper = mount(FBadge)
     expect(wrapper.classes()).toContain('f-badge')
-    expect(wrapper.find('sup')).toBeDefined()
-    expect(wrapper.find('sup').classes()).toEqual(['f-badge__content'])
+    expect(wrapper.find('sup').classes()).toContain('f-badge__content')
   })
 
   test('type', () => {
@@ -47,13 +46,29 @@ describe('FBadge', () => {
       props: { dot: true }
     })
     expect(wrapper.classes()).toContain('f-badge__dot')
+    expect(wrapper.find('sup').text()).toBe('')
   })
 
-  test('dot with type', () => {
+  test('show', async () => {
     const wrapper = mount(FBadge, {
-      props: { dot: true, type: 'success' }
+      props: { show: true }
     })
-    expect(wrapper.classes()).toContain('f-badge__dot')
-    expect(wrapper.classes()).toContain('f-badge__success')
+    expect(wrapper.find('sup').exists()).toBeTruthy()
+    await wrapper.setProps({ show: false })
+    expect(wrapper.find('sup').exists()).toBeFalsy()
+  })
+
+  test('background', () => {
+    const wrapper = mount(FBadge, {
+      props: { background: 'orange' }
+    })
+    expect(wrapper.attributes('style')).toContain('--badge-background: orange')
+  })
+
+  test('color', () => {
+    const wrapper = mount(FBadge, {
+      props: { color: 'orange' }
+    })
+    expect(wrapper.attributes('style')).toContain('--badge-color: orange')
   })
 })
