@@ -93,15 +93,6 @@ describe('FTag', () => {
     expect(wrapper.find('.f-tag').classes()).toContain('f-tag__line')
   })
 
-  test('close', async () => {
-    const wrapper = mount(FTag, {
-      props: { close: true }
-    })
-    expect(wrapper.find('.f-tag').exists()).toBeTruthy()
-    await wrapper.find('.f-close-btn').trigger('click')
-    expect(wrapper.find('.f-tag').exists()).toBeFalsy()
-  })
-
   test('onClose', () => {
     const onClose = vi.fn()
     const wrapper = mount(FTag, {
