@@ -4,7 +4,7 @@ import { FIconFaceSmile } from '@fighting-design/fighting-icon'
 import { FTag } from '../index'
 import { FIGHTING_SIZE, FIGHTING_TYPE } from '../../_tokens'
 import type { FightingType } from '../../_interface'
-import { markRaw } from 'vue'
+import { ref, markRaw, defineComponent } from 'vue'
 
 describe('FTag', () => {
   test('should render slot', () => {
@@ -91,6 +91,29 @@ describe('FTag', () => {
       props: { line: true }
     })
     expect(wrapper.find('.f-tag').classes()).toContain('f-tag__line')
+  })
+
+  test('close', async () => {
+    const App = defineComponent({
+      components: { FTag },
+      setup () {
+        const isShow = ref(true)
+        const onClose = (): void => {
+          isShow.value = false
+        }
+        return {
+          isShow,
+          onClose
+        }
+      },
+      template: `
+        <f-tag v-if="isShow" :close="true" :on-close="onClose">这是一个标签</f-tag>
+      `
+    })
+    const wrapper = mount(App)
+    expect(wrapper.find('.f-tag').exists()).toBeTruthy()
+    await wrapper.find('.f-close-btn').trigger('click')
+    expect(wrapper.find('.f-tag').exists()).toBeFalsy()
   })
 
   test('onClose', () => {
