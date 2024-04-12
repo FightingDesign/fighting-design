@@ -80,7 +80,7 @@ describe('FCard', () => {
     const wrapper = mount(FCard, {
       props: { title: '标题', close: true }
     })
-    expect(wrapper.find('.f-close-btn').exists()).toBeTruthy()
+    expect(wrapper.find('.f-card').exists()).toBeTruthy()
     await wrapper.find('.f-close-btn').trigger('click')
     expect(wrapper.find('.f-card').exists()).toBeFalsy()
   })
