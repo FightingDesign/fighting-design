@@ -253,6 +253,10 @@ import type { SwitchInstance, SwitchProps } from 'fighting-design'
   <f-avatar round src="https://avatars.githubusercontent.com/u/24451091?v=4" />
 </a>
 
+<a href="https://github.com/w2xi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57785259?v=4" />
+</a>
+
 <script setup lang="ts">
   import { ref } from 'vue'
   import { FIconSnowflake } from '@fighting-design/fighting-icon'
