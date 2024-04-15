@@ -1,7 +1,7 @@
 import type { App, Directive, Component } from 'vue'
 
 export type Install<T> = T & {
-  install(app: App): void
+  install: (app: App) => void
 }
 
 /**
@@ -11,7 +11,7 @@ export type Install<T> = T & {
  * @returns { Object } 组件实例
  */
 export const install = <T extends Component>(main: T): Install<T> => {
-  (main as Record<string, unknown>).install = (app: App) => {
+  (main as Record<string, any>).install = (app: App) => {
     const { name } = main
     name && app.component(name, main)
   }
