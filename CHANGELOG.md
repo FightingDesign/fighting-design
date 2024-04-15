@@ -1209,7 +1209,7 @@
 - 修复 `f-button` 组件 `font-color` 默认值
 - 修复 `f-button` 组件 `font-size` 默认值
 
-**fest**
+**feat**
 
 - `f-back-top` 组件 `right` `bottom` 配置项支持 `number` 类型
 - `f-image` 组件 `round` 配置项支持 `number` 类型
@@ -1238,7 +1238,7 @@
 
 ## 0.6.5-alpha.5 (2022-09-25)
 
-**fest**
+**feat**
 
 - 新增 `sticky-card` 组件
 - `f-list` 组件新增 `header` 和 `footer` 插槽
@@ -1256,7 +1256,7 @@
 
 ## 0.6.5-alpha.3 (2022-09-22)
 
-**fest**
+**feat**
 
 - `f-header` 组件新增 `padding` 类型
 - `f-header` 组件的 `height` 属性支持 `number` 类型
@@ -1306,7 +1306,7 @@
 - 修复 `f-button` 组件 `text` 配置项样式细节
 - 修复 `f-image` 组件 `width` 属性的一些问题
 
-**fest**
+**feat**
 
 - `f-icon` 组件的 `size` 属性支持 `number` 类型
 - `f-button` 组件的 `font-size` 属性支持 `number` 类型
@@ -1331,7 +1331,7 @@
 
 ## 0.6.4-alpha.6 (2022-09-11)
 
-**fest**
+**feat**
 
 - 新增 `f-ripple` 涟漪组件
 - 新增 `f-radio` `f-radio-group` 组件
@@ -1398,7 +1398,7 @@
 
 ## 0.6.2-alpha.5 (2022-08-30)
 
-**fest**
+**feat**
 
 - 新增 `f-loading-bar` 组件
 - 新增 `notification` 组件
@@ -1410,7 +1410,7 @@
 
 ## 0.6.2-alpha.4 (2022-08-29)
 
-**fest**
+**feat**
 
 - `f-image` 组件新增 `title` 配置项
 
@@ -1499,7 +1499,7 @@
 
 ## 0.4.2-bate.9 (2022-07-04)
 
-**fest**
+**feat**
 
 - `Alert` 组件新增 `fixed` `fixed-style` 配置项
 - 新增 `f-list` 组件
@@ -1515,7 +1515,7 @@
 
 ## 0.4.2-bate.8 (2022-07-23)
 
-**fest**
+**feat**
 
 - `Tag` 组件新增 `text` 配置项，实现文字标签
 - `Tag` 组件改变了部分样式细节，加入边框
