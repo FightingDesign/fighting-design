@@ -91,11 +91,15 @@ export const sizeToNum = (size: string | number): number => {
   if (!size) {
     return 0
   }
+
   if (isNumber(size)) {
     return size
   }
 
-  return Number.parseFloat(size) || 0
+  const parse = Number.parseFloat(size)
+
+  // 避免转换结果为 NaN
+  return isNumber(parse) ? parse : 0
 }
 
 /**

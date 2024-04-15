@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { financial, zeroPad, convertSize } from '..'
+import { financial, zeroPad, convertSize, sizeToNum } from '..'
 
 test('financial', () => {
   expect(financial(1.2222)).toBe(1.22)
@@ -22,5 +22,15 @@ test('convertSize', () => {
   expect(convertSize('', 'px')).toBe('')
   expect(convertSize(12, 'px')).toBe('12px')
   expect(convertSize(12)).toBe('12px')
-  expect(convertSize(NaN)).toBe('NaNpx')
+  expect(convertSize(NaN)).toBe('')
+})
+
+test('sizeToNum', () => {
+  expect(sizeToNum('12')).toBe(12)
+  expect(sizeToNum('')).toBe(0)
+  expect(sizeToNum(NaN)).toBe(0)
+  expect(sizeToNum(12)).toBe(12)
+  expect(sizeToNum('undefined')).toBe(0)
+  expect(sizeToNum('12px12')).toBe(12)
+  expect(sizeToNum('abc')).toBe(0)
 })
