@@ -214,8 +214,8 @@ type PaginationEvent = (current: number, pageSize: number, evt: MouseEvent) => v
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
-<a href="https://github.com/OnlyShadows" target="_blank">
-  <f-avatar round src="https://avatars.githubusercontent.com/u/54928569?v=4" />
+<a href="https://github.com/Yxiongwu" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/165444936?v=4" />
 </a>
 
 <script setup lang="ts">
