@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import {
   convertFormat,
   isNumber,
-  sizeChange,
+  convertSize,
   isBoolean,
   isArray,
   isString
@@ -95,7 +95,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
   ): string | number => {
     // 如果需要添加单位，则所有的数字都添加单位
     if (isBoolean(pixel)) {
-      return (isNumber(val) ? (pixel ? sizeChange(val) : val) : val) as string | number
+      return (isNumber(val) ? (pixel ? convertSize(val) : val) : val) as string | number
     }
 
     // 如果为字符串类型，则代表仅仅有一个不需要添加单位
@@ -111,7 +111,7 @@ export const useList = <T extends object>(prop: T, name: string): UseListReturn 
     }
 
     // 没有进入判断则默认添加
-    return sizeChange(val)
+    return convertSize(val)
   }
 
   /**

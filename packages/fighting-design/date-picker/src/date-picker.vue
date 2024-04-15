@@ -4,7 +4,7 @@
   import { FInput } from '../../input'
   import { FTrigger } from '../../trigger'
   import { FCalendar } from '../../calendar'
-  import { addZero, warning } from '../../_utils'
+  import { zeroPad, warning } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
   import { FButton } from '../../button'
   import type { TriggerInstance } from '../../trigger'
@@ -35,8 +35,8 @@
   /** 日期映射对象 */
   const formatDateMap = {
     YYYY: year + '',
-    MM: prop.addZero ? addZero(month) : month + '',
-    DD: prop.addZero ? addZero(day) : day + ''
+    MM: prop.addZero ? zeroPad(month) : month + '',
+    DD: prop.addZero ? zeroPad(day) : day + ''
   }
 
   /**
@@ -83,8 +83,8 @@
    */
   const changeDate = (year: number, month: number, date: number): void => {
     formatDateMap.YYYY = year + ''
-    formatDateMap.MM = prop.addZero ? addZero(month) : month + ''
-    formatDateMap.DD = prop.addZero ? addZero(date) : date + ''
+    formatDateMap.MM = prop.addZero ? zeroPad(month) : month + ''
+    formatDateMap.DD = prop.addZero ? zeroPad(date) : date + ''
   }
 
   /**

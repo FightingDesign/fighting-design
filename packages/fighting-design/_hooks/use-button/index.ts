@@ -1,6 +1,6 @@
 import { inject, useSlots, computed } from 'vue'
 import { useGlobal, useColor } from '..'
-import { sizeChange } from '../../_utils'
+import { convertSize } from '../../_utils'
 import { BUTTON_GROUP_PROPS_KEY } from '../../button-group/src/props'
 import type { ButtonProps } from '../../button'
 import type { CSSProperties, Slots, ComputedRef } from 'vue'
@@ -77,14 +77,14 @@ export const useButton = (prop: ButtonProps): UseButtonReturn => {
         '--button-active': color ? getDark(0.2) : null,
         '--button-color': fontColor,
         '--button-shadow': shadow,
-        '--button-font-size': sizeChange(fontSize)
+        '--button-font-size': convertSize(fontSize)
       } as CSSProperties
     }
 
     return {
       '--button-color': fontColor,
       '--button-shadow': shadow,
-      '--button-font-size': sizeChange(fontSize)
+      '--button-font-size': convertSize(fontSize)
     } as CSSProperties
   })
 

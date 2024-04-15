@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props } from './props'
   import { inject, computed } from 'vue'
-  import { isString, sizeChange } from '../../_utils'
+  import { isString, convertSize } from '../../_utils'
   import { FORM_PROVIDE_KEY } from '../../form/src/props'
   import type { CSSProperties } from 'vue'
   import type { FormInject } from '../../form'
@@ -32,7 +32,7 @@
   /** 样式列表 */
   const style = computed((): CSSProperties => {
     return {
-      '--form-item-label-width': parentInject && sizeChange(parentInject.labelWidth)
+      '--form-item-label-width': parentInject && convertSize(parentInject.labelWidth)
     } as CSSProperties
   })
 

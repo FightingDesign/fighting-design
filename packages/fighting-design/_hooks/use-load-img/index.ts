@@ -1,5 +1,5 @@
 import { ref, onMounted, watch } from 'vue'
-import { sizeChange, sizeToNum } from '../../_utils'
+import { convertSize, sizeToNum } from '../../_utils'
 import { useRun } from '..'
 import type { Ref } from 'vue'
 
@@ -152,7 +152,7 @@ export const useLoadImg = (
           observer.unobserve(node)
         }
       },
-      { rootMargin: sizeChange(prop.rootMargin) }
+      { rootMargin: convertSize(prop.rootMargin) }
     )
 
     return observer

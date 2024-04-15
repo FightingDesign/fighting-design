@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { keepDecimal } from '../../_utils'
+import { financial } from '../../_utils'
 import type { Ref } from 'vue'
 
 /**
@@ -43,7 +43,7 @@ export const useOperationImg = (): UseOperationImgReturn => {
 
   /** 图片缩小 */
   const smaller = (): void => {
-    keepDecimal(scale.value, 1) >= 0.2 && (scale.value -= 0.2)
+    financial(scale.value, 1) >= 0.2 && (scale.value -= 0.2)
   }
 
   /** 图片放大 */

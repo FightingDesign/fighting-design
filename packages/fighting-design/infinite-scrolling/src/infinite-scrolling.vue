@@ -2,7 +2,7 @@
   import { Props } from './props'
   import { ref, onMounted } from 'vue'
   import { useRun } from '../../_hooks'
-  import { sizeChange } from '../../_utils'
+  import { convertSize } from '../../_utils'
 
   defineOptions({ name: 'FInfiniteScrolling' })
 
@@ -24,7 +24,7 @@
           run(prop.onScrollEnd)
         }
       },
-      { rootMargin: sizeChange(prop.distance) }
+      { rootMargin: convertSize(prop.distance) }
     )
   }
 

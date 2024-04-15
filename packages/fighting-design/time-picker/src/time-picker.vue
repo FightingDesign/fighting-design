@@ -4,7 +4,7 @@
   import { FInput } from '../../input'
   import { FButton } from '../../button'
   import { FTrigger } from '../../trigger'
-  import { addZero, isString, isBoolean } from '../../_utils'
+  import { zeroPad, isString, isBoolean } from '../../_utils'
   import { FIconClockTime } from '../../_svg'
   import type { TriggerInstance } from '../../trigger'
   import type { TimePickerTimeList } from './interface'
@@ -19,9 +19,9 @@
 
   /** 当前日期对象 */
   const timeList: TimePickerTimeList = reactive({
-    hour: addZero(nowDate.getHours()),
-    minute: addZero(nowDate.getMinutes()),
-    second: addZero(nowDate.getSeconds())
+    hour: zeroPad(nowDate.getHours()),
+    minute: zeroPad(nowDate.getMinutes()),
+    second: zeroPad(nowDate.getSeconds())
   })
 
   /** trigger 组件实例 */
@@ -48,9 +48,9 @@
       /** 获取当前时间 */
       const now: Date = new Date()
 
-      timeList.hour = addZero(now.getHours())
-      timeList.minute = addZero(now.getMinutes())
-      timeList.second = addZero(now.getSeconds())
+      timeList.hour = zeroPad(now.getHours())
+      timeList.minute = zeroPad(now.getMinutes())
+      timeList.second = zeroPad(now.getSeconds())
     }
 
     /**
@@ -120,7 +120,7 @@
    * @param { 'hour' | 'minute' | 'second' } params 小时还是分钟
    */
   const handleClick = (date: number, params: 'hour' | 'minute' | 'second'): void => {
-    timeList[params] = addZero(date)
+    timeList[params] = zeroPad(date)
   }
 
   // 当时间对象一旦发生变化，就触发滚动
@@ -158,12 +158,12 @@
                 'f-time-picker__hour-item',
                 {
                   'f-time-picker__hour-active':
-                    addZero(hour === 24 ? 0 : hour).toString() === timeList.hour
+                    zeroPad(hour === 24 ? 0 : hour).toString() === timeList.hour
                 }
               ]"
               @click.stop="handleClick(hour === 24 ? 0 : hour, 'hour')"
             >
-              {{ addZero(hour === 24 ? 0 : hour) }}
+              {{ zeroPad(hour === 24 ? 0 : hour) }}
             </div>
           </div>
 
@@ -176,12 +176,12 @@
                 'f-time-picker__minute-item',
                 {
                   'f-time-picker__minute-active':
-                    addZero(minute).toString() === timeList.minute
+                    zeroPad(minute).toString() === timeList.minute
                 }
               ]"
               @click.stop="handleClick(minute, 'minute')"
             >
-              {{ addZero(minute) }}
+              {{ zeroPad(minute) }}
             </div>
           </div>
 
@@ -194,12 +194,12 @@
                 'f-time-picker__second-item',
                 {
                   'f-time-picker__second-active':
-                    addZero(second).toString() === timeList.second
+                    zeroPad(second).toString() === timeList.second
                 }
               ]"
               @click.stop="handleClick(second, 'second')"
             >
-              {{ addZero(second) }}
+              {{ zeroPad(second) }}
             </div>
           </div>
         </div>

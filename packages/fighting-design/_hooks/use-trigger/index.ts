@@ -1,6 +1,6 @@
 import { ref, computed, reactive, onMounted, watch } from 'vue'
 import { useRun } from '..'
-import { sizeChange } from '../../_utils'
+import { convertSize } from '../../_utils'
 import { TRIGGER_CONTENT_BOX_CLASS, TRIGGER_CLASS } from '../../_tokens'
 import type { TriggerProps, TriggerTrigger } from '../../trigger'
 import type { CSSProperties, Ref, ComputedRef } from 'vue'
@@ -46,7 +46,7 @@ export const useTrigger = (
     return {
       '--trigger-content-x': position.x,
       '--trigger-content-y': position.y,
-      '--trigger-spacing-size': sizeChange(spacing),
+      '--trigger-spacing-size': convertSize(spacing),
       '--trigger-enter-duration': enterDuration && enterDuration + 's',
       '--trigger-leave-duration': leaveDuration && leaveDuration + 's'
     }
