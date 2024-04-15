@@ -100,7 +100,7 @@ export const useRipples = (
    * @param { Object } node dom 元素
    */
   const removeElement = (node: HTMLElement): void => {
-    setTimeout((): void => {
+    setTimeout(() => {
       /**
        * @see Element.remove() https://developer.mozilla.org/zh-CN/docs/Web/API/Element/remove
        */

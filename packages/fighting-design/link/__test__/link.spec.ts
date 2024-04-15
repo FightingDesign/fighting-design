@@ -55,7 +55,7 @@ describe('FLink', () => {
 
   test('state', () => {
     const state: LinkState[] = ['line', 'background']
-    state.forEach((item: LinkState): void => {
+    state.forEach((item: LinkState) => {
       const wrapper = mount(FLink, {
         props: { state: item }
       })
@@ -73,7 +73,7 @@ describe('FLink', () => {
   })
 
   test('target', () => {
-    FIGHTING_TARGET.forEach((item: LinkTarget): void => {
+    FIGHTING_TARGET.forEach((item: LinkTarget) => {
       const wrapper = mount(FLink, {
         props: { target: item }
       })

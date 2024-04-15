@@ -33,12 +33,12 @@ export const debounce = <T extends (...args: unknown[]) => void>(
   /** 计时器实例 */
   let timeout: ReturnType<typeof setTimeout> | undefined
 
-  return (...args: Parameters<T>): void => {
+  return (...args: Parameters<T>) => {
     if (timeout) {
       clearTimeout(timeout)
     }
 
-    timeout = setTimeout((): void => {
+    timeout = setTimeout(() => {
       func(...args)
     }, delay)
   }

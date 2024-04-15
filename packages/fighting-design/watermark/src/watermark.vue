@@ -37,11 +37,6 @@
   }
 
   /**
-   * 元素挂载之后生成水印元素
-   */
-  onMounted(renderWatermark)
-
-  /**
    * @see MutationObserver https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver
    */
   const ob = new MutationObserver((entries: MutationRecord[]): void => {
@@ -79,10 +74,12 @@
         /**
          * 监控子节点
          */
+        // 监控子节点
         childList: true,
         /**
          * 监控子树
          */
+        // 监控子树
         subtree: true,
         /**
          * 监控属性
@@ -91,6 +88,9 @@
       })
     }
   })
+
+  // 元素挂载之后生成水印元素
+  onMounted(renderWatermark)
 
   /**
    * 如何卸载之后停止监听

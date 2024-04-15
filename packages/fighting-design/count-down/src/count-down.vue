@@ -14,7 +14,7 @@
     time: +prop.time,
     millisecond: prop.millisecond,
     interval: +prop.interval,
-    onFinish: (): void => {
+    onFinish: () => {
       run(prop.onFinish)
     }
   })
@@ -81,10 +81,10 @@
   /** 生成时间字符串 */
   const timeText = computed((): string => formatTimeStr(prop.format, current.value))
 
-  /** 监听传入的 time 改变，则重新开始倒计时 */
+  // 监听传入的 time 改变，则重新开始倒计时
   watch(
     (): string | number => prop.time,
-    (): void => {
+    () => {
       reset(+prop.time)
 
       if (prop.autoStart) {

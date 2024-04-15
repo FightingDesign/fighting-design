@@ -126,7 +126,7 @@
     // 设置文本框展示的内容
     keyword.value = currentValue.toString()
 
-    //  如果最新的 value 和绑定的 value 不一致时，才触发 change 事件
+    // 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件
     if (currentLabel !== prop.modelValue) {
       run(prop.onChange, currentValue, currentLabel, evt)
     }

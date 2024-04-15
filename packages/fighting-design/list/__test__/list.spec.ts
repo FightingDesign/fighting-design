@@ -33,7 +33,7 @@ describe('FList', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach((item: FightingSize): void => {
+    FIGHTING_SIZE.forEach((item: FightingSize) => {
       const wrapper = mount(FList, {
         props: { size: item }
       })

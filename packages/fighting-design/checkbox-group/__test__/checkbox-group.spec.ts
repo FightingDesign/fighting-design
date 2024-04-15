@@ -29,7 +29,7 @@ describe('FCheckboxGroup', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach((size: FightingSize): void => {
+    FIGHTING_SIZE.forEach((size: FightingSize) => {
       const wrapper = mount(FCheckboxGroup, {
         props: { background: true, size }
       })

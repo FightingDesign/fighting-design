@@ -20,8 +20,8 @@
     get: (): RadioModelValue => {
       return (parentInject && parentInject.modelValue) || prop.modelValue
     },
-    set: (val: RadioModelValue): void => {
-      /** 判断如果注入的依赖项存在，并且没有禁用，则将最新值传递给父组件 */
+    set: (val: RadioModelValue) => {
+      // 判断如果注入的依赖项存在，并且没有禁用，则将最新值传递给父组件
       if (parentInject && !isParentDisabled.value) {
         run(parentInject.changeEvent, val)
         return
@@ -39,9 +39,9 @@
   const isChecked = computed((): boolean => keyword.value === prop.label)
 
   /** 父级是否带有禁用 */
-  const isParentDisabled = computed(
-    (): boolean => !!(parentInject && parentInject.disabled)
-  )
+  const isParentDisabled = computed((): boolean => {
+    return !!(parentInject && parentInject.disabled)
+  })
 
   /** 判断是否被禁用 */
   const isDisabled = computed((): boolean => prop.disabled || isParentDisabled.value)

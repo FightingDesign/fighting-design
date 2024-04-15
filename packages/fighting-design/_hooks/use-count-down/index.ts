@@ -132,7 +132,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
 
   /** 逐帧计算倒计时 */
   const tick = (): void => {
-    /** 非浏览器环境，时间不走 */
+    // 非浏览器环境，时间不走
     if (!isBrowser) {
       return
     }
@@ -167,7 +167,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
 
   /** 毫秒级渲染 */
   const microTick = (): void => {
-    rafId = raf((): void => {
+    rafId = raf(() => {
       if (isCounting) {
         /** 设置剩余时间为此次调用时的剩余时间 */
         setRemain(getCurrentRemain())
@@ -182,7 +182,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
 
   /** 秒级渲染 */
   const macroTick = (): void => {
-    rafId = raf((): void => {
+    rafId = raf(() => {
       if (isCounting) {
         /** 获取此次调用的剩余时间 */
         const remainRemain = getCurrentRemain()
@@ -195,7 +195,7 @@ export const useCountDown = (options: UseCountDownOptions): UseCountDownReturn =
           setRemain(remainRemain)
         }
 
-        /** 当还有剩余时间时，继续 */
+        // 当还有剩余时间时，继续
         if (remain.value > 0) {
           macroTick()
         }

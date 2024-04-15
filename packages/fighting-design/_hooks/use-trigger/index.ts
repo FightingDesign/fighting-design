@@ -112,7 +112,7 @@ export const useTrigger = (
       return
     }
 
-    setPosition()
+    setPosition() // 设置内容位置
 
     visible.value = true
     contentVisible = true
@@ -143,7 +143,7 @@ export const useTrigger = (
       return
     }
 
-    setTimeout((): void => {
+    setTimeout(() => {
       if (!contentVisible) {
         _()
       }

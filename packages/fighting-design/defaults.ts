@@ -17,7 +17,7 @@ const install = (app: App): App => {
    * @see registration https://cn.vuejs.org/guide/components/registration.html
    * @see Array.prototype.forEach() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
    */
-  objectEntries(components).forEach(([key, value]): void => {
+  objectEntries(components).forEach(([key, value]) => {
     app.component(key, value)
   })
 

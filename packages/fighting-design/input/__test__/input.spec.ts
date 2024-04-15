@@ -14,7 +14,7 @@ describe('Input', () => {
 
   test('type', () => {
     const types: InputType[] = ['text', 'password', 'number']
-    types.forEach((item: InputType): void => {
+    types.forEach((item: InputType) => {
       const wrapper = mount(FInput, {
         props: { type: item }
       })
@@ -23,7 +23,7 @@ describe('Input', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach((item: FightingSize): void => {
+    FIGHTING_SIZE.forEach((item: FightingSize) => {
       const wrapper = mount(FInput, {
         props: { size: item }
       })

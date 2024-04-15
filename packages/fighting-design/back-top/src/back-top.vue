@@ -24,7 +24,7 @@
    * @returns { Function } 防抖函数
    */
   const handleScroll = (node?: HTMLElement): (() => void) => {
-    return debounce((): void => {
+    return debounce(() => {
       /**
        * 当前滚动的距离
        *
@@ -122,7 +122,7 @@
   })
 
   // 卸载组件移除监听
-  onUnmounted((): void => {
+  onUnmounted(() => {
     document.removeEventListener('scroll', cachedHandleScroll)
   })
 

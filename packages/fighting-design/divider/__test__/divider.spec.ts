@@ -27,7 +27,7 @@ describe('FDivider', () => {
 
   test('position', () => {
     const positions: DividerPosition[] = ['left', 'center', 'right']
-    positions.forEach((item: DividerPosition): void => {
+    positions.forEach((item: DividerPosition) => {
       const wrapper = mount(FDivider, {
         props: { position: item }
       })
@@ -67,7 +67,7 @@ describe('FDivider', () => {
 
   test('type', () => {
     const types: DividerType[] = ['dashed', 'dotted', 'double', 'solid']
-    types.forEach((item: DividerType): void => {
+    types.forEach((item: DividerType) => {
       const wrapper = mount(FDivider, {
         props: { type: item }
       })

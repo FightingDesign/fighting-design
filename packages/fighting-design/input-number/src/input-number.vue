@@ -52,16 +52,20 @@
   const handleChangeVal = (target: 'minus' | 'plus'): void => {
     const { disabled, readonly, step } = prop
 
-    /** 禁用或只读 */
+    // 禁用或只读
     if (disabled || readonly) return
 
     const map = {
-      /** 减少 */
-      minus: (): void => {
+      /**
+       * 减少
+       */
+      minus: () => {
         modelValue.value -= step
       },
-      /** 增加 */
-      plus: (): void => {
+      /**
+       * 增加
+       */
+      plus: () => {
         modelValue.value += step
       }
     }

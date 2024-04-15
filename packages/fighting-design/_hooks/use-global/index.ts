@@ -115,6 +115,7 @@ export const useGlobal = (prop?: Partial<UseGlobalProp>): UseGlobalReturn => {
       const lang: FightingLang = (global && global.lang) || 'zh-CN'
       /** 获取当前的语音对象 */
       const langList = LANG[lang]
+
       // 返回指定组件的语言内容
       return langList[componentName]
     })
@@ -144,15 +145,15 @@ export const useGlobal = (prop?: Partial<UseGlobalProp>): UseGlobalReturn => {
       size?: ComputedRef<FightingSize | FightingType>
     } = {}
 
-    /** 必须是数组才遍历，提前拦截错误 */
+    // 必须是数组才遍历，提前拦截错误
     if (isArray(target)) {
-      target.forEach((item: 'type' | 'size', index: number): void => {
-        /** 检测映射对象中是否存在该属性 */
+      target.forEach((item: 'type' | 'size', index: number) => {
+        // 检测映射对象中是否存在该属性
         if (getPropMap[item]) {
           /** 获取默认值 */
           const defaultValue: string | undefined = def && def[index]
 
-          /** 将需要更改的树形改为指定参数 */
+          // 将需要更改的树形改为指定参数
           prams[item] = getPropMap[item](defaultValue)
         }
       })

@@ -56,6 +56,7 @@ export const useTurnPage = (
     if (prop.current > maxValue) {
       modelValue.currentModelValue.value = maxValue
     }
+
     modelValue.pageSizeModelValue.value = Number(newValue)
   }
 

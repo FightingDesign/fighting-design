@@ -18,12 +18,12 @@ describe('FImage', () => {
     expect(wrapper.find('img').attributes('alt')).toContain('图片')
   })
 
-  // test('draggable', () => {
-  //   const wrapper = mount(FImage, {
-  //     props: { draggable: false }
-  //   })
-  //   expect(wrapper.find('img').attributes('draggable')).toContain('false')
-  // })
+  test('draggable', () => {
+    const wrapper = mount(FImage, {
+      props: { draggable: false }
+    })
+    expect(wrapper.find('img').attributes('draggable')).toContain('false')
+  })
 
   test('block', () => {
     const wrapper = mount(FImage, {
@@ -33,7 +33,7 @@ describe('FImage', () => {
   })
 
   test('fit', () => {
-    FIGHTING_FIT.forEach((item: ImageFit): void => {
+    FIGHTING_FIT.forEach((item: ImageFit) => {
       const wrapper = mount(FImage, {
         props: { fit: item }
       })

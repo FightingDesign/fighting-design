@@ -59,16 +59,20 @@
 
   /** 左右切换映射对象 */
   const switchMap = {
-    /** 下一张切换 */
-    next: (): void => {
+    /**
+     * 下一张切换
+     */
+    next: () => {
       if (previewShowIndex.value < prop.imgList.length - 1) {
         previewShowIndex.value++
         return
       }
       previewShowIndex.value = 0
     },
-    /** 上一张切换 */
-    prev: (): void => {
+    /**
+     * 上一张切换
+     */
+    prev: () => {
       if (previewShowIndex.value > 0) {
         previewShowIndex.value--
         return
@@ -89,11 +93,11 @@
 
   /** 点击操作栏映射对象 */
   const optionMap: Record<string, () => void> = {
-    '1': (): void => smaller(),
-    '2': (): void => bigger(),
-    '3': (): void => recovery(),
-    '4': (): void => rotateClockwise(),
-    '5': (): void => rotateCounterClock()
+    '1': smaller,
+    '2': bigger,
+    '3': recovery,
+    '4': rotateClockwise,
+    '5': rotateCounterClock
   } as const
 
   /**

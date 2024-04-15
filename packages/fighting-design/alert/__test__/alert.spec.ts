@@ -13,7 +13,7 @@ describe('FAlert', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach((item: FightingType): void => {
+    FIGHTING_TYPE.forEach((item: FightingType) => {
       const wrapper = mount(FAlert, {
         props: { type: item }
       })

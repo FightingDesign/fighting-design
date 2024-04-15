@@ -26,7 +26,7 @@ describe('FCard', () => {
 
   test('shadow', () => {
     const shadows: CardShadow[] = ['hover', 'always']
-    shadows.forEach((item: CardShadow): void => {
+    shadows.forEach((item: CardShadow) => {
       const wrapper = mount(FCard, {
         props: { shadow: item }
       })

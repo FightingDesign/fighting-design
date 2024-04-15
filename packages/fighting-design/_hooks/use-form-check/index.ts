@@ -43,7 +43,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
     const children = getChildren(slot.default(), 'FFormItem')
 
     // 遍历添每个节点判断是否验证通过
-    children.forEach((item: VNode): void => {
+    children.forEach((item: VNode) => {
       // 必须有 name 和 rules 才能触发表单校验
       if (item.props && item.props.name && item.props.rules) {
         // 初始状态下默认设置全部没有通过校验
@@ -127,7 +127,7 @@ export const useFormCheck = (prop: FormProps): UseFormCheckReturn => {
    * 获取到每个子组件，检测输入的内容是否符合规则
    */
   const validate = (): boolean => {
-    getChildrenList.value.forEach((item: VNode): void => {
+    getChildrenList.value.forEach((item: VNode) => {
       /** 子组件规则 */
       const _rules: FormItemProps['rules'] = item.props && item.props.rules
       /** 子组件名字 */

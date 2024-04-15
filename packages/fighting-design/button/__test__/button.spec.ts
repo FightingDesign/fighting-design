@@ -67,7 +67,7 @@ describe('FButton', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach((item: FightingSize): void => {
+    FIGHTING_SIZE.forEach((item: FightingSize) => {
       const wrapper = mount(FButton, {
         props: { size: item }
       })
@@ -90,7 +90,7 @@ describe('FButton', () => {
   })
 
   test('target', () => {
-    FIGHTING_TARGET.forEach((item: ButtonTarget): void => {
+    FIGHTING_TARGET.forEach((item: ButtonTarget) => {
       const wrapper = mount(FButton, {
         props: { href: 'https://tianyuhao.cn', target: item }
       })
@@ -120,7 +120,7 @@ describe('FButton', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach((item: FightingType): void => {
+    FIGHTING_TYPE.forEach((item: FightingType) => {
       const wrapper = mount(FButton, {
         props: { type: item }
       })
@@ -197,7 +197,7 @@ describe('FButton', () => {
 
   test('nativeType', () => {
     const nativeTypes: ButtonNative[] = ['button', 'submit', 'reset']
-    nativeTypes.forEach((item: ButtonNative): void => {
+    nativeTypes.forEach((item: ButtonNative) => {
       const wrapper = mount(FButton, {
         props: { nativeType: item }
       })

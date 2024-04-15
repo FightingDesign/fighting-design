@@ -120,9 +120,9 @@ const updatePosition = (closeInstance: ComponentInternalInstance): void => {
       instances[placement] as ComponentInternalInstance[]
     )[index]
 
-    /** 减少后面的组件实例偏移量 */
-    ;(instance.exposed as Record<string, Ref<number>>).offsetVal.value -=
-      getNextElementInterval(closeInstance)
+      // 减少后面的组件实例偏移量
+      ; (instance.exposed as Record<string, Ref<number>>).offsetVal.value -=
+        getNextElementInterval(closeInstance)
   }
 }
 
@@ -137,13 +137,13 @@ export const removeInstance = (instance: ComponentInternalInstance): void => {
   /** 当前组件的方位 */
   const placement: MessagePlacement | NotificationPlacement = getPlacement(instance)
 
-  /**
-   * @see Array.prototype.splice() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-   */
-  ;(instances[placement] as ComponentInternalInstance[]).splice(
-    getIndexByInstance(instance),
-    1
-  )
+    /**
+     * @see Array.prototype.splice() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+     */
+    ; (instances[placement] as ComponentInternalInstance[]).splice(
+      getIndexByInstance(instance),
+      1
+    )
 }
 
 /**
@@ -170,10 +170,10 @@ export const useMessage = (
     const placement: MessagePlacement | NotificationPlacement = getPlacement(instance)
 
     if (instances[placement]) {
-      /** 如果对象中存在当前方位数组，则往数组中追加组件实例 */
+      // 如果对象中存在当前方位数组，则往数组中追加组件实例 
       (instances[placement] as ComponentInternalInstance[]).push(instance)
     } else {
-      /** 否则新建一个数组存储当前组件实例 */
+      // 否则新建一个数组存储当前组件实例
       instances[placement] = [instance]
     }
   }
@@ -192,11 +192,11 @@ export const useMessage = (
     /** 获取到当前方位的组件实例集合 */
     const placementInstance: ComponentInternalInstance[] | undefined =
       instances[
-        options.placement ? options.placement : name === 'message' ? 'top' : 'top-right'
+      options.placement ? options.placement : name === 'message' ? 'top' : 'top-right'
       ]
 
     if (placementInstance) {
-      placementInstance.forEach((instance: ComponentInternalInstance): void => {
+      placementInstance.forEach((instance: ComponentInternalInstance) => {
         result += getNextElementInterval(instance)
       })
     }
@@ -267,7 +267,7 @@ export const useMessage = (
       ...options
     }
 
-    /** 如何传入的时间不是一个数字，则强制修改成为数字类型 */
+    // 如果传入的时间不是一个数字，则强制修改成为数字类型 
     if (!isNumber(defaultOptions.duration)) {
       defaultOptions.duration = 2500
 

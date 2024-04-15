@@ -59,7 +59,7 @@ describe('Textarea', () => {
 
   test('resize', () => {
     const resizes: TextareaResize[] = ['none', 'both', 'horizontal', 'vertical']
-    resizes.forEach((item: TextareaResize): void => {
+    resizes.forEach((item: TextareaResize) => {
       const wrapper = mount(FTextarea, {
         props: { resize: item }
       })

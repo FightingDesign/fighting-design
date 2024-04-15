@@ -20,7 +20,7 @@ describe('FTag', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach((item: FightingType): void => {
+    FIGHTING_TYPE.forEach((item: FightingType) => {
       const wrapper = mount(FTag, {
         props: { type: item }
       })
@@ -96,9 +96,9 @@ describe('FTag', () => {
   test('close', async () => {
     const App = defineComponent({
       components: { FTag },
-      setup () {
+      setup() {
         const isShow = ref(true)
-        const onClose = (): void => {
+        const onClose = () => {
           isShow.value = false
         }
         return {

@@ -25,7 +25,7 @@ describe('FSwitch', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach((item: FightingSize): void => {
+    FIGHTING_SIZE.forEach((item: FightingSize) => {
       const wrapper = mount(FSwitch, {
         props: { size: item }
       })

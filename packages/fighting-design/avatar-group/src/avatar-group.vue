@@ -24,7 +24,7 @@
 
       // 必须在子元素存在的时候，设置 zIndex 层级样式
       if (avatars && avatars.length) {
-        avatars.forEach((item: HTMLDivElement, i: number): void => {
+        avatars.forEach((item: HTMLDivElement, i: number) => {
           item.style.zIndex = (avatars.length - i).toString()
         })
       }

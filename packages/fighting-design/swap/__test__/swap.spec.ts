@@ -18,7 +18,7 @@ describe('Swap', () => {
 
   test('type', () => {
     const types: SwapType[] = ['sound', 'swap']
-    types.forEach((item: SwapType): void => {
+    types.forEach((item: SwapType) => {
       const wrapper = mount(FSwap, {
         props: { modelValue: false, type: item }
       })

@@ -69,9 +69,9 @@
    * @param { Function } now 点击今天执行的方法
    */
   const option = {
-    prev: (): void => changeLastMonth(),
-    next: (): void => changeNextMonth(),
-    current: (): void => {
+    prev: changeLastMonth,
+    next: changeNextMonth,
+    current: () => {
       dates.year = prop.date.getFullYear()
       dates.month = prop.date.getMonth() + 1
       dates.date = prop.date.getDate()
@@ -84,7 +84,7 @@
    * @param { 'last' | 'current' | 'next' } target 不同类型用于切换当前时间、下个月、上个月
    */
   const optionClick = (target: 'prev' | 'current' | 'next'): void => {
-    /** 如果存在则执行指定方法 */
+    // 如果存在则执行指定方法
     option[target] && option[target]()
   }
 
@@ -119,7 +119,7 @@
     /**
      * @param { number } month 最新的月份
      */
-    (month: number): void => {
+    (month: number) => {
       run(prop.onChangeMonth, dates.year, month, dates.date)
     }
   )
@@ -127,7 +127,7 @@
   /** 改变日期的监听器 */
   const watchChange = watch(
     () => dates,
-    (): void => {
+    () => {
       run(prop.onChange, dates.year, dates.month, dates.date)
     },
     { deep: true }
@@ -140,7 +140,7 @@
    * @param { number } date 日期
    */
   const currentDataClass = (month: number, date: number): string => {
-    /** 如果当前的月份和日期和绑定的日期相同，则高亮显示 */
+    // 如果当前的月份和日期和绑定的日期相同，则高亮显示
     if (date === dates.date && month === dates.month) {
       return 'f-calendar__day-today'
     }

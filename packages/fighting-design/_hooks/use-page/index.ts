@@ -122,8 +122,10 @@ export const usePage = (
 
     /** 翻页映射方法 */
     const changeMap = {
-      /** 下一页切换 */
-      next: (): void => {
+      /** 
+       * 下一页切换
+       */
+      next: () => {
         const newCurrent: number =
           prop.current === maxCount.value ? maxCount.value : prop.current + 1
 
@@ -131,8 +133,10 @@ export const usePage = (
         run(prop.onNext, newCurrent, prop.pageSize)
         run(prop.onChange, newCurrent, prop.pageSize)
       },
-      /**上一页切换 */
-      prev: (): void => {
+      /**
+       * 上一页切换
+       */
+      prev: () => {
         newCurrent = prop.current === 1 ? 1 : prop.current - 1
         modelValue.currentModelValue.value = newCurrent
         run(prop.onPrev, newCurrent, prop.pageSize)

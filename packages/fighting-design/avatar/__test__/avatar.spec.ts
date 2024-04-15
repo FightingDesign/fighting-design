@@ -26,7 +26,7 @@ describe('FAvatar', () => {
   })
 
   test('fit', () => {
-    FIGHTING_FIT.forEach((item: FightingFit): void => {
+    FIGHTING_FIT.forEach((item: FightingFit) => {
       const wrapper = mount(FAvatar, {
         props: { fit: item }
       })
@@ -35,7 +35,7 @@ describe('FAvatar', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach((item: FightingSize): void => {
+    FIGHTING_SIZE.forEach((item: FightingSize) => {
       const wrapper = mount(FAvatar, {
         props: { size: item }
       })

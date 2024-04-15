@@ -73,7 +73,7 @@ export const useAlertList = (node: HTMLElement): UseAlertListReturn => {
      *
      * 控制动画执行
      */
-    const timer: NodeJS.Timer = setInterval((): void => {
+    const timer: NodeJS.Timer = setInterval(() => {
       from += dis
 
       if (from >= to) {

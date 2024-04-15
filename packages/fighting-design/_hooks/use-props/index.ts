@@ -53,7 +53,7 @@ export const useProps = <T extends object>(prop: T): UsePropsReturn => {
     /** 过滤的 prop 结果 */
     const result: Record<string, any> = reactive({})
 
-    list.forEach((item: string | FilterParamsList): void => {
+    list.forEach((item: string | FilterParamsList) => {
       /**
        * 判断如果是字符串参数
        *

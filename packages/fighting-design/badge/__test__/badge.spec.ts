@@ -12,7 +12,7 @@ describe('FBadge', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach((item: FightingType): void => {
+    FIGHTING_TYPE.forEach((item: FightingType) => {
       const wrapper = mount(FBadge, {
         props: { type: item }
       })

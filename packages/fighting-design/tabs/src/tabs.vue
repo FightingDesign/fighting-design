@@ -32,7 +32,7 @@
     const vNodes = isArray(children) ? children : [children]
     const result: VNode[] = []
 
-    vNodes.forEach((child): void => {
+    vNodes.forEach(child => {
       if (isArray(child)) {
         result.push(...flattedChildren(child))
       } else if (isVNode(child) && isArray(child.children)) {
