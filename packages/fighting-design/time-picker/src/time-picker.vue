@@ -2,6 +2,7 @@
   import { Props } from './props'
   import { reactive, ref, nextTick, watch } from 'vue'
   import { FInput } from '../../input'
+  import { FButton } from '../../button'
   import { FTrigger } from '../../trigger'
   import { addZero, isString, isBoolean } from '../../_utils'
   import { FIconClockTime } from '../../_svg'

@@ -6,6 +6,7 @@
   import { FCalendar } from '../../calendar'
   import { addZero, warning } from '../../_utils'
   import { FIconCalendar } from '../../_svg'
+  import { FButton } from '../../button'
   import type { TriggerInstance } from '../../trigger'
 
   defineOptions({ name: 'FDatePicker' })
@@ -18,7 +19,12 @@
 
   /** 传递给日历组件的当前时间 */
   const date = new Date()
-
+  /**
+   * 格式化规则
+   *
+   * 字符串中必须包含 YYYY 或者 MM 或者 DD
+   */
+  const formatRule = RegExp(/([Y]{4})|([M]{2})|([D]{2})/)
   /** trigger 组件实例 */
   const triggerInstance = ref<TriggerInstance>()
 
@@ -37,12 +43,6 @@
    * 设置时间
    */
   const setDate = (): void => {
-    /**
-     * 格式化规则
-     *
-     * 字符串中必须包含 YYYY 或者 MM 或者 DD
-     */
-    const formatRule = RegExp(/([Y]{4})|([M]{2})|([D]{2})/)
     /** 格式化规范 */
     let format = prop.format
 

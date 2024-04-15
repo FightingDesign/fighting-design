@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { Props, TREE_PROPS_KEY } from './props'
   import { provide, toRef, reactive, ref } from 'vue'
-  import { FTreeItem } from '../components'
+  import FTreeItem from '../components/tree-item/index.vue'
   import { isArray, isObject } from '../../_utils'
   import { FCheckboxGroup } from '../../checkbox-group'
   import type { TreeData, TreeProvide, TreeDataItem } from './interface'

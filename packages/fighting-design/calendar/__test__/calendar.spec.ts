@@ -4,7 +4,10 @@ import { FCalendar } from '../index'
 
 describe('Calendar', () => {
   test('class', () => {
-    const wrapper = mount(FCalendar)
+    const wrapper = mount(FCalendar,
+      {
+        props: { date: new Date() }
+      })
     expect(wrapper.classes()).toContain('f-calendar')
   })
 })

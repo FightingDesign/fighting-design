@@ -7,6 +7,7 @@
   import { useRun } from '../../../_hooks'
   import { FCheckbox } from '../../../checkbox'
   import { isNumber } from '../../../_utils'
+  import { FCollapseAnimation } from '../../../collapse-animation'
   import type { TreeItemModel } from './interface'
   import type { CSSProperties } from 'vue'
   import type { TreeProvide } from '../../index'

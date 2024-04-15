@@ -6,6 +6,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { inject, ref } from 'vue'
   import { FIconChevronDown } from '../../_svg'
+  import { FCollapseAnimation } from '../../collapse-animation'
   import type { MenuProvide } from '../../menu'
 
   defineOptions({ name: 'FSubmenu' })
