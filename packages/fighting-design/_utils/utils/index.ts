@@ -118,9 +118,9 @@ export const convertFormat = (str: string): string => {
     // 判断是否为首字母，如果首字母大写的话就不加 -
     if (offset === 0) {
       return p1.toLowerCase()
-    } else {
-      return '-' + p1.toLowerCase()
     }
+
+    return '-' + p1.toLowerCase()
   })
 }
 
