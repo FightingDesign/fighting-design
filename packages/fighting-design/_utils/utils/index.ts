@@ -102,6 +102,8 @@ export const sizeToNum = (size: string | number): number => {
   return isNumber(parse) ? parse : 0
 }
 
+const convertFormatRegExp = /([A-Z])/g
+
 /**
  * 驼峰命名转换为短横线命名
  *
@@ -111,8 +113,13 @@ export const sizeToNum = (size: string | number): number => {
  * @returns { string } 短横线命名
  */
 export const convertFormat = (str: string): string => {
-  return str.replace(/([A-Z])/g, (match: string, p1: string): string => {
-    return '-' + p1.toLowerCase()
+  return str.replace(convertFormatRegExp, (_: string, p1: string, offset: number): string => {
+    // 判断是否为首字母
+    if (offset === 0) {
+      return p1.toLowerCase()
+    } else {
+      return '-' + p1.toLowerCase()
+    }
   })
 }
 
