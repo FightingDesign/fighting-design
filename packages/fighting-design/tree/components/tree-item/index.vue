@@ -55,7 +55,7 @@
     return 40
   })
 
-  /** 计算没一行缩进距离样式 */
+  /** 计算每一行缩进距离样式 */
   const offsetSize = computed((): CSSProperties => {
     const { __level } = prop.model
 
