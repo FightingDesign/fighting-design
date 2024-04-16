@@ -57,7 +57,7 @@ export const zeroPad = (value: number): string => {
  *
  * 有些 props 传入的参数可能是 string 或者 number 类型
  *
- * 这些数值需要转换成单位，所以默认 string 类型是有单位的，如 1px、20%
+ * 这些数值需要转换成 css 带有单位的样式，所以默认 string 类型是有单位的，如 1px、20%
  *
  * 对于 number 类型的参数，就需要追加 target 类型的单位
  *
@@ -96,12 +96,13 @@ export const sizeToNum = (size: string | number): number => {
     return size
   }
 
-  const parse = Number.parseFloat(size)
+  const parse: number = Number.parseFloat(size)
 
   // 避免转换结果为 NaN
   return isNumber(parse) ? parse : 0
 }
 
+/** 驼峰命名转换为短横线命名规则 */
 const convertFormatRegExp = /([A-Z])/g
 
 /**
@@ -114,7 +115,7 @@ const convertFormatRegExp = /([A-Z])/g
  */
 export const convertFormat = (str: string): string => {
   return str.replace(convertFormatRegExp, (_: string, p1: string, offset: number): string => {
-    // 判断是否为首字母
+    // 判断是否为首字母，如果首字母大写的话就不加 -
     if (offset === 0) {
       return p1.toLowerCase()
     } else {
@@ -128,7 +129,7 @@ export const convertFormat = (str: string): string => {
  *
  * @param { string } str 字符串
  * @param { string } rule 规则字符串
- * @returns { Array }
+ * @returns { Array } 根据规则分割后的字符串数组
  */
 export const splitString = (str: string, rule: string): string[] => {
   if (!str || !str.length) {
