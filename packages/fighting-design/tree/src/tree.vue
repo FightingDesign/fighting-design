@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { Props, TREE_PROPS_KEY } from './props'
-  import { provide, toRef, reactive, ref } from 'vue'
+  import { provide, toRef, reactive, ref, computed } from 'vue'
   import FTreeItem from '../components/tree-item/index.vue'
   import { isArray, isObject } from '../../_utils'
   import { FCheckboxGroup } from '../../checkbox-group'
@@ -47,7 +47,7 @@
   }
 
   /** 处理后的树形结构 */
-  const tree: TreeItemModel[] = markTreeLevels(prop.data)
+  const tree = computed(() => markTreeLevels(prop.data))
 
   /** 多选列表 */
   const checkOption = ref([])
