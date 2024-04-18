@@ -1,11 +1,27 @@
 import { mount } from '@vue/test-utils'
-import { describe, expect, test } from 'vitest'
+import { vi, describe, expect, test } from 'vitest'
 import { FCheckbox } from '../index'
+import type { CheckboxModelValue } from '../src/interface'
 
 describe('FCheckbox', () => {
   test('class', () => {
     const wrapper = mount(FCheckbox)
     expect(wrapper.classes()).toContain('f-checkbox')
+  })
+
+  test('v-model', async () => {
+    const wrapper = mount(FCheckbox, {
+      attachTo: document.body,
+      props: {
+        modelValue: false,
+        'onUpdate:modelValue': (val: CheckboxModelValue | string[]) => {
+          wrapper.setProps({ modelValue: val })
+        }
+      }
+    })
+    await wrapper.trigger('click')
+    expect(wrapper.classes()).toContain('f-checkbox__checked')
+    expect(wrapper.props('modelValue')).toBe(true)
   })
 
   test('label', () => {
@@ -17,13 +33,31 @@ describe('FCheckbox', () => {
     expect(wrapper.get('.f-checkbox .f-checkbox__text').text()).toBe('Math')
   })
 
-  test('disabled', () => {
+  test('should render slot', () => {
     const wrapper = mount(FCheckbox, {
-      props: {
-        disabled: true
+      slots: {
+        default: 'Math'
       }
     })
-    expect(wrapper.get('.f-checkbox').classes()).toContain('f-checkbox__disabled')
+    expect(wrapper.get('.f-checkbox .f-checkbox__text').text()).toBe('Math')
+  })
+
+  test('disabled', async () => {
+    const wrapper = mount(FCheckbox, {
+      attachTo: document.body,
+      props: {
+        disabled: true,
+        modelValue: false,
+        'onUpdate:modelValue': (val: CheckboxModelValue | string[]) => {
+          wrapper.setProps({ modelValue: val })
+        }
+      }
+    })
+    expect(wrapper.classes()).toContain('f-checkbox__disabled')
+    expect(wrapper.find('.f-checkbox__input').attributes()).toHaveProperty('disabled')
+    await wrapper.trigger('click')
+    expect(wrapper.classes()).not.toContain('f-checkbox__checked')
+    expect(wrapper.props('modelValue')).toBe(false)
   })
 
   test('showLabel', () => {
@@ -37,11 +71,13 @@ describe('FCheckbox', () => {
   })
 
   test('onChange', async () => {
-    const wrapper = mount(FCheckbox)
-    await wrapper.get('input[type=checkbox]').setValue(true)
-    await wrapper.get('input[type=checkbox]').setValue(false)
-    expect(wrapper.emitted()).toHaveProperty('update:modelValue')
-    expect(wrapper.emitted('update:modelValue')?.[0][0]).toBe(true)
-    expect(wrapper.emitted('update:modelValue')?.[1][0]).toBe(false)
+    const onChange = vi.fn(val => val)
+    const wrapper = mount(FCheckbox, {
+      attachTo: document.body,
+      props: { onChange }
+    })
+    await wrapper.trigger('click')
+    expect(onChange).toHaveBeenCalled()
+    expect(onChange).toHaveReturnedWith(true)
   })
 })
