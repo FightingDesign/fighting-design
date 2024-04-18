@@ -149,8 +149,9 @@ describe('FRate', () => {
     const wrapper = mount(FRate, {
       props: { onChange }
     })
+    // click the first star
     await wrapper.find('.f-rate__star').trigger('click')
     expect(onChange).toHaveBeenCalled()
-    expect(onChange).toHaveBeenCalledWith(1)
+    expect(onChange).toHaveReturnedWith(1)
   })
 })

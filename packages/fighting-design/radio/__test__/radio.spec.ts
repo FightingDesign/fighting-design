@@ -70,7 +70,7 @@ describe('FRadio', () => {
     })
     await wrapper.trigger('click')
     expect(onChange).toHaveBeenCalled()
-    expect(onChange).toHaveBeenCalledWith('1')
+    expect(onChange).toHaveReturnedWith('1')
   })
 
   test('should render slot', () => {
