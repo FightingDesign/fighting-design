@@ -48,6 +48,6 @@ export default defineConfig({
      *
      * @see include https://cn.vitest.dev/config/#include
      */
-    include: ['**/__test__/*.{test,spec}.{ts,tsx}'],
+    include: ['**/packages/fighting-design/**/__test__/*.{test,spec}.{ts,tsx}'],
   },
 })
