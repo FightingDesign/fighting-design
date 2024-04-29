@@ -54,7 +54,7 @@ export const Props = {
   zIndex: setNumberProp(),
   /** 关闭按钮 */
   closeBtn: {
-    type: [String, Object] as PropType<string | VNode>,
+    type: [String, Object] as PropType<string | FightingIcon>,
     default: (): null => null
   },
   /** 关闭回调 */
