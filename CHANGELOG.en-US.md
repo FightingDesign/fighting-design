@@ -4,7 +4,7 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
-## 1.0.1-alpha.1 (2024-04-30)
+## 1.0.0-alpha.1 (2024-04-30)
 
 - Fix the responsive loss issue of adding elements to `f-tree` [#469](https://github.com/FightingDesign/fighting-design/pull/469)
 - Fix the issue of incorrect type in the `f-message` parameter `close-btn` [#478](https://github.com/FightingDesign/fighting-design/pull/478)
