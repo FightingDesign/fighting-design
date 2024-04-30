@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.1-alpha.1 (2024-04-30)
+
+- Fix the responsive loss issue of adding elements to `f-tree` [#469](https://github.com/FightingDesign/fighting-design/pull/469)
+- Fix the issue of incorrect type in the `f-message` parameter `close-btn` [#478](https://github.com/FightingDesign/fighting-design/pull/478)
+
 ## 0.67.4 (2024-03-21)
 
 - Fix `image` component parameter errors
@@ -652,7 +657,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.13.1 (2022-12-29)
 
-**修复**
+**Fix**
 
 - Fix `f-svg-icon` type
 - fix `f-rate` type
@@ -660,7 +665,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.13.0 (2022-12-28)
 
-**New Features**
+**Feat**
 
 - Add `f-box` component
 - Complete `f-tree` components
@@ -671,7 +676,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.12.0 (2022-12-20)
 
-**New Features**
+**Feat**
 
 - Add `f-form` component
 - Add `f-form-item` component
@@ -711,7 +716,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Fix some detail type problems
 - Optimize the style processing optimization during the loading of `f-image` and `f-avatar` components
 
-**New Features**
+**Feat**
 
 - `f-fighting-global` component adds `lang` configuration item
 - The `f-toolbar` component `width` and `height` configuration items support the `number` type
@@ -747,7 +752,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.9.0-alpha. 8 (2022-12-06)
 
-**New Features**
+**Feat**
 
 - Add `f-slider` component
 
@@ -794,7 +799,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.9.0-alpha.6 (2022-11-29)
 
-**New Features**
+**Feat**
 
 - Add `f-menu` component
 - Add `f-menu-item` component
@@ -815,7 +820,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.9.0-alpha.5 (2022-11-25)
 
-**New Features**
+**Feat**
 
 - Add `f-trigger` component
 
@@ -826,7 +831,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.9.0-alpha.4 (2022-11-23)
 
-**New Features**
+**Feat**
 
 - Add `f-date-picker` component
 - Add `f-time-picker` component
@@ -914,7 +919,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.9.0-alpha.1 (2022-11-17)
 
-**New Features**
+**Feat**
 
 - Add `f-checkbox` component `indeterminate` configuration item
 - Add `f-textarea` component
@@ -968,7 +973,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 ## 0.8.1-alpha.1 (2022-11-08)
 
-**New features**
+**Feat**
 
 - `f-checkbox` component adds `show-label` configuration item
 - `f-checkbox` component `modelValue` configuration item adding `array` type
@@ -1061,7 +1066,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 - Permanently revoke `f-icon` component
 - Update the `class` naming convention for all components
 
-**New Features**
+**Feat**
 
 - Add `f-close btn` component `icon` configuration item
 - Add `f-close btn` component `color` attribute
@@ -1136,7 +1141,7 @@ English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/maste
 
 - Add `f-mask` component
 
-**New features**
+**Feat**
 
 - Change the `f-drawer` component `with-header` configuration item to `show-header`
 - `f-drawer` component adds `show-close-btn` configuration item
