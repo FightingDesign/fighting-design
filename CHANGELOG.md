@@ -3,6 +3,7 @@
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
 - 修复 `f-tree` 添加元素响应式丢失问题 [#469](https://github.com/FightingDesign/fighting-design/pull/469)
+- 修复 `f-message` 参数 `close-btn` 类型错误问题 [#478](https://github.com/FightingDesign/fighting-design/pull/478)
 
 ## 0.67.4 (2024-03-21)
 

@@ -277,6 +277,10 @@ type MessageClose = (evt?: MouseEvent) => void
   <f-avatar round src="https://avatars.githubusercontent.com/u/77321887?v=4" />
 </a>
 
+<a href="https://github.com/w2xi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57785259?v=4" />
+</a>
+
 <script setup lang="ts">
   import { h } from 'vue'
   import { FMessage } from 'fighting-design'
