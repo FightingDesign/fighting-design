@@ -129,7 +129,7 @@
 
 此外，`Notification` 拥有可控的 duration， 默认的关闭时间为 `2500 毫秒`，当把这个属性的值设置为 0 便表示该消息不会被自动关闭。
 
-可以传递 `close-btn` 属性来自定义关闭按钮，支持字符串与 `VNode`。
+可以传递 `close-btn` 属性来自定义关闭按钮，支持字符串与 `icon`。
 
 ::: demo
 
@@ -244,7 +244,7 @@
 | `background` | 自定义背景色                                 | string                                                                                       | ——                                                  | ——        |
 | `placement`  | 弹出位置                                     | <a href="#notificationplacement">NotificationPlacement</a>                                   | `top-left` `top-right` `bottom-left` `bottom-right` | top-right |
 | `offset`     | 偏移距离                                     | number                                                                                       | ——                                                  | 20        |
-| `close-btn`  | 自定义关闭按钮                               | string / <a target="_blank" href="https://cn.vuejs.org/api/render-function.html#h">VNode</a> | ——                                                  | ——        |
+| `close-btn`  | 自定义关闭按钮                               | string / <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                  | ——        |
 | `z-index`    | 层级                                         | boolean                                                                                      | ——                                                  | 1000      |
 | `on-close`   | 关闭之后回调                                 | <a href="/components/message.html#messageclose">MessageClose</a>                             | ——                                                  | ——        |
 
