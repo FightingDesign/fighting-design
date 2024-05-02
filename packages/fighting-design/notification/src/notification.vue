@@ -21,7 +21,7 @@
 
   const {
     classList,
-    styleList,
+    style,
     visible,
     offsetStyle,
     offsetVal,
@@ -68,7 +68,7 @@
     <div
       v-show="visible"
       :class="classList"
-      :style="[offsetStyle, styleList]"
+      :style="[offsetStyle, style]"
       @mouseleave="startTime"
       @mouseenter="clearTimer"
     >
