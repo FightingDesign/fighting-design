@@ -280,6 +280,10 @@ type NotificationPlacement = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-
   <f-avatar round src="https://avatars.githubusercontent.com/u/57850101?v=4" />
 </a>
 
+<a href="https://github.com/w2xi" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/57785259?v=4" />
+</a>
+
 <script setup lang="ts">
   import { h } from 'vue'
   import { FNotification } from 'fighting-design'
