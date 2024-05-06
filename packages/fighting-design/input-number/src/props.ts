@@ -43,7 +43,7 @@ export const Props = {
    *
    * @values default primary success danger warning
    */
-  buttonType: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
+  buttonType: setStringProp<FightingType>(void 0, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /**
