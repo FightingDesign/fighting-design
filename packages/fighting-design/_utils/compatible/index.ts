@@ -29,7 +29,7 @@ export const objectEntries = <T extends object>(obj: T): [keyof T, T[keyof T]][]
   }
 
   // 如果 Object.entries 存在则直接使用
-  if (Object.entries && Object.entries !== undefined) {
+  if (Object.entries && Object.entries !== void 0) {
     return Object.entries(obj) as [keyof T, T[keyof T]][]
   }
 

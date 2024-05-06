@@ -10,7 +10,7 @@ export const Props = {
    *
    * @values default primary success danger warning
    */
-  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(void 0, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /**
@@ -67,7 +67,7 @@ export const Props = {
    * @see text-decoration https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-decoration
    * @values overline line-through underline
    */
-  decoration: setStringProp<TextDecoration>(undefined, (val: TextDecoration): boolean => {
+  decoration: setStringProp<TextDecoration>(void 0, (val: TextDecoration): boolean => {
     return (['overline', 'line-through', 'underline'] as const).includes(val)
   }),
   /**

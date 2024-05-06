@@ -38,7 +38,7 @@ export const Props = {
    * @see justify-content https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content
    */
   justifyContent: setStringProp<TabsJustifyContent>(
-    undefined,
+    void 0,
     (val: TabsJustifyContent): boolean => {
       return (
         [

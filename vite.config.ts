@@ -96,7 +96,7 @@ export default (): UserConfigExport => {
             entryFileNames: 'index.umd.js',
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
-            manualChunks: undefined,
+            manualChunks: void 0,
             inlineDynamicImports: false,
             globals: {
               vue: 'Vue'
@@ -155,7 +155,7 @@ export default (): UserConfigExport => {
             /**
              * @see output.manualchunks https://cn.rollupjs.org/configuration-options/#output-manualchunks
              */
-            manualChunks: undefined,
+            manualChunks: void 0,
             /**
              * 使用原始模块名作为文件名
              *
@@ -185,7 +185,7 @@ export default (): UserConfigExport => {
             chunkFileNames: '[name].js',
             assetFileNames: '[name].[ext]',
             inlineDynamicImports: false,
-            manualChunks: undefined,
+            manualChunks: void 0,
             preserveModules: true,
             generatedCode: {
               symbols: true

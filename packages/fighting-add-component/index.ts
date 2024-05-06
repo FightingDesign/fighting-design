@@ -53,7 +53,7 @@ detectPublic()
 function fetchCompName (): string {
   const input: string = process.argv[2]
 
-  if (input === undefined) {
+  if (input === void 0) {
     logError(
       '\n' +
       '命令使用方法为: pnpm new <component-name>' +

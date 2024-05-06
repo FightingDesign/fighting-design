@@ -22,7 +22,7 @@ export const Props = {
    *
    * @values sound swap
    */
-  type: setStringProp<SwapType>(undefined, (val: SwapType): boolean => {
+  type: setStringProp<SwapType>(void 0, (val: SwapType): boolean => {
     return (['sound', 'swap'] as const).includes(val)
   }),
   /** 打开展示的图标 */

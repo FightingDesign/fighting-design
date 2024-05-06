@@ -20,7 +20,7 @@ export const Props = {
    *
    * @values large middle small mini
    */
-  size: setStringProp<FightingSize>(undefined, (val: FightingSize): boolean => {
+  size: setStringProp<FightingSize>(void 0, (val: FightingSize): boolean => {
     return FIGHTING_SIZE.includes(val)
   }),
   /** 是否禁用 */

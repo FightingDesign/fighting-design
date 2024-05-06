@@ -67,7 +67,7 @@ export const isFunction = (value: any): value is Function => typeof value === 'f
 export const isArray = Array.isArray
 
 /** 是否为浏览器环境 */
-export const isBrowser: boolean = typeof window !== 'undefined'
+export const isBrowser: boolean = typeof window !== void 0
 
 /**
  * 是否为真值

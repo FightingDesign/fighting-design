@@ -21,7 +21,7 @@ export const Props = {
    *
    * @values default primary success danger warning
    */
-  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(void 0, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /**
@@ -37,7 +37,7 @@ export const Props = {
    *
    * @values line background
    */
-  state: setStringProp<LinkState>(undefined, (val: LinkState): boolean => {
+  state: setStringProp<LinkState>(void 0, (val: LinkState): boolean => {
     return (['line', 'background'] as const).includes(val)
   }),
   /** 是否禁用 */

@@ -13,7 +13,7 @@ export const Props = {
    *
    * @values default primary success danger warning
    */
-  type: setStringProp<FightingType>(undefined, (val: FightingType): boolean => {
+  type: setStringProp<FightingType>(void 0, (val: FightingType): boolean => {
     return FIGHTING_TYPE.includes(val)
   }),
   /** 是否禁用 */

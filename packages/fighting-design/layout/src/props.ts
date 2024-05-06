@@ -9,7 +9,7 @@ export const Props = {
    * @values horizontal vertical
    */
   direction: setStringProp<LayoutDirection>(
-    undefined,
+    void 0,
     (val: LayoutDirection): boolean => {
       return (['horizontal', 'vertical'] as const).includes(val)
     }

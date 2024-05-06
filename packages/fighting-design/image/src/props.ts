@@ -35,7 +35,7 @@ export const Props = {
    * @values fill contain cover none scale-down
    * @see object-fit https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#try_it
    */
-  fit: setStringProp<FightingFit>(undefined, (val: FightingFit): boolean => {
+  fit: setStringProp<FightingFit>(void 0, (val: FightingFit): boolean => {
     return FIGHTING_FIT.includes(val)
   }),
   /** 是否可以选中 */

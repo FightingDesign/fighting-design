@@ -92,7 +92,7 @@
     /** 尝试查找到有效的值 */
     const effectiveValue = values.find((value: any): boolean => {
       //  null、undefined、NaN 判断为假
-      if (value === null || value === undefined || Number.isNaN(value)) {
+      if (value === null || value === void 0 || Number.isNaN(value)) {
         return false
       }
 
@@ -110,7 +110,7 @@
     })
 
     // 如果三个值都为假，返回最后一个
-    return effectiveValue !== undefined ? effectiveValue : values[values.length - 1]
+    return effectiveValue !== void 0 ? effectiveValue : values[values.length - 1]
   }
 
   /**
