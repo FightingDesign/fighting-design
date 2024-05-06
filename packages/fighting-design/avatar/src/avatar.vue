@@ -19,7 +19,7 @@
   /** 获取到父组件注入的依赖项 */
   const parentInject: AvatarGroupProps | undefined = inject(
     AVATAR_GROUP_PROPS_KEY,
-    undefined
+    void 0
   )
 
   const { isSuccess, isShowNode } = useLoadImg(

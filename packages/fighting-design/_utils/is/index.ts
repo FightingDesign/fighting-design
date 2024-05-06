@@ -27,13 +27,18 @@ export const isString = (value: any): value is string => typeof value === 'strin
 
 /**
  * 检测一个数据是否为 number 类型
+ * 
+ * 千万不要使用 isNaN
+ * 
+ * isNaN({}) -> true
+ * Number.isNaN({}) -> false
  *
  * @param { * } value 要检测的数据
  * @returns { boolean }
- * @see isNaN() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/isNaN
+ * @see Number.isNaN() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
  */
 export const isNumber = (value: any): value is number =>
-  typeof value === 'number' && !isNaN(value)
+  typeof value === 'number' && !Number.isNaN(value)
 
 /**
  * 检测一个数据是否为 boolean 类型
@@ -66,12 +71,20 @@ export const isBrowser: boolean = typeof window !== 'undefined'
 
 /**
  * 是否为真值
+ * 
+ * 这里的规则只是按断是非不为 NaN、undefined、null 的值都为真
+ * 
+ * 千万不要使用 isNaN
+ * 
+ * isNaN({}) -> true
+ * Number.isNaN({}) -> false
  *
+ * @see Number.isNaN() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
  * @param { * } value 检测的值
  * @returns { boolean }
  */
 export const isTrue = (value: any): boolean => {
-  if (isNaN(value) || value === void 0 || value === null) {
+  if (Number.isNaN(value) || value === void 0 || value === null) {
     return false
   }
 
