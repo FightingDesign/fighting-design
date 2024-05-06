@@ -6,7 +6,8 @@ import { FButton } from '../index'
 import { useColor } from '../../_hooks'
 import { FIGHTING_SIZE, FIGHTING_TYPE, FIGHTING_TARGET } from '../../_tokens'
 import { FSvgIcon } from '../../svg-icon'
-import type { ButtonNative, ButtonTarget } from '../index'
+import type { ButtonNative } from '../index'
+import type { FightingTarget } from '../../_interface'
 import type { FightingType, FightingSize } from '../../_interface'
 
 describe('FButton', () => {
@@ -90,7 +91,7 @@ describe('FButton', () => {
   })
 
   test('target', () => {
-    FIGHTING_TARGET.forEach((item: ButtonTarget) => {
+    FIGHTING_TARGET.forEach((item: FightingTarget) => {
       const wrapper = mount(FButton, {
         props: { href: 'https://tianyuhao.cn', target: item }
       })
