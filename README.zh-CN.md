@@ -134,7 +134,7 @@ app.mount('#app')
 
 添加微信请备注 `Github` 用户名
 
-<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat-2.jpg" >
+<img width="200" height="264" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat-2.jpg" >
 
 ## 💌 特别感谢
 

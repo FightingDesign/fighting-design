@@ -18,7 +18,7 @@ describe('FSwitch', () => {
       props: {
         modelValue: true,
         'onUpdate:modelValue': (val: boolean) => {
-          return wrapper.setProps({ modelValue: val })
+          wrapper.setProps({ modelValue: val })
         }
       }
     })
