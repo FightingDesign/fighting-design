@@ -5,10 +5,6 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/table)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/table.md)
 
-:::danger
-组件仍在测试阶段，高频更新中，部分参数暂不稳定！
-:::
-
 ## 基本使用
 
 `data` 属性绑定需要展示的数据

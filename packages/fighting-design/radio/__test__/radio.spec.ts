@@ -65,7 +65,7 @@ describe('FRadio', () => {
       props: {
         modelValue: '',
         label: '1',
-        onChange,
+        onChange
       }
     })
     await wrapper.trigger('click')

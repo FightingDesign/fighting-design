@@ -39,7 +39,7 @@ describe('f-layout', () => {
   })
 
   test('slot', () => {
-    const wrapper = mount(FLayout, { 
+    const wrapper = mount(FLayout, {
       slots: { default: 'hello' }
     })
     expect(wrapper.text()).toBe('hello')

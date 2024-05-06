@@ -4,9 +4,7 @@ import { FNumberAnimate } from '../index'
 
 describe('FNumberAnimate', () => {
   test('class', () => {
-    const wrapper = mount(FNumberAnimate,
-      { props: { form: 0, to: 20 } }
-    )
+    const wrapper = mount(FNumberAnimate, { props: { form: 0, to: 20 } })
     expect(wrapper.classes()).toContain('f-number-animate')
   })
 })

@@ -10,15 +10,17 @@ import type { ComponentPublicInstance } from 'vue'
 
 const AXIOM = 'The electric light dancing at your fingertips is my unchanging faith'
 
-type MessageInstance = ComponentPublicInstance<MessageProps & {
-  visible: boolean
-}>
+type MessageInstance = ComponentPublicInstance<
+  MessageProps & {
+    visible: boolean
+  }
+>
 
 describe('FMessage', () => {
   test('basic render', async () => {
     const wrapper = mount(FMessageVue, {
       props: {
-        message: AXIOM,
+        message: AXIOM
       }
     })
     expect(wrapper.find('.f-message').exists()).toBe(true)
@@ -36,7 +38,7 @@ describe('FMessage', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach((type) => {
+    FIGHTING_TYPE.forEach(type => {
       const wrapper = mount(FMessageVue, {
         props: {
           type
@@ -70,7 +72,9 @@ describe('FMessage', () => {
         color: 'red'
       }
     })
-    expect(wrapper.find('.f-message').attributes('style')).toContain('--message-color: red')
+    expect(wrapper.find('.f-message').attributes('style')).toContain(
+      '--message-color: red'
+    )
   })
 
   test('background', () => {
@@ -79,7 +83,9 @@ describe('FMessage', () => {
         background: 'red'
       }
     })
-    expect(wrapper.find('.f-message').attributes('style')).toContain('--message-background: red')
+    expect(wrapper.find('.f-message').attributes('style')).toContain(
+      '--message-background: red'
+    )
   })
 
   test('offset', () => {
@@ -97,12 +103,21 @@ describe('FMessage', () => {
         zIndex: 100
       }
     })
-    expect(wrapper.find('.f-message').attributes('style')).toContain('--message-z-index: 100')
+    expect(wrapper.find('.f-message').attributes('style')).toContain(
+      '--message-z-index: 100'
+    )
   })
 
   test('placement', () => {
-    const messagePlacement: MessagePlacement[] = ['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right']
-    messagePlacement.forEach((placement) => {
+    const messagePlacement: MessagePlacement[] = [
+      'top',
+      'top-left',
+      'top-right',
+      'bottom',
+      'bottom-left',
+      'bottom-right'
+    ]
+    messagePlacement.forEach(placement => {
       const wrapper = mount(FMessageVue, {
         props: {
           placement

@@ -18,7 +18,7 @@ const getWrapper = (props = '', options = {}) => {
       FRadio,
       FRadioGroup
     },
-    setup() {
+    setup () {
       return {
         labelList,
         selectedRadio,
@@ -72,7 +72,7 @@ describe('RadioGroup', () => {
   })
 
   test('size', () => {
-    FIGHTING_SIZE.forEach((item) => {
+    FIGHTING_SIZE.forEach(item => {
       const wrapper = getWrapper(`size=${item}`)
       expect(wrapper.classes()).toContain(`f-radio-group__${item}`)
     })
@@ -80,7 +80,9 @@ describe('RadioGroup', () => {
 
   test('columnGap', () => {
     const wrapper = getWrapper(':columnGap=50')
-    expect(wrapper.get('.f-radio-group').attributes('style')).toContain('--radio-group-column-gap: 50px')
+    expect(wrapper.get('.f-radio-group').attributes('style')).toContain(
+      '--radio-group-column-gap: 50px'
+    )
   })
 
   test('rowGap', () => {

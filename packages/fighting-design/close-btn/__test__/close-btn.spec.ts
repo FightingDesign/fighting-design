@@ -4,7 +4,7 @@ import { vi, describe, expect, test } from 'vitest'
 import { FIconCross } from '@fighting-design/fighting-icon'
 import { FCloseBtn } from '../index'
 
-describe('CloseBtn', () => { 
+describe('CloseBtn', () => {
   test('create', () => {
     const wrapper = mount(FCloseBtn)
     expect(wrapper.classes()).toContain('f-close-btn')
@@ -13,11 +13,13 @@ describe('CloseBtn', () => {
   test('size prop supports both number and string types', () => {
     const size = 100
     const sizeList = [size, `${size}px`]
-    sizeList.forEach((item) => {
+    sizeList.forEach(item => {
       const wrapper = mount(FCloseBtn, {
         props: { size: item }
       })
-      expect(wrapper.find('.f-svg-icon').attributes('style')).toContain(`--svg-icon-size: ${size}px`)
+      expect(wrapper.find('.f-svg-icon').attributes('style')).toContain(
+        `--svg-icon-size: ${size}px`
+      )
     })
   })
 

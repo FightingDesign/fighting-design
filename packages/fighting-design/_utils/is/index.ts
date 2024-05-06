@@ -27,9 +27,9 @@ export const isString = (value: any): value is string => typeof value === 'strin
 
 /**
  * 检测一个数据是否为 number 类型
- * 
+ *
  * 千万不要使用 isNaN
- * 
+ *
  * isNaN({}) -> true
  * Number.isNaN({}) -> false
  *
@@ -71,11 +71,11 @@ export const isBrowser: boolean = typeof window !== void 0
 
 /**
  * 是否为真值
- * 
+ *
  * 这里的规则只是按断是非不为 NaN、undefined、null 的值都为真
- * 
+ *
  * 千万不要使用 isNaN
- * 
+ *
  * isNaN({}) -> true
  * Number.isNaN({}) -> false
  *

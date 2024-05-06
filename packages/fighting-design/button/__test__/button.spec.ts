@@ -103,7 +103,9 @@ describe('FButton', () => {
     const wrapper = mount(FButton, {
       props: { loading: true }
     })
-    expect(wrapper.findComponent(FSvgIcon).classes()).toContain('f-button__loading-animation')
+    expect(wrapper.findComponent(FSvgIcon).classes()).toContain(
+      'f-button__loading-animation'
+    )
   })
 
   test('disabled', () => {
@@ -193,7 +195,9 @@ describe('FButton', () => {
       props: { ripples: true, ripplesColor: 'green' }
     })
     wrapper.trigger('click')
-    expect(wrapper.find('.f-button__ripples').attributes('style')).toContain('background: green')
+    expect(wrapper.find('.f-button__ripples').attributes('style')).toContain(
+      'background: green'
+    )
   })
 
   test('nativeType', () => {

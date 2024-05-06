@@ -244,7 +244,7 @@
 | `background` | 自定义背景色                                 | string                                                                                       | ——                                                  | ——        |
 | `placement`  | 弹出位置                                     | <a href="#notificationplacement">NotificationPlacement</a>                                   | `top-left` `top-right` `bottom-left` `bottom-right` | top-right |
 | `offset`     | 偏移距离                                     | number                                                                                       | ——                                                  | 20        |
-| `close-btn`  | 自定义关闭按钮                               | string / <a href="/components/interface.html#fightingicon">FightingIcon</a> | ——                                                  | ——        |
+| `close-btn`  | 自定义关闭按钮                               | string / <a href="/components/interface.html#fightingicon">FightingIcon</a>                  | ——                                                  | ——        |
 | `z-index`    | 层级                                         | boolean                                                                                      | ——                                                  | 1000      |
 | `on-close`   | 关闭之后回调                                 | <a href="/components/message.html#messageclose">MessageClose</a>                             | ——                                                  | ——        |
 

@@ -16,7 +16,7 @@ describe('FRate', () => {
 
   test('clicking the star should be reactive', async () => {
     const wrapper = mount(FRate, {
-      props: { 
+      props: {
         modelValue: 2,
         'onUpdate:modelValue': (val: number) => {
           wrapper.setProps({ modelValue: val })
@@ -50,7 +50,7 @@ describe('FRate', () => {
         modelValue: activeStarCount
       }
     })
-    wrapper.findAll('.f-svg-icon').forEach((itemWrapper, index)=> {
+    wrapper.findAll('.f-svg-icon').forEach((itemWrapper, index) => {
       if (index < activeStarCount) {
         expect(itemWrapper.attributes('style')).toContain('--svg-icon-color: red')
       }
@@ -65,7 +65,7 @@ describe('FRate', () => {
         modelValue: activeStarCount
       }
     })
-    wrapper.findAll('.f-svg-icon').forEach((itemWrapper, index)=> {
+    wrapper.findAll('.f-svg-icon').forEach((itemWrapper, index) => {
       if (index >= activeStarCount) {
         expect(itemWrapper.attributes('style')).toContain('--svg-icon-color: #eee')
       }
@@ -83,7 +83,7 @@ describe('FRate', () => {
     const activeStarCount = 2
     const wrapper = mount(FRate, {
       props: {
-        readonly: true, 
+        readonly: true,
         modelValue: activeStarCount,
         'onUpdate:modelValue': (val: number) => {
           wrapper.setProps({ modelValue: val })
@@ -108,7 +108,9 @@ describe('FRate', () => {
     const wrapper = mount(FRate, {
       props: { size: 20 }
     })
-    expect(wrapper.find('.f-svg-icon').attributes('style')).toContain('--svg-icon-size: 20px')
+    expect(wrapper.find('.f-svg-icon').attributes('style')).toContain(
+      '--svg-icon-size: 20px'
+    )
   })
 
   test('textShow', async () => {

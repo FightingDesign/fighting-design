@@ -33,7 +33,7 @@ const data: TreeData = [
   }
 ]
 
-describe('Tree', () => { 
+describe('Tree', () => {
   test('create', async () => {
     const wrapper = mount(FTree, {
       props: {
@@ -66,7 +66,9 @@ describe('Tree', () => {
     const wrapperList = wrapper.findAllComponents(FTreeItem)
     const labelList = wrapperList.map(wrapperItem => wrapperItem.vm.model.label)
 
-    await Promise.all([wrapperList.map(wrapperItem => wrapperItem.find('.f-checkbox').trigger('click'))])
+    await Promise.all([
+      wrapperList.map(wrapperItem => wrapperItem.find('.f-checkbox').trigger('click'))
+    ])
     expect(checkLabels).toEqual(labelList)
   })
 
@@ -81,13 +83,20 @@ describe('Tree', () => {
     wrapper.findAllComponents(FTreeItem).forEach(wrapperItem => {
       const level = wrapperItem.vm.model.__level
       if (level > 0) {
-        expect(wrapperItem.find('.f-tree-item__label').attributes('style')).toContain(`--tree-item-level-padding: ${level * offset}px`)
+        expect(wrapperItem.find('.f-tree-item__label').attributes('style')).toContain(
+          `--tree-item-level-padding: ${level * offset}px`
+        )
       }
     })
   })
 
   test('onClickLabel', async () => {
-    const onClickLabel = vi.fn((evt, model, isOpen, tree) => ({ evt, model, isOpen, tree }))
+    const onClickLabel = vi.fn((evt, model, isOpen, tree) => ({
+      evt,
+      model,
+      isOpen,
+      tree
+    }))
     const wrapper = mount(FTree, {
       props: {
         data,

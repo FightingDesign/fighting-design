@@ -5,10 +5,6 @@
 - [源代码](https://github.com/FightingDesign/fighting-design/tree/master/packages/fighting-design/time-picker)
 - [文档编辑](https://github.com/FightingDesign/fighting-design/blob/master/docs/components/time-picker.md)
 
-:::danger
-组件仍在测试阶段，高频更新中，部分参数暂不稳定！
-:::
-
 ## 基本使用
 
 使用 `v-model:time` 绑定一个值

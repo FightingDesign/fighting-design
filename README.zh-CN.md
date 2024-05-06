@@ -36,7 +36,6 @@
 - 👍 社区团队维护
 - ❤️ 根据实际需求开发
 - 📃 优质详细的文档
-- 📌 完善 RFC
 - ☝️ 提出需求，不断完善
 - 🌍 更多配置项，灵活组件
 - 🛠 更多特性开发中
@@ -68,10 +67,13 @@ yarn add --save-dev fighting-design
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
+
 import FightingDesign from 'fighting-design'
 import 'fighting-design/dist/index.css'
 
-createApp(App).use(FightingDesign).mount('#app')
+const app = createApp(App)
+app.use(FightingDesign)
+app.mount('#app')
 ```
 
 ## 🪂 快速体验
@@ -132,7 +134,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 添加微信请备注 `Github` 用户名
 
-<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg" >
+<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat-2.jpg" >
 
 ## 💌 特别感谢
 

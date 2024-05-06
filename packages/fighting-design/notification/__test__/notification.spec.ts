@@ -11,16 +11,18 @@ import type { ComponentPublicInstance } from 'vue'
 const NAME = 'Mikoto Misaka'
 const AXIOM = 'The electric light dancing at your fingertips is my unchanging faith'
 
-type NotificationInstance = ComponentPublicInstance<NotificationProps & {
-  visible: boolean
-}>
+type NotificationInstance = ComponentPublicInstance<
+  NotificationProps & {
+    visible: boolean
+  }
+>
 
-describe('FNotification', () => { 
+describe('FNotification', () => {
   test('basic render', async () => {
     const wrapper = mount(FNotificationVue, {
       props: {
         title: NAME,
-        message: AXIOM,
+        message: AXIOM
       }
     })
     expect(wrapper.find('.f-notification').exists()).toBe(true)
@@ -48,7 +50,7 @@ describe('FNotification', () => {
   })
 
   test('type', () => {
-    FIGHTING_TYPE.forEach((type) => {
+    FIGHTING_TYPE.forEach(type => {
       const wrapper = mount(FNotificationVue, {
         props: {
           type
@@ -82,7 +84,9 @@ describe('FNotification', () => {
         color: 'red'
       }
     })
-    expect(wrapper.find('.f-notification').attributes('style')).toContain('--notification-color: red')
+    expect(wrapper.find('.f-notification').attributes('style')).toContain(
+      '--notification-color: red'
+    )
   })
 
   test('background', () => {
@@ -91,7 +95,9 @@ describe('FNotification', () => {
         background: 'red'
       }
     })
-    expect(wrapper.find('.f-notification').attributes('style')).toContain('--notification-background: red')
+    expect(wrapper.find('.f-notification').attributes('style')).toContain(
+      '--notification-background: red'
+    )
   })
 
   test('offset', () => {
@@ -109,18 +115,27 @@ describe('FNotification', () => {
         zIndex: 100
       }
     })
-    expect(wrapper.find('.f-notification').attributes('style')).toContain('--notification-z-index: 100')
+    expect(wrapper.find('.f-notification').attributes('style')).toContain(
+      '--notification-z-index: 100'
+    )
   })
 
   test('placement', () => {
-    const notificationPlacement: NotificationPlacement[] = ['top-left', 'top-right', 'bottom-left', 'bottom-right']
-    notificationPlacement.forEach((placement) => {
+    const notificationPlacement: NotificationPlacement[] = [
+      'top-left',
+      'top-right',
+      'bottom-left',
+      'bottom-right'
+    ]
+    notificationPlacement.forEach(placement => {
       const wrapper = mount(FNotificationVue, {
         props: {
           placement
         }
       })
-      expect(wrapper.find('.f-notification').classes()).toContain(`f-notification__${placement}`)
+      expect(wrapper.find('.f-notification').classes()).toContain(
+        `f-notification__${placement}`
+      )
     })
   })
 

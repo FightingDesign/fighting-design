@@ -42,7 +42,10 @@
     </span>
 
     <!-- 主要内容 -->
-    <div :class="[classList, { 'f-switch__active': modelValue }]" @click.stop="handleClick">
+    <div
+      :class="[classList, { 'f-switch__active': modelValue }]"
+      @click.stop="handleClick"
+    >
       <span :class="['f-switch__roll', { 'f-switch__roll-active': modelValue }]">
         <f-svg-icon v-if="icon && !loading" :icon="icon" :size="iconSize" />
 

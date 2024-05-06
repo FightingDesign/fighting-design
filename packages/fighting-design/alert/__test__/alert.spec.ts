@@ -156,7 +156,7 @@ describe('FAlert', () => {
 
   test('closeIcon', () => {
     const wrapper = mount(FAlert, {
-      props: { 
+      props: {
         close: true,
         closeIcon: markRaw(FIconFaceSmile)
       }

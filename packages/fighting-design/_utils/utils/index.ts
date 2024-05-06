@@ -114,14 +114,17 @@ const convertFormatRegExp = /([A-Z])/g
  * @returns { string } 短横线命名
  */
 export const convertFormat = (str: string): string => {
-  return str.replace(convertFormatRegExp, (_: string, p1: string, offset: number): string => {
-    // 判断是否为首字母，如果首字母大写的话就不加 -
-    if (offset === 0) {
-      return p1.toLowerCase()
-    }
+  return str.replace(
+    convertFormatRegExp,
+    (_: string, p1: string, offset: number): string => {
+      // 判断是否为首字母，如果首字母大写的话就不加 -
+      if (offset === 0) {
+        return p1.toLowerCase()
+      }
 
-    return '-' + p1.toLowerCase()
-  })
+      return '-' + p1.toLowerCase()
+    }
+  )
 }
 
 /**

@@ -11,7 +11,9 @@ import App from './App.vue'
 import FightingDesign from 'fighting-design'
 import 'fighting-design/dist/index.css'
 
-createApp(App).use(FightingDesign).mount('#app')
+const app = createApp(App)
+app.use(FightingDesign)
+app.mount('#app')
 ```
 
 ## 按需引入
@@ -29,7 +31,10 @@ import { FButton, FCard } from 'fighting-design'
 import 'fighting-design/theme/button.css'
 import 'fighting-design/theme/card.css'
 
-createApp(App).use(FButton).use(FCard).mount('#app')
+const app = createApp(App)
+app.use(FButton)
+app.use(FCard)
+app.mount('#app')
 ```
 
 ## 使用 UMD

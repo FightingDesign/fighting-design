@@ -8,7 +8,7 @@ describe('FCard', () => {
     const wrapper = mount(FCard)
     expect(wrapper.find('div').classes()).toContain('f-card')
   })
-  
+
   test('title', () => {
     const wrapper = mount(FCard, {
       props: { title: '这是卡片标题' }
@@ -52,21 +52,27 @@ describe('FCard', () => {
     const wrapper = mount(FCard, {
       props: { borderColor: 'red' }
     })
-    expect(wrapper.find('.f-card').attributes('style')).toContain('--card-border-color: red')
+    expect(wrapper.find('.f-card').attributes('style')).toContain(
+      '--card-border-color: red'
+    )
   })
 
   test('background', () => {
     const wrapper = mount(FCard, {
       props: { background: 'red' }
     })
-    expect(wrapper.find('.f-card').attributes('style')).toContain('--card-background: red')
+    expect(wrapper.find('.f-card').attributes('style')).toContain(
+      '--card-background: red'
+    )
   })
 
   test('titleColor', () => {
     const wrapper = mount(FCard, {
       props: { titleColor: 'red' }
     })
-    expect(wrapper.find('.f-card').attributes('style')).toContain('--card-title-color: red')
+    expect(wrapper.find('.f-card').attributes('style')).toContain(
+      '--card-title-color: red'
+    )
   })
 
   test('titleBold', () => {

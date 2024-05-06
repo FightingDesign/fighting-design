@@ -19,7 +19,7 @@ const getWrapper = (props = '', options = {}) => {
       FCheckbox,
       FCheckboxGroup
     },
-    setup() {
+    setup () {
       return {
         labelList,
         checkList,
@@ -38,7 +38,7 @@ const getWrapper = (props = '', options = {}) => {
   return wrapper
 }
 
-describe('FCheckboxGroup', () => { 
+describe('FCheckboxGroup', () => {
   test('create', () => {
     const wrapper = getWrapper()
     expect(wrapper.classes()).toContain('f-checkbox-group')
@@ -82,7 +82,9 @@ describe('FCheckboxGroup', () => {
 
   test('columnGap', () => {
     const wrapper = getWrapper(':columnGap=50')
-    expect(wrapper.get('.f-checkbox-group').attributes('style')).toContain('--checkbox-group-column-gap: 50px')
+    expect(wrapper.get('.f-checkbox-group').attributes('style')).toContain(
+      '--checkbox-group-column-gap: 50px'
+    )
   })
 
   test('rowGap', () => {

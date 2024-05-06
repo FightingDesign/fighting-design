@@ -96,7 +96,7 @@ describe('FTag', () => {
   test('close', async () => {
     const App = defineComponent({
       components: { FTag },
-      setup() {
+      setup () {
         const isShow = ref(true)
         const onClose = () => {
           isShow.value = false

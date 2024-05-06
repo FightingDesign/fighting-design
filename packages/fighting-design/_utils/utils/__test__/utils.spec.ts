@@ -1,5 +1,12 @@
 import { expect, test } from 'vitest'
-import { financial, zeroPad, convertSize, sizeToNum, convertFormat, splitString } from '..'
+import {
+  financial,
+  zeroPad,
+  convertSize,
+  sizeToNum,
+  convertFormat,
+  splitString
+} from '..'
 
 test('financial', () => {
   expect(financial(1.2222)).toBe(1.22)

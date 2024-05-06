@@ -22,7 +22,6 @@
     "build:docs": "pnpm run -C docs build",
     "build:start": "pnpm run -C start build",
     "build:play": "pnpm run -C packages/fighting-playground build",
-    "build:resolver": "pnpm run -C packages/fighting-resolver build",
     "serve:docs": "pnpm run -C docs serve",
     "new": "pnpm run -C packages/fighting-add-component new",
     "test": "vitest",

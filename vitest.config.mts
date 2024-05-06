@@ -7,9 +7,9 @@ import vue from '@vitejs/plugin-vue'
  * vitest 配置文件
  *
  * @see vitest https://cn.vitest.dev
- * 
+ *
  * 文件名需要使用 mts 后缀，否则会有警告信息
- * 
+ *
  * @see CJS https://cn.vitejs.dev/guide/troubleshooting#vite-cjs-node-api-deprecated
  */
 export default defineConfig({
@@ -48,6 +48,6 @@ export default defineConfig({
      *
      * @see include https://cn.vitest.dev/config/#include
      */
-    include: ['**/packages/fighting-design/**/__test__/*.{test,spec}.{ts,tsx}'],
-  },
+    include: ['**/packages/fighting-design/**/__test__/*.{test,spec}.{ts,tsx}']
+  }
 })

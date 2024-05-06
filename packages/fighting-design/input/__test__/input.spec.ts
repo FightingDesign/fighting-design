@@ -16,7 +16,7 @@ describe('Input', () => {
 
   test('v-model', async () => {
     const wrapper = mount(FInput, {
-      props: { 
+      props: {
         modelValue: 'initialText',
         'onUpdate:modelValue': (val: string | number) => {
           wrapper.setProps({ modelValue: val })
@@ -49,7 +49,7 @@ describe('Input', () => {
   test('disabled', async () => {
     const wrapper = mount(FInput, {
       props: {
-        disabled: true,
+        disabled: true
       }
     })
     expect(wrapper.classes()).toContain('f-input__disabled')
@@ -106,12 +106,11 @@ describe('Input', () => {
   test('fontSize', () => {
     const fontSize = 14
     const fontSizeList: [number, string] = [fontSize, `${fontSize}px`]
-    fontSizeList.forEach((item) => {
+    fontSizeList.forEach(item => {
       const wrapper = mount(FInput, {
         props: { fontSize: item }
       })
       expect(wrapper.attributes('style')).toContain(`--input-font-size: ${fontSize}px`)
-
     })
   })
 
@@ -125,7 +124,7 @@ describe('Input', () => {
   test('width', () => {
     const width = 100
     const widthList: [number, string] = [width, `${width}px`]
-    widthList.forEach((item) => {
+    widthList.forEach(item => {
       const wrapper = mount(FInput, {
         props: { width: item }
       })
@@ -136,7 +135,7 @@ describe('Input', () => {
   test('height', () => {
     const height = 100
     const heightList: [number, string] = [height, `${height}px`]
-    heightList.forEach((item) => {
+    heightList.forEach(item => {
       const wrapper = mount(FInput, {
         props: { height: item }
       })
@@ -168,7 +167,7 @@ describe('Input', () => {
 
   test('clicking the search button should invoke `onSearch` callback', async () => {
     const modelValue = 'test'
-    const onSearch = vi.fn((val: string, evt: Event) => val)
+    const onSearch = vi.fn((val: string) => val)
     const wrapper = mount(FInput, {
       props: {
         onSearch,
@@ -221,7 +220,7 @@ describe('Input', () => {
 
   test('pressing the enter key should invoke `onEnter` callback', async () => {
     const modelValue = 'test'
-    const onEnter = vi.fn((val: string, evt: Event) => val)
+    const onEnter = vi.fn((val: string) => val)
     const wrapper = mount(FInput, {
       props: {
         modelValue,
@@ -234,10 +233,10 @@ describe('Input', () => {
   })
 
   test('onChange', async () => {
-    const onChange = vi.fn((val: number | string, evt: Event) => val)
+    const onChange = vi.fn((val: number | string) => val)
     const wrapper = mount(FInput, {
       props: {
-        onChange,
+        onChange
       }
     })
     await wrapper.find('input').setValue('test')
@@ -246,7 +245,7 @@ describe('Input', () => {
   })
 
   test('onInput', async () => {
-    const onInput = vi.fn((val: number | string, evt: Event) => val)
+    const onInput = vi.fn((val: number | string) => val)
     const wrapper = mount(FInput, {
       props: { onInput }
     })
@@ -294,7 +293,7 @@ describe('Input', () => {
   test('should render searchBtn slot', () => {
     const wrapper = mount(FInput, {
       props: {
-        search: true,
+        search: true
       },
       slots: {
         searchBtn: 'searchBtn slot'

@@ -50,7 +50,9 @@ describe('FSwitch', () => {
       props: { loading: true }
     })
     expect(wrapper.classes()).toContain('f-switch__disabled')
-    expect(wrapper.findComponent(FSvgIcon).classes()).toContain('f-switch__loading-animation')
+    expect(wrapper.findComponent(FSvgIcon).classes()).toContain(
+      'f-switch__loading-animation'
+    )
     // click is disabled
     wrapper.find('.f-switch__input').trigger('click')
     expect(wrapper.emitted()).not.toHaveProperty('click')
@@ -105,7 +107,9 @@ describe('FSwitch', () => {
         iconSize: '20px'
       }
     })
-    expect(wrapper.findComponent(FSvgIcon).attributes('style')).toContain('--svg-icon-size: 20px')
+    expect(wrapper.findComponent(FSvgIcon).attributes('style')).toContain(
+      '--svg-icon-size: 20px'
+    )
   })
 
   test('onChange', () => {

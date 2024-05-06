@@ -35,7 +35,6 @@
 - 👍 Maintained by the community team
 - ❤️ Developed according to actual demand
 - 📃 High quality detailed documentation
-- 📌 Improve RFC
 - ☝️ Put forward demands and keep improving
 - 🌍 More configuration options & flexible components
 - 🛠 More features are under development
@@ -71,7 +70,9 @@ import App from './App.vue'
 import FightingDesign from 'fighting-design'
 import 'fighting-design/dist/index.css'
 
-createApp(App).use(FightingDesign).mount('#app')
+const app = createApp(App)
+app.use(FightingDesign)
+app.mount('#app')
 ```
 
 ## 🪂 Quick experience
@@ -132,7 +133,7 @@ createApp(App).use(FightingDesign).mount('#app')
 
 Add WeChat & please note the `Github` username
 
-<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat.jpg" >
+<img width="200" height="200" src="https://raw.githubusercontent.com/Tyh2001/images/master/my/we-chat-2.jpg" >
 
 ## 💌 Special Thanks
 

@@ -122,7 +122,7 @@ export const usePage = (
 
     /** 翻页映射方法 */
     const changeMap = {
-      /** 
+      /**
        * 下一页切换
        */
       next: () => {
