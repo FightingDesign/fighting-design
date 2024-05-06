@@ -26,7 +26,7 @@ export type TabsJustifyContent =
 /**
  * 切换前的回调类型
  *
- * @param {  string | number } name 标签的 name
+ * @param { string | number } name 标签的 name
  */
 export type TabsSwitch = (name: TabsModelValue) => boolean | void
 

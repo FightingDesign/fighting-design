@@ -18,7 +18,7 @@ export interface UseCountDownOptions {
 }
 
 /**
- * useCountDown hook 返回值中currentTime的类型
+ * useCountDown hook 返回值中 currentTime 的类型
  *
  * @param { number } total 剩余总时间（单位毫秒）
  * @param { number } days 剩余天数

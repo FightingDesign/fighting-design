@@ -22,8 +22,8 @@
   /**
    * 格式化时间格式
    *
-   * @param format
-   * @param currentTime
+   * @param { string } format 需要格式化的时间
+   * @param { Object } currentTime 时间信息
    */
   const formatTimeStr = (format: string, currentTime: CurrentTime): string => {
     const { days } = currentTime
@@ -32,8 +32,8 @@
     /**
      * 在前方补全 0
      *
-     * @param str
-     * @param length
+     * @param { string | number } str 需要加 0 的值
+     * @param { number } [length = 2] 加的长度
      */
     const padZero = (str: string | number, length = 2): string => {
       let realStr = str + ''

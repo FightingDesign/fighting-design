@@ -1,7 +1,7 @@
 import { markRaw } from 'vue'
 import { mount } from '@vue/test-utils'
 import { vi, describe, expect, test } from 'vitest'
-import { FIconSnowflake  } from '@fighting-design/fighting-icon'
+import { FIconSnowflake } from '@fighting-design/fighting-icon'
 import { FSwitch } from '../index'
 import { FSvgIcon } from '../../svg-icon'
 import { FIGHTING_SIZE } from '../../_tokens'
@@ -15,9 +15,11 @@ describe('FSwitch', () => {
 
   test('modelValue', async () => {
     const wrapper = mount(FSwitch, {
-      props: { 
+      props: {
         modelValue: true,
-        'onUpdate:modelValue': (val: boolean) => wrapper.setProps({ modelValue: val })
+        'onUpdate:modelValue': (val: boolean) => {
+          return wrapper.setProps({ modelValue: val })
+        }
       }
     })
     await wrapper.find('.f-switch__input').trigger('click')
@@ -109,7 +111,7 @@ describe('FSwitch', () => {
   test('onChange', () => {
     const onChange = vi.fn((val: boolean) => val)
     const wrapper = mount(FSwitch, {
-      props: { 
+      props: {
         onChange,
         modelValue: true
       }
