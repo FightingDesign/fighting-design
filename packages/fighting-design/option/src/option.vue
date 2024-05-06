@@ -45,7 +45,7 @@
     }
 
     /** 获取到 label */
-    const label = slotLabel.value || prop.label.toString() || prop.value.toString()
+    const label = slotLabel.value || prop.label?.toString() || prop.value?.toString()
     /** 获取到选中的项目 */
     const currentItem = parentInject.childrenLabels.find(item => {
       return item.slot === label
