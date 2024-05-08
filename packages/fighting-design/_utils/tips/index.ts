@@ -5,7 +5,7 @@
  * @param { string } location 位置
  * @param { string } message 警告信息
  */
-export const warning = (location: string, message: string) => {
+export const warning = (location: string, message: string): void => {
   console.warn(`[fighting-design/${location}]: ${message}`)
 }
 
@@ -16,7 +16,7 @@ export const warning = (location: string, message: string) => {
  * @param { string } location 位置
  * @param { string } message 警告信息
  */
-export const error = (location: string, message: string) => {
+export const error = (location: string, message: string): void => {
   console.error(`[fighting-design/${location}]: ${message}`)
 }
 
@@ -28,6 +28,6 @@ export const error = (location: string, message: string) => {
  * @param { string } location 位置
  * @param { string } message 警告信息
  */
-export const throwError = (location: string, message: string) => {
+export const throwError = (location: string, message: string): void => {
   throw new Error(`[fighting-design/${location}]: ${message}`)
 }
