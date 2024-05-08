@@ -1,6 +1,8 @@
 import { isString, isNumber } from '..'
 
+// #region 保留小数点后 no 位
 /**
+ * 
  * 保留小数点后 no 位
  *
  * @see Number.prototype.toFixed() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
@@ -12,8 +14,9 @@ export const financial = (value: number, no = 2): number => {
   return isNumber(value) ? Number(value.toFixed(no)) : value
 }
 
+// #region 防抖
 /**
- * 防抖
+ * #region 防抖
  *
  * 来处理对于短时间内连续触发的事件加以限制
  *
@@ -38,6 +41,7 @@ export const debounce = <T extends (...args: any[]) => void>(
   }
 }
 
+// #region 给数字小于 10 的数字前面加 0
 /**
  * 给数字小于 10 的数字前面加 0
  *
@@ -52,6 +56,7 @@ export const zeroPad = (value: number): string => {
   return '00'
 }
 
+// #region 将数字尺寸改为字符串
 /**
  * 将数字尺寸改为字符串
  *
@@ -77,6 +82,7 @@ export const convertSize = (size: string | number | undefined, target = 'px'): s
   return ''
 }
 
+// #region 将字符串的尺寸转为数字
 /**
  * 将字符串的尺寸转为数字
  *
@@ -105,6 +111,7 @@ export const sizeToNum = (size: string | number): number => {
 /** 驼峰命名转换为短横线命名规则 */
 const convertFormatRegExp = /([A-Z])/g
 
+// #region 驼峰命名转换为短横线命名
 /**
  * 驼峰命名转换为短横线命名
  *
@@ -127,6 +134,7 @@ export const convertFormat = (str: string): string => {
   )
 }
 
+// #region 将字符串通过指定规则分隔
 /**
  * 将字符串通过指定规则分隔
  *
