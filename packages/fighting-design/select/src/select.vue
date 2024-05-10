@@ -237,6 +237,7 @@
         :name
         :size
         :disabled
+        :width
         :placeholder
         :clear
         :on-focus="() => (isFocus = true)"

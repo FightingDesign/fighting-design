@@ -1,6 +1,6 @@
 <template>
   {{ value }}
-  <f-select v-model="value" placeholder="请选择……" filter>
+  <f-select v-model="value" placeholder="请选择……" filter :width="300">
     <f-option>香蕉</f-option>
     <f-option>苹果</f-option>
     <f-option>哈密瓜</f-option>
