@@ -40,6 +40,8 @@
   const isFocus = ref(false)
   /** 展开的内容元素 */
   const selectContentRef = ref<HTMLDivElement | undefined>()
+  /** 是否有搜索内容 */
+  const isHaveValues = ref(true)
 
   /**
    * 获取子元素 option
@@ -149,6 +151,13 @@
 
       return { slot, show: !!(slot && slot.includes(modelValue.value.toString())) }
     })
+
+    // 如果是过滤状态，判断是否存在搜索结果
+    if (prop.filter) {
+      const isHave: boolean = childrenLabels.value.some(y => y.show)
+
+      isHaveValues.value = isHave
+    }
   }
 
   /** 下拉菜单开启之后的回调 */
@@ -191,7 +200,7 @@
   // 页面卸载的时候，如何有监听器 则停止
   onBeforeUnmount(() => {
     if (watchStopHandle) {
-      watchStopHandle()
+      watchStopHandle() // 监听器实例
     }
   })
 
@@ -205,6 +214,18 @@
       filter: toRef(prop, 'filter')
     })
   )
+
+  /**
+   * 文本框失去焦点
+   */
+  const inputBlur = (): void => {
+    isFocus.value = false
+
+    // 失去焦点的时候如果子节点的 title 中不包含输入项目，则情况文本框的内容
+    if (!isHaveValues.value) {
+      keyword.value = ''
+    }
+  }
 </script>
 
 <template>
@@ -219,7 +240,7 @@
         :placeholder
         :clear
         :on-focus="() => (isFocus = true)"
-        :on-blur="() => (isFocus = false)"
+        :on-blur="inputBlur"
       >
         <template #after>
           <f-svg-icon
@@ -233,7 +254,8 @@
 
       <template #content>
         <div ref="selectContentRef" class="f-select__content">
-          <slot />
+          <slot v-if="isHaveValues" />
+          <f-empty v-else content="暂无数据" />
         </div>
       </template>
     </f-dropdown>
