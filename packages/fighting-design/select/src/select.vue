@@ -32,14 +32,14 @@
   const { run } = useRun()
   const { styles } = useList(prop, 'select')
 
-  /** 子节点的 lable 配置项参数 */
+  /** 子节点的 label 配置项参数 */
   const childrenLabels = ref<{ slot: string; show: boolean }[]>([])
   /** 样式列表 */
   const style = styles(['width'])
   /** 当前是否聚焦 */
   const isFocus = ref(false)
   /** 展开的内容元素 */
-  const secletContentRef = ref<HTMLDivElement | undefined>()
+  const selectContentRef = ref<HTMLDivElement | undefined>()
 
   /**
    * 获取子元素 option
@@ -165,8 +165,8 @@
 
     /** 获取到当前选中的元素 */
     const active =
-      secletContentRef.value &&
-      secletContentRef.value.querySelector('.f-option.f-option__active')
+      selectContentRef.value &&
+      selectContentRef.value.querySelector('.f-option.f-option__active')
 
     if (active && isFunction(active.scrollIntoView)) {
       /**
@@ -232,7 +232,7 @@
       </f-input>
 
       <template #content>
-        <div ref="secletContentRef" class="f-select__content">
+        <div ref="selectContentRef" class="f-select__content">
           <slot />
         </div>
       </template>
