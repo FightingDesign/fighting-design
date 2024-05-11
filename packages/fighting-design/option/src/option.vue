@@ -47,8 +47,9 @@
       return false
     }
 
-    if (parentInject.filter && parentInject.isFiltering) {
-      return (currentLabel as string).includes(parentInject.inputValue)
+    // 在过滤属性存在并且是正在输入中，执行过滤操作
+    if (parentInject.filter && parentInject.isFiltering && currentLabel) {
+      return currentLabel.toString().includes(parentInject.inputValue)
     }
 
     return true
@@ -152,7 +153,11 @@
    * 初始化设置选中的值
    */
   const setInit = (): void => {
-    if (currentValue === parentInject?.modelValue) {
+    if (!parentInject) {
+      return
+    }
+
+    if (currentValue === parentInject.modelValue) {
       parentInject && run(parentInject.setValue, currentValue, currentLabel)
     }
   }
