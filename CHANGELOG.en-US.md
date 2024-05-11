@@ -4,6 +4,18 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.0-alpha.2 (2024-05-11)
+
+**Fix**
+
+- Fix the issue of invalid configuration items in the `width` component of the `f-select` component
+- Fix the issue of input text not displaying in the `filter` configuration of the `f-select` component
+- Fix the issue of unfriendly interaction between `f-select` components
+
+**Style**
+
+- Optimize the style details of `f-input`
+
 ## 1.0.0-alpha.1 (2024-04-30)
 
 - Fix the responsive loss issue of adding elements to `f-tree` [#469](https://github.com/FightingDesign/fighting-design/pull/469)

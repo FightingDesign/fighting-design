@@ -2,6 +2,18 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 1.0.0-alpha.2 (2024-05-11)
+
+**修复**
+
+- 修复 `f-select` 组件 `width` 配置项失效问题
+- 修复 `f-select` 组件 `filter` 配置输入文字不显示问题
+- 修复 `f-select` 组件交互不友好的问题
+
+**样式**
+
+- 优化 `f-input` 样式细节
+
 ## 1.0.0-alpha.1 (2024-04-30)
 
 - 修复 `f-tree` 添加元素响应式丢失问题 [#469](https://github.com/FightingDesign/fighting-design/pull/469)
