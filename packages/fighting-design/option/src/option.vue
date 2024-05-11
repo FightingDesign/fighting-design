@@ -131,10 +131,6 @@
     slotLabel.value
   )
 
-  if (currentValue === parentInject?.modelValue) {
-    parentInject && run(parentInject.setValue, currentValue, currentLabel)
-  }
-
   /**
    * 点击传入指定的 value
    *
@@ -151,6 +147,17 @@
     // 点击之后关闭
     triggerInject && run(triggerInject.close)
   }
+
+  /**
+   * 初始化设置选中的值
+   */
+  const setInit = (): void => {
+    if (currentValue === parentInject?.modelValue) {
+      parentInject && run(parentInject.setValue, currentValue, currentLabel)
+    }
+  }
+
+  setInit() // 初始化设置选中的值
 </script>
 
 <template>

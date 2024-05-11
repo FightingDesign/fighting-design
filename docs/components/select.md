@@ -172,6 +172,10 @@ type SelectChange = (
   <f-avatar round src="https://avatars.githubusercontent.com/u/73180970?v=4" />
 </a>
 
+<a href="https://github.com/jxzho" target="_blank">
+  <f-avatar round src="https://avatars.githubusercontent.com/u/37285048?v=4" />
+</a>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
   import demo1Vue from './demos/select/demo1.vue'

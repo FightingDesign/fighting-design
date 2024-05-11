@@ -1,5 +1,3 @@
-import type { VNode } from 'vue'
-
 export type { SelectProps } from './props'
 
 /** 绑定值类型 */
@@ -23,19 +21,14 @@ export type SelectChange = (
  *
  * @param { Function } setValue 设置新的选中值
  * @param { Object } modelValue 绑定的值
- * @param { Object } childrenLabels 绑定的值
- * @param { Object } filter 绑定的值
+ * @param { boolean } filter 绑定的值
+ * @param { boolean } isFiltering 是否正在搜索
+ * @param { string } inputValue 文本框绑定的值
  */
 export interface SelectProvide {
   setValue: SelectChange
   modelValue: SelectModelValue
-  childrenLabels: { slot: string; show: boolean }[]
   filter: boolean
-}
-
-/** 获取子元素插槽类型接口 */
-export interface SelectChildren extends VNode {
-  children: {
-    default(): VNode[]
-  }
+  isFiltering: boolean
+  inputValue: string
 }
