@@ -35,7 +35,7 @@
     "format": "pnpm prettier && pnpm lint:fix"
   },
   "dependencies": {
-    "vue": "^3.4.3"
+    "vue": "^3.4.27"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

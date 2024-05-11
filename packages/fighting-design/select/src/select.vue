@@ -58,6 +58,7 @@
 
     modelValue.value = currentValue
     inputValue.value = currentLabel?.toString()
+    isFiltering.value = false
   }
 
   /** 下拉菜单开启之后的回调 */
@@ -88,10 +89,6 @@
    */
   const inputBlur = (): void => {
     isFocus.value = false
-
-    if (prop.filter) {
-      isFiltering.value = false
-    }
 
     // 失去焦点的时候如果子节点的 title 中不包含输入项目，则情况文本框的内容
     if (!isHaveValues.value) {

@@ -3,7 +3,7 @@
   import { useRun } from '../../_hooks'
   import { isString, isArray, isObject } from '../../_utils'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
-  import { inject, useSlots, computed } from 'vue'
+  import { inject, useSlots, computed, watch } from 'vue'
   import { warning } from '../../_utils'
   import { SELECT_PROPS_TOKEN } from '../../select/src/props'
   import type { SelectProvide, SelectModelValue } from '../../select'
@@ -162,7 +162,21 @@
     }
   }
 
+  /**
+   * 监听一次数据的变化更新值，避免数据是异步设置的
+   *
+   * 只需要监听一次即可
+   */
+  const setWatch = (): void => {
+    if (!parentInject) {
+      return
+    }
+
+    watch(() => parentInject.modelValue, setInit, { once: true })
+  }
+
   setInit() // 初始化设置选中的值
+  setWatch() // 开始监听器
 </script>
 
 <template>
