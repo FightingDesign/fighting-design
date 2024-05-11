@@ -3,7 +3,8 @@
   import { useRun } from '../../_hooks'
   import { isString, isArray, isObject } from '../../_utils'
   import { TRIGGER_CLOSE_KEY } from '../../trigger/src/props'
-  import { inject, toRefs, useSlots, computed } from 'vue'
+  import { inject, useSlots, computed } from 'vue'
+  import { warning } from '../../_utils'
   import { SELECT_PROPS_TOKEN } from '../../select/src/props'
   import type { SelectProvide, SelectModelValue } from '../../select'
   import type { TriggerProvide } from '../../trigger'
@@ -27,9 +28,16 @@
       return ''
     }
 
-    const _slot: VNodeNormalizedChildren | string = slot.default()[0].children
+    /** 获取到插槽的内容 */
+    const content: VNodeNormalizedChildren | string = slot.default()[0].children
 
-    return isString(_slot) ? _slot : ''
+    // 如果不是字符串，暂时无法处理，先警告信息，返回空字符串
+    if (!isString(content)) {
+      warning('f-option', 'slot content is not a string')
+      return ''
+    }
+
+    return content
   })
 
   /** 控制是否显示 */
@@ -39,20 +47,8 @@
       return false
     }
 
-    // 没有 filter 属性，则展示
-    if (!parentInject.filter) {
-      return true
-    }
-
-    /** 获取到 label */
-    const label = slotLabel.value || prop.label?.toString() || prop.value?.toString()
-    /** 获取到选中的项目 */
-    const currentItem = parentInject.childrenLabels.find(item => {
-      return item.slot === label
-    })
-
-    if (currentItem) {
-      return currentItem.show
+    if (parentInject.filter && parentInject.isFiltering) {
+      return (currentLabel as string).includes(parentInject.inputValue)
     }
 
     return true
@@ -83,7 +79,7 @@
    *
    * @param {*} values 参数集合
    */
-  const getEffectiveValue = (...values: any[]): any => {
+  const getEffectiveValue = (...values: any[]): string => {
     // 没有数据返回空字符串
     if (!values || !values.length) {
       return ''
@@ -114,6 +110,32 @@
   }
 
   /**
+   * 最新的 label
+   *
+   * 返回优先级：插槽 > label > value
+   */
+  const currentLabel: SelectModelValue = getEffectiveValue(
+    slotLabel.value,
+    prop.label,
+    prop.value
+  )
+
+  /**
+   * 最新的 value
+   *
+   * 返回优先级：value > label > 插槽
+   */
+  const currentValue: SelectModelValue = getEffectiveValue(
+    prop.value,
+    prop.label,
+    slotLabel.value
+  )
+
+  if (currentValue === parentInject?.modelValue) {
+    parentInject && run(parentInject.setValue, currentValue, currentLabel)
+  }
+
+  /**
    * 点击传入指定的 value
    *
    * 让父组件同步 input
@@ -124,32 +146,8 @@
     // 如果没有获取到注入的依赖项或者禁用状态 则返回
     if (!parentInject || prop.disabled) return
 
-    const { value, label } = toRefs(prop)
-
-    /**
-     * 最新的 label
-     *
-     * 返回优先级：插槽 > label > value
-     */
-    const currentLabel: SelectModelValue = getEffectiveValue(
-      slotLabel.value,
-      label.value,
-      value.value
-    )
-
-    /**
-     * 最新的 value
-     *
-     * 返回优先级：value > label > 插槽
-     */
-    const currentValue: SelectModelValue = getEffectiveValue(
-      value.value,
-      label.value,
-      slotLabel.value
-    )
-
     // 执行父组件的设置方法
-    parentInject && run(parentInject.setValue, currentValue, currentLabel, evt)
+    run(parentInject.setValue, currentValue, currentLabel, evt)
     // 点击之后关闭
     triggerInject && run(triggerInject.close)
   }

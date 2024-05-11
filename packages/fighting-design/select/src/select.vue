@@ -2,23 +2,14 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import {
-    provide,
-    computed,
-    useSlots,
-    ref,
-    reactive,
-    toRef,
-    nextTick,
-    watch,
-    onBeforeUnmount
-  } from 'vue'
+  import { provide, computed, useSlots, ref, reactive, toRef, nextTick } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { getChildren, isFunction } from '../../_utils'
   import { FSvgIcon } from '../../svg-icon'
+  import { FEmpty } from '../../empty'
   import { FIconChevronDown } from '../../_svg'
-  import type { VNode, Slots, WatchStopHandle } from 'vue'
-  import type { SelectProvide, SelectModelValue, SelectChildren } from './interface'
+  import type { VNode, Slots } from 'vue'
+  import type { SelectProvide, SelectModelValue } from './interface'
 
   defineOptions({ name: 'FSelect' })
 
@@ -42,6 +33,10 @@
   const selectContentRef = ref<HTMLDivElement | undefined>()
   /** 是否有搜索内容 */
   const isHaveValues = ref(true)
+  /** 文本框绑定的值 */
+  const inputValue = ref('')
+  /** 是否正在输入过滤搜索中 */
+  const isFiltering = ref(false)
 
   /**
    * 获取子元素 option
@@ -55,64 +50,6 @@
     return getChildren(slot.default(), 'FOption')
   })
 
-  /** 当前绑定的值 */
-  const keyword = computed({
-    get: (): string => {
-      // 如果插槽没内容，则返回空字符串
-      if (!options.value.length) return ''
-
-      /**
-       * 通过插槽内容
-       *
-       * 过滤出和绑定值相同的那一项
-       */
-      const currentOption: VNode[] = options.value.filter((node: VNode): boolean => {
-        /** 获取到子组件的 props */
-        const optionProp = node.props
-
-        // 判断是否有传递 props
-        if (optionProp) {
-          return optionProp.value
-            ? `${optionProp.value}` === `${prop.modelValue}`
-            : `${optionProp.label}` === `${prop.modelValue}`
-        }
-
-        /**
-         * 如果没有传递 props 则根据插槽来判断
-         *
-         * 放心，这里一定会有插槽，子组件已经做了判断
-         */
-        return (node as SelectChildren).children.default()[0].children === prop.modelValue
-      })
-
-      /**
-       * 如果没有通过插槽找出和绑定值相同的
-       *
-       * 则返回空
-       */
-      if (!currentOption.length) return ''
-
-      /** 获取到当前满足要求的子元素 */
-      const firstChildren: VNode = currentOption[0]
-
-      /** 获取到当前子元素的插槽内容 */
-      const slot: string | undefined =
-        firstChildren.children &&
-        (firstChildren.children as { default: Function }).default()[0].children
-      /** 获取到当前子元素的 label 参数 */
-      const label: string | undefined = firstChildren.props?.label
-      /** 获取到当前子元素的 value 参数 */
-      const value: string | undefined = firstChildren.props?.value
-
-      // 返回优先级：插槽 > label > value
-      return slot || label || (value && value.toString()) || ''
-    },
-    set: (val: string): string => {
-      modelValue.value = val
-      return val
-    }
-  })
-
   /**
    * 设置新的值
    *
@@ -123,41 +60,21 @@
   const setValue = (
     currentValue: SelectModelValue,
     currentLabel: SelectModelValue,
-    evt: MouseEvent
+    evt?: MouseEvent
   ): void => {
-    // 设置文本框展示的内容
-    keyword.value = currentValue.toString()
-
-    // 如果最新的 value 和绑定的 value 不一致时，才触发 change 事件
-    if (currentLabel !== prop.modelValue) {
+    /**
+     * 如果最新的 value 和绑定的 value 不一致时
+     *
+     * 而且还需要带有 evt 对象的时候才需要触发 change 事件
+     *
+     * 如果没有 evt 对象，则代表是首次赋值，则不予触发
+     */
+    if (currentLabel !== prop.modelValue && evt) {
       run(prop.onChange, currentValue, currentLabel, evt)
     }
 
     modelValue.value = currentValue
-  }
-
-  /**
-   * 设置子节点的展示状态和 label
-   */
-  const setChildrenLabels = (): void => {
-    if (!options.value || !options.value.length) {
-      childrenLabels.value = []
-    }
-
-    childrenLabels.value = options.value.map((item: VNode) => {
-      /** 获取到当前子元素的插槽内容 */
-      const slot: string =
-        item.children && (item.children as { default: Function }).default()[0].children
-
-      return { slot, show: !!(slot && slot.includes(modelValue.value.toString())) }
-    })
-
-    // 如果是过滤状态，判断是否存在搜索结果
-    if (prop.filter) {
-      const isHave: boolean = childrenLabels.value.some(y => y.show)
-
-      isHaveValues.value = isHave
-    }
+    inputValue.value = currentLabel?.toString()
   }
 
   /** 下拉菜单开启之后的回调 */
@@ -187,23 +104,6 @@
     }
   }
 
-  /** 监听器实例 */
-  const watchStopHandle = ((): WatchStopHandle | undefined => {
-    if (!prop.filter) {
-      return
-    }
-    return watch((): SelectModelValue => modelValue.value, setChildrenLabels, {
-      immediate: true
-    })
-  })()
-
-  // 页面卸载的时候，如何有监听器 则停止
-  onBeforeUnmount(() => {
-    if (watchStopHandle) {
-      watchStopHandle() // 监听器实例
-    }
-  })
-
   // 向子组件注入依赖项
   provide<SelectProvide>(
     SELECT_PROPS_TOKEN,
@@ -211,7 +111,9 @@
       setValue,
       childrenLabels,
       modelValue: toRef(prop, 'modelValue'),
-      filter: toRef(prop, 'filter')
+      filter: toRef(prop, 'filter'),
+      inputValue,
+      isFiltering
     })
   )
 
@@ -221,10 +123,27 @@
   const inputBlur = (): void => {
     isFocus.value = false
 
+    if (prop.filter) {
+      isFiltering.value = false
+    }
+
     // 失去焦点的时候如果子节点的 title 中不包含输入项目，则情况文本框的内容
     if (!isHaveValues.value) {
-      keyword.value = ''
+      inputValue.value = ''
     }
+  }
+
+  const inputFocus = (): void => {
+    isFocus.value = true
+
+    // if (prop.filter) {
+    //   isFiltering.value = true
+    // }
+  }
+
+  const inputInput = (): void => {
+    console.log('change')
+    isFiltering.value = true
   }
 </script>
 
@@ -232,7 +151,7 @@
   <div class="f-select" :style="style">
     <f-dropdown trigger="click" :disabled :width :on-open="onOpen">
       <f-input
-        v-model="keyword"
+        v-model="inputValue"
         :readonly="!filter"
         :name
         :size
@@ -240,8 +159,9 @@
         :width
         :placeholder
         :clear
-        :on-focus="() => (isFocus = true)"
+        :on-focus="inputFocus"
         :on-blur="inputBlur"
+        :on-input="filter ? inputInput : void 0"
       >
         <template #after>
           <f-svg-icon
