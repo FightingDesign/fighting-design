@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.0-alpha.3 (2024-05-11)
+
+- Fix the issue of default values not displaying for `f-select` components
+- Fix the issue of not being able to click to select when filtering the `f-select` component
+
 ## 1.0.0-alpha.2 (2024-05-11)
 
 **Fix**
