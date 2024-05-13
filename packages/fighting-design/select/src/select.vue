@@ -40,11 +40,14 @@
    * @param { string | number } currentLabel 新增 label 值
    * @param { Object } evt 事件对象
    */
-  const setValue = (
+  const setValue = async (
     currentValue: SelectModelValue,
     currentLabel: SelectModelValue,
     evt?: MouseEvent
-  ): void => {
+  ): Promise<void> => {
+    // 避免文本框内容不同步的问题
+    await nextTick()
+
     /**
      * 如果最新的 value 和绑定的 value 不一致时
      *

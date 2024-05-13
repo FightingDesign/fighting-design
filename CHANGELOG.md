@@ -2,6 +2,14 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 1.0.0-alpha.5 (2024-05-13)
+
+- 修复 `f-select` 组件默认值不显示问题
+
+## 1.0.0-alpha.4 (2024-05-14)
+
+- 修复 `f-select` 组件默认值不显示问题
+
 ## 1.0.0-alpha.3 (2024-05-11)
 
 - 修复 `f-select` 组件默认值不显示问题

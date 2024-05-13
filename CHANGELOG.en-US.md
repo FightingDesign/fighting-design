@@ -4,6 +4,14 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.0-alpha.5 (2024-05-13)
+
+- Fix the issue of default values not displaying for `f-select` components
+
+## 1.0.0-alpha.4 (2024-05-14)
+
+- Fix the issue of default values not displaying for `f-select` components
+
 ## 1.0.0-alpha.3 (2024-05-11)
 
 - Fix the issue of default values not displaying for `f-select` components

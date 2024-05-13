@@ -55,32 +55,14 @@
     return true
   })
 
-  /** 标签选中状态 */
-  const labelActive = computed((): boolean => {
-    /** 获取到 value 的值 */
-    const val: string | number = prop.value || prop.label || slotLabel.value
-
-    if (parentInject) {
-      return val === parentInject.modelValue
-    }
-
-    return false
-  })
-
   /**
    * 获取有效的值
    *
-   * 如果三个值都为假，返回最后一个
-   *
-   * 空数组或者空对象判断为假
-   *
-   * 0 判断为真
-   *
-   * null、undefined、NaN 判断为假
+   * 如果三个值都为假，返回最后一个、空数组或者空对象判断为假、0 判断为真、null、undefined、NaN 判断为假
    *
    * @param {*} values 参数集合
    */
-  const getEffectiveValue = (...values: any[]): string => {
+  const correctValue = (...values: any[]): string | number => {
     // 没有数据返回空字符串
     if (!values || !values.length) {
       return ''
@@ -115,7 +97,7 @@
    *
    * 返回优先级：插槽 > label > value
    */
-  const currentLabel: SelectModelValue = getEffectiveValue(
+  const currentLabel: SelectModelValue = correctValue(
     slotLabel.value,
     prop.label,
     prop.value
@@ -126,11 +108,20 @@
    *
    * 返回优先级：value > label > 插槽
    */
-  const currentValue: SelectModelValue = getEffectiveValue(
+  const currentValue: SelectModelValue = correctValue(
     prop.value,
     prop.label,
     slotLabel.value
   )
+
+  /** 标签选中状态 */
+  const labelActive = computed((): boolean => {
+    if (parentInject) {
+      return currentValue === parentInject.modelValue
+    }
+
+    return false
+  })
 
   /**
    * 点击传入指定的 value
