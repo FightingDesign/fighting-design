@@ -16,6 +16,8 @@ export type SelectChange = (
   evt: MouseEvent
 ) => void
 
+export type SelectBeforeChange = () => Promise<boolean>
+
 /**
  * 提供给子组件注入的依赖项类型接口
  *
@@ -28,6 +30,7 @@ export type SelectChange = (
 export interface SelectProvide {
   setValue: SelectChange
   modelValue: SelectModelValue
+  onBeforeChange: SelectBeforeChange
   filter: boolean
   isFiltering: boolean
   inputValue: string

@@ -1,7 +1,7 @@
 import { setBooleanProp, setFunctionProp, setStringProp } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { SelectProvide, SelectModelValue, SelectChange } from './interface'
+import type { SelectProvide, SelectModelValue, SelectChange, SelectBeforeChange } from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {
@@ -48,7 +48,9 @@ export const Props = {
    */
   disabled: setBooleanProp(),
   /** 绑定值发生变化时触发的回调 */
-  onChange: setFunctionProp<SelectChange>()
+  onChange: setFunctionProp<SelectChange>(),
+  /** 在值改变之前执行的回调 */
+  onBeforeChange: setFunctionProp<SelectBeforeChange>()
 } as const
 
 /** select 组件 props 类型 */

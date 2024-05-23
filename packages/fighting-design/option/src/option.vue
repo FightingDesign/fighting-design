@@ -130,9 +130,24 @@
    *
    * @param { Object } evt 事件对象
    */
-  const handleClick = (evt: MouseEvent): void => {
+  const handleClick = async (evt: MouseEvent): Promise<void> => {
     // 如果没有获取到注入的依赖项或者禁用状态 则返回
     if (!parentInject || prop.disabled) return
+
+    /**
+     * 如果存在需要改变值之前的方法，那么久先等待函数执行完毕再执行后面的逻辑
+     *
+     * promise 返回一个布尔类型，为 true 代表值需要改变，为 false 代表取消改变
+     */
+    if (parentInject.onBeforeChange) {
+      const changeRes = await parentInject.onBeforeChange()
+
+      if (!changeRes) {
+        // 点击之后关闭
+        triggerInject && run(triggerInject.close)
+        return
+      }
+    }
 
     // 执行父组件的设置方法
     run(parentInject.setValue, currentValue, currentLabel, evt)

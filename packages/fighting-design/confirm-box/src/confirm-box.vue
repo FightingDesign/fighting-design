@@ -4,7 +4,7 @@
   import { FSpace } from '../../space'
   import { FCloseBtn } from '../../close-btn'
   import { ref } from 'vue'
-  import { useRun } from '../../_hooks'
+  import { useRun, useList } from '../../_hooks'
   import { isFunction } from '../../_utils'
 
   defineOptions({ name: 'FConfirmBox' })
@@ -12,6 +12,10 @@
   const prop = defineProps(Props)
 
   const { run } = useRun()
+  const { styles } = useList(prop, 'confirm-box')
+
+  /** 样式列表 */
+  const style = styles(['zIndex'], ['zIndex'])
 
   /** 是否展示确认框 */
   const isShow = ref(prop.show)
@@ -72,7 +76,7 @@
       @after-enter="handleOpenEnd"
       @after-leave="handleCloseEnd"
     >
-      <div v-if="isShow" class="f-confirm-box">
+      <div v-if="isShow" class="f-confirm-box" :style="style">
         <!-- 遮罩层 -->
         <div class="f-confirm-box__mask" />
 

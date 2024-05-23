@@ -120,6 +120,7 @@
       setValue,
       inputValue,
       isFiltering,
+      onBeforeChange: prop.onBeforeChange,
       modelValue: toRef(prop, 'modelValue'),
       filter: toRef(prop, 'filter')
     })

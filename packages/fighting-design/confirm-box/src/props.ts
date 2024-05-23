@@ -2,7 +2,8 @@ import {
   setBooleanProp,
   setFunctionProp,
   setStringNumberProp,
-  setStringProp
+  setStringProp,
+  setNumberProp
 } from '../../_utils'
 import type { ExtractPropTypes } from 'vue'
 import type { HandleMouse, HandleChange } from '../../_interface'
@@ -12,6 +13,8 @@ export const Props = {
   show: setBooleanProp(false),
   /** 标题内容 */
   title: setStringProp(),
+  /** 层级 */
+  zIndex: setNumberProp(),
   /** 提示内容 */
   content: setStringProp(),
   /** 确认按钮文字 */

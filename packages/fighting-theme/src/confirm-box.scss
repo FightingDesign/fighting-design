@@ -1,5 +1,5 @@
 .f-confirm-box {
-  z-index: 1000;
+  z-index: var(--confirm-box-z-index, 1000);
   display: flex;
   justify-content: center;
   align-items: center;
