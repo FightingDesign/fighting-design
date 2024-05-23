@@ -16,6 +16,9 @@ export type SelectChange = (
   evt: MouseEvent
 ) => void
 
+/**
+ * 值在改变之前的回调类型
+ */
 export type SelectBeforeChange = () => Promise<boolean>
 
 /**

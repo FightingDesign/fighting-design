@@ -105,16 +105,17 @@ import { FConfirmBox } from 'fighting-design'
 
 ## Attributes
 
-| 参数           | 说明                   | 类型                                                               | 可选值 | 默认值 |
-| -------------- | ---------------------- | ------------------------------------------------------------------ | ------ | ------ |
-| `title`        | 标题                   | string                                                             | ——     | ——     |
-| `content`      | 提示内容               | string                                                             | ——     | ——     |
-| `confirm-text` | 确认按钮文字           | string / number                                                    | ——     | ——     |
-| `cancel-text`  | 取消按钮文字           | string / number                                                    | ——     | ——     |
-| `on-confirm`   | 点击确定执行的回调方法 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
-| `on-cancel`    | 点击取消执行的回调方法 | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
-| `on-open`      | 开启之后执行的回调方法 | <a href="/components/interface.html#handlechange">HandleChange</a> | ——     | ——     |
-| `on-close`     | 关闭之后执行的回调方法 | <a href="/components/interface.html#handlechange">HandleChange</a> | ——     | ——     |
+| 参数           | 说明                                                                                | 类型                                                               | 可选值 | 默认值 |
+| -------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------ | ------ |
+| `title`        | 标题                                                                                | string                                                             | ——     | ——     |
+| `content`      | 提示内容                                                                            | string                                                             | ——     | ——     |
+| `confirm-text` | 确认按钮文字                                                                        | string / number                                                    | ——     | ——     |
+| `z-index`      | 层级，原生 [z-index](https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index) 属性 | number                                                             | ——     | 1000   |
+| `cancel-text`  | 取消按钮文字                                                                        | string / number                                                    | ——     | ——     |
+| `on-confirm`   | 点击确定执行的回调方法                                                              | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
+| `on-cancel`    | 点击取消执行的回调方法                                                              | <a href="/components/interface.html#handlemouse">HandleMouse</a>   | ——     | ——     |
+| `on-open`      | 开启之后执行的回调方法                                                              | <a href="/components/interface.html#handlechange">HandleChange</a> | ——     | ——     |
+| `on-close`     | 关闭之后执行的回调方法                                                              | <a href="/components/interface.html#handlechange">HandleChange</a> | ——     | ——     |
 
 ## Contributors
 
@@ -124,6 +125,7 @@ import { FConfirmBox } from 'fighting-design'
 
 <script setup lang="ts">
   import { FConfirmBox, FMessage } from 'fighting-design'
+  import { ref } from 'vue'
 
   const open1 = (): void => {
     FConfirmBox({

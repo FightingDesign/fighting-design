@@ -101,19 +101,71 @@
 
 :::
 
+## 在改变之前调用
+
+`on-before-change` 可以在选择前改变之前调用，它需要返回一个 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)，Promise 需要返回一个布尔值，返回 true 将需要改变，返回 false 则终止改变
+
+::: demo
+
+<template #source>
+<f-select v-model="value4" placeholder="请选择……" :on-before-change="onBeforeChange">
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
+</template>
+
+```html
+<template>
+  <f-select v-model="value4" placeholder="请选择……" :on-before-change="onBeforeChange">
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
+</template>
+
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import { FConfirmBox } from 'fighting-design'
+
+  const value4 = ref('')
+
+  const onBeforeChange = (): Promise<boolean> => {
+    return new Promise(resolve => {
+      FConfirmBox({
+        title: '标题',
+        content: '这是内容',
+        zIndex: 2000,
+        onConfirm: () => {
+          resolve(true)
+        },
+        onCancel: () => {
+          resolve(false)
+        }
+      })
+    })
+  }
+</script>
+```
+
+:::
+
 ## Select Attributes
 
-| 参数                 | 说明                       | 类型                                                               | 可选值                          | 默认值 |
-| -------------------- | -------------------------- | ------------------------------------------------------------------ | ------------------------------- | ------ |
-| `v-model:modelValue` | 绑定值                     | <a href="#selectmodelvalue">SelectModelValue</a>                   | ——                              | ——     |
-| `width`              | 自定义宽度                 | string / number                                                    | ——                              | 190    |
-| `name`               | 原生 name 属性             | string                                                             | ——                              | ——     |
-| `placeholder`        | 占位符                     | string                                                             | ——                              | ——     |
-| `clear`              | 是否可清除                 | boolean                                                            | ——                              | false  |
-| `disabled`           | 是否禁用                   | boolean                                                            | ——                              | false  |
-| `filter`             | 是否可过滤                 | boolean                                                            | ——                              | false  |
-| `size`               | 尺寸                       | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
-| `on-change`          | 绑定值发生改变时触发的回调 | <a href="#selectchange">SelectChange</a>                           | ——                              | ——     |
+| 参数                 | 说明                           | 类型                                                               | 可选值                          | 默认值 |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------ | ------------------------------- | ------ |
+| `v-model:modelValue` | 绑定值                         | <a href="#selectmodelvalue">SelectModelValue</a>                   | ——                              | ——     |
+| `width`              | 自定义宽度                     | string / number                                                    | ——                              | 190    |
+| `name`               | 原生 name 属性                 | string                                                             | ——                              | ——     |
+| `placeholder`        | 占位符                         | string                                                             | ——                              | ——     |
+| `clear`              | 是否可清除                     | boolean                                                            | ——                              | false  |
+| `disabled`           | 是否禁用                       | boolean                                                            | ——                              | false  |
+| `filter`             | 是否可过滤                     | boolean                                                            | ——                              | false  |
+| `size`               | 尺寸                           | <a href="/components/interface.html#fightingsize">FightingSize</a> | `large` `middle` `small` `mini` | middle |
+| `on-change`          | 绑定值发生改变时触发的回调     | <a href="#selectchange">SelectChange</a>                           | ——                              | ——     |
+| `on-before-change`   | 绑定值发生改变时之前触发的回调 | <a href="#selectbeforechange">SelectBeforeChange</a>               | ——                              | ——     |
 
 ## Select Slots
 
@@ -145,6 +197,7 @@ import type {
   SelectProps,
   SelectModelValue,
   SelectChange,
+  SelectBeforeChange,
   OptionInstance,
   OptionProps
 } from 'fighting-design'
@@ -166,6 +219,12 @@ type SelectChange = (
 ) => void
 ```
 
+### SelectBeforeChange
+
+```ts
+type SelectBeforeChange = () => Promise<boolean>
+```
+
 ## Contributors
 
 <a href="https://github.com/Tyh2001" target="_blank">
@@ -178,7 +237,26 @@ type SelectChange = (
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { FConfirmBox } from 'fighting-design'
   import demo1Vue from './demos/select/demo1.vue'
   import demo2Vue from './demos/select/demo2.vue'
   import demo3Vue from './demos/select/demo3.vue'
+
+  const value4 = ref('')
+
+  const onBeforeChange = (): Promise<boolean> => {
+    return new Promise(resolve => {
+      FConfirmBox({
+        title: '标题',
+        content: '这是内容',
+        zIndex: 2000,
+        onConfirm: () => {
+          resolve(true)
+        },
+        onCancel: () => {
+          resolve(false)
+        }
+      })
+    })
+  }
 </script>
