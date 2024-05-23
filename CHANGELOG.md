@@ -2,6 +2,11 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 1.0.0-alpha.6 (2024-05-23)
+
+- `f-select` 新增 `on-before-change` 配置项
+- `f-confirm-box` 组件新增 `z-index` 配置项
+
 ## 1.0.0-alpha.5 (2024-05-13)
 
 - 修复 `f-select` 组件默认值不显示问题

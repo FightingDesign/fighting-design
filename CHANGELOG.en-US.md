@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.0-alpha.6 (2024-05-23)
+
+- `f-select` adds `on-before-change` configuration item
+- The `f-confirm-box` component has added a `z-index` configuration item
+
 ## 1.0.0-alpha.5 (2024-05-13)
 
 - Fix the issue of default values not displaying for `f-select` components
