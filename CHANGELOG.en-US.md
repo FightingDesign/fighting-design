@@ -4,6 +4,10 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.0-alpha.7 (2024-05-24)
+
+- Add callback parameters to the `f-select` component `on-before-change` configuration item
+
 ## 1.0.0-alpha.6 (2024-05-23)
 
 - `f-select` adds `on-before-change` configuration item

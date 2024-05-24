@@ -2,6 +2,10 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 1.0.0-alpha.7 (2024-05-24)
+
+- `f-select` 组件 `on-before-change` 配置项新增回调参数
+
 ## 1.0.0-alpha.6 (2024-05-23)
 
 - `f-select` 新增 `on-before-change` 配置项
