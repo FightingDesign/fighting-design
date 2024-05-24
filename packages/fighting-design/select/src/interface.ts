@@ -18,8 +18,11 @@ export type SelectChange = (
 
 /**
  * 值在改变之前的回调类型
+ * 
+ * @param { string | number } value 需要改变的值
+ * @param { string | number } label 需要改变的标签
  */
-export type SelectBeforeChange = () => Promise<boolean>
+export type SelectBeforeChange = (value: SelectModelValue, label: SelectModelValue) => Promise<boolean>
 
 /**
  * 提供给子组件注入的依赖项类型接口

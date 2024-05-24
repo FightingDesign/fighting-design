@@ -129,10 +129,11 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { FConfirmBox } from 'fighting-design'
+  import type { SelectBeforeChange } from 'fighting-design'
 
   const value4 = ref('')
 
-  const onBeforeChange = (): Promise<boolean> => {
+  const onBeforeChange: SelectBeforeChange = (value, label): Promise<boolean> => {
     return new Promise(resolve => {
       FConfirmBox({
         title: '标题',
@@ -222,7 +223,10 @@ type SelectChange = (
 ### SelectBeforeChange
 
 ```ts
-type SelectBeforeChange = () => Promise<boolean>
+type SelectBeforeChange = (
+  value: SelectModelValue,
+  label: SelectModelValue
+) => Promise<boolean>
 ```
 
 ## Contributors

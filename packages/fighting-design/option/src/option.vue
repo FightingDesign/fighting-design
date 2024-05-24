@@ -140,7 +140,7 @@
      * promise 返回一个布尔类型，为 true 代表值需要改变，为 false 代表取消改变
      */
     if (parentInject.onBeforeChange) {
-      const changeRes = await parentInject.onBeforeChange()
+      const changeRes = await parentInject.onBeforeChange(currentValue, currentLabel)
 
       if (!changeRes) {
         // 点击之后关闭
