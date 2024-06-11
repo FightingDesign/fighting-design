@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-image` 和 `f-avatar` 组件被挤压的问题
+
 ## 1.0.0-alpha.7 (2024-05-24)
 
 - `f-select` 组件 `on-before-change` 配置项新增回调参数
