@@ -24,8 +24,13 @@
        * @see event.preventDefault https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault
        */
       evt.preventDefault()
+    }
+
+    // 只有在禁用状态下需要返回，跳转状态下继续执行事件
+    if (prop.disabled) {
       return
     }
+
     run(prop.onClick, evt)
   }
 

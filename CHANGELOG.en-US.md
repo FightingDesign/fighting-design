@@ -4,6 +4,11 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.0 alpha.8 (2024-06-12)
+
+- Fix the issue of `f-image` and `f-avatar` components being squeezed
+- Fix the issue of inability to execute events in the `f-link` components `no-link` state
+
 ## 1.0.0-alpha.7 (2024-05-24)
 
 - Add callback parameters to the `f-select` component `on-before-change` configuration item
