@@ -7,12 +7,12 @@
   position: relative;
   vertical-align: top;
   column-gap: var(--checkbox-group-column-gap, 30px);
+  row-gap: var(--checkbox-group-row-gap, 0);
   overflow: hidden;
 
   // 纵向排列
   &.f-checkbox-group__vertical {
     flex-direction: column;
-    row-gap: var(--checkbox-group-row-gap, 20px);
   }
 
   // 背景状态
@@ -20,7 +20,6 @@
     background: #ececf1;
     flex-wrap: nowrap;
     column-gap: var(--checkbox-group-column-gap, 2px);
-    row-gap: var(--checkbox-group-row-gap, 0);
 
     .f-checkbox {
       border-radius: 3px;

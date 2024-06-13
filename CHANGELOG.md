@@ -2,6 +2,8 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-checkbox-group` 组件 `row-gap` 配置项失效问题
+
 ## 1.0.0-alpha.8 (2024-06-12)
 
 - 修复 `f-image` 和 `f-avatar` 组件被挤压的问题
