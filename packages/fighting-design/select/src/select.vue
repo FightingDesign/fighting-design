@@ -2,7 +2,7 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import { provide, ref, reactive, toRef, nextTick } from 'vue'
+  import { provide, ref, reactive, nextTick } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { FSvgIcon } from '../../svg-icon'
   import { FEmpty } from '../../empty'
