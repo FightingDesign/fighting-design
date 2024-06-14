@@ -29,7 +29,10 @@
    *
    * 目前仅为了在 dropdown-item 组件中实现点击关闭
    */
-  provide<TriggerProvide>(TRIGGER_CLOSE_KEY, { close })
+  provide<TriggerProvide>(TRIGGER_CLOSE_KEY, {
+    close,
+    isVisible: () => visible.value
+  })
 
   // 向外导出关闭方法
   defineExpose({ close })

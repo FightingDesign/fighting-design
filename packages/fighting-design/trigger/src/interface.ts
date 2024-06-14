@@ -20,4 +20,5 @@ export type TriggerChange = (visible: boolean, evt: MouseEvent) => void
  */
 export interface TriggerProvide {
   close: HandleMouse
+  isVisible: () => boolean
 }
