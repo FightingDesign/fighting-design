@@ -2,6 +2,7 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+- 修复 `f-select` 组件 `filter` 配置项筛选点击闪烁的问题
 - 修复 `f-checkbox-group` 组件 `row-gap` 配置项失效问题
 
 ## 1.0.0-alpha.8 (2024-06-12)
