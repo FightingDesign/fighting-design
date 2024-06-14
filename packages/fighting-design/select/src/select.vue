@@ -93,7 +93,7 @@
   const inputBlur = (): void => {
     isFocus.value = false
 
-    // 失去焦点的时候如果子节点的 title 中不包含输入项目，则情况文本框的内容
+    // 失去焦点的时候如果子节点的 title 中不包含输入项目，则清空文本框的内容
     if (!isHaveValues.value) {
       inputValue.value = ''
     }
