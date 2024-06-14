@@ -121,8 +121,8 @@
       inputValue,
       isFiltering,
       onBeforeChange: prop.onBeforeChange,
-      modelValue: toRef(prop, 'modelValue'),
-      filter: toRef(prop, 'filter')
+      modelValue,
+      filter: prop.filter
     })
   )
 </script>
