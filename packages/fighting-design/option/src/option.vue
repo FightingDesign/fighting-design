@@ -21,7 +21,7 @@
   const parentInject: SelectProvide | null = inject(SELECT_PROPS_TOKEN, null)
   /** 获取到 trigger 注入的依赖项 */
   const triggerInject: TriggerProvide | null = inject(TRIGGER_CLOSE_KEY, null)
-
+  
   /** 获取插槽内容 */
   const slotLabel = computed((): string => {
     if (!slot.default) {
@@ -46,10 +46,17 @@
     if (!parentInject) {
       return false
     }
+    
+    // Trigger 展示状态高优先级
+    if (!triggerInject?.isVisible()) {
+      return false
+    }
 
     // 在过滤属性存在并且是正在输入中，执行过滤操作
-    if (parentInject.filter && parentInject.isFiltering && currentLabel) {
-      return currentLabel.toString().includes(parentInject.inputValue)
+    if (parentInject.filter || parentInject.isFiltering) {
+      return currentLabel
+        ? currentLabel.toString().includes(parentInject.inputValue)
+        : false
     }
 
     return true
