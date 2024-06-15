@@ -143,8 +143,9 @@
         :on-blur="inputBlur"
         :on-input="filter ? inputInput : void 0"
       >
-        <template #after>
+        <template #after="{ isHover }">
           <f-svg-icon
+            v-if="!isHover && filter && isFiltering"
             color="#bababa"
             :class="['f-select__arrow', { 'f-select__arrow-active': isFocus }]"
             :size="13"
