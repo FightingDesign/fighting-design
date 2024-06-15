@@ -151,6 +151,7 @@ describe('Input', () => {
   })
 
   test('clicking `clear` icon should clear input value', async () => {
+    vi.useFakeTimers()
     const wrapper = mount(FInput, {
       props: {
         clear: true,
@@ -160,6 +161,8 @@ describe('Input', () => {
         }
       }
     })
+    await wrapper.find('.f-input__wrapper').trigger('mouseenter')
+    await vi.advanceTimersByTime(50)
     expect(wrapper.find('.f-input__clear-btn').exists()).toBeTruthy()
     await wrapper.find('.f-input__clear-btn').trigger('click')
     expect(wrapper.props('modelValue')).toBe('')
