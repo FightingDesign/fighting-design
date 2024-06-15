@@ -6,6 +6,7 @@
   import { ref, toRefs, computed, watchEffect } from 'vue'
   import { FIconCross, FIconEyeOffOutline, FIconEyeOutline } from '../../_svg'
   import { useInput, useRun, useList, useGlobal } from '../../_hooks'
+  import { debounce } from '../../_utils'
   import type { InputType } from './interface'
   import type { UseGlobalProp } from '../../_hooks'
 
@@ -26,6 +27,8 @@
   const showPass = ref<boolean>(false)
   /** type 类型 */
   const inputType = ref<InputType>(prop.type)
+  /** 鼠标是否悬浮 */
+  const isHover = ref(false)
 
   watchEffect(() => {
     inputType.value = prop.type
@@ -70,6 +73,10 @@
     showPass.value = false
   }
 
+  const handleHover = debounce((bool: boolean) => {
+    isHover.value = bool
+  }, 50)
+
   /** 样式列表 */
   const style = styles(['placeholderColor', 'textColor', 'width', 'height', 'fontSize'])
 
@@ -80,7 +87,11 @@
 <template>
   <div role="input" :class="classList" :style="style">
     <!-- 容器盒子 -->
-    <div class="f-input__wrapper">
+    <div
+      class="f-input__wrapper"
+      @mouseenter="handleHover(true)"
+      @mouseleave="handleHover(false)"
+    >
       <!-- 前缀插槽 -->
       <slot name="before" />
 
@@ -110,7 +121,7 @@
 
       <!-- 清除 icon -->
       <f-svg-icon
-        v-if="clear"
+        v-if="clear && isHover && modelValue"
         class="f-input__clear-btn"
         :icon="FIconCross"
         :size="14"
@@ -133,7 +144,7 @@
       />
 
       <!-- 后缀插槽 -->
-      <slot name="after" />
+      <slot name="after" :is-hover="isHover" />
     </div>
 
     <!-- 搜索框 -->

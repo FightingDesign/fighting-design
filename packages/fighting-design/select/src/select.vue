@@ -2,7 +2,7 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import { provide, ref, reactive, toRef, nextTick } from 'vue'
+  import { provide, ref, reactive, nextTick } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { FSvgIcon } from '../../svg-icon'
   import { FEmpty } from '../../empty'
@@ -143,8 +143,9 @@
         :on-blur="inputBlur"
         :on-input="filter ? inputInput : void 0"
       >
-        <template #after>
+        <template #after="{ isHover }">
           <f-svg-icon
+            v-if="!isHover && filter && isFiltering"
             color="#bababa"
             :class="['f-select__arrow', { 'f-select__arrow-active': isFocus }]"
             :size="13"
