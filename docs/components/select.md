@@ -153,6 +153,40 @@
 
 :::
 
+## 过滤 & 筛选
+
+开启 `filter` 后，选择器则按输入值过滤选项。
+
+::: demo
+
+<template #source>
+  <f-select filter v-model="value5" placeholder="请选择……" clear>
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
+</template>
+
+```html
+<template>
+  <f-select filter v-model="value" placeholder="请选择……" clear>
+    <f-option :value="1">香蕉</f-option>
+    <f-option :value="2">苹果</f-option>
+    <f-option :value="3">哈密瓜</f-option>
+    <f-option :value="4">樱桃</f-option>
+  </f-select>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+const value = ref()
+</script>
+
+```
+
+:::
+
 ## Select Attributes
 
 | 参数                 | 说明                           | 类型                                                               | 可选值                          | 默认值 |
@@ -247,6 +281,7 @@ type SelectBeforeChange = (
   import demo3Vue from './demos/select/demo3.vue'
 
   const value4 = ref('')
+  const value5 = ref('')
 
   const onBeforeChange = (): Promise<boolean> => {
     return new Promise(resolve => {
