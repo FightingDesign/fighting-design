@@ -153,19 +153,19 @@
 
 :::
 
-## 过滤 & 筛选
+## 过滤和筛选
 
 开启 `filter` 后，选择器则按输入值过滤选项。
 
 ::: demo
 
 <template #source>
-  <f-select filter v-model="value5" placeholder="请选择……" clear>
-    <f-option :value="1">香蕉</f-option>
-    <f-option :value="2">苹果</f-option>
-    <f-option :value="3">哈密瓜</f-option>
-    <f-option :value="4">樱桃</f-option>
-  </f-select>
+<f-select filter v-model="value5" placeholder="请选择……" clear>
+<f-option :value="1">香蕉</f-option>
+<f-option :value="2">苹果</f-option>
+<f-option :value="3">哈密瓜</f-option>
+<f-option :value="4">樱桃</f-option>
+</f-select>
 </template>
 
 ```html
@@ -179,10 +179,72 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-const value = ref()
+  import { ref } from 'vue'
+  const value = ref()
+</script>
+```
+
+:::
+
+::: demo
+
+<template #source>
+<f-alert type="default" simple round>如果你需要携带一些参数传递，可以参考下面代码实现方式：</f-alert>
+</template>
+
+```html
+<script lang="ts" setup>
+  import { ref } from 'vue'
+  import { FConfirmBox } from 'fighting-design'
+  import type { SelectModelValue } from 'fighting-design'
+
+  const list = [1, 2, 3, 4]
+  const selectValue = ref<SelectModelValue>('')
+
+  const load = () => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(true)
+      }, 2000)
+    })
+  }
+
+  const oneforeChange = (item: number, value: SelectModelValue) => {
+    return ((): Promise<boolean> => {
+      return new Promise(resolve => {
+        FConfirmBox({
+          title: '提示',
+          content: `你确定修改${item}的状态吗？`,
+          zIndex: 2000,
+          onConfirm: async () => {
+            await load()
+
+            selectValue.value = value
+
+            resolve(true)
+          },
+          onCancel: () => {
+            resolve(false)
+          }
+        })
+      })
+    })()
+  }
 </script>
 
+<template>
+  <h1>{{ selectValue || '未选择' }}</h1>
+  <div v-for="(item, index) in list" :key="index">
+    <f-select
+      v-model="selectValue"
+      placeholder="请选择……"
+      :on-before-change="(value: SelectModelValue) => oneforeChange(item, value) "
+    >
+      <f-option value="0">未发布</f-option>
+      <f-option value="1">已发布</f-option>
+    </f-select>
+  </div>
+</template>
 ```
 
 :::

@@ -117,12 +117,12 @@
   provide<SelectProvide>(
     SELECT_PROPS_TOKEN,
     reactive({
-      setValue,
       inputValue,
       isFiltering,
-      onBeforeChange: prop.onBeforeChange,
       modelValue,
-      filter: prop.filter
+      filter: prop.filter,
+      setValue,
+      onBeforeChange: prop.onBeforeChange
     })
   )
 </script>
@@ -143,9 +143,8 @@
         :on-blur="inputBlur"
         :on-input="filter ? inputInput : void 0"
       >
-        <template #after="{ isHover }">
+        <template #after>
           <f-svg-icon
-            v-if="!isHover && filter && isFiltering"
             color="#bababa"
             :class="['f-select__arrow', { 'f-select__arrow-active': isFocus }]"
             :size="13"
