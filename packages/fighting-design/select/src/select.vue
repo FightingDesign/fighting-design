@@ -113,6 +113,13 @@
     isFiltering.value = true
   }
 
+  /**
+   * 清空选择器
+   */
+  const handleInputClear = (): void => {
+    modelValue.value = ''
+  }
+
   // 向子组件注入依赖项
   provide<SelectProvide>(
     SELECT_PROPS_TOKEN,
@@ -142,9 +149,11 @@
         :on-focus="inputFocus"
         :on-blur="inputBlur"
         :on-input="filter ? inputInput : void 0"
+        @clear="handleInputClear"
       >
-        <template #after>
+        <template #after="{ isHover }">
           <f-svg-icon
+            v-if="!clear || !(isHover && (modelValue || inputValue))"
             color="#bababa"
             :class="['f-select__arrow', { 'f-select__arrow-active': isFocus }]"
             :size="13"
