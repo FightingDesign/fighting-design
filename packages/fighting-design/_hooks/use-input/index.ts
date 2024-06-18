@@ -41,7 +41,8 @@ export interface UseInputReturn {
  */
 export const useInput = (
   prop: Partial<UseInputProps>,
-  modelValue: Ref<string | number>
+  modelValue: Ref<string | number>,
+  emits: (event: 'clear', ...args: any[]) => void
 ): UseInputReturn => {
   const { run } = useRun()
 
@@ -66,6 +67,7 @@ export const useInput = (
   /** 清空文本框 */
   const handleClear = (): void => {
     if (prop.disabled) return
+    emits('clear')
     modelValue.value = ''
   }
 

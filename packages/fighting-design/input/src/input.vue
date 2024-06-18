@@ -13,6 +13,7 @@
   defineOptions({ name: 'FInput' })
 
   const prop = defineProps(Props)
+  const emits = defineEmits(['clear'])
   const modelValue = defineModel<string | number>({
     default: '',
     type: [String, Number]
@@ -21,7 +22,7 @@
   const { run } = useRun()
   const { getLang, getProp } = useGlobal(prop as unknown as UseGlobalProp)
   const { styles, classes } = useList(getProp(['size']), 'input')
-  const { handleInput, handleClear, handleChange } = useInput(prop, modelValue)
+  const { handleInput, handleClear, handleChange } = useInput(prop, modelValue, emits)
 
   /** 是否展示密码 */
   const showPass = ref<boolean>(false)
