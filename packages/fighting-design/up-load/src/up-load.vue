@@ -104,7 +104,7 @@
     dragIng.value = false
 
     /** 获取文件列表 */
-    const files: FileList = (evt.dataTransfer as DataTransfer).files
+    const files = evt.dataTransfer?.files
 
     if (files) {
       updateFiles(filterFiles(files as unknown as File[]))
