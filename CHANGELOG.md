@@ -5,6 +5,7 @@
 - 修复 `f-select` 组件 `filter` 配置项筛选点击闪烁的问题
 - 修复 `f-checkbox-group` 组件 `row-gap` 配置项失效问题
 - 禁止了 `f-form` 组件的原生表单校验
+- 修复 `f-textarea` 的 outline 样式不一致性
 
 ## 1.0.0-alpha.8 (2024-06-12)
 

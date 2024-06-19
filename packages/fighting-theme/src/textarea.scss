@@ -12,7 +12,7 @@
   transition: 0.3s;
   border: 1px solid #ddd;
   background: #fff;
-  outline: 4px solid transparent;
+  outline: 2px solid transparent;
   border-radius: 5px;
 
   &__textarea {
@@ -47,7 +47,7 @@
 
   // 获取焦点
   &:focus-within {
-    outline: 4px solid rgba(92, 128, 245, 0.5);
+    outline: 2px solid #2d5af1;
   }
 
   &__clear-btn {

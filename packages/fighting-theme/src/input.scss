@@ -45,6 +45,7 @@
       font-family: Arial, sans-serif;
 
       // 禁用原生右侧上下选择箭头
+      // https://developer.mozilla.org/zh-CN/docs/Web/CSS/appearance
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -63,6 +64,8 @@
       color: #c3c3c3;
     }
 
+    // https://developer.mozilla.org/zh-CN/docs/Web/CSS/outline
+    // https://developer.mozilla.org/zh-CN/docs/Web/CSS/:focus-within
     &:focus-within {
       outline: 2px solid #2d5af1;
     }
