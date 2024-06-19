@@ -2,7 +2,7 @@
   import { Props, SELECT_PROPS_TOKEN } from './props'
   import { FInput } from '../../input'
   import { useList, useRun } from '../../_hooks'
-  import { provide, ref, reactive, nextTick } from 'vue'
+  import { provide, ref, reactive, nextTick, watch } from 'vue'
   import { FDropdown } from '../../dropdown'
   import { FSvgIcon } from '../../svg-icon'
   import { FEmpty } from '../../empty'
@@ -112,6 +112,16 @@
   const inputInput = (): void => {
     isFiltering.value = true
   }
+
+  // 如果绑定值为空了，则情清空文本框显示
+  watch(
+    (): SelectModelValue => modelValue.value,
+    (newValue: SelectModelValue) => {
+      if (!newValue) {
+        inputValue.value = ''
+      }
+    }
+  )
 
   // 向子组件注入依赖项
   provide<SelectProvide>(
