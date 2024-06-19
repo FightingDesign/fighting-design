@@ -7,16 +7,17 @@
   overflow: hidden;
   position: relative;
   display: inline-flex;
-  resize: var(--textarea-resize);
-  align-items: flex-end;
-  transition: 0.3s;
+  transition: outline 0.3s;
   border: 1px solid #ddd;
   background: #fff;
   outline: 2px solid transparent;
   border-radius: 5px;
+  min-height: 80px;
+  resize: var(--textarea-resize);
 
   &__textarea {
     width: 100%;
+    height: inherit;
     border: none;
     resize: none;
     outline: none;
