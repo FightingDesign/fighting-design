@@ -19,7 +19,7 @@
    */
   const submit = (evt: SubmitEvent): void => {
     /**
-     * 组织表单默认行为
+     * 阻止表单默认行为
      *
      * @see event.preventDefault https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault
      */
@@ -45,7 +45,12 @@
 </script>
 
 <template>
-  <form v-if="$slots.default" role="form" class="f-form" :onsubmit="submit">
+  <!-- 
+    novalidate：禁止原生提交时的表单校验和弹窗
+
+    https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form#novalidate
+   -->
+  <form v-if="$slots.default" role="form" class="f-form" novalidate :onsubmit="submit">
     <slot />
   </form>
 </template>
