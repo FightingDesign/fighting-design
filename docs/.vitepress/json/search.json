@@ -157,7 +157,7 @@
     },
     {
       "title": "Up Load 文件上传",
-      "rule": "up-loadUpLoad文件上传upload",
+      "rule": "up-loadUpLoad文件上传uploadfile",
       "url": "components/up-load"
     },
     {

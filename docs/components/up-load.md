@@ -12,11 +12,13 @@
 ::: demo
 
 <template #source>
+{{ files1 }}
 <f-up-load v-model:files="files1" />
 </template>
 
 ```html
 <template>
+  {{ files1 }}
   <f-up-load v-model:files="files1" />
 </template>
 
@@ -36,11 +38,13 @@
 ::: demo
 
 <template #source>
+{{ files2 }}
 <f-up-load v-model:files="files2" multiple />
 </template>
 
 ```html
 <template>
+  {{ files2 }}
   <f-up-load v-model:files="files2" multiple />
 </template>
 
@@ -60,11 +64,13 @@
 ::: demo
 
 <template #source>
+{{ files3 }}
 <f-up-load v-model:files="files3" multiple :max-length="4" />
 </template>
 
 ```html
 <template>
+  {{ files3 }}
   <f-up-load v-model:files="files3" multiple :max-length="4" />
 </template>
 
@@ -84,11 +90,13 @@
 ::: demo
 
 <template #source>
+{{ files4 }}
 <f-up-load v-model:files="files4" multiple drag />
 </template>
 
 ```html
 <template>
+  {{ files4 }}
   <f-up-load v-model:files="files4" multiple drag />
 </template>
 
