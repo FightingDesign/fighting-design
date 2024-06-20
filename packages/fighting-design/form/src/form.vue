@@ -45,11 +45,6 @@
 </script>
 
 <template>
-  <!-- 
-    novalidate：禁止原生提交时的表单校验和弹窗
-
-    https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form#novalidate
-   -->
   <form v-if="$slots.default" role="form" class="f-form" novalidate :onsubmit="submit">
     <slot />
   </form>
