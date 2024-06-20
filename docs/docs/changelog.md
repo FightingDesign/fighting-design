@@ -2,6 +2,20 @@
 
 中文 | [英文](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.en-US.md)
 
+## 1.0.0-alpha.9 (2024-06-20)
+
+- 修复 `f-select` 组件 `filter` 配置项筛选点击闪烁的问题
+- 修复 `f-checkbox-group` 组件 `row-gap` 配置项失效问题
+- 禁止了 `f-form` 组件的原生表单校验
+- 修复 `f-textarea` 的 outline 样式不一致性
+- 修复 `f-textarea` 组件在 `resize` 不同配置项的情况下输入框错位的问题
+- 优化 `f-textarea` 组件整体流程度，代码近一步优化
+- `f-textarea` 组件 Enter 事件默认改为换行，ctrl + Enter 为提交事件，会执行 `on-enter` 事件
+- 修复 `f-select` 组件在绑定值为空的时候没有清空输入框的问题
+- 优化 `f-up-load` 语法 [#492](https://github.com/FightingDesign/fighting-design/pull/492)
+- 修复 `f-select` 组件动态变更响应试丢失问题
+- 修复 `f-select` 组件在筛选之后，直接失去焦点关闭下拉选项再次打开时依然显示过滤的内容问题
+
 ## 1.0.0-alpha.8 (2024-06-12)
 
 - 修复 `f-image` 和 `f-avatar` 组件被挤压的问题

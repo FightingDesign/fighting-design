@@ -4,6 +4,20 @@
 
 English | [Chinese](https://github.com/FightingDesign/fighting-design/blob/master/CHANGELOG.md)
 
+## 1.0.0-alpha.9 (2024-06-20)
+
+- Fixed the issue with the `filter` option flickering on click in the `f-select` component
+- Fixed the issue with the `row-gap` option not working in the `f-checkbox-group` component
+- Disabled the native form validation for the `f-form` component
+- Fixed the inconsistent outline style of the `f-textarea`
+- Fixed the misalignment issue of the input box in the `f-textarea` component when the `resize` option is set to different values
+- Optimized the overall flow and further refined the code of the `f-textarea` component
+- Changed the default behavior of the Enter key in the `f-textarea` component to create a new line, and set ctrl + Enter to trigger the submit event, which will execute the `on-enter` event
+- Fixed the issue with the `f-select` component not clearing the input box when the bound value is empty
+- Optimized the `f-up-load` syntax [#492](https://github.com/FightingDesign/fighting-design/pull/492)
+- Fixed the issue with the `f-select` component losing responsiveness to dynamic changes
+- Fixed the issue with the `f-select` component still showing filtered content after losing focus and reopening the dropdown
+
 ## 1.0.0-alpha.8 (2024-06-12)
 
 - Fix the issue of `f-image` and `f-avatar` components being squeezed
