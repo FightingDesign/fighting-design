@@ -11,6 +11,8 @@
 - `f-textarea` 组件 Enter 事件默认改为换行，ctrl + Enter 为提交事件，会执行 `on-enter` 事件
 - 修复 `f-select` 组件在绑定值为空的时候没有清空输入框的问题
 - 优化 `f-up-load` 语法 [#492](https://github.com/FightingDesign/fighting-design/pull/492)
+- 修复 `f-select` 组件动态变更响应试丢失问题
+- 修复 `f-select` 组件在筛选之后，直接失去焦点关闭下拉选项再次打开时依然显示过滤的内容问题
 
 ## 1.0.0-alpha.8 (2024-06-12)
 

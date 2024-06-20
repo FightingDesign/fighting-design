@@ -27,17 +27,20 @@ export type SelectBeforeChange = (value: SelectModelValue, label: SelectModelVal
 /**
  * 提供给子组件注入的依赖项类型接口
  *
- * @param { Function } setValue 设置新的选中值
  * @param { Object } modelValue 绑定的值
  * @param { boolean } filter 绑定的值
+ * @param { boolean } isTrigger 是否触发
  * @param { boolean } isFiltering 是否正在搜索
  * @param { string } inputValue 文本框绑定的值
+ * @param { Function } setValue 设置新的选中值
+ * @param { Function } onBeforeChange 在值改变之前执行的回调
  */
 export interface SelectProvide {
-  setValue: SelectChange
   modelValue: SelectModelValue
-  onBeforeChange: SelectBeforeChange
   filter: boolean
+  isTrigger: boolean
   isFiltering: boolean
   inputValue: string
+  setValue: SelectChange
+  onBeforeChange: SelectBeforeChange
 }

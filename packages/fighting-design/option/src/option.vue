@@ -21,7 +21,7 @@
   const parentInject: SelectProvide | null = inject(SELECT_PROPS_TOKEN, null)
   /** 获取到 trigger 注入的依赖项 */
   const triggerInject: TriggerProvide | null = inject(TRIGGER_CLOSE_KEY, null)
-  
+
   /** 获取插槽内容 */
   const slotLabel = computed((): string => {
     if (!slot.default) {
@@ -46,14 +46,19 @@
     if (!parentInject) {
       return false
     }
-    
+
     // Trigger 展示状态高优先级
     if (!triggerInject?.isVisible()) {
       return false
     }
 
+    // 关闭了触发器，全部显示
+    if (!parentInject.isTrigger) {
+      return true
+    }
+
     // 在过滤属性存在并且是正在输入中，执行过滤操作
-    if (parentInject.filter || parentInject.isFiltering) {
+    if (parentInject.filter && parentInject.isFiltering) {
       return currentLabel
         ? currentLabel.toString().includes(parentInject.inputValue)
         : false
@@ -171,24 +176,22 @@
     }
 
     if (currentValue === parentInject.modelValue) {
+      console.log('run')
       parentInject && run(parentInject.setValue, currentValue, currentLabel)
     }
   }
 
   /**
    * 监听一次数据的变化更新值，避免数据是异步设置的
-   *
-   * 只需要监听一次即可
    */
   const setWatch = (): void => {
     if (!parentInject) {
       return
     }
 
-    watch(() => parentInject.modelValue, setInit, { once: true })
+    watch(() => parentInject.modelValue, setInit, { immediate: true })
   }
 
-  setInit() // 初始化设置选中的值
   setWatch() // 开始监听器
 </script>
 

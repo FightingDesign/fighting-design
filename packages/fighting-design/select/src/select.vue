@@ -7,6 +7,7 @@
   import { FSvgIcon } from '../../svg-icon'
   import { FEmpty } from '../../empty'
   import { FIconChevronDown } from '../../_svg'
+  import type { HandleChange } from '../../_interface'
   import type { SelectProvide, SelectModelValue } from './interface'
 
   defineOptions({ name: 'FSelect' })
@@ -32,6 +33,8 @@
   const inputValue = ref('')
   /** 是否正在输入过滤搜索中 */
   const isFiltering = ref(false)
+  /** 是否触发 */
+  const isTrigger = ref(false)
 
   /**
    * 设置新的值
@@ -65,8 +68,10 @@
   }
 
   /** 下拉菜单开启之后的回调 */
-  const dropdownOpen = async (): Promise<void> => {
+  const dropdownOpen: HandleChange = async (target): Promise<void> => {
     await nextTick()
+
+    isTrigger.value = target
 
     /** 获取到当前选中的元素 */
     const activeNode = selectContentRef.value?.querySelector('.f-option.f-option__active')
@@ -85,6 +90,14 @@
        */
       activeNode.scrollIntoView({ block: 'end' })
     }
+  }
+
+  /**
+   * 下拉菜单关闭之后的回调
+   */
+  const dropdownClose: HandleChange = (target): void => {
+    isTrigger.value = target
+    isFiltering.value = target
   }
 
   /**
@@ -130,6 +143,7 @@
       inputValue,
       isFiltering,
       modelValue,
+      isTrigger,
       filter: prop.filter,
       setValue,
       onBeforeChange: prop.onBeforeChange
@@ -139,7 +153,13 @@
 
 <template>
   <div class="f-select" :style="style">
-    <f-dropdown trigger="click" :disabled :width :on-open="dropdownOpen">
+    <f-dropdown
+      trigger="click"
+      :disabled
+      :width
+      :on-open="dropdownOpen"
+      :on-close="dropdownClose"
+    >
       <f-input
         v-model="inputValue"
         :readonly="!filter"

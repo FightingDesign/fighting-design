@@ -31,7 +31,7 @@
    */
   provide<TriggerProvide>(TRIGGER_CLOSE_KEY, {
     close,
-    isVisible: () => visible.value
+    isVisible: (): boolean => visible.value
   })
 
   // 向外导出关闭方法
