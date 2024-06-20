@@ -39,10 +39,10 @@ describe('DropdownItem', () => {
     const fn = vi.fn()
     const wrapper = mount(FDropdownItem, {
       props: {
-        onClick() {
+        onClick () {
           fn('onClick')
         }
-      },
+      }
     })
     wrapper.trigger('click')
     expect(fn.mock.calls[0]).toEqual(['onClick'])
@@ -54,7 +54,7 @@ describe('DropdownItem', () => {
       global: {
         provide: {
           [TRIGGER_CLOSE_KEY as symbol]: {
-            close() {
+            close () {
               fn('close')
             }
           }

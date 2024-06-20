@@ -9,8 +9,8 @@ const data = {
 
 test('objectEntries', () => {
   /**
-  * @see toStrictEqual https://cn.vitest.dev/api/expect.html#tostrictequal
-  */
+   * @see toStrictEqual https://cn.vitest.dev/api/expect.html#tostrictequal
+   */
   expect(objectEntries(data)).toStrictEqual([
     ['a', 1],
     ['b', 2],

@@ -21,7 +21,10 @@ test('setStringProp', () => {
 })
 
 test('setStringNumberProp', () => {
-  expect(setStringNumberProp('123')).toStrictEqual({ type: [String, Number], default: '123' })
+  expect(setStringNumberProp('123')).toStrictEqual({
+    type: [String, Number],
+    default: '123'
+  })
   expect(setStringNumberProp()).toStrictEqual({ type: [String, Number], default: void 0 })
   expect(setStringNumberProp(222)).toStrictEqual({ type: [String, Number], default: 222 })
 })

@@ -2,7 +2,7 @@ import { isString, isNumber } from '..'
 
 // #region 保留小数点后 no 位
 /**
- * 
+ *
  * 保留小数点后 no 位
  *
  * @see Number.prototype.toFixed() https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed

@@ -1,7 +1,12 @@
 import { setBooleanProp, setFunctionProp, setStringProp } from '../../_utils'
 import { FIGHTING_SIZE } from '../../_tokens'
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { SelectProvide, SelectModelValue, SelectChange, SelectBeforeChange } from './interface'
+import type {
+  SelectProvide,
+  SelectModelValue,
+  SelectChange,
+  SelectBeforeChange
+} from './interface'
 import type { FightingSize } from '../../_interface'
 
 export const Props = {

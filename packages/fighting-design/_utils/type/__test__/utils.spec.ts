@@ -8,7 +8,7 @@ test('toString', () => {
   expect(toString([])).toBe('[object Array]')
   expect(toString({})).toBe('[object Object]')
   expect(toString((): number => 1)).toBe('[object Function]')
-  expect(toString(new Date)).toBe('[object Date]')
+  expect(toString(new Date())).toBe('[object Date]')
   expect(toString(Symbol(1))).toBe('[object Symbol]')
   expect(toString(null)).toBe('[object Null]')
   expect(toString(undefined)).toBe('[object Undefined]')
