@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vitest/config'
+import { defineConfig, coverageConfigDefaults } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
 /**
@@ -37,6 +37,18 @@ export default defineConfig({
      */
     environment: 'jsdom',
     css: true,
+    coverage: {
+      exclude: [
+        ...coverageConfigDefaults.exclude,
+        'docs/**',
+        'start/**',
+        'scripts/**',
+        'packages/fighting-add-component/**',
+        'packages/fighting-playground/**',
+        'packages/fighting-eslint-config/**',
+        'packages/fighting-icon/**',
+      ]
+    },
     /**
      * 排除目录
      *
