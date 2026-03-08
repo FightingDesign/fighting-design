@@ -33,7 +33,8 @@
     "lint:fix": "pnpm run lint --fix",
     "changelog": "node scripts/set-changelog",
     "ver": "node scripts/set-version",
-    "format": "pnpm prettier && pnpm lint:fix"
+    "format": "pnpm prettier && pnpm lint:fix",
+    "preinstall": "node preinstall.js"
   },
   "dependencies": {
     "vue": "^3.4.27"

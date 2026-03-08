@@ -234,3 +234,6 @@ export * from './tabs-item'
 
 export { FConfirmBox } from './confirm-box'
 export * from './confirm-box'
+
+export { FColorPicker } from './color-picker'
+export * from './color-picker'
